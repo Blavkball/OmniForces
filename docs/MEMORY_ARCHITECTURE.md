@@ -1,183 +1,205 @@
 # OmniForces Memory Architecture
 
-## Purpose
+Status:
 
-The OmniForces memory system provides structured memory for AI-assisted software development.
+Working Architecture Document
 
-The goal is to allow AI agents to maintain useful context while keeping memory controlled, efficient, and maintainable.
+Source of Truth:
 
----
+AI_Workstation contains company-wide standards.
 
-# Memory Design
-
-OmniForces uses multiple memory layers.
-
-
-Working Memory
-|
-v
-Session Memory
-|
-v
-Long-Term Memory
-|
-v
-Housekeeper
-
+This document defines the OmniForces memory subsystem.
 
 ---
 
-# Working Memory
+# Purpose
 
-## Purpose
+The memory system allows AI employees to maintain useful information across:
 
-Temporary memory for the current request.
+- Tasks.
+- Sessions.
+- Projects.
+- Long-term development.
 
-## Stores
+Memory exists to prevent knowledge loss and reduce repeated work.
 
-- Current task.
+---
+
+# Memory Design Principle
+
+Memory should be:
+
+- Useful.
+- Controlled.
+- Searchable.
+- Maintainable.
+
+The system should not store everything forever.
+
+The Housekeeper maintains memory quality.
+
+---
+
+# Memory Layers
+
+## WorkingMemory
+
+Purpose:
+
+Short-term request memory.
+
+Scope:
+
+Current task only.
+
+Stores:
+
+- Current action.
 - Temporary context.
-- Notes.
 - Active files.
+- Immediate notes.
 
-## Lifetime
+Example:
 
-Exists only during the active request.
+```text
+Task:
+Create Agent Manager
 
-Working memory should not become permanent knowledge.
+Files:
+agent_manager.py
 
----
+Status:
+Testing
+SessionMemory
 
-# Session Memory
+Purpose:
 
-## Purpose
+Active development session memory.
 
-Stores the current development session state.
+Scope:
 
-## Stores
+Current working session.
 
-- Project.
-- Milestone.
-- Current task.
-- TODO items.
-- Decisions.
-- Edited files.
+Stores:
 
-## Lifetime
+Project.
+Milestone.
+Current task.
+Decisions.
+Progress.
+Edited files.
 
-Survives during an active development session.
+Example:
 
-Can be saved and restored.
+Project:
+OmniForces
 
----
+Milestone:
+Milestone 3
 
-# Long-Term Memory
+Task:
+Agent Foundation
+LongTermMemory
 
-## Purpose
+Purpose:
 
-Stores important persistent knowledge.
+Permanent project knowledge.
 
-## Stores
+Scope:
 
-- Architecture decisions.
-- Project knowledge.
-- Engineering rules.
-- Historical information.
-- Reusable solutions.
+Long-term information.
 
-Long-term memory should contain valuable knowledge, not every conversation.
+Stores:
 
----
+Architecture decisions.
+Important lessons.
+Project knowledge.
+System history.
 
-# Memory Storage
+Example:
 
-Current implementation:
+Architecture:
 
-- JSON storage.
-- Human readable.
-- Easy backup.
-- Easy debugging.
+MemoryManager controls memory access.
+MemoryManager
 
-Future options:
+Purpose:
 
-- SQLite.
-- Search indexes.
-- Vector memory.
+Single access point for all memory operations.
 
----
-
-# MemoryManager
-
-MemoryManager is the single access point for all memory operations.
-
-Other systems should not directly control memory components.
+Agents should not directly manage memory storage.
 
 Responsibilities:
 
-- Coordinate memory layers.
-- Save memory.
-- Load memory.
-- Provide unified access.
+Create memory.
+Read memory.
+Update memory.
+Save memory.
+Retrieve information.
 
-Future AI agents will communicate through MemoryManager.
+Architecture:
 
----
+AI Agent
 
-# Housekeeper
+↓
 
-The Housekeeper maintains memory health.
+MemoryManager
 
-Future responsibilities:
+↓
 
-- Archive old sessions.
-- Remove duplicates.
-- Summarise conversations.
-- Remove outdated information.
-- Maintain clean memory storage.
+Memory Systems
 
----
+↓
 
-# Future AI Agent Support
+Storage
+Housekeeper
 
-The memory system is designed to support future AI employees.
+Purpose:
 
-Examples:
+Maintain clean memory.
 
-- Supervisor.
-- Development AI.
-- Testing AI.
-- Documentation AI.
-- Research AI.
+Responsibilities:
 
-Each agent can maintain domain knowledge while sharing approved project knowledge.
+Archive old memories.
+Summarise information.
+Remove unnecessary data.
+Apply retention policies.
 
----
+The goal:
 
-# Current Status
+Keep useful knowledge while avoiding memory overload.
 
-Milestone:
+Future Memory Improvements
 
-OmniForces Milestone 3
+Planned:
 
-Completed:
+Automatic summaries.
+Memory search.
+Project awareness.
+Agent-specific memory.
+Shared knowledge between approved agents.
+Automatic resume generation.
+Memory Rules
 
-- WorkingMemory.
-- SessionMemory.
-- LongTermMemory.
-- MemoryStorage.
-- MemoryManager.
-- Housekeeper foundation.
-- Persistence testing.
-- Integration testing.
+Always:
 
----
+Store important decisions.
+Protect useful knowledge.
+Keep information organised.
+Remove outdated information.
 
-# Design Principles
+Never:
 
-The memory system follows KingC Software principles:
+Store unnecessary temporary data forever.
+Allow uncontrolled memory growth.
+Relationship With Documentation
 
-- Keep solutions simple.
-- Protect working software.
-- Separate responsibilities.
-- Test before expanding.
-- Document important decisions.
+Memory stores:
+
+"Things the AI needs to remember."
+
+Documentation stores:
+
+"Things humans and AI need to understand."
+
+Both work together but have different purposes.
