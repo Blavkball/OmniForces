@@ -1,94 +1,90 @@
 # OmniForces Engineering Workflow
 
-Status:
+**Document:** ENGINEERING_WORKFLOW.md
 
-Working Process Document
+**Version:** 2.0
 
-Source of Truth:
+**Status:** Approved
 
-AI_Workstation contains company-wide engineering standards.
+**Owner:** KingC Software
 
-This document defines the OmniForces development workflow.
+**Last Updated:** 23 July 2026
+
+**Source of Truth:** OmniForces
+
+**Engineering Standard:** KCES_v1.0
+
+**Related Documents:**
+
+- AI_Workstation/KCES_v1.0.md
+- AI_Workstation/AI_ONBOARDING.md
+- SESSION_RESUME.md
+- SYSTEM_ARCHITECTURE.md
+- MEMORY_ARCHITECTURE.md
 
 ---
 
 # Purpose
 
-Create a repeatable development process that protects:
+This document defines the OmniForces development workflow.
 
-- Software quality.
-- Documentation.
-- Knowledge.
-- Progress.
-- Recovery ability.
+It describes **how work is performed within this project**.
+
+Company engineering standards are defined by KCES and are not duplicated here.
 
 ---
 
-# Core Principle
+# Project Objective
 
-## The project must survive losing the chat.
+Develop OmniForces as a professional AI Engineering Platform through controlled, incremental and well-documented development.
 
-The project should never depend on one conversation.
+Every implementation should improve:
 
-A new AI session should be able to:
-
-1. Read documentation.
-2. Understand the current position.
-3. Continue development.
-
----
-
-# Session Start Procedure
-
-Before development:
-
-Read:
-
-AI_Workstation:
-
-- CURRENT_STATUS.md
-- AI_ONBOARDING.md
-- DEVELOPMENT_RULES.md
-- SESSION_RESUME.md
-
-Then read OmniForces:
-
-- SESSION_NOTES.md
-- SYSTEM_ARCHITECTURE.md
-- MEMORY_ARCHITECTURE.md
-- ENGINEERING_WORKFLOW.md
-
-Confirm:
-
-- Current project.
-- Current milestone.
-- Last completed task.
-- Next task.
+- Software
+- Architecture
+- Documentation
+- Knowledge
+- Maintainability
 
 ---
 
-# Development Process
+# Development Strategy
 
-Every task follows:
+OmniForces is developed using incremental milestones.
 
+Each milestone should produce:
 
-Understand
+- Working software
+- Updated documentation
+- Clean Git history
+- Clear continuation point
+
+Avoid large uncontrolled implementation phases.
+
+---
+
+# Project Workflow
+
+Each feature follows the same lifecycle.
+
+```
+Review
 
 ↓
 
-Plan
+Design
 
 ↓
 
-Build
+Implementation
 
 ↓
 
-Test
+Testing
 
 ↓
 
-Document
+Documentation
 
 ↓
 
@@ -97,200 +93,181 @@ Commit
 ↓
 
 Resume Update
+```
 
+Project-specific implementation should remain small, testable and recoverable.
 
 ---
 
 # Atomic Development
 
-Work should be broken into small safe steps.
+Every feature should be divided into Atomic Tasks.
 
-Example:
+Each task should:
 
-Large task:
+- Solve one problem.
+- Modify the minimum number of files.
+- Be independently testable.
+- Be easy to review.
+- Be easy to recover.
 
-Build Agent System
-
-Becomes:
-
-- Create folder.
-- Create file.
-- Add code.
-- Test.
-- Verify.
-- Document.
-
-Each step should have:
-
-- Clear purpose.
-- Clear result.
-- Easy recovery.
+Large objectives are completed through multiple Atomic Tasks.
 
 ---
 
-# File Creation Rules
+# File Update Policy
 
-Always create files using the editor.
+Within OmniForces:
 
-Correct:
-
-VS Code:
-
-Folder
-
-↓
-
-New File
-
-↓
-
-Filename
-
-Example:
-
-models.py
-
-
-Avoid:
-
-app/models.py
-
-Reason:
-
-Prevents accidental nested folders.
+- Complete one file before moving to the next.
+- Replace complete files unless a smaller change is specifically requested.
+- Test completed files before continuing.
+- Avoid partially completed implementations.
 
 ---
 
-# Coding Rules
+# Architecture First
 
-Always:
+Before implementing new functionality:
 
-- Replace complete files.
-- Test after changes.
-- Protect working versions.
-- Keep solutions simple.
-- Explain important decisions.
+- Review existing architecture.
+- Reuse existing components where appropriate.
+- Extend architecture instead of replacing it.
+- Avoid duplicate systems.
 
-Avoid:
-
-- Large uncontrolled changes.
-- Unnecessary complexity.
-- Breaking working features.
-
----
-
-# Git Workflow
-
-Before major changes:
-
-Create checkpoint.
-
-During development:
-
-- Commit working code.
-- Use clear messages.
-- Keep commits logical.
-
-Before ending:
-
-Run:
-
-git status
-
-Repository should be clean.
+Architecture changes should be documented.
 
 ---
 
 # Documentation Workflow
 
-Working documents:
+Project documentation is maintained alongside implementation.
 
-OmniForces/docs
+When architecture changes:
 
-Master documents:
+- Update architecture documents.
+- Update SESSION_RESUME.md if project status changes.
+- Record significant decisions.
+- Ensure documentation matches implementation.
 
-AI_Workstation
-
-Process:
-
-Build
-
-↓
-
-Update working documentation
-
-↓
-
-Review milestone
-
-↓
-
-Promote approved information
-
-↓
-
-Update AI_Workstation
+Documentation should always reflect the current state of the project.
 
 ---
 
-# Session Close Procedure
+# Testing Workflow
 
-When user says:
+Every completed Atomic Task should be verified.
 
-"Stop for today"
+Testing may include:
 
-Complete:
+- Application startup
+- API validation
+- Functional testing
+- Integration testing
+- Manual verification
 
-## Session Close Checklist
-
-□ Code tested
-
-□ Git status checked
-
-□ Working docs updated
-
-□ Master docs updated if milestone complete
-
-□ Completed tasks removed
-
-□ Next atomic task recorded
-
-□ Resume point updated
-
-□ Source of truth verified
-
-□ New ideas captured
-
-□ Ready for any AI to resume
+Do not continue until the current task is working.
 
 ---
 
-# Resume Principle
+# Git Workflow
 
-Every session should leave:
+Development should produce logical Git history.
 
-- Working code.
-- Clean repository.
-- Updated knowledge.
-- Clear next action.
+Recommended workflow:
+
+- Complete Atomic Task.
+- Verify implementation.
+- Update documentation.
+- Commit.
+- Confirm clean repository.
+
+Each commit should represent one completed piece of work.
+
+---
+
+# Session Workflow
+
+Every development session should:
+
+- Continue from SESSION_RESUME.md.
+- Complete one or more Atomic Tasks.
+- Update documentation.
+- Leave a clear continuation point.
+- Finish with a clean repository.
+
+---
+
+# Architecture Documents
+
+Primary architecture documentation includes:
+
+```
+SYSTEM_ARCHITECTURE.md
+
+MEMORY_ARCHITECTURE.md
+
+SUPERVISOR.md
+
+AGENT_MANAGER.md
+
+ATOMIC_TASK_ENGINE.md
+
+AI_EMPLOYEE_RULES.md
+```
+
+Review only the documents relevant to the current implementation.
+
+---
+
+# Engineering Principles
+
+Within OmniForces:
+
+- Keep solutions simple.
+- Prefer maintainability.
+- Protect working software.
+- Build incrementally.
+- Reduce technical debt.
+- Keep documentation current.
+
+---
+
+# Milestone Completion
+
+A milestone is complete when:
+
+- Objectives achieved.
+- Software tested.
+- Documentation updated.
+- Git committed.
+- Repository clean.
+- SESSION_RESUME.md updated.
 
 ---
 
 # Future Automation
 
-OmniForces should eventually create:
+OmniForces will eventually automate portions of this workflow through:
 
-resume.json
+- Repository analysis
+- Engineering Session Briefing
+- Resume generation
+- Task planning
+- Documentation validation
+- Knowledge management
 
-Containing:
+The long-term objective is to reduce manual project administration while maintaining engineering quality.
 
-- Project.
-- Milestone.
-- Last completed task.
-- Next task.
-- Documents required.
-- Git state.
+---
 
-Goal:
+# Change History
 
-Any AI can resume quickly.
+## Version 2.0
+
+- Refactored to reference KCES.
+- Removed duplicated company engineering standards.
+- Focused on OmniForces-specific development workflow.
+- Added Atomic Development guidance.
+- Simplified project workflow.
+- Improved documentation responsibilities.
