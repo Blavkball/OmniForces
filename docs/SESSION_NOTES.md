@@ -1,9 +1,19 @@
 # OmniForces Session Notes
 
-Status:
-Working Document
+Version:
+2.0
 
-Source of Truth:
+Status:
+Active Development Resume Point
+
+Last Updated:
+2026-07-23
+
+---
+
+# Source of Truth
+
+Company Documentation:
 
 AI_Workstation is the master documentation system.
 
@@ -16,7 +26,7 @@ Master Documents:
 
 If information conflicts:
 
-AI_Workstation is the source of truth.
+AI_Workstation rules take priority.
 
 ---
 
@@ -24,31 +34,62 @@ AI_Workstation is the source of truth.
 
 This document records the current OmniForces development position.
 
-It contains:
+It provides:
 
 - Current milestone.
 - Completed work.
-- Current decisions.
-- Next tasks.
-- Session recovery information.
+- Current architecture position.
+- Active task.
+- Next development step.
+- Recovery instructions.
 
-Important information is promoted to AI_Workstation during milestone completion.
+The project must survive losing the chat.
+
+A future AI must be able to:
+
+1. Read documentation.
+2. Understand the system.
+3. Identify current position.
+4. Continue safely.
+
+---
+
+# Project
+
+## OmniForces
+
+Purpose:
+
+Build a controlled AI workforce platform where AI Employees can perform useful work through structured tasks while maintaining:
+
+- Human authority.
+- Safety.
+- Accountability.
+- Recovery.
+- Documentation.
+- Long-term continuity.
 
 ---
 
 # Current Milestone
 
-Milestone 3 — Agent Foundation
+## Milestone 4 — AI Workforce Foundation
 
 Status:
 
-Foundation complete.
+Architecture foundation complete.
+
+Current Phase:
+
+Atomic Task Engine development.
 
 ---
 
-# Completed
+# Completed Milestones
 
-## Memory System
+## Memory Foundation
+
+Completed:
 
 - WorkingMemory
 - SessionMemory
@@ -57,75 +98,293 @@ Foundation complete.
 - Housekeeper
 - Persistence testing
 
-## Agent System
+Purpose:
 
-- Agent ID
+Provide controlled memory capability for AI Employees.
+
+---
+
+## Agent Foundation
+
+Completed:
+
+- Agent Identity
+- Agent Context
 - Agent Memory
-- Skill Loader
+- Skill Loader Foundation
 - Supervisor Control
 - Agent Manager
 
-## Development Standards
+---
 
-- Git checkpoint process
-- Documentation workflow
-- Source of truth structure
-- Session recovery approach
+# Completed Architecture Decisions
+
+## Supervisor
+
+Document:
+
+```
+SUPERVISOR.md
+```
+
+Defined:
+
+- Authority model.
+- Approval process.
+- Brain relationship.
+- Replanning.
+- Human escalation.
+- Safety boundaries.
 
 ---
 
-# Current Architecture Decisions
+## Agent Manager
 
-## Documentation Structure
+Document:
 
-AI_Workstation:
+```
+AGENT_MANAGER.md
+```
 
-Company master documentation.
+Defined:
 
-OmniForces:
-
-Development workspace documentation.
+- Agent lifecycle.
+- Task management.
+- Permissions.
+- Monitoring.
+- Recovery.
+- Security.
+- Audit logging.
 
 ---
 
-## Development Principle
+## AI Employee Rules
 
-The project must survive losing the chat.
+Document:
 
-Any AI should be able to:
+```
+AI_EMPLOYEE_RULES.md
+```
 
-1. Read the documentation.
-2. Understand the current position.
-3. Continue development.
+Defined:
+
+- AI Employee behaviour.
+- Permissions.
+- Boundaries.
+- Communication rules.
+- Failure handling.
+- Security requirements.
+
+---
+
+## System Architecture
+
+Document:
+
+```
+SYSTEM_ARCHITECTURE.md
+```
+
+Defined:
+
+- Complete system structure.
+- Layer relationships.
+- Control flow.
+- Memory relationship.
+- Documentation recovery.
+
+---
+
+# Atomic Task Engine
+
+Document:
+
+```
+ATOMIC_TASK_ENGINE.md
+```
+
+Status:
+
+Foundation specification complete.
+
+---
+
+# Completed Atomic Task Work
+
+## Task 4.6.1 — Define Atomic Task Model
+
+Status:
+
+Complete ✅
+
+Defined:
+
+- Atomic Task purpose.
+- Task structure.
+- Required fields.
+- JSON format.
+- Ownership.
+- Permissions.
+- Success criteria.
+- Failure conditions.
+- Recovery route.
+- Approval requirements.
+
+---
+
+# Atomic Task Principle
+
+Every piece of work entering the AI workforce must become:
+
+A controlled, traceable Atomic Task.
+
+Every Atomic Task must have:
+
+- One purpose.
+- Clear start point.
+- Clear completion point.
+- Success criteria.
+- Failure handling.
+- Recovery path.
+
+---
+
+# No Orphaned Task Policy
+
+No task may remain:
+
+- Forgotten.
+- Unknown.
+- Without owner.
+- Without status.
+- Without recovery route.
+
+Every task must become:
+
+```
+Completed
+
+OR
+
+Retry
+
+OR
+
+Replanned
+
+OR
+
+Escalated
+
+OR
+
+Cancelled With Reason
+```
+
+---
+
+# Current Task
+
+## Task 4.6.2 — Define Atomic Task Status Lifecycle
+
+Status:
+
+Next Task
+
+Purpose:
+
+Define the complete lifecycle of an Atomic Task.
+
+Required decisions:
+
+- Task creation states.
+- Assignment states.
+- Approval states.
+- Execution states.
+- Waiting states.
+- Failure states.
+- Recovery states.
+- Completion states.
+- Cancellation handling.
+
+---
+
+# Current Architecture Flow
+
+```
+Human
+ |
+Supervisor
+ |
+Agent Manager
+ |
+AI Employee
+ |
+Atomic Task
+ |
+Execution
+ |
+Result
+ |
+Memory Update
+ |
+Documentation Update
+```
+
+---
+
+# Development Rules
+
+All work follows:
+
+```
+Understand
+↓
+Plan
+↓
+Create Atomic Task
+↓
+Build
+↓
+Test
+↓
+Document
+↓
+Commit
+↓
+Update Resume
+```
 
 ---
 
 # Working Agreement
 
-- Keep responses short.
+Always:
+
 - Work one atomic step at a time.
-- Provide full copy/paste files.
-- Always state file location.
-- Always state terminal location.
-- Test after changes.
 - Protect working software.
-- Avoid unnecessary complexity.
+- Replace full files for major changes.
+- State file location.
+- State terminal location.
+- Test after changes.
+- Update documentation.
+- Maintain clean Git history.
 
 ---
 
 # Session Close Checklist
 
-Before ending a session:
+Before ending any session:
 
-□ Code tested
+□ Decisions documented
+
+□ Code tested if changed
 
 □ Git status checked
 
-□ Working docs updated
+□ Documentation updated
 
-□ Master docs updated if milestone complete
-
-□ Completed tasks removed
+□ Completed tasks recorded
 
 □ Next atomic task recorded
 
@@ -133,16 +392,63 @@ Before ending a session:
 
 □ Source of truth verified
 
-□ New ideas captured
-
-□ Ready for any AI to resume
+□ Future AI can resume
 
 ---
 
-# Current Next Action
+# Future AI Startup Instructions
 
-Complete documentation consolidation.
+A new AI must read in this order:
 
-After documentation:
+## Company Rules
 
-Continue OmniForces development with Atomic Task Engine planning.
+```
+AI_Workstation:
+
+CURRENT_STATUS.md
+
+AI_ONBOARDING.md
+
+DEVELOPMENT_RULES.md
+
+SESSION_RESUME.md
+```
+
+## OmniForces Project
+
+```
+SESSION_NOTES.md
+
+SYSTEM_ARCHITECTURE.md
+
+SUPERVISOR.md
+
+AGENT_MANAGER.md
+
+AI_EMPLOYEE_RULES.md
+
+ATOMIC_TASK_ENGINE.md
+```
+
+After reading:
+
+Continue from:
+
+```
+Task 4.6.2 — Define Atomic Task Status Lifecycle
+```
+
+---
+
+# Final Principle
+
+> The project must survive losing the chat.
+
+Important knowledge belongs in:
+
+- Documentation.
+- Code.
+- Memory systems.
+- Resume systems.
+
+Never only inside conversation history.
