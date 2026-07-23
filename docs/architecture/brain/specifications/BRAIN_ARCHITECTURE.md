@@ -1,46 +1,86 @@
-# Brain Architecture
+# OmniForces Brain Architecture
 
-Version:
-1.0
+**Document:** BRAIN_ARCHITECTURE.md
 
-Status:
-Architecture Draft
+**Version:** 2.0
 
-Source of Truth:
+**Status:** Architecture Foundation Alignment
 
-AI_Workstation is the master company documentation system.
+**Owner:** KingC Software
 
-This document defines the Brain architecture for OmniForces.
+**Last Updated:** 23 July 2026
+
+**Source of Truth:** OmniForces
+
+**Engineering Standard:** KCES_v1.0
+
+**Related Documents:**
+
+- SYSTEM_ARCHITECTURE.md
+- MEMORY_ARCHITECTURE.md
+- SESSION_RESUME.md
+- SUPERVISOR.md
+- AGENT_MANAGER.md
+- ATOMIC_TASK_ENGINE.md
+- AI_Workstation/KCEF.md
+- AI_Workstation/KCES_v1.0.md
 
 ---
 
 # Purpose
 
-The Brain is the knowledge and information management system for OmniForces.
+The Brain is the knowledge and information operating system of OmniForces.
 
-Its responsibility is to receive information, preserve original evidence, organise knowledge automatically and provide reliable context to the AI workforce.
+Its responsibility is to receive information, preserve original evidence, organise knowledge, maintain relationships, and provide reliable context to the AI workforce.
 
 The Brain does not execute work.
 
-The Brain supplies information to the Supervisor, Agent Manager, AI Employees and future resume systems.
+The Brain provides information and recommendations to:
+
+- Supervisor.
+- Agent Manager.
+- AI Employees.
+- Atomic Task Engine.
+- Resume Engine.
+- Documentation systems.
 
 ---
 
 # Core Principle
 
-> The user should never be responsible for organising information.
+> The user provides information. The Brain organises knowledge.
 
-The user provides information.
+The user should never be responsible for:
 
-The Brain organises it.
+- Organising information.
+- Choosing storage locations.
+- Creating relationships.
+- Maintaining indexes.
+- Managing knowledge structure.
+
+The Brain receives unstructured input and creates structured knowledge while preserving the original source.
 
 ---
 
-# Brain Structure
+# Architectural Law
 
-```
+## Raw is immutable.
+
+## Wiki is derived.
+
+Raw preserves what happened.
+
+Wiki explains what it means.
+
+Never reverse these responsibilities.
+
+---
+
+# Brain Architecture
+
+
 Brain
-│
+
 ├── Raw
 │
 ├── Wiki
@@ -50,9 +90,9 @@ Brain
 ├── Session Memory
 │
 └── Long-Term Memory
-```
 
-Each component has a single responsibility.
+
+Each component has one responsibility.
 
 ---
 
@@ -64,11 +104,11 @@ Raw is the permanent evidence store.
 
 Everything entering OmniForces is stored exactly as received.
 
-Raw is immutable.
+Raw is the original source material.
 
 ---
 
-## Rules
+# Raw Rules
 
 Raw must never:
 
@@ -79,28 +119,45 @@ Raw must never:
 - Be renamed.
 - Be deleted without explicit human approval.
 
-Raw is the permanent source of truth.
+Raw is immutable.
+
+Once stored, information remains exactly as it arrived.
 
 ---
 
-## Accepted Input
+# Raw Examples
 
-Raw accepts any information including:
+Raw may contain:
 
-- Notes
-- Documents
-- Specifications
-- Images
-- PDFs
-- Code
-- Conversations
-- Voice transcripts
-- URLs
-- Ideas
-- Tasks
-- Project information
+- Ideas.
+- Documents.
+- Specifications.
+- Notes.
+- Screenshots.
+- Code snippets.
+- URLs.
+- Voice transcripts.
+- Conversations.
+- Meeting information.
+- Tasks.
+- Research.
+- Project information.
 
-The Brain decides how information should later be organised.
+Example:
+
+
+Raw
+
+0001.md
+0002.pdf
+0003.png
+0004.txt
+0005.url
+
+
+Raw is similar to Git history.
+
+The original record is preserved permanently.
 
 ---
 
@@ -110,27 +167,136 @@ The Brain decides how information should later be organised.
 
 Wiki is the structured knowledge layer.
 
-Wiki is generated from Raw.
+Wiki is generated from Raw information.
 
-Wiki never replaces Raw.
+Wiki does not replace Raw.
 
 ---
 
-## Responsibilities
+# Wiki Responsibilities
 
 Wiki creates:
 
-- Project pages
-- Architecture pages
-- Task summaries
-- Documentation
-- Decisions
-- Relationships
-- Timelines
-- Indexes
-- Cross references
+- Project pages.
+- Architecture documentation.
+- Task summaries.
+- Decisions.
+- Timelines.
+- People information.
+- API documentation.
+- Relationships.
+- Indexes.
+- Knowledge summaries.
 
-Every Wiki page must reference its originating Raw information.
+---
+
+# Wiki Traceability
+
+Every Wiki item must reference its source information.
+
+Example:
+
+
+Wiki
+
+Project Alpha Architecture
+
+Source:
+
+Raw Item 00142
+
+
+No generated knowledge should exist without a known origin.
+
+---
+
+# Information Processing Pipeline
+
+
+User
+
+↓
+
+Dump
+
+↓
+
+Raw
+
+↓
+
+Indexer
+
+↓
+
+Classifier
+
+↓
+
+Entity Extraction
+
+↓
+
+Relationship Builder
+
+↓
+
+Wiki Generator
+
+↓
+
+Knowledge Graph
+
+
+The user interacts mainly with:
+
+
+Dump
+
+and
+
+Wiki
+
+
+The middle processing stages are automated.
+
+---
+
+# Dump Principle
+
+The primary user interaction should be:
+
+
+Dump
+
+
+Examples:
+
+
+Dump this document
+
+Dump this conversation
+
+Dump these screenshots
+
+Dump this Git history
+
+Dump today's work
+
+Dump this idea
+
+
+The Brain determines:
+
+- Project.
+- Task.
+- Decision.
+- Documentation.
+- Research.
+- Bug.
+- Learning.
+- Person.
+- Relationship.
 
 ---
 
@@ -138,14 +304,15 @@ Every Wiki page must reference its originating Raw information.
 
 ## Purpose
 
-Working Memory stores temporary context required for the current operation.
+Working Memory stores temporary context required for active operations.
 
 Examples:
 
-- Current task
-- Current file
-- Current reasoning
-- Active workflow
+- Current task.
+- Current file.
+- Current reasoning.
+- Active workflow.
+- Immediate decisions.
 
 Working Memory is temporary.
 
@@ -155,14 +322,15 @@ Working Memory is temporary.
 
 ## Purpose
 
-Session Memory records the current development session.
+Session Memory records the active development session.
 
 Examples:
 
-- Current milestone
-- Current objective
-- Active discussions
-- Current progress
+- Current objective.
+- Current milestone.
+- Progress.
+- Decisions made during the session.
+- Recovery information.
 
 Session Memory supports interruption recovery.
 
@@ -176,42 +344,109 @@ Long-Term Memory stores reusable knowledge.
 
 Examples:
 
-- Engineering patterns
-- Proven workflows
-- Lessons learned
-- Best practices
-- Reusable knowledge
+- Engineering patterns.
+- Proven workflows.
+- Lessons learned.
+- Preferences.
+- Reusable solutions.
 
-Long-Term Memory does not replace documentation.
+Long-Term Memory does not replace:
+
+- Documentation.
+- Source code.
+- Architecture records.
+- Project history.
 
 ---
 
-# Information Flow
+# Memory Relationship
 
-```
-User
-│
-▼
-Input
-│
-▼
+Memory and documentation have different responsibilities.
+
+
 Raw
-│
-▼
-Classification
-│
-▼
-Relationship Analysis
-│
-▼
-Wiki Generation
-│
-▼
-Memory Update
-│
-▼
-AI Workforce
-```
+
+↓
+
+Evidence
+
+Wiki
+
+↓
+
+Knowledge
+
+Memory
+
+↓
+
+Context
+
+
+Documentation preserves permanent knowledge.
+
+Memory provides useful context.
+
+---
+
+# Brain Control Boundaries
+
+The Brain can:
+
+✅ Analyse information.
+
+✅ Create relationships.
+
+✅ Generate recommendations.
+
+✅ Provide context.
+
+✅ Support decisions.
+
+
+The Brain cannot:
+
+❌ Execute tasks.
+
+❌ Approve actions.
+
+❌ Override Supervisor decisions.
+
+❌ Replace documentation.
+
+❌ Modify Raw information.
+
+---
+
+# Integration With OmniForces
+
+The Brain provides information to:
+
+- Supervisor.
+- Agent Manager.
+- AI Employees.
+- Atomic Task Engine.
+- Resume Engine.
+- Documentation systems.
+
+The Brain supports intelligence.
+
+The execution systems perform actions.
+
+---
+
+# Knowledge Graph Future Direction
+
+Future Brain versions may include:
+
+- Entity relationships.
+- Cross-project connections.
+- Semantic search.
+- Duplicate detection.
+- Knowledge discovery.
+- Automatic recommendations.
+
+These extend the Brain without changing its core principles.
 
 ---
 
@@ -220,69 +455,45 @@ AI Workforce
 The Brain must:
 
 - Preserve original information.
-- Organise information automatically.
-- Minimise user effort.
 - Maintain traceability.
-- Support future AI resume.
+- Reduce user organisation effort.
 - Protect information integrity.
+- Support project recovery.
+- Improve knowledge retrieval.
+- Enable future AI employees.
 
 ---
 
-# User Experience Rule
+# Recovery Principle
 
-The user should never be required to:
+The project must survive losing the chat.
 
-- Choose folders.
-- Decide categories.
-- Create links.
-- Build indexes.
-- Maintain documentation manually.
+A future AI should be able to:
 
-The user simply provides information.
-
-The Brain performs the organisation.
-
----
-
-# Traceability
-
-Every piece of structured knowledge must be traceable back to its original Raw source.
-
-No generated information should exist without a known origin.
-
----
-
-# Integration
-
-The Brain provides information to:
-
-- Supervisor
-- Agent Manager
-- Atomic Task Engine
-- AI Employees
-- Resume Engine
-- Documentation System
-
-The Brain does not control execution.
-
----
-
-# Future Expansion
-
-Future versions may include:
-
-- Automatic entity extraction
-- Knowledge graphs
-- Duplicate detection
-- Semantic search
-- Background processing
-- Multi-project relationships
-- Learning improvements
-
-These features extend the Brain without changing its core responsibilities.
+1. Read company standards.
+2. Read OmniForces architecture.
+3. Understand current knowledge.
+4. Trace decisions back to sources.
+5. Continue from documented state.
 
 ---
 
 # Final Principle
 
-> The Brain exists to preserve knowledge, organise information automatically and provide reliable context. The user supplies information; the Brain performs the organisation while preserving every original source unchanged.
+> The Brain exists to preserve evidence, create knowledge, provide context, and allow AI systems to understand the world around them without losing the original source of truth.
+
+---
+
+# Change History
+
+## Version 2.0
+
+- Redesigned Brain as an Information Operating System.
+- Established Raw as immutable evidence storage.
+- Established Wiki as derived knowledge.
+- Clarified Memory responsibilities.
+- Added Dump-first user interaction model.
+- Added processing pipeline.
+- Added traceability requirements.
+- Aligned with SYSTEM_ARCHITECTURE.md v2.0.
+- Aligned with KCEF and KCES.

@@ -1,22 +1,36 @@
 # OmniForces System Architecture
 
-Version:
-1.0
+**Document:** SYSTEM_ARCHITECTURE.md
 
-Status:
-Architecture Complete
+**Version:** 2.0
 
-Source of Truth:
+**Status:** Architecture Foundation Alignment
 
-AI_Workstation is the master company documentation system.
+**Owner:** KingC Software
 
-OmniForces documentation defines the active system architecture.
+**Last Updated:** 23 July 2026
+
+**Source of Truth:** OmniForces
+
+**Engineering Standard:** KCES_v1.0
+
+**Related Documents:**
+
+- SESSION_RESUME.md
+- BRAIN_ARCHITECTURE.md
+- MEMORY_ARCHITECTURE.md
+- SUPERVISOR.md
+- AGENT_MANAGER.md
+- ATOMIC_TASK_ENGINE.md
+- AI_EMPLOYEE_RULES.md
+- AI_Workstation/KCEF.md
+- AI_Workstation/KCES_v1.0.md
 
 ---
 
 # Purpose
 
-OmniForces is a controlled AI workforce platform designed to allow AI Employees to perform useful work while maintaining:
+OmniForces is a controlled AI engineering platform designed to enable AI employees to perform useful work while maintaining:
 
 - Human authority.
 - Safety.
@@ -25,7 +39,9 @@ OmniForces is a controlled AI workforce platform designed to allow AI Employees 
 - Documentation.
 - Long-term continuity.
 
-The architecture ensures the system can continue operating even when previous AI sessions are unavailable.
+The architecture provides a structured environment where intelligence, execution, memory, and knowledge systems operate together.
+
+The system must remain understandable and recoverable even when previous AI sessions are unavailable.
 
 ---
 
@@ -33,44 +49,68 @@ The architecture ensures the system can continue operating even when previous AI
 
 > Intelligence may be distributed, but control must remain structured.
 
-The system separates:
+OmniForces separates:
 
+- Human authority.
 - Reasoning.
+- Knowledge.
+- Memory.
 - Decision approval.
 - Execution.
-- Memory.
 - Documentation.
+- Audit history.
+
+No AI component has unrestricted authority.
 
 ---
 
 # High-Level Architecture
 
-```
-Human
- |
- v
+
+Human Authority
+
+    |
+
+    v
+
 Supervisor
- |
- v
+
+    |
+
+    v
+
 Agent Manager
- |
- v
+
+    |
+
+    v
+
 AI Employees
- |
- v
+
+    |
+
+    v
+
 Atomic Task Engine
- |
- v
-Execution
- |
- v
-Results
- |
- +----------------+
- |                |
- v                v
-Memory        Documentation
-```
+
+    |
+
+    v
+
+Execution Systems
+
+    |
+
+    +----------------------+
+    |                      |
+    v                      v
+
+Memory Systems Documentation Systems
+|
+v
+
+Brain Knowledge Architecture
+
 
 ---
 
@@ -78,12 +118,17 @@ Memory        Documentation
 
 ## Layer 1 — Human Authority
 
-The Human provides:
+Purpose:
 
-- Goals.
-- Approval.
-- Final decisions.
-- Oversight.
+Maintain final control over objectives, priorities, and approval.
+
+Human responsibilities:
+
+- Define goals.
+- Approve major decisions.
+- Set priorities.
+- Review outcomes.
+- Maintain business direction.
 
 Human authority remains above all AI systems.
 
@@ -98,7 +143,7 @@ Controlled decision and coordination layer.
 Responsibilities:
 
 - Review objectives.
-- Approve execution.
+- Validate plans.
 - Coordinate AI workforce.
 - Manage exceptions.
 - Request human approval.
@@ -108,58 +153,98 @@ The Supervisor does not replace human judgement.
 
 See:
 
-```
+
 SUPERVISOR.md
-```
+
 
 ---
 
-# Layer 3 — Brain
+# Layer 3 — Brain Architecture
 
 Purpose:
 
-Reasoning and analysis capability.
+Provide intelligence and knowledge capabilities.
 
-The Brain provides:
+The Brain is not only a reasoning system.
 
-- Analysis.
-- Recommendations.
-- Possible solutions.
-- Route suggestions.
+The Brain is the knowledge operating system of OmniForces.
 
-The Brain does not have direct execution authority.
+Responsibilities:
 
----
+- Analyse information.
+- Build understanding.
+- Generate recommendations.
+- Manage knowledge relationships.
+- Provide context.
+- Support decision making.
 
-# Brain Control Rule
-
-The Brain can recommend:
-
-```
-Possible Action
-Possible Route
-Possible Solution
-```
-
-The Brain cannot:
-
-- Execute independently.
-- Bypass Supervisor.
-- Override Human approval.
+The Brain does not directly execute work.
 
 Flow:
 
-```
-Problem
- |
-Brain Analysis
- |
+
+Information
+
+↓
+
+Brain Processing
+
+↓
+
+Knowledge
+
+↓
+
 Recommendation
- |
+
+↓
+
 Supervisor Decision
- |
+
+↓
+
 Execution
-```
+
+
+See:
+
+
+BRAIN_ARCHITECTURE.md
+
+
+---
+
+# Brain Architecture Model
+
+The Brain consists of multiple knowledge layers.
+
+
+Brain
+
+├── Raw Knowledge
+│
+├── Processing Layer
+│
+├── Wiki Knowledge
+│
+├── Working Memory
+│
+├── Session Memory
+│
+└── Long-Term Memory
+
+
+Core rules:
+
+
+Raw is immutable.
+
+Wiki is derived.
+
+Memory provides context.
+
+Documentation preserves knowledge.
+
 
 ---
 
@@ -167,17 +252,17 @@ Execution
 
 Purpose:
 
-Operational control layer for AI Employees.
+Operational control system for AI Employees.
 
 Responsibilities:
 
-- Agent registration.
-- Agent lifecycle.
-- Task assignment.
-- Permission checks.
-- Monitoring.
-- Recovery.
-- Audit.
+- Register agents.
+- Manage agent lifecycle.
+- Assign tasks.
+- Enforce permissions.
+- Monitor activity.
+- Track recovery.
+- Maintain audit records.
 
 The Agent Manager executes approved decisions.
 
@@ -185,9 +270,9 @@ It does not create business objectives.
 
 See:
 
-```
+
 AGENT_MANAGER.md
-```
+
 
 ---
 
@@ -200,21 +285,24 @@ Perform approved work.
 AI Employees provide:
 
 - Skills.
-- Execution.
 - Analysis.
-- Results.
+- Implementation.
+- Research.
+- Testing.
+- Documentation.
 
 They operate under:
 
-- Agent Manager control.
 - Supervisor authority.
+- Agent Manager control.
 - Atomic Task rules.
+- KCES standards.
 
 See:
 
-```
+
 AI_EMPLOYEE_RULES.md
-```
+
 
 ---
 
@@ -222,26 +310,96 @@ AI_EMPLOYEE_RULES.md
 
 Purpose:
 
-Standard work management system.
+Convert objectives into controlled units of work.
 
-Every piece of AI work becomes an Atomic Task.
+Every AI activity should become an Atomic Task.
 
-An Atomic Task provides:
+Each Atomic Task contains:
 
 - Identity.
-- Ownership.
 - Purpose.
+- Owner.
 - Status.
 - Permissions.
 - Success criteria.
-- Recovery path.
+- Testing requirements.
+- Recovery information.
 - Audit history.
+
+A task must always have a known state.
 
 See:
 
-```
+
 ATOMIC_TASK_ENGINE.md
-```
+
+
+---
+
+# Supporting Architecture Systems
+
+## Resume Engine
+
+Purpose:
+
+Maintain project continuity.
+
+Future functionality:
+
+- Generate resume information.
+- Record milestones.
+- Track current objectives.
+- Identify next tasks.
+- Provide AI restart capability.
+
+Goal:
+
+Any authorised AI should resume work from documented project state.
+
+---
+
+## Skills System
+
+Purpose:
+
+Provide controlled capabilities to AI Employees.
+
+Skills define:
+
+- Available actions.
+- Required permissions.
+- Usage rules.
+- Validation requirements.
+
+---
+
+## Job System
+
+Purpose:
+
+Manage scheduled or automated work.
+
+Responsibilities:
+
+- Queue tasks.
+- Execute approved jobs.
+- Monitor progress.
+- Record results.
+
+---
+
+## Knowledge Graph
+
+Purpose:
+
+Connect related knowledge across OmniForces.
+
+The Knowledge Graph supports:
+
+- Relationships.
+- Discovery.
+- Context.
+- Decision support.
 
 ---
 
@@ -249,63 +407,81 @@ ATOMIC_TASK_ENGINE.md
 
 Normal operation:
 
-```
+
 Human Request
-      |
-      v
+
+↓
+
 Supervisor Review
-      |
-      v
+
+↓
+
 Create Atomic Task
-      |
-      v
+
+↓
+
 Agent Manager Assignment
-      |
-      v
+
+↓
+
 AI Employee Execution
-      |
-      v
+
+↓
+
 Result Validation
-      |
-      v
+
+↓
+
 Memory Update
-      |
-      v
+
+↓
+
 Documentation Update
-```
+
+↓
+
+Commit / Resume Update
+
 
 ---
 
-# Failure Flow
+# Failure and Recovery Flow
 
-When something fails:
+When failure occurs:
 
-```
+
 Failure
- |
- v
-AI Employee Report
- |
- v
-Agent Manager Detection
- |
- v
-Supervisor Review
- |
- +----------------+
- |                |
- v                v
-Recovery       Escalation
- |
- v
-Resume Task
-```
 
-A failure must never become an abandoned task.
+↓
+
+AI Employee Report
+
+↓
+
+Agent Manager Detection
+
+↓
+
+Supervisor Review
+
+↓
+
+Recovery
+
+or
+
+Escalation
+
+↓
+
+Resume Task
+
+
+A failure must never become abandoned work.
 
 ---
 
-# No Orphaned Work Architecture
+# No Orphaned Work Principle
 
 Every task must always have:
 
@@ -317,7 +493,7 @@ Every task must always have:
 
 A task may only finish as:
 
-```
+
 Completed
 
 Failed With Explanation
@@ -327,7 +503,7 @@ Cancelled With Reason
 Escalated
 
 Waiting For Decision
-```
+
 
 ---
 
@@ -340,81 +516,47 @@ Memory supports:
 - Learning.
 - Recovery.
 
-Memory types:
-
-```
-Working Memory
-      |
-Session Memory
-      |
-Long Term Memory
-```
-
 Memory does not replace documentation.
 
-Important knowledge must be promoted into permanent documents.
+Important knowledge must become permanent through:
+
+- Documentation.
+- Decisions.
+- Architecture records.
+- Project history.
+
+See:
+
+
+MEMORY_ARCHITECTURE.md
+
 
 ---
 
 # Documentation Architecture
 
-Documentation provides:
-
-- System knowledge.
-- Decision history.
-- Resume capability.
+Documentation is the permanent knowledge layer.
 
 Structure:
 
-```
-AI_Workstation
- |
- +-- Company Rules
- +-- Policies
- +-- Standards
 
+AI_Workstation
+
+├── Company Standards
+├── Engineering Rules
+├── Policies
+└── Frameworks
 
 OmniForces
- |
- +-- Technical Design
- +-- Architecture
- +-- Current Development State
-```
 
----
-
-# Recovery Architecture
-
-The project must survive losing the chat.
-
-A future AI must be able to:
-
-1. Read company rules.
-2. Understand architecture.
-3. Find current milestone.
-4. Identify completed work.
-5. Continue from the next Atomic Task.
-
-Required reading:
-
-```
-AI_Workstation:
-
-CURRENT_STATUS.md
-AI_ONBOARDING.md
-DEVELOPMENT_RULES.md
-SESSION_RESUME.md
+├── Architecture
+├── Design Decisions
+├── Current Development State
+├── Resume Information
+└── Technical Documentation
 
 
-OmniForces:
-
-SESSION_NOTES.md
-SYSTEM_ARCHITECTURE.md
-SUPERVISOR.md
-AGENT_MANAGER.md
-ATOMIC_TASK_ENGINE.md
-AI_EMPLOYEE_RULES.md
-```
+Documentation and source code must remain synchronised.
 
 ---
 
@@ -422,21 +564,31 @@ AI_EMPLOYEE_RULES.md
 
 All actions follow:
 
-```
-Request
- |
-Authentication
- |
-Permission Check
- |
-Supervisor / Agent Manager Control
- |
-Execution
- |
-Audit Record
-```
 
-No uncontrolled commands enter the AI workforce.
+Request
+
+↓
+
+Authentication
+
+↓
+
+Permission Check
+
+↓
+
+Supervisor / Agent Manager Control
+
+↓
+
+Execution
+
+↓
+
+Audit Record
+
+
+No uncontrolled actions enter the AI workforce.
 
 ---
 
@@ -451,12 +603,51 @@ Important events are recorded:
 - Recoveries.
 - Results.
 
-Every major action must answer:
+Every major action should answer:
 
-- What happened?
-- Why?
-- Who approved?
-- What was the outcome?
+
+What happened?
+
+Why?
+
+Who approved?
+
+What was the outcome?
+
+
+---
+
+# Recovery Architecture
+
+The project must survive losing the chat.
+
+A new AI session must be able to:
+
+1. Read company standards.
+2. Understand architecture.
+3. Find current milestone.
+4. Identify completed work.
+5. Continue from the next Atomic Task.
+
+Required documents:
+
+
+AI_Workstation:
+
+CURRENT_STATUS.md
+AI_ONBOARDING.md
+KCES_v1.0.md
+
+OmniForces:
+
+SESSION_RESUME.md
+SYSTEM_ARCHITECTURE.md
+BRAIN_ARCHITECTURE.md
+MEMORY_ARCHITECTURE.md
+SUPERVISOR.md
+AGENT_MANAGER.md
+ATOMIC_TASK_ENGINE.md
+
 
 ---
 
@@ -464,26 +655,55 @@ Every major action must answer:
 
 OmniForces follows:
 
-```
+
 Understand
- |
+
+↓
+
 Plan
- |
+
+↓
+
 Create Atomic Task
- |
+
+↓
+
 Execute
- |
+
+↓
+
 Test
- |
+
+↓
+
 Document
- |
+
+↓
+
 Commit
- |
-Update Resume
-```
+
+↓
+
+Resume
+
 
 ---
 
 # Final Principle
 
-> OmniForces is a controlled AI workforce architecture where intelligence, execution, memory, and documentation work together while preserving human authority, safety, and long-term continuity.
+> OmniForces is a controlled AI engineering architecture where human authority, intelligence, knowledge, memory, execution, and documentation work together to build reliable software that can continue beyond any single AI session.
+
+---
+
+# Change History
+
+## Version 2.0
+
+- Expanded Brain from reasoning layer into knowledge architecture.
+- Added Brain knowledge layers.
+- Added Resume Engine direction.
+- Added Skills System direction.
+- Added Job System direction.
+- Added Knowledge Graph direction.
+- Aligned architecture with KCEF and KCES.
+- Improved recovery and continuity model.
