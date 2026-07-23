@@ -1,245 +1,298 @@
 # OmniForces Session Resume
 
-Version:
-1.0
+**Document:** SESSION_RESUME.md
 
-Last Updated:
-23 July 2026
+**Version:** 4.0
 
-Status:
-Active Development
+**Status:** Active
 
-Source of Truth:
+**Owner:** KingC Software
 
-AI_Workstation is the master company documentation system.
+**Last Updated:** 23 July 2026
 
-OmniForces documentation defines project implementation status.
+**Source of Truth:** OmniForces
+
+**Engineering Standard:** KCES_v1.0
+
+**Related Documents:**
+
+- AI_Workstation/KCES_v1.0.md
+- AI_Workstation/AI_ONBOARDING.md
+- ENGINEERING_WORKFLOW.md
+- SYSTEM_ARCHITECTURE.md
+- MEMORY_ARCHITECTURE.md
 
 ---
 
 # Purpose
 
-This document allows future AI sessions to continue OmniForces development without relying on previous chat history.
+This document is the live engineering dashboard for OmniForces.
 
-A new AI engineer must read this document first, then review linked project documentation.
+It records the current project position so that any AI engineer can immediately understand where development should continue.
+
+Unlike KCES, this document changes regularly throughout the project lifecycle.
 
 ---
 
 # Project
 
-Name:
+**Name**
 
 OmniForces
 
-Purpose:
+**Purpose**
 
-Local AI-assisted software engineering platform.
-
-Goal:
-
-Create a controlled AI workforce system with:
-
-- AI Employees.
-- Supervisor control.
-- Agent Manager.
-- Atomic Tasks.
-- Memory systems.
-- Knowledge management.
-- Future AI resume capability.
+Local AI Engineering Platform
 
 ---
 
 # Current Development Position
 
-Milestone:
+## Current Milestone
 
 Architecture Foundation Expansion
 
-Status:
+## Current Status
 
-In Progress
+Active Development
 
----
+## Current Phase
 
-# Completed Work
-
-## Core Foundation
-
-Completed:
-
-- Project foundation.
-- FastAPI foundation.
-- Configuration system.
-- Logging system.
-- Ollama integration.
-- AI routing foundation.
-- Response models.
-- Testing foundation.
+Brain Architecture Planning
 
 ---
 
-# Completed Architecture Documents
+# Engineering Session Briefing
 
-Location:
+Every development session begins by reviewing this document.
 
-```
-docs/architecture/
-```
+Before implementation the AI should:
 
-Completed:
+- Read this document.
+- Review relevant architecture documentation.
+- Perform the Repository Health Check defined by KCES.
+- Produce a brief summary of the current project.
+- Confirm the next recommended task.
 
-```
-AGENT_MANAGER.md
-
-AI_EMPLOYEE_RULES.md
-
-ATOMIC_TASK_ENGINE.md
-
-ENGINEERING_WORKFLOW.md
-
-MEMORY_ARCHITECTURE.md
-
-SUPERVISOR.md
-
-SYSTEM_ARCHITECTURE.md
-```
+Implementation should not begin until the current project state is understood.
 
 ---
 
-# Brain Architecture Work Completed
+# Repository Health Report
 
-Location:
+At the beginning of every session report:
 
-```
-docs/architecture/brain/specifications/
-```
+## Repository
 
-Created:
+Repository Name
 
-```
-BRAIN_ARCHITECTURE.md
+Current Branch
 
-RAW_ARCHITECTURE.md
+Current Commit
 
-WIKI_ARCHITECTURE.md
+Commit Message
 
-BRAIN_PROCESSING_PIPELINE.md
-```
+Latest Git Tag
+
+Latest Milestone Commit
 
 ---
 
-# Brain Design Decision
+## Repository Status
 
-The Brain architecture has been expanded into controlled knowledge layers.
+Report:
 
-Main principle:
+- Git Status
+- Working Tree Status
+- Modified Files
+- Untracked Files
+- Ahead / Behind Remote
+- Merge Conflicts
 
-The user provides information.
+Expected result:
 
-The Brain organises information.
-
-Raw information remains protected.
-
-Wiki provides structured knowledge.
-
----
-
-# Current Git Position
-
-Repository:
-
-OmniForces
-
-Branch:
-
-main
-
-Latest planned commit:
-
-```
-Create Brain architecture foundation
-```
-
-Required final check:
-
-```
-git status
-```
-
-Expected:
-
-```
+```text
 nothing to commit, working tree clean
 ```
 
 ---
 
-# Development Rules
+# Project Dashboard
 
-Always follow:
-
-1. Read documentation.
-2. Understand the requirement.
-3. Plan the change.
-4. Create or update complete files.
-5. Test.
-6. Document.
-7. Commit.
-8. Confirm clean Git status.
-
----
-
-# File Editing Rules
-
-Important:
-
-- Replace complete files.
-- Do not provide partial patches.
-- Do not add small sections that may be missed.
-- Change one file at a time.
-- Test after changes.
+| Area | Status |
+|-------|--------|
+| Foundation | ✅ Complete |
+| FastAPI | ✅ Complete |
+| Ollama Integration | ✅ Complete |
+| AI Routing | ✅ Complete |
+| Core Architecture | ✅ Complete |
+| Brain Architecture | 🔄 In Progress |
+| Memory | 🔄 Planning |
+| Agent Manager | 🔄 Planning |
+| Supervisor | 🔄 Planning |
+| Atomic Task Engine | 🔄 Planning |
+| AI Employees | 🔄 Planning |
+| Dashboard | ⏳ Future |
+| Voice | ⏳ Future |
 
 ---
 
-# Current Architecture Direction
+# Last Completed Milestone
 
-Future OmniForces development will continue building:
+Record the most recently completed milestone.
 
-- Brain system.
-- Memory foundation.
-- Agent communication.
-- Atomic Task execution.
-- AI Employee workflows.
-- Supervisor control.
+Include:
 
----
-
-# Next Recommended Work
-
-Continue Brain implementation planning.
-
-Next areas:
-
-1. Define Brain folder structure.
-2. Define Memory integration.
-3. Define Agent Manager connection.
-4. Define Atomic Task connection.
-5. Begin implementation only after architecture review.
+- Milestone Name
+- Git Commit
+- Date
+- Summary
 
 ---
 
-# AI Continuation Rule
+# Current Priorities
 
-Future AI must:
+Priority 1
 
-- Read this file first.
-- Read relevant architecture documents.
-- Understand current status.
-- Continue from the existing design.
-- Avoid rebuilding completed work.
+Brain Folder Structure
+
+Priority 2
+
+Memory Integration
+
+Priority 3
+
+Agent Manager Integration
 
 ---
 
-# Final Principle
+# Current Risks
 
-> OmniForces development continues through documented knowledge, not conversation memory. The project files are the source of truth.
+Record any known risks.
+
+Examples:
+
+- Documentation requiring review.
+- Architectural decisions pending.
+- Dependency issues.
+- Merge conflicts.
+
+If none exist:
+
+```
+No known project risks.
+```
+
+---
+
+# Recommended Next Task
+
+Record the next Atomic Task.
+
+Example:
+
+```
+Design Brain folder hierarchy.
+```
+
+Include:
+
+- Objective
+- Expected Result
+- Estimated Complexity
+
+---
+
+# Current Architecture
+
+Primary project architecture:
+
+```
+SYSTEM_ARCHITECTURE.md
+
+BRAIN_ARCHITECTURE.md
+
+MEMORY_ARCHITECTURE.md
+
+SUPERVISOR.md
+
+AGENT_MANAGER.md
+
+ATOMIC_TASK_ENGINE.md
+```
+
+Review only documents relevant to the current task.
+
+---
+
+# Session Plan
+
+Before implementation the AI should propose:
+
+- Objective
+- Files expected to change
+- Testing approach
+- Documentation updates
+
+The plan should be reviewed before implementation begins.
+
+---
+
+# Session Completion Report
+
+Before ending a session confirm:
+
+- Objectives completed
+- Tests passed
+- Documentation updated
+- Git commit created
+- Repository clean
+- Next Atomic Task recorded
+
+---
+
+# Resume Point
+
+Record:
+
+Current Objective
+
+Last Completed Task
+
+Next Task
+
+Documents Required
+
+This section should always contain enough information for another AI engineer to continue immediately.
+
+---
+
+# Future Automation
+
+Future OmniForces releases should automatically generate this document using project metadata.
+
+Potential inputs include:
+
+- Git
+- resume.json
+- Documentation
+- Engineering Session Briefing
+- Task Manager
+
+The goal is to minimise manual updates while preserving engineering quality.
+
+---
+
+# Change History
+
+## Version 4.0
+
+- Refactored to reference KCES.
+- Converted into a live engineering dashboard.
+- Added Engineering Session Briefing.
+- Added Repository Health Report.
+- Added Project Dashboard.
+- Added Session Plan.
+- Added Session Completion Report.
+- Added Resume Point.
+- Removed duplicated engineering standards.
