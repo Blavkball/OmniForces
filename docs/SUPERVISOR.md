@@ -1,16 +1,24 @@
 # OmniForces Supervisor Specification
 
-Version:
-1.0
+**Document:** SUPERVISOR.md
 
-Status:
-Architecture Complete
+**Version:** 1.0
 
-Source of Truth:
+**Status:** Architecture Complete
 
-AI_Workstation is the master company documentation system.
+**Owner:** KingC Software
 
-OmniForces Supervisor documentation defines the project implementation design.
+**Last Updated:** 24 July 2026
+
+**Source of Truth:** AI_Workstation is the master company documentation system. OmniForces Supervisor documentation defines the project implementation design.
+
+**Related Documents:**
+
+- KCEF.md
+- KCES_v1.0.md
+- ATOMIC_TASK_ENGINE.md
+- AGENT_MANAGER.md
+- BRAIN_ARCHITECTURE.md
 
 ---
 
@@ -28,6 +36,8 @@ The Supervisor exists to ensure:
 
 The Supervisor manages the workforce but does not replace human judgement.
 
+The Supervisor holds no task state of its own. Task state lives in the Atomic Task Engine (ATE). The Supervisor makes decisions; ATE records them.
+
 ---
 
 # Core Principle
@@ -38,23 +48,30 @@ The Supervisor manages the workforce but does not replace human judgement.
 
 # Position In System
 
-```
 Human
-  |
+|
 Supervisor
-  |
+|
+Atomic Task Engine (approval recorded, task state)
+|
 Agent Manager
-  |
+|
 AI Employees
-  |
-Atomic Tasks
-  |
+|
 Results
-  |
+|
+Agent Manager (status report)
+|
+Atomic Task Engine (record / escalate)
+|
+Supervisor (if escalated)
+|
 Memory
-  |
+|
 Documentation
-```
+
+
+This matches the flow defined in AGENT_MANAGER.md's Interface With Atomic Task Engine section. Supervisor approves work by approving the ATE task record, not by instructing Agent Manager directly.
 
 ---
 
@@ -86,21 +103,21 @@ The Supervisor is responsible for:
 The Supervisor:
 
 - Receives objectives.
-- Reviews tasks.
-- Approves execution.
-- Monitors progress.
-- Reviews outcomes.
+- Reviews tasks queued in ATE.
+- Approves execution, moving an ATE task from `queued` to `assigned`.
+- Monitors progress via ATE status.
+- Reviews outcomes reported through ATE.
 
 ---
 
 ## Workforce Coordination
 
-The Supervisor manages:
+The Supervisor manages, through ATE:
 
-- Agent Manager instructions.
-- AI Employee assignments.
 - Task priorities.
-- Escalations.
+- Escalations arriving from ATE.
+
+The Supervisor does not issue instructions to Agent Manager directly. See AGENT_MANAGER.md — Agent Manager accepts tasks from ATE only.
 
 ---
 
@@ -108,8 +125,8 @@ The Supervisor manages:
 
 The Supervisor decides:
 
-- Whether work can proceed.
-- Whether approval is required.
+- Whether work can proceed (ATE `queued` → `assigned`).
+- Whether human approval is required.
 - Whether a task should be replanned.
 - Whether a failure requires escalation.
 
@@ -130,24 +147,26 @@ The Brain does not have execution authority.
 
 Flow:
 
-```
 Problem
-   |
-   v
+|
+v
 Brain Analysis
-   |
-   v
+|
+v
 Recommendation
-   |
-   v
+|
+v
 Supervisor Review
-   |
-   v
+|
+v
 Decision
-   |
-   v
+|
+v
+Atomic Task Engine
+|
+v
 Execution
-```
+
 
 ---
 
@@ -180,66 +199,76 @@ Human approval is required when:
 
 Flow:
 
-```
 AI Analysis
-      |
-      v
+|
+v
 Supervisor Review
-      |
-      v
+|
+v
 Human Approval
-      |
-      v
+|
+v
+Atomic Task Engine (state updated)
+|
+v
 Execution
-```
+
+
+---
+
+# Task Ending States — Terminology Alignment
+
+This document originally defined task-ending states independently of ATE's data model. They do not match. Both sets are listed here until one is chosen as canonical:
+
+| This document (Supervisor-facing) | ATOMIC_TASK_ENGINE.md (task record state) |
+|---|---|
+| Completed | `complete` |
+| Failed With Record | `failed` |
+| Cancelled With Reason | (no direct equivalent — needs adding to ATE, or mapped to `failed` with a cancellation reason) |
+| Escalated | (no direct equivalent — needs adding to ATE as a state, or treated as a sub-state of `blocked`) |
+| Waiting For Decision | (no direct equivalent — closest is `blocked`) |
+
+Recommend ATE's data model gets extended with `escalated` and `cancelled` as explicit states rather than overloading `blocked`/`failed`, since Supervisor decision-making depends on telling those apart. Not changed here — this is Supervisor's document, not ATE's; ATE needs its own confirmed update.
 
 ---
 
 # Replanning Responsibility
 
-When a task cannot complete:
+When a task cannot complete, reported to Supervisor via ATE escalation:
 
-The Supervisor decides:
-
-```
-Task Failure
-      |
-      v
+Task Failure (ATE: blocked or failed)
+|
+v
+Escalated to Supervisor
+|
+v
 Review Problem
-      |
-      +---- Retry
-      |
-      +---- New Route
-      |
-      +---- Different Agent
-      |
-      +---- Human Decision
-      |
-      +---- Cancel With Reason
-```
+|
++---- Retry (ATE: re-queued)
+|
++---- New Route (ATE: re-queued with updated context)
+|
++---- Different Agent (ATE: re-assigned)
+|
++---- Human Decision (ATE: blocked, pending)
+|
++---- Cancel With Reason (ATE: closed, reason recorded)
 
-A task must never remain abandoned.
+
+A task must never remain abandoned. Every decision here is recorded back into ATE's task record — the Supervisor decides, ATE stores the decision.
 
 ---
 
 # No Orphaned Task Policy
 
-The Supervisor ensures every task has:
+The Supervisor ensures every task has, via ATE:
 
 - Owner.
 - Current status.
 - Next action.
 - Recovery route.
 
-A task can only end as:
-
-```
-Completed
-Failed With Record
-Cancelled With Reason
-Escalated
-Waiting For Decision
-```
+A task can only end as one of the states in the Terminology Alignment table above. See that section — the exact end-state vocabulary needs reconciling with ATE before this is implementation-ready.
 
 ---
 
@@ -265,7 +294,7 @@ Human approval requests must include:
 
 The Supervisor CAN:
 
-- Coordinate AI Employees.
+- Approve tasks for execution via ATE.
 - Approve safe execution.
 - Request analysis.
 - Replan tasks.
@@ -282,30 +311,34 @@ The Supervisor CANNOT:
 - Remove audit history.
 - Create unsafe permissions.
 - Allow uncontrolled AI access.
+- Instruct Agent Manager directly, bypassing ATE.
 
 ---
 
 # Communication Model
 
-```
 Human
- |
+|
 Supervisor
- |
+|
+Atomic Task Engine
+|
 Agent Manager
- |
+|
 AI Employee
 
 AI Employee
- |
+|
 Agent Manager
- |
-Supervisor
- |
+|
+Atomic Task Engine
+|
+Supervisor (if escalated)
+|
 Human (if required)
-```
 
-All workforce communication is controlled.
+
+All workforce communication is controlled and passes through ATE. This matches AGENT_MANAGER.md's Communication Rules section — neither document routes Supervisor and Agent Manager directly to each other for routine task flow.
 
 ---
 
@@ -313,29 +346,31 @@ All workforce communication is controlled.
 
 When something goes wrong:
 
-```
-Failure Detected
-       |
-       v
-Supervisor Review
-       |
-       v
+Failure Detected (Agent Manager)
+|
+v
+Reported to Atomic Task Engine
+|
+v
+Escalated to Supervisor (if required)
+|
+v
 Understand Cause
-       |
-       v
+|
+v
 Choose Action
-       |
-       +---- Recover
-       |
-       +---- Replan
-       |
-       +---- Escalate
-       |
-       +---- Stop
-       |
-       v
-Record Decision
-```
+|
++---- Recover
+|
++---- Replan
+|
++---- Escalate to Human
+|
++---- Stop
+|
+v
+Record Decision (in ATE)
+
 
 ---
 
@@ -364,8 +399,10 @@ A future AI must understand:
 
 - The Supervisor is the control layer.
 - The Brain provides recommendations.
-- The Agent Manager executes approved work.
+- The Atomic Task Engine holds all task state.
+- The Agent Manager executes approved work, receiving tasks only from ATE.
 - Humans retain final authority.
+- Supervisor and Agent Manager never communicate directly for routine task flow — ATE mediates.
 
 No critical Supervisor decision should exist only in chat history.
 
@@ -373,4 +410,15 @@ No critical Supervisor decision should exist only in chat history.
 
 # Final Principle
 
-> The Supervisor is the guardian of controlled AI operation. It coordinates intelligence, execution, and safety while ensuring human authority remains above the AI workforce.
+> The Supervisor is the guardian of controlled AI operation. It coordinates intelligence, execution, and safety through the Atomic Task Engine, while ensuring human authority remains above the AI workforce.
+
+---
+
+# Change History
+
+## Version 1.0
+
+- Initial SUPERVISOR.md.
+- Corrected Position In System and Communication Model to route through Atomic Task Engine rather than direct Agent Manager contact, matching the pattern established in AGENT_MANAGER.md.
+- Added Task Ending States terminology alignment table — flags unresolved mismatch between Supervisor's state vocabulary and ATE's data model, not yet reconciled.
+- Aligned document header to standard.
