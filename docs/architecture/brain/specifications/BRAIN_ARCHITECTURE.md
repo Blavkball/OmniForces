@@ -2,13 +2,13 @@
 
 **Document:** BRAIN_ARCHITECTURE.md
 
-**Version:** 2.0
+**Version:** 2.2
 
 **Status:** Architecture Foundation Alignment
 
 **Owner:** KingC Software
 
-**Last Updated:** 23 July 2026
+**Last Updated:** 24 July 2026
 
 **Source of Truth:** OmniForces
 
@@ -18,6 +18,9 @@
 
 - SYSTEM_ARCHITECTURE.md
 - MEMORY_ARCHITECTURE.md
+- RAW_ARCHITECTURE.md
+- WIKI_ARCHITECTURE.md
+- BRAIN_PROCESSING_PIPELINE.md
 - SESSION_RESUME.md
 - SUPERVISOR.md
 - AGENT_MANAGER.md
@@ -78,7 +81,6 @@ Never reverse these responsibilities.
 
 # Brain Architecture
 
-
 Brain
 
 ├── Raw
@@ -94,171 +96,50 @@ Brain
 
 Each component has one responsibility.
 
----
+Raw and Wiki are specified in full in RAW_ARCHITECTURE.md and WIKI_ARCHITECTURE.md — those are the single source of truth for those two components. This document covers the overall Brain structure and how the components relate, not their internal detail.
 
-# Raw
-
-## Purpose
-
-Raw is the permanent evidence store.
-
-Everything entering OmniForces is stored exactly as received.
-
-Raw is the original source material.
+Working Memory, Session Memory, and Long-Term Memory are specified in full in MEMORY_ARCHITECTURE.md.
 
 ---
 
-# Raw Rules
+# Raw — Summary
 
-Raw must never:
-
-- Be edited.
-- Be rewritten.
-- Be summarised.
-- Be reorganised.
-- Be renamed.
-- Be deleted without explicit human approval.
-
-Raw is immutable.
-
-Once stored, information remains exactly as it arrived.
+Permanent, immutable evidence store. Everything entering OmniForces is preserved exactly as received. Full specification: RAW_ARCHITECTURE.md.
 
 ---
 
-# Raw Examples
+# Wiki — Summary
 
-Raw may contain:
-
-- Ideas.
-- Documents.
-- Specifications.
-- Notes.
-- Screenshots.
-- Code snippets.
-- URLs.
-- Voice transcripts.
-- Conversations.
-- Meeting information.
-- Tasks.
-- Research.
-- Project information.
-
-Example:
-
-
-Raw
-
-0001.md
-0002.pdf
-0003.png
-0004.txt
-0005.url
-
-
-Raw is similar to Git history.
-
-The original record is preserved permanently.
-
----
-
-# Wiki
-
-## Purpose
-
-Wiki is the structured knowledge layer.
-
-Wiki is generated from Raw information.
-
-Wiki does not replace Raw.
-
----
-
-# Wiki Responsibilities
-
-Wiki creates:
-
-- Project pages.
-- Architecture documentation.
-- Task summaries.
-- Decisions.
-- Timelines.
-- People information.
-- API documentation.
-- Relationships.
-- Indexes.
-- Knowledge summaries.
-
----
-
-# Wiki Traceability
-
-Every Wiki item must reference its source information.
-
-Example:
-
-
-Wiki
-
-Project Alpha Architecture
-
-Source:
-
-Raw Item 00142
-
-
-No generated knowledge should exist without a known origin.
+Structured knowledge layer, generated from Raw, always traceable back to its source. Full specification: WIKI_ARCHITECTURE.md.
 
 ---
 
 # Information Processing Pipeline
 
+Full pipeline definition, including Validation, all processing stages, and error/recovery handling: BRAIN_PROCESSING_PIPELINE.md. Not repeated here.
+
+Summary only, for orientation:
 
 User
-
 ↓
-
 Dump
-
 ↓
-
 Raw
-
 ↓
-
-Indexer
-
+Brain Processing Pipeline (see BRAIN_PROCESSING_PIPELINE.md)
 ↓
-
-Classifier
-
-↓
-
-Entity Extraction
-
-↓
-
-Relationship Builder
-
-↓
-
-Wiki Generator
-
-↓
-
-Knowledge Graph
+Wiki
 
 
 The user interacts mainly with:
 
-
 Dump
+
 
 and
 
 Wiki
 
-
-The middle processing stages are automated.
 
 ---
 
@@ -266,12 +147,10 @@ The middle processing stages are automated.
 
 The primary user interaction should be:
 
-
 Dump
 
 
 Examples:
-
 
 Dump this document
 
@@ -300,62 +179,9 @@ The Brain determines:
 
 ---
 
-# Working Memory
+# Memory — Summary
 
-## Purpose
-
-Working Memory stores temporary context required for active operations.
-
-Examples:
-
-- Current task.
-- Current file.
-- Current reasoning.
-- Active workflow.
-- Immediate decisions.
-
-Working Memory is temporary.
-
----
-
-# Session Memory
-
-## Purpose
-
-Session Memory records the active development session.
-
-Examples:
-
-- Current objective.
-- Current milestone.
-- Progress.
-- Decisions made during the session.
-- Recovery information.
-
-Session Memory supports interruption recovery.
-
----
-
-# Long-Term Memory
-
-## Purpose
-
-Long-Term Memory stores reusable knowledge.
-
-Examples:
-
-- Engineering patterns.
-- Proven workflows.
-- Lessons learned.
-- Preferences.
-- Reusable solutions.
-
-Long-Term Memory does not replace:
-
-- Documentation.
-- Source code.
-- Architecture records.
-- Project history.
+Working Memory, Session Memory, and Long-Term Memory provide operational context to the AI workforce. Full specification: MEMORY_ARCHITECTURE.md.
 
 ---
 
@@ -363,23 +189,16 @@ Long-Term Memory does not replace:
 
 Memory and documentation have different responsibilities.
 
-
 Raw
-
 ↓
-
 Evidence
 
 Wiki
-
 ↓
-
 Knowledge
 
 Memory
-
 ↓
-
 Context
 
 
@@ -391,30 +210,21 @@ Memory provides useful context.
 
 # Brain Control Boundaries
 
-The Brain can:
+The Brain CAN:
 
-✅ Analyse information.
+- Analyse information.
+- Create relationships.
+- Generate recommendations.
+- Provide context.
+- Support decisions.
 
-✅ Create relationships.
+The Brain CANNOT:
 
-✅ Generate recommendations.
-
-✅ Provide context.
-
-✅ Support decisions.
-
-
-The Brain cannot:
-
-❌ Execute tasks.
-
-❌ Approve actions.
-
-❌ Override Supervisor decisions.
-
-❌ Replace documentation.
-
-❌ Modify Raw information.
+- Execute tasks.
+- Approve actions.
+- Override Supervisor decisions.
+- Replace documentation.
+- Modify Raw information.
 
 ---
 
@@ -435,18 +245,9 @@ The execution systems perform actions.
 
 ---
 
-# Knowledge Graph Future Direction
+# Future Direction
 
-Future Brain versions may include:
-
-- Entity relationships.
-- Cross-project connections.
-- Semantic search.
-- Duplicate detection.
-- Knowledge discovery.
-- Automatic recommendations.
-
-These extend the Brain without changing its core principles.
+Future Brain and pipeline capability — including Knowledge Graph generation, cross-project connections, semantic search, duplicate detection, and automated recommendations — is defined in BRAIN_PROCESSING_PIPELINE.md's Future Expansion section, aligned to Phase 4 (Automation) of FRAMEWORK_MIGRATION_PLAN.md.
 
 ---
 
@@ -497,3 +298,17 @@ A future AI should be able to:
 - Added traceability requirements.
 - Aligned with SYSTEM_ARCHITECTURE.md v2.0.
 - Aligned with KCEF and KCES.
+
+## Version 2.1
+
+- Removed duplicate Information Processing Pipeline diagram; now references BRAIN_PROCESSING_PIPELINE.md.
+- Removed Knowledge Graph Future Direction section; superseded by BRAIN_PROCESSING_PIPELINE.md's Future Expansion section.
+- Replaced ✅/❌ emoji in Brain Control Boundaries with plain CAN/CANNOT text.
+- Added BRAIN_PROCESSING_PIPELINE.md to Related Documents.
+
+## Version 2.2
+
+- Removed duplicate Raw Rules, Raw Examples, Wiki Responsibilities, and Wiki Traceability sections; replaced with summaries referencing RAW_ARCHITECTURE.md and WIKI_ARCHITECTURE.md as single sources of truth.
+- Removed duplicate Working/Session/Long-Term Memory detail; replaced with summary referencing MEMORY_ARCHITECTURE.md.
+- Updated Related Documents to include RAW_ARCHITECTURE.md and WIKI_ARCHITECTURE.md.
+- This document now covers Brain structure and component relationships only — detailed specification of each component lives in its own document.
