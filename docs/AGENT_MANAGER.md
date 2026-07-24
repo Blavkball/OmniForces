@@ -1,16 +1,23 @@
 # OmniForces Agent Manager Specification
 
-Version:
-1.0
+**Document:** AGENT_MANAGER.md
 
-Status:
-Architecture Complete
+**Version:** 1.0
 
-Source of Truth:
+**Status:** Architecture Complete
 
-AI_Workstation is the master company documentation system.
+**Owner:** KingC Software
 
-OmniForces Agent Manager documentation defines the project implementation design.
+**Last Updated:** 24 July 2026
+
+**Source of Truth:** AI_Workstation is the master company documentation system. OmniForces Agent Manager documentation defines the project implementation design.
+
+**Related Documents:**
+
+- KCEF.md
+- KCES_v1.0.md
+- ATOMIC_TASK_ENGINE.md
+- BRAIN_ARCHITECTURE.md
 
 ---
 
@@ -32,11 +39,15 @@ The Agent Manager does not replace the Supervisor.
 
 The Supervisor remains the authority and decision layer.
 
+The Agent Manager does not replace the Atomic Task Engine (ATE).
+
+ATE remains the single source of task state.
+
 ---
 
 # Core Principle
 
-> The Agent Manager controls AI Employee operations but does not make business decisions.
+> The Agent Manager controls AI Employee operations but does not make business decisions and does not hold task state independently of ATE.
 
 The Agent Manager ensures AI Employees operate safely, consistently, and traceably.
 
@@ -44,23 +55,58 @@ The Agent Manager ensures AI Employees operate safely, consistently, and traceab
 
 # Position In System
 
-```
 Human
-  |
+|
 Supervisor
-  |
+|
+Atomic Task Engine (approval, task record)
+|
 Agent Manager
-  |
+|
 AI Employees
-  |
-Atomic Tasks
-  |
+|
 Results
-  |
+|
+Agent Manager (status report)
+|
+Atomic Task Engine (record / close / recovery trigger)
+|
 Memory Update
-  |
+|
 Documentation Update
-```
+
+
+Agent Manager never receives a task directly from Supervisor. Every task arrives through ATE, and every result is reported back through ATE. This satisfies the ATE contract requirement: *"ATE hands approved tasks to Agent Manager for assignment and execution. Agent Manager returns status updates."*
+
+---
+
+# Interface With Atomic Task Engine
+
+This section defines the contract required by ATOMIC_TASK_ENGINE.md.
+
+## Receiving a Task
+
+Agent Manager accepts a task only when:
+
+- It arrives from ATE, not from any other source.
+- It carries a valid `task_id`, `owner`, `objective`, and `completion_criteria` as defined in ATE's data model.
+- Its status is `assigned`.
+
+A task without these fields is rejected back to ATE, not silently dropped and not executed on partial information.
+
+## Reporting Status
+
+Agent Manager reports to ATE at each of these points:
+
+- Task accepted → ATE sets `in_progress`.
+- Task result available → ATE sets `tested` or `complete`, depending on Testing Standard outcome.
+- Task cannot proceed → ATE sets `blocked` or `failed`, with the reason attached.
+
+Agent Manager never sets ATE task state directly. It reports; ATE transitions the state.
+
+## Escalation Routing
+
+Escalation to Supervisor is routed through ATE, not as a side-channel from Agent Manager. A failure that requires Supervisor judgment becomes an ATE state transition (`blocked` → `escalated`), and ATE presents it to Supervisor. Agent Manager does not contact Supervisor directly except through this recorded path.
 
 ---
 
@@ -84,11 +130,11 @@ Maintain:
 
 The Agent Manager:
 
-- Receives approved Atomic Tasks.
+- Receives ATE-assigned Atomic Tasks only.
 - Assigns tasks to suitable AI Employees.
 - Tracks task progress.
 - Collects results.
-- Reports completion.
+- Reports completion or failure back to ATE.
 
 ---
 
@@ -108,7 +154,6 @@ The Agent Manager controls:
 
 Supported states:
 
-```
 Healthy
 Busy
 Waiting
@@ -116,7 +161,7 @@ Warning
 Failed
 Recovery Required
 Offline
-```
+
 
 ---
 
@@ -124,26 +169,53 @@ Offline
 
 Communication flow:
 
-```
 Supervisor
-      |
-      v
+|
+v
+Atomic Task Engine
+|
+v
 Agent Manager
-      |
-      v
+|
+v
 AI Employee
-      |
-      v
+|
+v
 Result
-      |
-      v
+|
+v
 Agent Manager
-      |
-      v
-Supervisor
-```
+|
+v
+Atomic Task Engine
+|
+v
+Supervisor (escalation or completion notice only)
+
 
 AI Employees do not communicate directly with external systems without approved control.
+
+Agent Manager does not communicate directly with Supervisor for routine task handling. All routine flow passes through ATE.
+
+---
+
+# Memory Usage During Execution
+
+Required by ATE's integration contract. Agent Manager's relationship to Memory is limited:
+
+## Agent Manager MAY
+
+- Read agent state from Memory for recovery purposes (last known good state, recovery pointer lookup).
+- Write agent health and status history to Memory for monitoring continuity.
+- Read audit trail entries relevant to a task it is currently managing.
+
+## Agent Manager MUST NOT
+
+- Store long-form knowledge. That is Brain's Wiki layer responsibility.
+- Write business decisions or task outcomes into Memory directly — those go through ATE's task record and Documentation Update step.
+- Grant AI Employees Memory access beyond what their individual agent context and permission level allow.
+
+AI Employees hold their own Memory access (WorkingMemory, SessionMemory) as established in the OmniForces Memory Foundation. Agent Manager supervises that access; it does not mediate every read/write.
 
 ---
 
@@ -151,13 +223,13 @@ AI Employees do not communicate directly with external systems without approved 
 
 The Agent Manager CAN:
 
-- Assign approved tasks.
+- Assign approved tasks received from ATE.
 - Monitor agents.
 - Check permissions.
 - Pause unhealthy agents.
 - Start recovery procedures.
 - Record events.
-- Report problems.
+- Report problems to ATE.
 
 ---
 
@@ -166,6 +238,7 @@ The Agent Manager CANNOT:
 - Create its own objectives.
 - Change task requirements.
 - Override Supervisor decisions.
+- Override ATE task state directly.
 - Grant itself permissions.
 - Bypass approval requirements.
 - Hide failures.
@@ -177,27 +250,29 @@ The Agent Manager CANNOT:
 
 When an AI Employee fails:
 
-```
 AI Employee Error
-        |
-        v
+|
+v
 Agent Manager Detection
-        |
-        v
+|
+v
 Problem Classification
-        |
-        v
+|
+v
 Recovery Attempt
-        |
-        v
-Supervisor Review
-        |
-        v
+|
+v
+Report to Atomic Task Engine
+|
+v
+Supervisor Review (if escalated by ATE)
+|
+v
 Resolution
-        |
-        v
+|
+v
 Audit Record
-```
+
 
 ---
 
@@ -211,11 +286,13 @@ Allowed:
 - Retry operation.
 - Restore known state.
 
+Reported to ATE as a status update, not an escalation.
+
 ---
 
 ## Level 2 — Supervisor Recovery
 
-Supervisor decides:
+Routed through ATE as an `escalated` state. Supervisor decides:
 
 - Replan task.
 - Assign another AI Employee.
@@ -226,7 +303,7 @@ Supervisor decides:
 
 ## Level 3 — Human Approval
 
-Required for:
+Routed through ATE and Supervisor. Required for:
 
 - Data risk.
 - Security concerns.
@@ -244,9 +321,8 @@ An AI Employee task must never remain:
 - Without owner.
 - Without recovery path.
 
-Every failed task must become:
+Every failed task must become, in ATE:
 
-```
 Completed
 OR
 Retry
@@ -256,7 +332,7 @@ OR
 Escalated
 OR
 Cancelled With Reason
-```
+
 
 ---
 
@@ -280,13 +356,13 @@ Health information is continuously recorded.
 
 The Agent Manager records:
 
-- Task assignments.
+- Task assignments received from ATE.
 - Agent actions.
 - Status changes.
 - Permission checks.
 - Errors.
 - Recovery attempts.
-- Communication events.
+- Status reports sent to ATE.
 - Final outcomes.
 
 ---
@@ -308,19 +384,18 @@ Logs cannot be silently removed or altered.
 
 All requests must pass:
 
-```
 Request
-   |
+|
 Authentication
-   |
+|
 Permission Check
-   |
+|
 Agent Manager
-   |
+|
 Approved Action
-   |
+|
 Audit Log
-```
+
 
 ---
 
@@ -372,19 +447,20 @@ The Agent Manager:
 
 Flow:
 
-```
 Brain
- |
+|
 Recommendation
- |
+|
 Supervisor
- |
+|
 Decision
- |
+|
+Atomic Task Engine
+|
 Agent Manager
- |
+|
 Execution
-```
+
 
 ---
 
@@ -410,6 +486,7 @@ A future AI should understand:
 - What limits it has.
 - How failures are handled.
 - Where authority exists.
+- Why every task passes through ATE rather than being handled directly with Supervisor.
 
 No critical knowledge should exist only inside chat history.
 
@@ -417,4 +494,16 @@ No critical knowledge should exist only inside chat history.
 
 # Final Principle
 
-> The Agent Manager is the controlled operating layer between the Supervisor and AI Employees. It enables safe execution while preserving human authority, accountability, and system recovery.
+> The Agent Manager is the controlled operating layer between the Atomic Task Engine and AI Employees. It enables safe execution while preserving human authority, accountability, and system recovery. It holds no task state of its own — ATE is the single source of task truth.
+
+---
+
+# Change History
+
+## Version 1.0
+
+- Initial AGENT_MANAGER.md.
+- Corrected task and communication flow to route through Atomic Task Engine rather than direct Supervisor contact, per ATOMIC_TASK_ENGINE.md's integration contract.
+- Added Interface With Atomic Task Engine section defining receive/report/escalate behavior.
+- Added Memory Usage During Execution section, required by ATE's integration contract.
+- Aligned document header to standard.
