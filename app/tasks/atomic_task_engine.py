@@ -1,4 +1,3 @@
-
 # ============================================
 # OmniForces
 # Atomic Task Engine
@@ -370,6 +369,28 @@ class AtomicTaskEngine:
                 f"alternative_considered={alternative_considered}; retry_possible={retry_possible}"
             ),
         )
+        return task
+ 
+    def resolve_human_decision(
+        self, task_id: str, approved: bool, reason: Optional[str] = None
+    ) -> AtomicTask:
+        """
+        Resolves a task sitting in Waiting For Human Decision. Approved
+        moves the task to Approved (ready for the Ready/Executing steps);
+        rejected moves it to Failed With Explanation.
+        """
+        task = self.get_task(task_id)
+        if task.status != TaskStatus.WAITING_FOR_HUMAN_DECISION:
+            raise TaskEngineError(
+                f"cannot resolve human decision from status {task.status}; "
+                f"must be {TaskStatus.WAITING_FOR_HUMAN_DECISION}"
+            )
+        if approved:
+            task.status = TaskStatus.APPROVED
+            task._record("Approved", reason or "approved by human decision")
+        else:
+            task.status = TaskStatus.FAILED
+            task._record("Rejected by human decision", reason)
         return task
  
     def fail_task(self, task_id: str, explanation: str) -> AtomicTask:
