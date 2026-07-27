@@ -6,22 +6,41 @@ from app.models import AIResponse
 
 
 class OllamaClient:
+    """
+    Provider interface for Ollama.
+
+    Responsibilities:
+    - Connect to Ollama.
+    - Send prompts.
+    - Return AIResponse.
+
+    Model selection is handled by ModelRouter.
+    """
+
     def __init__(self):
         self.url = settings.OLLAMA_URL
-        self.model = settings.MODEL
+        self.default_model = settings.DEFAULT_MODEL
 
-    def generate(self, prompt: str, model: str = None, system: str = None) -> AIResponse:
+    def generate(
+        self,
+        prompt: str,
+        model: str = None,
+        system: str = None,
+    ) -> AIResponse:
         """
-        model: overrides the configured default for this call — used by
-        router.choose_model to route simple prompts to a lighter model.
-        system: optional system/role context, sent as Ollama's separate
-        `system` field rather than concatenated into the prompt.
+        Generate a response using the supplied model.
+
+        If no model is supplied, the configured default model is used.
         """
+
+        selected_model = model or self.default_model
+
         payload = {
-            "model": model or self.model,
+            "model": selected_model,
             "prompt": prompt,
             "stream": False,
         }
+
         if system:
             payload["system"] = system
 
@@ -31,15 +50,20 @@ class OllamaClient:
                 json=payload,
                 timeout=120,
             )
+
             response.raise_for_status()
+
             data = response.json()
+
             logger.info("Ollama request completed successfully.")
+
             return AIResponse(
-                model=data.get("model", model or self.model),
+                model=data.get("model", selected_model),
                 response=data.get("response", ""),
                 thinking=data.get("thinking"),
                 done=data.get("done", False),
             )
+
         except Exception as error:
             logger.error(f"Ollama request failed: {error}")
             raise
