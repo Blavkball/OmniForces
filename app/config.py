@@ -16,17 +16,27 @@ load_dotenv()
 class Settings:
     """Application configuration."""
 
-    OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
+    # Application
+    APP_NAME = "OmniForces"
+    VERSION = "0.2.0"
+    DEBUG = os.getenv("DEBUG", "false").lower() == "true"
 
-    MODEL = os.getenv("MODEL", "deepseek-r1:7b")
-
+    # API
     API_KEY = os.getenv("OMNIFORCES_API_KEY", "")
 
-    APP_NAME = "OmniForces"
+    # Ollama
+    OLLAMA_URL = os.getenv("OLLAMA_URL", "http://localhost:11434")
 
-    VERSION = "0.2.0"
+    DEFAULT_MODEL = os.getenv("DEFAULT_MODEL", "llama3.2:latest")
+    LLAMA_MODEL = os.getenv("LLAMA_MODEL", "llama3.2:latest")
+    CODING_MODEL = os.getenv("CODING_MODEL", "qwen3.6:latest")
+    ARCHITECTURE_MODEL = os.getenv(
+        "ARCHITECTURE_MODEL",
+        "deepseek-r1:latest",
+    )
 
-    DEBUG = os.getenv("DEBUG", "false").lower() == "true"
+    # Backwards compatibility
+    MODEL = os.getenv("MODEL", "deepseek-r1:latest")
 
 
 settings = Settings()
