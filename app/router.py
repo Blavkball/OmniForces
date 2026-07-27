@@ -6,11 +6,11 @@ Purpose:
 Centralised model selection for AI Employees.
 
 Responsibilities:
-- Select the appropriate model for an AI Employee.
+- Select the appropriate model.
 - Hide model selection from OllamaClient.
-- Provide a single routing interface.
+- Provide a stable routing interface.
 
-The router does not communicate with Ollama.
+The router never communicates with Ollama.
 It only returns the model to use.
 """
 
@@ -40,3 +40,25 @@ class ModelRouter:
             role,
             settings.DEFAULT_MODEL,
         )
+
+    def route(
+        self,
+        role: str = None,
+        prompt: str = None,
+    ) -> str:
+        """
+        Stable routing interface.
+
+        Version 1:
+        - Routes by AI Employee role.
+        - Prompt is accepted for future routing logic but is
+          intentionally unused in this version.
+
+        Future versions may consider:
+        - task type
+        - prompt complexity
+        - model availability
+        - permissions
+        """
+
+        return self.get_model(role or "")
