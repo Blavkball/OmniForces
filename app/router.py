@@ -62,3 +62,16 @@ class ModelRouter:
         """
 
         return self.get_model(role or "")
+
+
+# Backwards-compatible module-level function. AgentManager.execute_task()
+# currently calls this with prompt only, no role — AtomicTask does not
+# yet carry a role field. Role-based routing through ModelRouter.route()
+# is the correct long-term path once Phase 3 (AI Employee role context)
+# adds that field to the task model. Until then, this returns the
+# default-model path via ModelRouter, preserving current behavior.
+_default_router = ModelRouter()
+
+
+def choose_model(prompt: str = None) -> str:
+    return _default_router.route(role=None, prompt=prompt)
