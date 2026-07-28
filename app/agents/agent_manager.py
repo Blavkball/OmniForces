@@ -4,9 +4,9 @@
 # Implements AGENT_MANAGER.md v1.1's Interface
 # With Atomic Task Engine contract, plus real
 # model execution via OllamaClient (Phase 2),
-# now passing task.role through to the router
-# (Phase 3, partial — see note on required_skills
-# below).
+# now prepending role system-context from
+# app/roles.py before the model call
+# (Phase 3, Step 2).
 # ============================================
 
 from typing import Optional
@@ -22,6 +22,7 @@ from app.tasks.atomic_task_engine import (
 )
 from app.ollama import OllamaClient
 from app.router import choose_model
+from app.roles import get_role_context
 
 
 class AgentManagerError(Exception):
@@ -83,13 +84,13 @@ class AgentManager:
         dropped and not executed on partial information.
 
         Role selection: if the task already carries a manually-set
-        `role`, it is left as-is and used for model routing at
-        execution. Automatic role inference from `required_skills` is
-        NOT implemented here — no skill-to-role mapping exists yet in
-        AI_EMPLOYEES.md or elsewhere in the codebase. A task with
-        `required_skills` set and no manual `role` is accepted with
-        `role` left None, which routes to the default model, not an
-        error.
+        `role`, it is left as-is and used for model routing and
+        system-context at execution. Automatic role inference from
+        `required_skills` is NOT implemented here — no skill-to-role
+        mapping exists yet in AI_EMPLOYEES.md or elsewhere in the
+        codebase. A task with `required_skills` set and no manual
+        `role` is accepted with `role` left None, which routes to the
+        default model and shared context only, not an error.
         """
         try:
             task = self.engine.get_task(task_id)
@@ -130,15 +131,17 @@ class AgentManager:
 
     # ------------------------------------------------------------------
     # Real execution (Phase 2 — wires OllamaClient + router.choose_model
-    # into the task lifecycle; Phase 3 partial — role now passed through).
-    # Requires the task to already be Executing — call accept_task first.
+    # into the task lifecycle; Phase 3 — role context from roles.py now
+    # prepended to the prompt). Requires the task to already be
+    # Executing — call accept_task first.
     # ------------------------------------------------------------------
 
     def _build_prompt(self, task: AtomicTask) -> str:
         """
-        Builds a single instruction prompt from the task's own fields.
-        Role-specific system context (not just routing) is a separate
-        follow-up atomic task — this only builds the task-content prompt.
+        Builds the task-content portion of the prompt from the task's
+        own fields. Role system-context is prepended separately in
+        execute_task via get_role_context — kept separate here so the
+        task-content shape stays testable on its own.
         """
         lines = [
             f"Task: {task.title}",
@@ -153,7 +156,8 @@ class AgentManager:
     def execute_task(self, task_id: str) -> dict:
         """
         Runs a task that is already in Executing (per accept_task)
-        through the real model: builds a prompt from the task,
+        through the real model: prepends the role's system-context
+        (from app.roles.get_role_context) to the task-content prompt,
         selects a model via router.choose_model using the task's role,
         calls OllamaClient, and reports the result back through ATE.
         On failure, routes through report_blocked instead of raising
@@ -167,12 +171,15 @@ class AgentManager:
                 f"must be {TaskStatus.EXECUTING} — call accept_task first"
             )
 
-        prompt = self._build_prompt(task)
-        model = choose_model(role=task.role, prompt=prompt)
+        role_context = get_role_context(task.role)
+        task_prompt = self._build_prompt(task)
+        full_prompt = f"{role_context}\n\n{task_prompt}"
+
+        model = choose_model(role=task.role, prompt=full_prompt)
         self.report_progress(task_id, f"calling model {model} (role={task.role})")
 
         try:
-            ai_response = self.ollama_client.generate(prompt, model=model)
+            ai_response = self.ollama_client.generate(full_prompt, model=model)
         except Exception as error:
             return self.report_blocked(task_id, f"model call failed: {error}")
 
