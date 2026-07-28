@@ -3,14 +3,14 @@
 # Atomic Task Engine
 # Implements ATOMIC_TASK_ENGINE.md v1.2
 # ============================================
- 
+
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
 from enum import Enum
 from typing import Optional
 import uuid
- 
- 
+
+
 class TaskStatus(str, Enum):
     CREATED = "Created"
     ASSIGNED = "Assigned"
@@ -19,35 +19,35 @@ class TaskStatus(str, Enum):
     EXECUTING = "Executing"
     REVIEW = "Review"
     COMPLETED = "Completed"
- 
+
     WAITING_FOR_APPROVAL = "Waiting For Approval"
     WAITING_FOR_INFORMATION = "Waiting For Information"
     WAITING_FOR_DEPENDENCY = "Waiting For Dependency"
     WAITING_FOR_HUMAN_DECISION = "Waiting For Human Decision"
- 
+
     EXECUTION_FAILURE = "Execution Failure"
     RECORD_FAILURE = "Record Failure"
     SUPERVISOR_REVIEW = "Supervisor Review"
     ESCALATED = "Escalated"
     CANCELLED = "Cancel With Reason"
     FAILED = "Failed With Explanation"
- 
- 
+
+
 class RiskLevel(str, Enum):
     LOW = "low"
     MEDIUM = "medium"
     HIGH = "high"
- 
- 
+
+
 class TaskEngineError(Exception):
     """Raised on invalid task creation or an illegal state transition."""
- 
- 
+
+
 # States a task may legally hold before Supervisor approval is required to
 # enter Executing. Per spec: "except tasks explicitly marked low-risk and
 # pre-approved by standing rule."
 _LOW_RISK_PRE_APPROVED = {RiskLevel.LOW}
- 
+
 # Valid forward transitions in the primary lifecycle.
 _LIFECYCLE_ORDER = [
     TaskStatus.CREATED,
@@ -58,14 +58,14 @@ _LIFECYCLE_ORDER = [
     TaskStatus.REVIEW,
     TaskStatus.COMPLETED,
 ]
- 
+
 _WAITING_STATES = {
     TaskStatus.WAITING_FOR_APPROVAL,
     TaskStatus.WAITING_FOR_INFORMATION,
     TaskStatus.WAITING_FOR_DEPENDENCY,
     TaskStatus.WAITING_FOR_HUMAN_DECISION,
 }
- 
+
 _TERMINAL_STATES = {
     TaskStatus.COMPLETED,
     TaskStatus.FAILED,
@@ -73,7 +73,7 @@ _TERMINAL_STATES = {
     TaskStatus.ESCALATED,
     TaskStatus.WAITING_FOR_HUMAN_DECISION,
 }
- 
+
 # Failure-handling states: mid-route to a terminal outcome, not orphaned
 # while passing through them.
 _FAILURE_HANDLING_STATES = {
@@ -81,23 +81,23 @@ _FAILURE_HANDLING_STATES = {
     TaskStatus.RECORD_FAILURE,
     TaskStatus.SUPERVISOR_REVIEW,
 }
- 
+
 _KNOWN_NON_ORPHAN_STATES = (
     set(_LIFECYCLE_ORDER) | _TERMINAL_STATES | _FAILURE_HANDLING_STATES
 )
- 
- 
+
+
 def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
- 
- 
+
+
 @dataclass
 class ExecutionEvent:
     timestamp: str
     event: str
     detail: Optional[str] = None
- 
- 
+
+
 @dataclass
 class AtomicTask:
     task_id: str
@@ -110,8 +110,9 @@ class AtomicTask:
     success_criteria: list
     failure_conditions: list
     risk_level: RiskLevel
- 
+
     assigned_to: Optional[str] = None
+    role: Optional[str] = None       # AI_EMPLOYEES.md role — drives ModelRouter selection
     priority: Optional[str] = None
     status: TaskStatus = TaskStatus.CREATED
     dependencies: list = field(default_factory=list)
@@ -124,30 +125,30 @@ class AtomicTask:
     result: Optional[str] = None
     created_at: str = field(default_factory=_now)
     updated_at: str = field(default_factory=_now)
- 
+
     def _record(self, event: str, detail: Optional[str] = None):
         self.execution_history.append(
             ExecutionEvent(timestamp=_now(), event=event, detail=detail)
         )
         self.updated_at = _now()
- 
- 
+
+
 class AtomicTaskEngine:
     """
     Creates, tracks, and closes Atomic Tasks per ATOMIC_TASK_ENGINE.md.
- 
+
     ATE does not think and does not know. It tracks state and enforces
     the task lifecycle. It never assigns execution directly and never
     approves its own tasks.
     """
- 
+
     def __init__(self):
         self._tasks: dict[str, AtomicTask] = {}
- 
+
     # ------------------------------------------------------------------
     # Creation
     # ------------------------------------------------------------------
- 
+
     def create_task(
         self,
         title: str,
@@ -160,6 +161,7 @@ class AtomicTaskEngine:
         failure_conditions: list,
         risk_level: RiskLevel,
         priority: Optional[str] = None,
+        role: Optional[str] = None,
         dependencies: Optional[list] = None,
         required_skills: Optional[list] = None,
         required_permissions: Optional[list] = None,
@@ -181,7 +183,7 @@ class AtomicTaskEngine:
             raise TaskEngineError("success_criteria is required — defines done")
         if not failure_conditions:
             raise TaskEngineError("failure_conditions is required")
- 
+
         task = AtomicTask(
             task_id=str(uuid.uuid4()),
             title=title,
@@ -194,6 +196,7 @@ class AtomicTaskEngine:
             failure_conditions=failure_conditions,
             risk_level=risk_level,
             priority=priority,
+            role=role,
             dependencies=dependencies or [],
             required_skills=required_skills or [],
             required_permissions=required_permissions or [],
@@ -204,21 +207,21 @@ class AtomicTaskEngine:
         task._record("Created", f"origin={origin}, owner={owner}")
         self._tasks[task.task_id] = task
         return task
- 
+
     # ------------------------------------------------------------------
     # Lookup
     # ------------------------------------------------------------------
- 
+
     def get_task(self, task_id: str) -> AtomicTask:
         task = self._tasks.get(task_id)
         if task is None:
             raise TaskEngineError(f"no task with id {task_id}")
         return task
- 
+
     # ------------------------------------------------------------------
     # Assignment (ATE -> Agent Manager, per AGENT_MANAGER.md contract)
     # ------------------------------------------------------------------
- 
+
     def assign_task(self, task_id: str, assigned_to: str) -> AtomicTask:
         task = self.get_task(task_id)
         if task.status != TaskStatus.CREATED:
@@ -229,12 +232,12 @@ class AtomicTaskEngine:
         task.status = TaskStatus.ASSIGNED
         task._record("Assigned", f"assigned_to={assigned_to}")
         return task
- 
+
     # ------------------------------------------------------------------
     # Approval (Supervisor decision, recorded here — ATE never approves
     # its own tasks; this method records Supervisor's decision)
     # ------------------------------------------------------------------
- 
+
     def record_approval(self, task_id: str, approved: bool, reason: Optional[str] = None) -> AtomicTask:
         task = self.get_task(task_id)
         if task.status != TaskStatus.ASSIGNED:
@@ -248,7 +251,7 @@ class AtomicTaskEngine:
             task.status = TaskStatus.FAILED
             task._record("Rejected by Supervisor", reason)
         return task
- 
+
     def mark_ready(self, task_id: str) -> AtomicTask:
         task = self.get_task(task_id)
         if task.status != TaskStatus.APPROVED:
@@ -258,11 +261,11 @@ class AtomicTaskEngine:
         task.status = TaskStatus.READY
         task._record("Ready")
         return task
- 
+
     # ------------------------------------------------------------------
     # Execution (Agent Manager reports into these)
     # ------------------------------------------------------------------
- 
+
     def start_execution(self, task_id: str) -> AtomicTask:
         task = self.get_task(task_id)
         if task.status != TaskStatus.READY:
@@ -278,7 +281,7 @@ class AtomicTaskEngine:
         task.status = TaskStatus.EXECUTING
         task._record("Executing")
         return task
- 
+
     def report_status(self, task_id: str, event: str, detail: Optional[str] = None) -> AtomicTask:
         """
         Agent Manager status updates during execution that do not change
@@ -287,7 +290,7 @@ class AtomicTaskEngine:
         task = self.get_task(task_id)
         task._record(event, detail)
         return task
- 
+
     def submit_for_review(self, task_id: str, result: str) -> AtomicTask:
         task = self.get_task(task_id)
         if task.status != TaskStatus.EXECUTING:
@@ -298,7 +301,7 @@ class AtomicTaskEngine:
         task.status = TaskStatus.REVIEW
         task._record("Review", "submitted for review")
         return task
- 
+
     def complete_task(self, task_id: str) -> AtomicTask:
         task = self.get_task(task_id)
         if task.status != TaskStatus.REVIEW:
@@ -310,11 +313,11 @@ class AtomicTaskEngine:
         task.status = TaskStatus.COMPLETED
         task._record("Completed")
         return task
- 
+
     # ------------------------------------------------------------------
     # Waiting states
     # ------------------------------------------------------------------
- 
+
     def enter_waiting(self, task_id: str, waiting_status: TaskStatus, reason: str) -> AtomicTask:
         if waiting_status not in _WAITING_STATES:
             raise TaskEngineError(f"{waiting_status} is not a valid waiting state")
@@ -324,11 +327,11 @@ class AtomicTaskEngine:
         task.status = waiting_status
         task._record(str(waiting_status.value), reason)
         return task
- 
+
     # ------------------------------------------------------------------
     # Failure handling
     # ------------------------------------------------------------------
- 
+
     def report_failure(self, task_id: str, reason: str) -> AtomicTask:
         task = self.get_task(task_id)
         task.status = TaskStatus.RECORD_FAILURE
@@ -336,7 +339,7 @@ class AtomicTaskEngine:
         task.status = TaskStatus.SUPERVISOR_REVIEW
         task._record("Supervisor Review", "awaiting decision")
         return task
- 
+
     def retry_task(self, task_id: str) -> AtomicTask:
         task = self.get_task(task_id)
         if task.status != TaskStatus.SUPERVISOR_REVIEW:
@@ -344,13 +347,13 @@ class AtomicTaskEngine:
         task.status = TaskStatus.READY
         task._record("Retry")
         return task
- 
+
     def escalate_task(self, task_id: str, reason: str) -> AtomicTask:
         task = self.get_task(task_id)
         task.status = TaskStatus.ESCALATED
         task._record("Escalated", reason)
         return task
- 
+
     def cancel_task(
         self,
         task_id: str,
@@ -370,7 +373,7 @@ class AtomicTaskEngine:
             ),
         )
         return task
- 
+
     def resolve_human_decision(
         self, task_id: str, approved: bool, reason: Optional[str] = None
     ) -> AtomicTask:
@@ -392,17 +395,17 @@ class AtomicTaskEngine:
             task.status = TaskStatus.FAILED
             task._record("Rejected by human decision", reason)
         return task
- 
+
     def fail_task(self, task_id: str, explanation: str) -> AtomicTask:
         task = self.get_task(task_id)
         task.status = TaskStatus.FAILED
         task._record("Failed With Explanation", explanation)
         return task
- 
+
     # ------------------------------------------------------------------
     # No Orphaned Task Policy
     # ------------------------------------------------------------------
- 
+
     def is_orphaned(self, task_id: str) -> bool:
         """
         A task is never orphaned if it has an owner and is either still
@@ -416,9 +419,8 @@ class AtomicTaskEngine:
             has_reason = bool(task.execution_history and task.execution_history[-1].detail)
             return not has_reason
         return task.status not in _KNOWN_NON_ORPHAN_STATES
- 
+
     def list_tasks(self, status: Optional[TaskStatus] = None) -> list:
         if status is None:
             return list(self._tasks.values())
         return [t for t in self._tasks.values() if t.status == status]
- 
