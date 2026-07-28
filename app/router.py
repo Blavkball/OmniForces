@@ -14,6 +14,8 @@ The router never communicates with Ollama.
 It only returns the model to use.
 """
 
+from typing import Optional
+
 from app.config import settings
 
 
@@ -33,7 +35,6 @@ class ModelRouter:
     def get_model(self, role: str) -> str:
         """
         Return the preferred model for an AI Employee.
-
         Unknown roles fall back to the default model.
         """
         return self.ROLE_MODEL_MAP.get(
@@ -60,18 +61,17 @@ class ModelRouter:
         - model availability
         - permissions
         """
-
         return self.get_model(role or "")
 
 
 # Backwards-compatible module-level function. AgentManager.execute_task()
-# currently calls this with prompt only, no role — AtomicTask does not
-# yet carry a role field. Role-based routing through ModelRouter.route()
-# is the correct long-term path once Phase 3 (AI Employee role context)
-# adds that field to the task model. Until then, this returns the
-# default-model path via ModelRouter, preserving current behavior.
+# previously called this with prompt only, no role — AtomicTask now carries
+# a role field (added to atomic_task_engine.py, commit 3ea67bb). This shim
+# now passes role through to ModelRouter.route(), giving real role-based
+# routing. Still safe for any caller that only passes prompt: role defaults
+# to None and falls through to the default-model path exactly as before.
 _default_router = ModelRouter()
 
 
-def choose_model(prompt: str = None) -> str:
-    return _default_router.route(role=None, prompt=prompt)
+def choose_model(role: Optional[str] = None, prompt: Optional[str] = None) -> str:
+    return _default_router.route(role=role, prompt=prompt)
