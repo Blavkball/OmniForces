@@ -25,11 +25,13 @@ class ModelRouter:
     """
 
     ROLE_MODEL_MAP = {
-        "Documentation Engineer": settings.LLAMA_MODEL,
-        "Senior Software Engineer": settings.CODING_MODEL,
+        "Senior Technical Lead": settings.ARCHITECTURE_MODEL,
         "Software Architect": settings.ARCHITECTURE_MODEL,
-        "Research Engineer": settings.ARCHITECTURE_MODEL,
+        "Senior Software Engineer": settings.CODING_MODEL,
         "QA Engineer": settings.CODING_MODEL,
+        "Documentation Engineer": settings.LLAMA_MODEL,
+        "Knowledge Engineer": settings.LLAMA_MODEL,
+        "Research Engineer": settings.ARCHITECTURE_MODEL,
     }
 
     def get_model(self, role: str) -> str:
