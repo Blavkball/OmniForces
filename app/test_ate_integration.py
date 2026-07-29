@@ -4,6 +4,13 @@
 # SupervisorControl, and AgentManager working
 # together across the full task lifecycle.
 # Closes Milestone 4 (ATE implementation).
+#
+# test_role_based_routing_and_context added for
+# BUILD_PLAN.md Phase 3 — the first test in this
+# file that actually calls manager.execute_task(),
+# confirming role-based model selection and role
+# system-context prepending both work, not just
+# that they compile.
 # ============================================
 
 from app.tasks.atomic_task_engine import AtomicTaskEngine, RiskLevel, TaskStatus
@@ -23,6 +30,26 @@ def _build_system():
     manager = AgentManager(engine=engine)
     manager.register_agent("forge", "senior_engineer", "execute")
     return engine, manager
+
+
+class _FakeOllamaResponse:
+    def __init__(self, response: str):
+        self.response = response
+
+
+class _FakeOllamaClient:
+    """
+    Stands in for a live Ollama server. Records every call so a test
+    can assert what model and prompt AgentManager actually sent,
+    without requiring Ollama running or a real model loaded.
+    """
+
+    def __init__(self):
+        self.calls = []
+
+    def generate(self, prompt, model):
+        self.calls.append({"prompt": prompt, "model": model})
+        return _FakeOllamaResponse(f"stub response from model={model}")
 
 
 def test_full_happy_path():
@@ -257,10 +284,69 @@ def test_no_orphaned_task_across_full_run():
     print("test_no_orphaned_task_across_full_run: OK")
 
 
+def test_role_based_routing_and_context():
+    """
+    Phase 3 exists to make two things true: (1) a task's role selects
+    a non-default model, and (2) that role's AI_EMPLOYEES.md context
+    actually reaches the model call. Neither is exercised by any test
+    above, because none of them call execute_task() — they all bypass
+    the model-call path via manual report_progress/report_result.
+    This is the first test that goes through execute_task() itself.
+
+    Uses a fake OllamaClient — no live Ollama server required, and no
+    dependency on what a real model would return.
+    """
+    from app.config import settings
+
+    engine = AtomicTaskEngine()
+    fake_client = _FakeOllamaClient()
+    manager = AgentManager(engine=engine, ollama_client=fake_client)
+    manager.register_agent("forge", "senior_engineer", "execute")
+
+    task = engine.create_task(
+        title="Implement a function",
+        description="Write a small utility function",
+        purpose="Test role-based routing",
+        origin="manual",
+        owner="forge",
+        expected_output="Working code",
+        success_criteria=["function works"],
+        failure_conditions=["function fails"],
+        risk_level=RiskLevel.LOW,
+        recovery_pointer="commit-role-routing-test",
+        role="Senior Software Engineer",
+    )
+    engine.assign_task(task.task_id, "forge")
+    manager.supervisor.review_task(engine, task.task_id)
+    engine.mark_ready(task.task_id)
+    manager.accept_task(task.task_id, "forge")
+
+    manager.execute_task(task.task_id)
+
+    assert len(fake_client.calls) == 1
+    call = fake_client.calls[0]
+
+    # Model selection actually used the task's role, not the default —
+    # this is the assertion that would have caught the earlier
+    # choose_model(prompt) positional-argument bug before it shipped.
+    assert call["model"] == settings.CODING_MODEL
+    assert call["model"] != settings.DEFAULT_MODEL
+
+    # Role system-context was actually prepended to the prompt sent to
+    # the model, not just computed by roles.py and discarded.
+    assert "Senior Software Engineer" in call["prompt"]
+    assert "implement software" in call["prompt"].lower()
+    assert "Task: Implement a function" in call["prompt"]
+
+    assert task.status == TaskStatus.REVIEW
+    print("test_role_based_routing_and_context: OK")
+
+
 if __name__ == "__main__":
     test_full_happy_path()
     test_human_approval_path()
     test_failure_escalation_retry_path()
     test_failure_escalation_cancel_path()
     test_no_orphaned_task_across_full_run()
+    test_role_based_routing_and_context()
     print("\nAll integration tests passed. Milestone 4 (Atomic Task Engine) confirmed working end to end.")
