@@ -1,0 +1,63 @@
+# =========================
+# Git
+# =========================
+.git/
+.github/
+
+# =========================
+# Python
+# =========================
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# =========================
+# IDE
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Graphify
+# =========================
+graphify-out/
+.graphify_analysis.json
+.graphify_labels.json
+
+# =========================
+# Runtime
+# =========================
+logs/
+memory/
+backups/
+tmp/
+temp/
+
+# =========================
+# Generated files
+# =========================
+tree.txt
+*.log
+
+# =========================
+# Environment
+# =========================
+.env
+
+# =========================
+# Documentation to skip during semantic extraction
+# =========================
+docs/SESSION_RESUME.md
+SESSION_RESUME.md
+
+# =========================
+# OS
+# =========================
+Thumbs.db
+.DS_Store
