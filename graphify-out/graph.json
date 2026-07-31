@@ -1,7 +1,21 @@
 {
   "directed": false,
   "multigraph": false,
-  "graph": {},
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "omniforces_memory_architecture",
+        "label": "Human Readable Label",
+        "nodes": [
+          "src_auth_session"
+        ],
+        "relation": "participate_in|implement|form",
+        "confidence": "EXTRACTED|INFERRED",
+        "confidence_score": 0.75,
+        "source_file": "docs/architecture/brain/specifications/MEMORY_ARCHITECTURE.md"
+      }
+    ]
+  },
   "nodes": [
     {
       "label": "agent_manager.py",
@@ -1674,6 +1688,64 @@
       "norm_label": "webhook()",
       "community_name": "main.py",
       "id": "app_webhook_webhook"
+    },
+    {
+      "label": "Backup-Ollama.ps1",
+      "file_type": "code",
+      "source_file": "docs/tools/ollama/Backup-Ollama.ps1",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 12,
+      "norm_label": "backup-ollama.ps1",
+      "id": "docs_tools_ollama_backup_ollama",
+      "community_name": "Backup-Ollama.ps1"
+    },
+    {
+      "label": "Restore-Ollama.ps1",
+      "file_type": "code",
+      "source_file": "docs/tools/ollama/Restore-Ollama.ps1",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 13,
+      "norm_label": "restore-ollama.ps1",
+      "id": "docs_tools_ollama_restore_ollama",
+      "community_name": "Restore-Ollama.ps1"
+    },
+    {
+      "label": "Update-Ollama.ps1",
+      "file_type": "code",
+      "source_file": "docs/tools/ollama/Update-Ollama.ps1",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 14,
+      "norm_label": "update-ollama.ps1",
+      "id": "docs_tools_ollama_update_ollama",
+      "community_name": "Update-Ollama.ps1"
+    },
+    {
+      "label": "Verify-Ollama.ps1",
+      "file_type": "code",
+      "source_file": "docs/tools/ollama/Verify-Ollama.ps1",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 15,
+      "norm_label": "verify-ollama.ps1",
+      "id": "docs_tools_ollama_verify_ollama",
+      "community_name": "Verify-Ollama.ps1"
+    },
+    {
+      "label": "Human Readable Name",
+      "file_type": "concept",
+      "source_file": "src/auth/session.py",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "community": 16,
+      "norm_label": "human readable name",
+      "id": "src_auth_session",
+      "community_name": "Human Readable Name"
     }
   ],
   "links": [
@@ -5302,8 +5374,30 @@
       "confidence_score": 1.0,
       "source": "app_webhook_webhook",
       "target": "app_webhook_py_post"
+    },
+    {
+      "relation": "calls|implements|references|cites|conceptually_related_to|shares_data_with|semantically_similar_to",
+      "confidence": "EXTRACTED|INFERRED|AMBIGUOUS",
+      "confidence_score": 1.0,
+      "source_file": "src/auth/session.py",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "src_auth_session",
+      "target": "src_auth_session"
     }
   ],
-  "hyperedges": [],
-  "built_at_commit": "17094c5bbfb42ceed55afc25ac48820bc5344f66"
+  "hyperedges": [
+    {
+      "id": "omniforces_memory_architecture",
+      "label": "Human Readable Label",
+      "nodes": [
+        "src_auth_session"
+      ],
+      "relation": "participate_in|implement|form",
+      "confidence": "EXTRACTED|INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "docs/architecture/brain/specifications/MEMORY_ARCHITECTURE.md"
+    }
+  ],
+  "built_at_commit": "0f94e8fc6acabb01f62066448608086aaefda2b9"
 }

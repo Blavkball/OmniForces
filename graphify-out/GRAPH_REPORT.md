@@ -1,15 +1,15 @@
-# Graph Report - .  (2026-07-30)
+# Graph Report - .  (2026-07-31)
 
 ## Corpus Check
 - cluster-only mode — file stats not available
 
 ## Summary
-- 152 nodes · 316 edges · 12 communities
+- 157 nodes · 317 edges · 17 communities (16 shown, 1 thin omitted)
 - Extraction: 88% EXTRACTED · 12% INFERRED · 0% AMBIGUOUS · INFERRED: 37 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `17094c5b`
+- Built from commit: `0f94e8fc`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -21,6 +21,7 @@
 - AgentManager
 - SupervisorControl
 - OllamaClient
+- Human Readable Name
 
 ## God Nodes (most connected - your core abstractions)
 1. `AtomicTaskEngine` - 37 edges
@@ -49,7 +50,10 @@
 ## Import Cycles
 - None detected.
 
-## Communities (12 total, 0 thin omitted)
+## Hyperedges (group relationships)
+- **Human Readable Label** — src_auth_session [EXTRACTED|INFERRED 0.75]
+
+## Communities (17 total, 1 thin omitted)
 
 ### Community 0 - "test_ate_integration.py"
 Cohesion: 0.11
@@ -79,15 +83,18 @@ Nodes (7): Records the outcome of an actual human decision on a task sitting in 
 Cohesion: 0.16
 Nodes (8): OmniForces Configuration Loads application configuration from the environment.…, Application configuration., Settings, OmniForces Logger Provides a shared logger for all application modules., AIResponse, OllamaClient, Provider interface for Ollama. Responsibilities: - Connect to Ollama. - Send…, Generate a response using the supplied model. If no model is supplied, the…
 
+## Knowledge Gaps
+- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `AtomicTaskEngine` connect `AtomicTaskEngine` to `test_ate_integration.py`, `agent_manager.py`, `AgentManager`, `SupervisorControl`, `OllamaClient`?**
-  _High betweenness centrality (0.219) - this node is a cross-community bridge._
+  _High betweenness centrality (0.205) - this node is a cross-community bridge._
 - **Why does `AgentManager` connect `AgentManager` to `test_ate_integration.py`, `AtomicTaskEngine`, `agent_manager.py`, `SupervisorControl`, `OllamaClient`?**
-  _High betweenness centrality (0.208) - this node is a cross-community bridge._
+  _High betweenness centrality (0.194) - this node is a cross-community bridge._
 - **Why does `choose_model()` connect `main.py` to `agent_manager.py`, `AgentManager`?**
-  _High betweenness centrality (0.124) - this node is a cross-community bridge._
+  _High betweenness centrality (0.116) - this node is a cross-community bridge._
 - **Are the 6 inferred relationships involving `AtomicTaskEngine` (e.g. with `AgentManager` and `AgentManagerError`) actually correct?**
   _`AtomicTaskEngine` has 6 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 4 inferred relationships involving `AtomicTask` (e.g. with `AgentManager` and `AgentManagerError`) actually correct?**
