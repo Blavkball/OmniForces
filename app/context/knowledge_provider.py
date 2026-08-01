@@ -2,21 +2,23 @@
 OmniForces
 Knowledge Provider
 
-Central access point for repository knowledge.
+Central knowledge access layer.
 
-Combines:
+Provides:
 - Graphify code knowledge
 - Repository knowledge
-- Documentation knowledge
+- AI_Knowledge documentation
 
-AI employees should query this layer
-instead of accessing files directly.
+Future:
+- Obsidian
+- Memory
+- RAG
+- Vector search
 """
-
-from pathlib import Path
 
 from app.context.graphify_context import GraphifyContext
 from app.context.repository_context import RepositoryContext
+from app.context.ai_knowledge_context import AIKnowledgeContext
 
 
 class KnowledgeProviderError(Exception):
@@ -24,34 +26,27 @@ class KnowledgeProviderError(Exception):
 
 
 class KnowledgeProvider:
-    """
-    Provides unified knowledge access.
-
-    Future sources:
-    - Obsidian
-    - Memory
-    - RAG
-    - Vector search
-    """
 
     def __init__(self):
+
         self.graph = GraphifyContext()
         self.repositories = RepositoryContext()
+        self.ai_knowledge = AIKnowledgeContext()
 
 
     def get_repository(self, name: str):
         """
-        Return repository location.
+        Return repository path.
         """
 
-        repos = self.repositories.list_available()
+        repositories = self.repositories.list_available()
 
-        return repos.get(name)
+        return repositories.get(name)
 
 
     def find_code(self, query: str):
         """
-        Search code knowledge through Graphify.
+        Search Graphify code knowledge.
         """
 
         return self.graph.find_nodes(query)
@@ -59,39 +54,57 @@ class KnowledgeProvider:
 
     def find_related(self, query: str):
         """
-        Find relationships around a code object.
+        Search Graphify relationships.
         """
 
         return self.graph.find_related(query)
 
 
-    def find_documentation(self, repository: str, filename: str):
+    def find_documentation(self, query: str):
         """
-        Locate documentation files.
+        Search documentation across knowledge sources.
         """
 
-        repo = self.get_repository(repository)
+        results = []
 
-        if not repo:
-            raise KnowledgeProviderError(
-                f"Unknown repository: {repository}"
+        repositories = self.repositories.list_available()
+
+        for name, path in repositories.items():
+
+            matches = list(
+                path.rglob(f"*{query}*")
             )
 
-        matches = list(repo.rglob(filename))
+            results.extend(matches)
 
-        return matches
+
+        return results
+
+
+    def get_all_repositories(self):
+        """
+        Return all known repositories.
+        """
+
+        return self.repositories.list_available()
+
+
+    def get_global_knowledge(self):
+        """
+        Return central AI knowledge.
+        """
+
+        return self.ai_knowledge.get_global_knowledge()
 
 
     def search(self, query: str):
         """
-        General knowledge search.
-
-        Initial version:
-        - Searches code graph
-        - Searches documentation filenames
+        Unified knowledge search.
         """
 
         return {
             "code": self.find_code(query),
-            "repositories": self.repositories.list_available()
+            "related": self.find_related(query),
+            "documentation": self.find_documentation(query),
+            "repositories": self.get_all_repositories()
         }

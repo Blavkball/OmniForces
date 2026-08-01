@@ -1,29 +1,21 @@
-# ============================================
-# OmniForces
-# Supervisor Control Test
-# ============================================
+"""
+OmniForces
+Supervisor Control Test
+"""
 
-from supervisor.control import SupervisorControl
-
-
-supervisor = SupervisorControl()
+from app.supervisor.control import SupervisorControl
 
 
-supervisor.register_agent(
-    "KC-001",
-    "Standard AI Engineer Limit"
-)
+def test_supervisor_agent_limit():
 
+    supervisor = SupervisorControl()
 
-print(supervisor.check_limit("KC-001"))
+    supervisor.register_agent(
+        "KC-001",
+        "Standard AI Engineer Limit"
+    )
 
-
-approval = supervisor.request_approval(
-    "KC-001",
-    "Load advanced skill"
-)
-
-
-print(approval)
-
-print("Supervisor control test complete")
+    assert (
+        supervisor.check_limit("KC-001")
+        == "Standard AI Engineer Limit"
+    )

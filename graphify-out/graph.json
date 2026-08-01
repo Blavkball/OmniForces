@@ -1,22 +1,844 @@
 {
   "directed": false,
   "multigraph": false,
-  "graph": {
-    "hyperedges": [
-      {
-        "id": "omniforces_memory_architecture",
-        "label": "Human Readable Label",
-        "nodes": [
-          "src_auth_session"
-        ],
-        "relation": "participate_in|implement|form",
-        "confidence": "EXTRACTED|INFERRED",
-        "confidence_score": 0.75,
-        "source_file": "docs/architecture/brain/specifications/MEMORY_ARCHITECTURE.md"
-      }
-    ]
-  },
+  "graph": {},
   "nodes": [
+    {
+      "label": "__init__.py",
+      "file_type": "code",
+      "source_file": "app/context/__init__.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_context_init",
+      "community": 17,
+      "community_name": "__init__.py",
+      "norm_label": "__init__.py"
+    },
+    {
+      "label": "ai_knowledge_context.py",
+      "file_type": "code",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": "ai_knowledge_context.py"
+    },
+    {
+      "label": "AIKnowledgeContextError",
+      "file_type": "code",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context_aiknowledgecontexterror",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": "aiknowledgecontexterror"
+    },
+    {
+      "label": "Exception",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context_py_exception",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": "exception"
+    },
+    {
+      "label": "AIKnowledgeContext",
+      "file_type": "code",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context_aiknowledgecontext",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": "aiknowledgecontext"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context_aiknowledgecontext_init",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".exists()",
+      "file_type": "code",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context_aiknowledgecontext_exists",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": ".exists()"
+    },
+    {
+      "label": ".read_document()",
+      "file_type": "code",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context_aiknowledgecontext_read_document",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": ".read_document()"
+    },
+    {
+      "label": ".get_global_knowledge()",
+      "file_type": "code",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L55",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context_aiknowledgecontext_get_global_knowledge",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": ".get_global_knowledge()"
+    },
+    {
+      "label": ".list_domains()",
+      "file_type": "code",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context_aiknowledgecontext_list_domains",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": ".list_domains()"
+    },
+    {
+      "label": "OmniForces AI Knowledge Context Provider Reads the central KingC Software\u2026",
+      "file_type": "rationale",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context_rationale_1",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": "omniforces ai knowledge context provider reads the central kingc software..."
+    },
+    {
+      "label": "Raised when AI Knowledge cannot be loaded.",
+      "file_type": "rationale",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context_rationale_21",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": "raised when ai knowledge cannot be loaded."
+    },
+    {
+      "label": "Provides access to AI_Knowledge.",
+      "file_type": "rationale",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context_rationale_26",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": "provides access to ai_knowledge."
+    },
+    {
+      "label": "Check AI_Knowledge availability.",
+      "file_type": "rationale",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context_rationale_34",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": "check ai_knowledge availability."
+    },
+    {
+      "label": "Read a markdown document from AI_Knowledge root.",
+      "file_type": "rationale",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context_rationale_40",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": "read a markdown document from ai_knowledge root."
+    },
+    {
+      "label": "Load GLOBAL_KNOWLEDGE.md",
+      "file_type": "rationale",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L56",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context_rationale_56",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": "load global_knowledge.md"
+    },
+    {
+      "label": "Return available knowledge folders.",
+      "file_type": "rationale",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "app_context_ai_knowledge_context_rationale_64",
+      "community": 6,
+      "community_name": "AIKnowledgeContext",
+      "norm_label": "return available knowledge folders."
+    },
+    {
+      "label": "graphify_context.py",
+      "file_type": "code",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_context_graphify_context",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": "graphify_context.py"
+    },
+    {
+      "label": "GraphifyContextError",
+      "file_type": "code",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_graphifycontexterror",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": "graphifycontexterror"
+    },
+    {
+      "label": "Exception",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_py_exception",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": "exception"
+    },
+    {
+      "label": "GraphifyContext",
+      "file_type": "code",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_graphifycontext",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": "graphifycontext"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_graphifycontext_init",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": "._load_json()",
+      "file_type": "code",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L39",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_graphifycontext_load_json",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": "._load_json()"
+    },
+    {
+      "label": "._get_nodes()",
+      "file_type": "code",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_graphifycontext_get_nodes",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": "._get_nodes()"
+    },
+    {
+      "label": "._get_links()",
+      "file_type": "code",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_graphifycontext_get_links",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": "._get_links()"
+    },
+    {
+      "label": ".get_graph()",
+      "file_type": "code",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_graphifycontext_get_graph",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": ".get_graph()"
+    },
+    {
+      "label": ".get_manifest()",
+      "file_type": "code",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L62",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_graphifycontext_get_manifest",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": ".get_manifest()"
+    },
+    {
+      "label": ".get_report()",
+      "file_type": "code",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L66",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_graphifycontext_get_report",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": ".get_report()"
+    },
+    {
+      "label": ".find_nodes()",
+      "file_type": "code",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L77",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_graphifycontext_find_nodes",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": ".find_nodes()"
+    },
+    {
+      "label": ".find_related()",
+      "file_type": "code",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_graphifycontext_find_related",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": ".find_related()"
+    },
+    {
+      "label": "OmniForces Graphify Context Reader Reads Graphify output and exposes repository\u2026",
+      "file_type": "rationale",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_rationale_1",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": "omniforces graphify context reader reads graphify output and exposes repository..."
+    },
+    {
+      "label": "Raised when Graphify context cannot be loaded.",
+      "file_type": "rationale",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_rationale_17",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": "raised when graphify context cannot be loaded."
+    },
+    {
+      "label": "Provides access to Graphify generated knowledge. Reads: - graph.json -\u2026",
+      "file_type": "rationale",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_rationale_22",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": "provides access to graphify generated knowledge. reads: - graph.json -..."
+    },
+    {
+      "label": "Return complete Graphify graph.",
+      "file_type": "rationale",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L59",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_rationale_59",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": "return complete graphify graph."
+    },
+    {
+      "label": "Return Graphify repository manifest.",
+      "file_type": "rationale",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_rationale_63",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": "return graphify repository manifest."
+    },
+    {
+      "label": "Return Graphify markdown report.",
+      "file_type": "rationale",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L67",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_rationale_67",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": "return graphify markdown report."
+    },
+    {
+      "label": "Find nodes matching an exact Graphify label.",
+      "file_type": "rationale",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L78",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_rationale_78",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": "find nodes matching an exact graphify label."
+    },
+    {
+      "label": "Find Graphify relationships connected to a node.",
+      "file_type": "rationale",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L89",
+      "_origin": "ast",
+      "id": "app_context_graphify_context_rationale_89",
+      "community": 5,
+      "community_name": "GraphifyContext",
+      "norm_label": "find graphify relationships connected to a node."
+    },
+    {
+      "label": "knowledge_provider.py",
+      "file_type": "code",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "knowledge_provider.py"
+    },
+    {
+      "label": "KnowledgeProviderError",
+      "file_type": "code",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_knowledgeprovidererror",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "knowledgeprovidererror"
+    },
+    {
+      "label": "Exception",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_py_exception",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "exception"
+    },
+    {
+      "label": "KnowledgeProvider",
+      "file_type": "code",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_knowledgeprovider",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "knowledgeprovider"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_knowledgeprovider_init",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".get_repository()",
+      "file_type": "code",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_knowledgeprovider_get_repository",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": ".get_repository()"
+    },
+    {
+      "label": ".find_code()",
+      "file_type": "code",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L52",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_knowledgeprovider_find_code",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": ".find_code()"
+    },
+    {
+      "label": ".find_related()",
+      "file_type": "code",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L60",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_knowledgeprovider_find_related",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": ".find_related()"
+    },
+    {
+      "label": ".find_documentation()",
+      "file_type": "code",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_knowledgeprovider_find_documentation",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": ".find_documentation()"
+    },
+    {
+      "label": ".search()",
+      "file_type": "code",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L85",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_knowledgeprovider_search",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": ".search()"
+    },
+    {
+      "label": "OmniForces Knowledge Provider Central access point for repository knowledge.\u2026",
+      "file_type": "rationale",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_rationale_1",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "omniforces knowledge provider central access point for repository knowledge...."
+    },
+    {
+      "label": "Provides unified knowledge access. Future sources: - Obsidian - Memory - RAG -\u2026",
+      "file_type": "rationale",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_rationale_27",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "provides unified knowledge access. future sources: - obsidian - memory - rag -..."
+    },
+    {
+      "label": "Return repository location.",
+      "file_type": "rationale",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_rationale_43",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "return repository location."
+    },
+    {
+      "label": "Search code knowledge through Graphify.",
+      "file_type": "rationale",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_rationale_53",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "search code knowledge through graphify."
+    },
+    {
+      "label": "Find relationships around a code object.",
+      "file_type": "rationale",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L61",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_rationale_61",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "find relationships around a code object."
+    },
+    {
+      "label": "Locate documentation files.",
+      "file_type": "rationale",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_rationale_69",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "locate documentation files."
+    },
+    {
+      "label": "General knowledge search. Initial version: - Searches code graph - Searches\u2026",
+      "file_type": "rationale",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L86",
+      "_origin": "ast",
+      "id": "app_context_knowledge_provider_rationale_86",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "general knowledge search. initial version: - searches code graph - searches..."
+    },
+    {
+      "label": "repository_context.py",
+      "file_type": "code",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_context_repository_context",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "repository_context.py"
+    },
+    {
+      "label": "RepositoryContextError",
+      "file_type": "code",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "app_context_repository_context_repositorycontexterror",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "repositorycontexterror"
+    },
+    {
+      "label": "Exception",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "app_context_repository_context_py_exception",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "exception"
+    },
+    {
+      "label": "RepositoryContext",
+      "file_type": "code",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L25",
+      "_origin": "ast",
+      "id": "app_context_repository_context_repositorycontext",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "repositorycontext"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "app_context_repository_context_repositorycontext_init",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".get_repositories()",
+      "file_type": "code",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L44",
+      "_origin": "ast",
+      "id": "app_context_repository_context_repositorycontext_get_repositories",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": ".get_repositories()"
+    },
+    {
+      "label": ".get_repository()",
+      "file_type": "code",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L50",
+      "_origin": "ast",
+      "id": "app_context_repository_context_repositorycontext_get_repository",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": ".get_repository()"
+    },
+    {
+      "label": ".exists()",
+      "file_type": "code",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "app_context_repository_context_repositorycontext_exists",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": ".exists()"
+    },
+    {
+      "label": ".list_available()",
+      "file_type": "code",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "app_context_repository_context_repositorycontext_list_available",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": ".list_available()"
+    },
+    {
+      "label": "OmniForces Repository Context Provider Provides access to connected KingC\u2026",
+      "file_type": "rationale",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_context_repository_context_rationale_1",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "omniforces repository context provider provides access to connected kingc..."
+    },
+    {
+      "label": "Raised when repository context cannot be loaded.",
+      "file_type": "rationale",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "app_context_repository_context_rationale_21",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "raised when repository context cannot be loaded."
+    },
+    {
+      "label": "Provides repository awareness for OmniForces.",
+      "file_type": "rationale",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "app_context_repository_context_rationale_26",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "provides repository awareness for omniforces."
+    },
+    {
+      "label": "Return registered repositories.",
+      "file_type": "rationale",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L45",
+      "_origin": "ast",
+      "id": "app_context_repository_context_rationale_45",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "return registered repositories."
+    },
+    {
+      "label": "Return a specific repository path.",
+      "file_type": "rationale",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L51",
+      "_origin": "ast",
+      "id": "app_context_repository_context_rationale_51",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "return a specific repository path."
+    },
+    {
+      "label": "Check repository availability.",
+      "file_type": "rationale",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L64",
+      "_origin": "ast",
+      "id": "app_context_repository_context_rationale_64",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "check repository availability."
+    },
+    {
+      "label": "Return repositories currently available.",
+      "file_type": "rationale",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "app_context_repository_context_rationale_70",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "return repositories currently available."
+    },
+    {
+      "label": "test_knowledge_provider.py",
+      "file_type": "code",
+      "source_file": "app/test_knowledge_provider.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_test_knowledge_provider",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "test_knowledge_provider.py"
+    },
+    {
+      "label": "test_knowledge_provider_loads()",
+      "file_type": "code",
+      "source_file": "app/test_knowledge_provider.py",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "app_test_knowledge_provider_test_knowledge_provider_loads",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "test_knowledge_provider_loads()"
+    },
+    {
+      "label": "test_repository_lookup()",
+      "file_type": "code",
+      "source_file": "app/test_knowledge_provider.py",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "app_test_knowledge_provider_test_repository_lookup",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "test_repository_lookup()"
+    },
+    {
+      "label": "test_code_search()",
+      "file_type": "code",
+      "source_file": "app/test_knowledge_provider.py",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "app_test_knowledge_provider_test_code_search",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "test_code_search()"
+    },
+    {
+      "label": "Tests for Knowledge Provider",
+      "file_type": "rationale",
+      "source_file": "app/test_knowledge_provider.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_test_knowledge_provider_rationale_1",
+      "community": 4,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "tests for knowledge provider"
+    },
     {
       "label": "agent_manager.py",
       "file_type": "code",
@@ -25,7 +847,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "agent_manager.py",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_agents_agent_manager"
     },
     {
@@ -36,7 +858,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "agentmanagererror",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_agents_agent_manager_agentmanagererror"
     },
     {
@@ -47,7 +869,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "exception",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_agents_agent_manager_py_exception"
     },
     {
@@ -56,7 +878,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L43",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": "agentmanager",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_agentmanager"
@@ -67,9 +889,9 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L51",
       "_origin": "ast",
-      "community": 6,
+      "community": 3,
       "norm_label": ".__init__()",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_agents_agent_manager_agentmanager_init"
     },
     {
@@ -78,7 +900,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L66",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": ".register_agent()",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_agentmanager_register_agent"
@@ -89,7 +911,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L72",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": ".get_agent()",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_agentmanager_get_agent"
@@ -102,7 +924,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": ".accept_task()",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_agents_agent_manager_agentmanager_accept_task"
     },
     {
@@ -111,7 +933,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L139",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": "._build_prompt()",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_agentmanager_build_prompt"
@@ -122,7 +944,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L156",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": ".execute_task()",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_agentmanager_execute_task"
@@ -133,7 +955,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L194",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": ".report_progress()",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_agentmanager_report_progress"
@@ -144,7 +966,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L199",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": ".report_result()",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_agentmanager_report_result"
@@ -155,7 +977,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L207",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": ".report_blocked()",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_agentmanager_report_blocked"
@@ -166,7 +988,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L220",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": ".check_permission()",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_agentmanager_check_permission"
@@ -179,7 +1001,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "raised when agent manager cannot accept or process a task as given.",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_agents_agent_manager_rationale_29"
     },
     {
@@ -188,7 +1010,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L44",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": "coordinates ai agents. never receives a task directly from supervisor \u2014 every...",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_rationale_44"
@@ -201,7 +1023,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "accepts a task from ate. validates it carries the required fields and is in an...",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_agents_agent_manager_rationale_80"
     },
     {
@@ -210,7 +1032,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L140",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": "builds the task-content portion of the prompt from the task's own fields. role...",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_rationale_140"
@@ -221,7 +1043,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L157",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": "runs a task that is already in executing (per accept_task) through the real...",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_rationale_157"
@@ -232,7 +1054,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L195",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": "level 1 status update \u2014 does not change ate's task status.",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_rationale_195"
@@ -243,7 +1065,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L200",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": "task result available \u2014 submits for review. ate moves the task to review, not...",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_rationale_200"
@@ -254,7 +1076,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L208",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": "task cannot proceed. routed through ate and supervisor per agent_manager.md's...",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_rationale_208"
@@ -265,7 +1087,7 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L221",
       "_origin": "ast",
-      "community": 4,
+      "community": 3,
       "norm_label": "confirms an agent's registered limit satisfies a required permission level...",
       "community_name": "AgentManager",
       "id": "app_agents_agent_manager_rationale_221"
@@ -276,9 +1098,9 @@
       "source_file": "app/config.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 6,
+      "community": 2,
       "norm_label": "config.py",
-      "community_name": "OllamaClient",
+      "community_name": "main.py",
       "id": "app_config"
     },
     {
@@ -287,9 +1109,9 @@
       "source_file": "app/config.py",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 6,
+      "community": 2,
       "norm_label": "settings",
-      "community_name": "OllamaClient",
+      "community_name": "main.py",
       "id": "app_config_settings"
     },
     {
@@ -298,9 +1120,9 @@
       "source_file": "app/config.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 6,
+      "community": 2,
       "norm_label": "omniforces configuration loads application configuration from the environment....",
-      "community_name": "OllamaClient",
+      "community_name": "main.py",
       "id": "app_config_rationale_1"
     },
     {
@@ -309,9 +1131,9 @@
       "source_file": "app/config.py",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 6,
+      "community": 2,
       "norm_label": "application configuration.",
-      "community_name": "OllamaClient",
+      "community_name": "main.py",
       "id": "app_config_rationale_17"
     },
     {
@@ -320,9 +1142,9 @@
       "source_file": "app/logger.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 6,
+      "community": 3,
       "norm_label": "logger.py",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_logger"
     },
     {
@@ -331,9 +1153,9 @@
       "source_file": "app/logger.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 6,
+      "community": 3,
       "norm_label": "omniforces logger provides a shared logger for all application modules.",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_logger_rationale_1"
     },
     {
@@ -419,9 +1241,9 @@
       "source_file": "app/models.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 6,
+      "community": 3,
       "norm_label": "models.py",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_models"
     },
     {
@@ -430,9 +1252,9 @@
       "source_file": "app/models.py",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 6,
+      "community": 3,
       "norm_label": "airesponse",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_models_airesponse"
     },
     {
@@ -441,9 +1263,9 @@
       "source_file": "app/ollama.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 6,
+      "community": 3,
       "norm_label": "ollama.py",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_ollama"
     },
     {
@@ -452,9 +1274,9 @@
       "source_file": "app/ollama.py",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 6,
+      "community": 3,
       "norm_label": "ollamaclient",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_ollama_ollamaclient"
     },
     {
@@ -463,9 +1285,9 @@
       "source_file": "app/ollama.py",
       "source_location": "L40",
       "_origin": "ast",
-      "community": 6,
+      "community": 3,
       "norm_label": ".__init__()",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_ollama_ollamaclient_init"
     },
     {
@@ -474,9 +1296,9 @@
       "source_file": "app/ollama.py",
       "source_location": "L44",
       "_origin": "ast",
-      "community": 6,
+      "community": 3,
       "norm_label": ".generate()",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_ollama_ollamaclient_generate"
     },
     {
@@ -485,9 +1307,9 @@
       "source_file": "app/ollama.py",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 6,
+      "community": 3,
       "norm_label": "provider interface for ollama. responsibilities: - connect to ollama. - send...",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_ollama_rationale_25"
     },
     {
@@ -496,9 +1318,9 @@
       "source_file": "app/ollama.py",
       "source_location": "L50",
       "_origin": "ast",
-      "community": 6,
+      "community": 3,
       "norm_label": "generate a response using the supplied model. if no model is supplied, the...",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_ollama_rationale_50"
     },
     {
@@ -509,7 +1331,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "roles.py",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_roles"
     },
     {
@@ -520,7 +1342,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "get_role_context()",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_roles_get_role_context"
     },
     {
@@ -531,7 +1353,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "returns the full system-context string for a role: shared engineering...",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_roles_rationale_79"
     },
     {
@@ -663,7 +1485,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "skill_loader.py",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_skills_skill_loader"
     },
     {
@@ -674,7 +1496,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "skillloader",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_skills_skill_loader_skillloader"
     },
     {
@@ -685,7 +1507,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": ".__init__()",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_skills_skill_loader_skillloader_init"
     },
     {
@@ -696,7 +1518,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": ".register_skill()",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_skills_skill_loader_skillloader_register_skill"
     },
     {
@@ -707,7 +1529,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": ".load_skill()",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_skills_skill_loader_skillloader_load_skill"
     },
     {
@@ -718,7 +1540,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": ".list_skills()",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_skills_skill_loader_skillloader_list_skills"
     },
     {
@@ -729,7 +1551,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "loads skills for ai agents when required.",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_skills_skill_loader_rationale_8"
     },
     {
@@ -740,7 +1562,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "control.py",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control"
     },
     {
@@ -751,7 +1573,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "supervisorcontrolerror",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrolerror"
     },
     {
@@ -762,7 +1584,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "exception",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_py_exception"
     },
     {
@@ -771,7 +1593,7 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L37",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": "supervisorcontrol",
       "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol"
@@ -782,7 +1604,7 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L48",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": ".__init__()",
       "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_init"
@@ -793,7 +1615,7 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L55",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": ".register_agent()",
       "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_register_agent"
@@ -804,7 +1626,7 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L58",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": ".check_limit()",
       "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_check_limit"
@@ -815,7 +1637,7 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L66",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": ".review_task()",
       "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_review_task"
@@ -826,7 +1648,7 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L98",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": "._requires_human_approval()",
       "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_requires_human_approval"
@@ -837,7 +1659,7 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L110",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": ".record_human_decision()",
       "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_record_human_decision"
@@ -848,7 +1670,7 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L124",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": ".replan()",
       "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_replan"
@@ -859,7 +1681,7 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L182",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": ".handle_escalation()",
       "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_handle_escalation"
@@ -872,7 +1694,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "raised when a supervisor decision is invalid or out of order.",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_rationale_34"
     },
     {
@@ -881,7 +1703,7 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": "control and decision coordination layer. holds no task state of its own \u2014 task...",
       "community_name": "SupervisorControl",
       "id": "app_supervisor_control_rationale_38"
@@ -892,7 +1714,7 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L67",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": "reviews an assigned task and decides whether it can proceed automatically or...",
       "community_name": "SupervisorControl",
       "id": "app_supervisor_control_rationale_67"
@@ -903,7 +1725,7 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L99",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": "evaluates a task against the human approval model. returns (requires_human:...",
       "community_name": "SupervisorControl",
       "id": "app_supervisor_control_rationale_99"
@@ -914,7 +1736,7 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L113",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": "records the outcome of an actual human decision on a task sitting in waiting...",
       "community_name": "SupervisorControl",
       "id": "app_supervisor_control_rationale_113"
@@ -925,7 +1747,7 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L132",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": "handles a task that has reached supervisor review after a failure. `decision`...",
       "community_name": "SupervisorControl",
       "id": "app_supervisor_control_rationale_132"
@@ -936,7 +1758,7 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L183",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": "entry point when agent manager reports a task cannot proceed. moves the task...",
       "community_name": "SupervisorControl",
       "id": "app_supervisor_control_rationale_183"
@@ -949,7 +1771,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "atomic_task_engine.py",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_tasks_atomic_task_engine"
     },
     {
@@ -960,7 +1782,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "taskstatus",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_tasks_atomic_task_engine_taskstatus"
     },
     {
@@ -971,7 +1793,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "str",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "str"
     },
     {
@@ -982,7 +1804,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "enum",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "enum"
     },
     {
@@ -993,7 +1815,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "risklevel",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_tasks_atomic_task_engine_risklevel"
     },
     {
@@ -1026,7 +1848,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "_now()",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_tasks_atomic_task_engine_now"
     },
     {
@@ -1037,7 +1859,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "executionevent",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_tasks_atomic_task_engine_executionevent"
     },
     {
@@ -1279,7 +2101,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": ".list_tasks()",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_tasks_atomic_task_engine_atomictaskengine_list_tasks"
     },
     {
@@ -1345,7 +2167,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "test_agent_manager.py",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_test_agent_manager"
     },
     {
@@ -1365,7 +2187,7 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 0,
+      "community": 16,
       "norm_label": "test_ate_integration.py",
       "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration"
@@ -1376,7 +2198,7 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 0,
+      "community": 16,
       "norm_label": "_build_system()",
       "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_build_system"
@@ -1389,7 +2211,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "_fakeollamaresponse",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_test_ate_integration_fakeollamaresponse"
     },
     {
@@ -1400,7 +2222,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": ".__init__()",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_test_ate_integration_fakeollamaresponse_init"
     },
     {
@@ -1411,7 +2233,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "_fakeollamaclient",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_test_ate_integration_fakeollamaclient"
     },
     {
@@ -1422,7 +2244,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": ".__init__()",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_test_ate_integration_fakeollamaclient_init"
     },
     {
@@ -1433,7 +2255,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": ".generate()",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_test_ate_integration_fakeollamaclient_generate"
     },
     {
@@ -1442,7 +2264,7 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L55",
       "_origin": "ast",
-      "community": 0,
+      "community": 16,
       "norm_label": "test_full_happy_path()",
       "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_test_full_happy_path"
@@ -1453,7 +2275,7 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L124",
       "_origin": "ast",
-      "community": 0,
+      "community": 16,
       "norm_label": "test_human_approval_path()",
       "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_test_human_approval_path"
@@ -1464,7 +2286,7 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L169",
       "_origin": "ast",
-      "community": 0,
+      "community": 16,
       "norm_label": "test_failure_escalation_retry_path()",
       "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_test_failure_escalation_retry_path"
@@ -1475,7 +2297,7 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L212",
       "_origin": "ast",
-      "community": 0,
+      "community": 16,
       "norm_label": "test_failure_escalation_cancel_path()",
       "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_test_failure_escalation_cancel_path"
@@ -1486,7 +2308,7 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L252",
       "_origin": "ast",
-      "community": 0,
+      "community": 16,
       "norm_label": "test_no_orphaned_task_across_full_run()",
       "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_test_no_orphaned_task_across_full_run"
@@ -1497,7 +2319,7 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L287",
       "_origin": "ast",
-      "community": 0,
+      "community": 16,
       "norm_label": "test_role_based_routing_and_context()",
       "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_test_role_based_routing_and_context"
@@ -1508,7 +2330,7 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 0,
+      "community": 16,
       "norm_label": "one shared atomictaskengine, one agentmanager holding one supervisorcontrol \u2014...",
       "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_rationale_22"
@@ -1521,7 +2343,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "stands in for a live ollama server. records every call so a test can assert...",
-      "community_name": "test_ate_integration.py",
+      "community_name": "SupervisorControl",
       "id": "app_test_ate_integration_rationale_41"
     },
     {
@@ -1530,7 +2352,7 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L56",
       "_origin": "ast",
-      "community": 0,
+      "community": 16,
       "norm_label": "human/supervisor request -> atomic task engine (approval, task state) -> agent...",
       "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_rationale_56"
@@ -1541,7 +2363,7 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L125",
       "_origin": "ast",
-      "community": 0,
+      "community": 16,
       "norm_label": "a high-risk task with an irreversible-action flag must stop for a real human...",
       "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_rationale_125"
@@ -1552,7 +2374,7 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L170",
       "_origin": "ast",
-      "community": 0,
+      "community": 16,
       "norm_label": "execution fails -> agent manager reports blocked -> routed through supervisor...",
       "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_rationale_170"
@@ -1563,7 +2385,7 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L213",
       "_origin": "ast",
-      "community": 0,
+      "community": 16,
       "norm_label": "execution fails -> escalated -> supervisor decides cancel, with full...",
       "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_rationale_213"
@@ -1574,7 +2396,7 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L253",
       "_origin": "ast",
-      "community": 0,
+      "community": 16,
       "norm_label": "sanity sweep: every task created across a full run must resolve to a defined...",
       "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_rationale_253"
@@ -1585,7 +2407,7 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L288",
       "_origin": "ast",
-      "community": 0,
+      "community": 16,
       "norm_label": "phase 3 exists to make two things true: (1) a task's role selects a non-default...",
       "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_rationale_288"
@@ -1642,7 +2464,7 @@
       "_origin": "ast",
       "community": 3,
       "norm_label": "test_skill_loader.py",
-      "community_name": "agent_manager.py",
+      "community_name": "AgentManager",
       "id": "app_test_skill_loader"
     },
     {
@@ -1651,7 +2473,7 @@
       "source_file": "app/test_supervisor.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 5,
+      "community": 0,
       "norm_label": "test_supervisor.py",
       "community_name": "SupervisorControl",
       "id": "app_test_supervisor"
@@ -1697,8 +2519,8 @@
       "_origin": "ast",
       "community": 12,
       "norm_label": "backup-ollama.ps1",
-      "id": "docs_tools_ollama_backup_ollama",
-      "community_name": "Backup-Ollama.ps1"
+      "community_name": "Backup-Ollama.ps1",
+      "id": "docs_tools_ollama_backup_ollama"
     },
     {
       "label": "Restore-Ollama.ps1",
@@ -1708,8 +2530,8 @@
       "_origin": "ast",
       "community": 13,
       "norm_label": "restore-ollama.ps1",
-      "id": "docs_tools_ollama_restore_ollama",
-      "community_name": "Restore-Ollama.ps1"
+      "community_name": "Restore-Ollama.ps1",
+      "id": "docs_tools_ollama_restore_ollama"
     },
     {
       "label": "Update-Ollama.ps1",
@@ -1719,8 +2541,8 @@
       "_origin": "ast",
       "community": 14,
       "norm_label": "update-ollama.ps1",
-      "id": "docs_tools_ollama_update_ollama",
-      "community_name": "Update-Ollama.ps1"
+      "community_name": "Update-Ollama.ps1",
+      "id": "docs_tools_ollama_update_ollama"
     },
     {
       "label": "Verify-Ollama.ps1",
@@ -1730,25 +2552,1173 @@
       "_origin": "ast",
       "community": 15,
       "norm_label": "verify-ollama.ps1",
-      "id": "docs_tools_ollama_verify_ollama",
-      "community_name": "Verify-Ollama.ps1"
-    },
-    {
-      "label": "Human Readable Name",
-      "file_type": "concept",
-      "source_file": "src/auth/session.py",
-      "source_location": null,
-      "source_url": null,
-      "captured_at": null,
-      "author": null,
-      "contributor": null,
-      "community": 16,
-      "norm_label": "human readable name",
-      "id": "src_auth_session",
-      "community_name": "Human Readable Name"
+      "community_name": "Verify-Ollama.ps1",
+      "id": "docs_tools_ollama_verify_ollama"
     }
   ],
   "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontexterror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_rationale_1",
+      "target": "app_context_ai_knowledge_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_aiknowledgecontext_read_document",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontexterror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_aiknowledgecontexterror",
+      "target": "app_context_ai_knowledge_context_py_exception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_rationale_21",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontexterror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_aiknowledgecontext",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontext_exists",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_aiknowledgecontext",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontext_get_global_knowledge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_aiknowledgecontext",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontext_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_aiknowledgecontext",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontext_list_domains",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_aiknowledgecontext",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontext_read_document",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_rationale_26",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_aiknowledgecontext_read_document",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontext_exists",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_rationale_34",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontext_exists",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_aiknowledgecontext_get_global_knowledge",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontext_read_document",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_rationale_40",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontext_read_document",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L56",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_rationale_56",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontext_get_global_knowledge",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/ai_knowledge_context.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_ai_knowledge_context_rationale_64",
+      "target": "app_context_ai_knowledge_context_aiknowledgecontext_list_domains",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context",
+      "target": "app_context_graphify_context_graphifycontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context",
+      "target": "app_context_graphify_context_graphifycontexterror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_rationale_1",
+      "target": "app_context_graphify_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider",
+      "target": "app_context_graphify_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L71",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext_get_report",
+      "target": "app_context_graphify_context_graphifycontexterror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext_load_json",
+      "target": "app_context_graphify_context_graphifycontexterror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontexterror",
+      "target": "app_context_graphify_context_py_exception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_rationale_17",
+      "target": "app_context_graphify_context_graphifycontexterror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L77",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext",
+      "target": "app_context_graphify_context_graphifycontext_find_nodes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L88",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext",
+      "target": "app_context_graphify_context_graphifycontext_find_related",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext",
+      "target": "app_context_graphify_context_graphifycontext_get_graph",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext",
+      "target": "app_context_graphify_context_graphifycontext_get_links",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L62",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext",
+      "target": "app_context_graphify_context_graphifycontext_get_manifest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext",
+      "target": "app_context_graphify_context_graphifycontext_get_nodes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L66",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext",
+      "target": "app_context_graphify_context_graphifycontext_get_report",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext",
+      "target": "app_context_graphify_context_graphifycontext_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext",
+      "target": "app_context_graphify_context_graphifycontext_load_json",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_rationale_22",
+      "target": "app_context_graphify_context_graphifycontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider",
+      "target": "app_context_graphify_context_graphifycontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L18",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovider",
+      "target": "app_context_graphify_context_graphifycontext",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L38",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovider_init",
+      "target": "app_context_graphify_context_graphifycontext"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L18",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovidererror",
+      "target": "app_context_graphify_context_graphifycontext",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext_get_graph",
+      "target": "app_context_graphify_context_graphifycontext_load_json",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext_get_manifest",
+      "target": "app_context_graphify_context_graphifycontext_load_json",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L84",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext_find_nodes",
+      "target": "app_context_graphify_context_graphifycontext_get_nodes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext_get_nodes",
+      "target": "app_context_graphify_context_graphifycontext_get_graph",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L105",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext_find_related",
+      "target": "app_context_graphify_context_graphifycontext_get_links",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L55",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext_get_links",
+      "target": "app_context_graphify_context_graphifycontext_get_graph",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L59",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_rationale_59",
+      "target": "app_context_graphify_context_graphifycontext_get_graph",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_rationale_63",
+      "target": "app_context_graphify_context_graphifycontext_get_manifest",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_rationale_67",
+      "target": "app_context_graphify_context_graphifycontext_get_report",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L93",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_graphifycontext_find_related",
+      "target": "app_context_graphify_context_graphifycontext_find_nodes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L78",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_rationale_78",
+      "target": "app_context_graphify_context_graphifycontext_find_nodes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/graphify_context.py",
+      "source_location": "L89",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_graphify_context_rationale_89",
+      "target": "app_context_graphify_context_graphifycontext_find_related",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider",
+      "target": "app_context_knowledge_provider_knowledgeprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider",
+      "target": "app_context_knowledge_provider_knowledgeprovidererror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider",
+      "target": "app_context_repository_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider",
+      "target": "app_context_repository_context_repositorycontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_rationale_1",
+      "target": "app_context_knowledge_provider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_knowledge_provider.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_knowledge_provider",
+      "target": "app_context_knowledge_provider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L76",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovider_find_documentation",
+      "target": "app_context_knowledge_provider_knowledgeprovidererror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovidererror",
+      "target": "app_context_knowledge_provider_py_exception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L19",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovidererror",
+      "target": "app_context_repository_context_repositorycontext",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L52",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovider",
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_code",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovider",
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_documentation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L60",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovider",
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_related",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovider",
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_repository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovider",
+      "target": "app_context_knowledge_provider_knowledgeprovider_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L85",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovider",
+      "target": "app_context_knowledge_provider_knowledgeprovider_search",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L19",
+      "weight": 0.8,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovider",
+      "target": "app_context_repository_context_repositorycontext",
+      "confidence_score": 0.5
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_rationale_27",
+      "target": "app_context_knowledge_provider_knowledgeprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_knowledge_provider.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_knowledge_provider",
+      "target": "app_context_knowledge_provider_knowledgeprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_knowledge_provider.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_knowledge_provider_test_code_search",
+      "target": "app_context_knowledge_provider_knowledgeprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_knowledge_provider.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_knowledge_provider_test_knowledge_provider_loads",
+      "target": "app_context_knowledge_provider_knowledgeprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_knowledge_provider.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_knowledge_provider_test_repository_lookup",
+      "target": "app_context_knowledge_provider_knowledgeprovider",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovider_init",
+      "target": "app_context_repository_context_repositorycontext"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L73",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovider_find_documentation",
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_repository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_rationale_43",
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_repository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L95",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_knowledgeprovider_search",
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_code",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_rationale_53",
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_code",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L61",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_rationale_61",
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_related",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_rationale_69",
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_documentation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L86",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_knowledge_provider_rationale_86",
+      "target": "app_context_knowledge_provider_knowledgeprovider_search",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context",
+      "target": "app_context_repository_context_repositorycontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context",
+      "target": "app_context_repository_context_repositorycontexterror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_rationale_1",
+      "target": "app_context_repository_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_rationale_21",
+      "target": "app_context_repository_context_repositorycontexterror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_repositorycontext_get_repository",
+      "target": "app_context_repository_context_repositorycontexterror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L20",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_repositorycontexterror",
+      "target": "app_context_repository_context_py_exception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_rationale_26",
+      "target": "app_context_repository_context_repositorycontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_repositorycontext",
+      "target": "app_context_repository_context_repositorycontext_exists",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_repositorycontext",
+      "target": "app_context_repository_context_repositorycontext_get_repositories",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L50",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_repositorycontext",
+      "target": "app_context_repository_context_repositorycontext_get_repository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_repositorycontext",
+      "target": "app_context_repository_context_repositorycontext_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_repositorycontext",
+      "target": "app_context_repository_context_repositorycontext_list_available",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L45",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_rationale_45",
+      "target": "app_context_repository_context_repositorycontext_get_repositories",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L51",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_rationale_51",
+      "target": "app_context_repository_context_repositorycontext_get_repository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L67",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_repositorycontext_exists",
+      "target": "app_context_repository_context_repositorycontext_get_repository",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_rationale_64",
+      "target": "app_context_repository_context_repositorycontext_exists",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L76",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_repositorycontext_list_available",
+      "target": "app_context_repository_context_repositorycontext_exists",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/repository_context.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_repository_context_rationale_70",
+      "target": "app_context_repository_context_repositorycontext_list_available",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_knowledge_provider.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_knowledge_provider",
+      "target": "app_test_knowledge_provider_test_code_search",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_knowledge_provider.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_knowledge_provider",
+      "target": "app_test_knowledge_provider_test_knowledge_provider_loads",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_knowledge_provider.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_knowledge_provider",
+      "target": "app_test_knowledge_provider_test_repository_lookup",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_knowledge_provider.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_knowledge_provider_rationale_1",
+      "target": "app_test_knowledge_provider",
+      "confidence_score": 1.0
+    },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
@@ -5374,30 +7344,8 @@
       "confidence_score": 1.0,
       "source": "app_webhook_webhook",
       "target": "app_webhook_py_post"
-    },
-    {
-      "relation": "calls|implements|references|cites|conceptually_related_to|shares_data_with|semantically_similar_to",
-      "confidence": "EXTRACTED|INFERRED|AMBIGUOUS",
-      "confidence_score": 1.0,
-      "source_file": "src/auth/session.py",
-      "source_location": null,
-      "weight": 1.0,
-      "source": "src_auth_session",
-      "target": "src_auth_session"
     }
   ],
-  "hyperedges": [
-    {
-      "id": "omniforces_memory_architecture",
-      "label": "Human Readable Label",
-      "nodes": [
-        "src_auth_session"
-      ],
-      "relation": "participate_in|implement|form",
-      "confidence": "EXTRACTED|INFERRED",
-      "confidence_score": 0.75,
-      "source_file": "docs/architecture/brain/specifications/MEMORY_ARCHITECTURE.md"
-    }
-  ],
-  "built_at_commit": "0f94e8fc6acabb01f62066448608086aaefda2b9"
+  "hyperedges": [],
+  "built_at_commit": "7b5dfe76484c47aa4e792ede1cd2611c1510b95d"
 }
