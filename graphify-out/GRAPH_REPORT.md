@@ -1,16 +1,16 @@
 # Graph Report - OmniForces  (2026-08-02)
 
 ## Corpus Check
-- 36 files · ~8,545 words
+- 36 files · ~8,547 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 297 nodes · 477 edges · 25 communities (20 shown, 5 thin omitted)
+- 299 nodes · 479 edges · 25 communities (21 shown, 4 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 23 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `bf2fb0cc`
+- Built from commit: `1df19a67`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -18,7 +18,7 @@
 - test_ate_integration.py
 - AtomicTaskEngine
 - main.py
-- .__init__
+- AgentManager
 - RepositoryContext
 - GraphifyContext
 - AIKnowledgeContext
@@ -45,25 +45,25 @@
 10. `TaskStatus` - 11 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `_FakeOllamaClient` --uses--> `AgentManagerError`  [INFERRED]
+  app/test_ate_integration.py → app/agents/agent_manager.py
+- `_FakeOllamaResponse` --uses--> `AgentManagerError`  [INFERRED]
+  app/test_ate_integration.py → app/agents/agent_manager.py
+- `_FakeOllamaClient` --uses--> `AgentManager`  [INFERRED]
+  app/test_ate_integration.py → app/agents/agent_manager.py
+- `_FakeOllamaResponse` --uses--> `AgentManager`  [INFERRED]
+  app/test_ate_integration.py → app/agents/agent_manager.py
 - `SupervisorControlError` --uses--> `AtomicTask`  [INFERRED]
-  app/supervisor/control.py → app/tasks/atomic_task_engine.py
-- `SupervisorControlError` --uses--> `AtomicTaskEngine`  [INFERRED]
-  app/supervisor/control.py → app/tasks/atomic_task_engine.py
-- `SupervisorControlError` --uses--> `TaskEngineError`  [INFERRED]
-  app/supervisor/control.py → app/tasks/atomic_task_engine.py
-- `SupervisorControl` --uses--> `AtomicTask`  [INFERRED]
-  app/supervisor/control.py → app/tasks/atomic_task_engine.py
-- `SupervisorControl` --uses--> `AtomicTaskEngine`  [INFERRED]
   app/supervisor/control.py → app/tasks/atomic_task_engine.py
 
 ## Import Cycles
 - None detected.
 
-## Communities (25 total, 5 thin omitted)
+## Communities (25 total, 4 thin omitted)
 
 ### Community 0 - "test_ate_integration.py"
-Cohesion: 0.06
-Nodes (34): AgentManager, AgentManagerError, Raised when Agent Manager cannot accept or process a task., Coordinates AI agents. Agent Manager: - does not create tasks - does not…, get_role_context(), Returns the full system-context string for a role: shared Engineering…, Exception, Raised when a Supervisor decision is invalid or out of order. (+26 more)
+Cohesion: 0.08
+Nodes (29): get_role_context(), Returns the full system-context string for a role: shared Engineering…, Exception, Raised when a Supervisor decision is invalid or out of order., SupervisorControlError, ExecutionEvent, _now(), RiskLevel (+21 more)
 
 ### Community 1 - "AtomicTaskEngine"
 Cohesion: 0.22
@@ -72,6 +72,10 @@ Nodes (9): AtomicTask, AtomicTaskEngine, Exception, Creates, tracks, and closes 
 ### Community 2 - "main.py"
 Cohesion: 0.13
 Nodes (15): ask_ai(), health(), home(), models(), post, choose_model(), ModelRouter, OmniForces Model Router Purpose: Centralised model selection for AI Employees.… (+7 more)
+
+### Community 3 - "AgentManager"
+Cohesion: 0.13
+Nodes (10): AgentManager, AgentManagerError, Raised when Agent Manager cannot accept or process a task., Coordinates AI agents. Agent Manager: - does not create tasks - does not…, KnowledgeProviderError, Raised when the Knowledge Provider encounters an error., AtomicTask, AtomicTaskEngine (+2 more)
 
 ### Community 4 - "RepositoryContext"
 Cohesion: 0.15
@@ -90,8 +94,8 @@ Cohesion: 0.08
 Nodes (19): ContextBuilder, OmniForces Context Builder Creates structured AI employee context., Build complete context package., KnowledgeProvider, OmniForces Knowledge Provider Central knowledge access layer. Provides: -…, Return a single Obsidian note. Args: filename: Markdown filename. Returns: str:…, Unified knowledge search. Returns knowledge collected from every available…, Central access point for all knowledge sources used by OmniForces. (+11 more)
 
 ### Community 18 - "ObsidianContext"
-Cohesion: 0.12
-Nodes (18): KnowledgeProviderError, Raised when the Knowledge Provider encounters an error., ObsidianContext, ObsidianContextError, OmniForces Obsidian Context Provider Reads the human knowledge vault…, Raised when Obsidian vault cannot be loaded., Provides access to the Obsidian vault., Check vault availability. (+10 more)
+Cohesion: 0.14
+Nodes (15): ObsidianContext, ObsidianContextError, OmniForces Obsidian Context Provider Reads the human knowledge vault…, Raised when Obsidian vault cannot be loaded., Provides access to the Obsidian vault., Check vault availability., Return all markdown note filenames in the vault., Read a single note from the vault root. (+7 more)
 
 ### Community 19 - "OllamaClient"
 Cohesion: 0.18
@@ -106,17 +110,17 @@ Cohesion: 0.24
 Nodes (13): build_manager(), create_test_task(), FakeOllamaClient, FakeResponse, OmniForces Agent Manager Tests Pytest coverage for: - Agent registration - Task…, test_accept_created_task(), test_accept_unknown_agent_rejected(), test_agent_permission_check() (+5 more)
 
 ## Knowledge Gaps
-- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **4 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `AgentManagerError` connect `test_ate_integration.py` to `ObsidianContext`?**
-  _High betweenness centrality (0.417) - this node is a cross-community bridge._
-- **Why does `KnowledgeProviderError` connect `ObsidianContext` to `KnowledgeProvider`?**
-  _High betweenness centrality (0.327) - this node is a cross-community bridge._
+- **Why does `AgentManagerError` connect `AgentManager` to `test_ate_integration.py`?**
+  _High betweenness centrality (0.411) - this node is a cross-community bridge._
+- **Why does `KnowledgeProviderError` connect `AgentManager` to `KnowledgeProvider`?**
+  _High betweenness centrality (0.323) - this node is a cross-community bridge._
 - **Why does `AtomicTaskEngine` connect `AtomicTaskEngine` to `test_ate_integration.py`, `SupervisorControl`?**
-  _High betweenness centrality (0.148) - this node is a cross-community bridge._
+  _High betweenness centrality (0.146) - this node is a cross-community bridge._
 - **Are the 4 inferred relationships involving `AtomicTaskEngine` (e.g. with `SupervisorControl` and `SupervisorControlError`) actually correct?**
   _`AtomicTaskEngine` has 4 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `AtomicTask` (e.g. with `SupervisorControl` and `SupervisorControlError`) actually correct?**
