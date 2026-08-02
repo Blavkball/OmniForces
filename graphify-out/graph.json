@@ -4,26 +4,26 @@
   "graph": {},
   "nodes": [
     {
-      "label": "knowledge_provider.py",
+      "label": "agent_manager.py",
       "file_type": "code",
-      "source_file": "app/context/knowledge_provider.py",
+      "source_file": "app/agents/agent_manager.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider",
-      "community": 16,
-      "community_name": "KnowledgeProvider",
-      "norm_label": "knowledge_provider.py"
+      "id": "app_agents_agent_manager",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": "agent_manager.py"
     },
     {
-      "label": "KnowledgeProviderError",
+      "label": "AgentManagerError",
       "file_type": "code",
-      "source_file": "app/context/knowledge_provider.py",
-      "source_location": "L25",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L33",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovidererror",
-      "community": 18,
-      "community_name": "ObsidianContext",
-      "norm_label": "knowledgeprovidererror"
+      "id": "app_agents_agent_manager_agentmanagererror",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": "agentmanagererror"
     },
     {
       "label": "Exception",
@@ -37,15 +37,213 @@
       "norm_label": "exception"
     },
     {
+      "label": "AgentManager",
+      "file_type": "code",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "app_agents_agent_manager_agentmanager",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": "agentmanager"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "app_agents_agent_manager_agentmanager_init",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": "AtomicTaskEngine",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "atomictaskengine",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": "atomictaskengine"
+    },
+    {
+      "label": "OllamaClient",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "ollamaclient",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": "ollamaclient"
+    },
+    {
+      "label": ".register_agent()",
+      "file_type": "code",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L90",
+      "_origin": "ast",
+      "id": "app_agents_agent_manager_agentmanager_register_agent",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": ".register_agent()"
+    },
+    {
+      "label": ".get_agent()",
+      "file_type": "code",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L112",
+      "_origin": "ast",
+      "id": "app_agents_agent_manager_agentmanager_get_agent",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": ".get_agent()"
+    },
+    {
+      "label": ".accept_task()",
+      "file_type": "code",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L121",
+      "_origin": "ast",
+      "id": "app_agents_agent_manager_agentmanager_accept_task",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": ".accept_task()"
+    },
+    {
+      "label": "._build_prompt()",
+      "file_type": "code",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L208",
+      "_origin": "ast",
+      "id": "app_agents_agent_manager_agentmanager_build_prompt",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": "._build_prompt()"
+    },
+    {
+      "label": "AtomicTask",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "atomictask",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": "atomictask"
+    },
+    {
+      "label": ".execute_task()",
+      "file_type": "code",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L231",
+      "_origin": "ast",
+      "id": "app_agents_agent_manager_agentmanager_execute_task",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": ".execute_task()"
+    },
+    {
+      "label": ".report_progress()",
+      "file_type": "code",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L298",
+      "_origin": "ast",
+      "id": "app_agents_agent_manager_agentmanager_report_progress",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": ".report_progress()"
+    },
+    {
+      "label": ".report_result()",
+      "file_type": "code",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L318",
+      "_origin": "ast",
+      "id": "app_agents_agent_manager_agentmanager_report_result",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": ".report_result()"
+    },
+    {
+      "label": ".report_blocked()",
+      "file_type": "code",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L336",
+      "_origin": "ast",
+      "id": "app_agents_agent_manager_agentmanager_report_blocked",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": ".report_blocked()"
+    },
+    {
+      "label": ".check_permission()",
+      "file_type": "code",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L353",
+      "_origin": "ast",
+      "id": "app_agents_agent_manager_agentmanager_check_permission",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": ".check_permission()"
+    },
+    {
+      "label": "Raised when Agent Manager cannot accept or process a task.",
+      "file_type": "rationale",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L34",
+      "_origin": "ast",
+      "id": "app_agents_agent_manager_rationale_34",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": "raised when agent manager cannot accept or process a task."
+    },
+    {
+      "label": "Coordinates AI agents. Agent Manager: - does not create tasks - does not\u2026",
+      "file_type": "rationale",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "app_agents_agent_manager_rationale_58",
+      "community": 3,
+      "community_name": "AgentManager",
+      "norm_label": "coordinates ai agents. agent manager: - does not create tasks - does not..."
+    },
+    {
+      "label": "knowledge_provider.py",
+      "file_type": "code",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 16,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "knowledge_provider.py",
+      "id": "app_context_knowledge_provider"
+    },
+    {
+      "label": "KnowledgeProviderError",
+      "file_type": "code",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L25",
+      "_origin": "ast",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "knowledgeprovidererror",
+      "id": "app_context_knowledge_provider_knowledgeprovidererror"
+    },
+    {
       "label": "KnowledgeProvider",
       "file_type": "code",
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "knowledgeprovider"
+      "norm_label": "knowledgeprovider",
+      "id": "app_context_knowledge_provider_knowledgeprovider"
     },
     {
       "label": ".__init__()",
@@ -53,10 +251,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L35",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_init",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".__init__()"
+      "norm_label": ".__init__()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_init"
     },
     {
       "label": ".get_repository()",
@@ -64,10 +262,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L41",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_get_repository",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".get_repository()"
+      "norm_label": ".get_repository()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_get_repository"
     },
     {
       "label": ".find_code()",
@@ -75,10 +273,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L50",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_find_code",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".find_code()"
+      "norm_label": ".find_code()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_find_code"
     },
     {
       "label": ".find_related()",
@@ -86,10 +284,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L57",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_find_related",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".find_related()"
+      "norm_label": ".find_related()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_find_related"
     },
     {
       "label": ".find_documentation()",
@@ -97,10 +295,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L64",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_find_documentation",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".find_documentation()"
+      "norm_label": ".find_documentation()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_find_documentation"
     },
     {
       "label": ".get_all_repositories()",
@@ -108,10 +306,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L83",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".get_all_repositories()"
+      "norm_label": ".get_all_repositories()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories"
     },
     {
       "label": ".get_global_knowledge()",
@@ -119,10 +317,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L90",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_get_global_knowledge",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".get_global_knowledge()"
+      "norm_label": ".get_global_knowledge()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_get_global_knowledge"
     },
     {
       "label": ".get_obsidian_notes()",
@@ -130,10 +328,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L97",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_get_obsidian_notes",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".get_obsidian_notes()"
+      "norm_label": ".get_obsidian_notes()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_get_obsidian_notes"
     },
     {
       "label": ".get_obsidian_note()",
@@ -141,10 +339,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L108",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_get_obsidian_note",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".get_obsidian_note()"
+      "norm_label": ".get_obsidian_note()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_get_obsidian_note"
     },
     {
       "label": ".search()",
@@ -152,10 +350,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L123",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_search",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".search()"
+      "norm_label": ".search()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_search"
     },
     {
       "label": "OmniForces Knowledge Provider Central knowledge access layer. Provides: -\u2026",
@@ -163,10 +361,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_1",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "omniforces knowledge provider central knowledge access layer. provides: -..."
+      "norm_label": "omniforces knowledge provider central knowledge access layer. provides: -...",
+      "id": "app_context_knowledge_provider_rationale_1"
     },
     {
       "label": "Raised when the Knowledge Provider encounters an error.",
@@ -174,10 +372,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L26",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_26",
       "community": 18,
       "community_name": "ObsidianContext",
-      "norm_label": "raised when the knowledge provider encounters an error."
+      "norm_label": "raised when the knowledge provider encounters an error.",
+      "id": "app_context_knowledge_provider_rationale_26"
     },
     {
       "label": "Central access point for all knowledge sources used by OmniForces.",
@@ -185,10 +383,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_31",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "central access point for all knowledge sources used by omniforces."
+      "norm_label": "central access point for all knowledge sources used by omniforces.",
+      "id": "app_context_knowledge_provider_rationale_31"
     },
     {
       "label": "Return the path to a repository by name.",
@@ -196,10 +394,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L42",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_42",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "return the path to a repository by name."
+      "norm_label": "return the path to a repository by name.",
+      "id": "app_context_knowledge_provider_rationale_42"
     },
     {
       "label": "Search Graphify code knowledge.",
@@ -207,10 +405,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L51",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_51",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "search graphify code knowledge."
+      "norm_label": "search graphify code knowledge.",
+      "id": "app_context_knowledge_provider_rationale_51"
     },
     {
       "label": "Search Graphify relationships.",
@@ -218,10 +416,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L58",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_58",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "search graphify relationships."
+      "norm_label": "search graphify relationships.",
+      "id": "app_context_knowledge_provider_rationale_58"
     },
     {
       "label": "Search documentation across all registered repositories.",
@@ -229,10 +427,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L65",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_65",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "search documentation across all registered repositories."
+      "norm_label": "search documentation across all registered repositories.",
+      "id": "app_context_knowledge_provider_rationale_65"
     },
     {
       "label": "Return all known repositories.",
@@ -240,10 +438,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L84",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_84",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "return all known repositories."
+      "norm_label": "return all known repositories.",
+      "id": "app_context_knowledge_provider_rationale_84"
     },
     {
       "label": "Return the AI_Knowledge documentation repository.",
@@ -251,10 +449,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L91",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_91",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "return the ai_knowledge documentation repository."
+      "norm_label": "return the ai_knowledge documentation repository.",
+      "id": "app_context_knowledge_provider_rationale_91"
     },
     {
       "label": "Return every note currently stored in the Obsidian vault. Returns: dict[str,\u2026",
@@ -262,10 +460,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L98",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_98",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "return every note currently stored in the obsidian vault. returns: dict[str,..."
+      "norm_label": "return every note currently stored in the obsidian vault. returns: dict[str,...",
+      "id": "app_context_knowledge_provider_rationale_98"
     },
     {
       "label": "Return a single Obsidian note. Args: filename: Markdown filename. Returns: str:\u2026",
@@ -273,10 +471,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L109",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_109",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "return a single obsidian note. args: filename: markdown filename. returns: str:..."
+      "norm_label": "return a single obsidian note. args: filename: markdown filename. returns: str:...",
+      "id": "app_context_knowledge_provider_rationale_109"
     },
     {
       "label": "Unified knowledge search. Returns knowledge collected from every available\u2026",
@@ -284,10 +482,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L124",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_124",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "unified knowledge search. returns knowledge collected from every available..."
+      "norm_label": "unified knowledge search. returns knowledge collected from every available...",
+      "id": "app_context_knowledge_provider_rationale_124"
     },
     {
       "label": "test_memory.py",
@@ -603,8 +801,8 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 16,
-      "community_name": "KnowledgeProvider",
+      "community": 23,
+      "community_name": "context_builder.py",
       "norm_label": "context_builder.py",
       "id": "app_context_context_builder"
     },
@@ -614,8 +812,8 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 16,
-      "community_name": "KnowledgeProvider",
+      "community": 23,
+      "community_name": "context_builder.py",
       "norm_label": "contextbuilder",
       "id": "app_context_context_builder_contextbuilder"
     },
@@ -625,8 +823,8 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 16,
-      "community_name": "KnowledgeProvider",
+      "community": 23,
+      "community_name": "context_builder.py",
       "norm_label": ".__init__()",
       "id": "app_context_context_builder_contextbuilder_init"
     },
@@ -636,8 +834,8 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 16,
-      "community_name": "KnowledgeProvider",
+      "community": 23,
+      "community_name": "context_builder.py",
       "norm_label": ".build()",
       "id": "app_context_context_builder_contextbuilder_build"
     },
@@ -647,8 +845,8 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 16,
-      "community_name": "KnowledgeProvider",
+      "community": 23,
+      "community_name": "context_builder.py",
       "norm_label": "omniforces context builder creates structured ai employee context.",
       "id": "app_context_context_builder_rationale_1"
     },
@@ -658,8 +856,8 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 16,
-      "community_name": "KnowledgeProvider",
+      "community": 23,
+      "community_name": "context_builder.py",
       "norm_label": "build complete context package.",
       "id": "app_context_context_builder_rationale_19"
     },
@@ -669,8 +867,8 @@
       "source_file": "app/test_supervisor.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
-      "community_name": "test_supervisor.py",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": "test_supervisor.py",
       "id": "app_test_supervisor"
     },
@@ -680,8 +878,8 @@
       "source_file": "app/test_supervisor.py",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 23,
-      "community_name": "test_supervisor.py",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": "test_supervisor_agent_limit()",
       "id": "app_test_supervisor_test_supervisor_agent_limit"
     },
@@ -691,8 +889,8 @@
       "source_file": "app/test_supervisor.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
-      "community_name": "test_supervisor.py",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": "omniforces supervisor control test",
       "id": "app_test_supervisor_rationale_1"
     },
@@ -1357,257 +1555,15 @@
       "id": "app_test_knowledge_provider_rationale_1"
     },
     {
-      "label": "agent_manager.py",
-      "file_type": "code",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 0,
-      "norm_label": "agent_manager.py",
-      "community_name": "agent_manager.py",
-      "id": "app_agents_agent_manager"
-    },
-    {
-      "label": "AgentManagerError",
-      "file_type": "code",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L28",
-      "_origin": "ast",
-      "community": 0,
-      "norm_label": "agentmanagererror",
-      "community_name": "agent_manager.py",
-      "id": "app_agents_agent_manager_agentmanagererror"
-    },
-    {
       "label": "Exception",
       "file_type": "code",
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 0,
+      "community": 24,
       "norm_label": "exception",
-      "community_name": "agent_manager.py",
+      "community_name": "Exception",
       "id": "app_agents_agent_manager_py_exception"
-    },
-    {
-      "label": "AgentManager",
-      "file_type": "code",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L43",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": "agentmanager",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_agentmanager"
-    },
-    {
-      "label": ".__init__()",
-      "file_type": "code",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L51",
-      "_origin": "ast",
-      "community": 22,
-      "norm_label": ".__init__()",
-      "community_name": "SkillLoader",
-      "id": "app_agents_agent_manager_agentmanager_init"
-    },
-    {
-      "label": ".register_agent()",
-      "file_type": "code",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L66",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": ".register_agent()",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_agentmanager_register_agent"
-    },
-    {
-      "label": ".get_agent()",
-      "file_type": "code",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L72",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": ".get_agent()",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_agentmanager_get_agent"
-    },
-    {
-      "label": ".accept_task()",
-      "file_type": "code",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L79",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": ".accept_task()",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_agentmanager_accept_task"
-    },
-    {
-      "label": "._build_prompt()",
-      "file_type": "code",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L139",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": "._build_prompt()",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_agentmanager_build_prompt"
-    },
-    {
-      "label": ".execute_task()",
-      "file_type": "code",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L156",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": ".execute_task()",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_agentmanager_execute_task"
-    },
-    {
-      "label": ".report_progress()",
-      "file_type": "code",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L194",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": ".report_progress()",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_agentmanager_report_progress"
-    },
-    {
-      "label": ".report_result()",
-      "file_type": "code",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L199",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": ".report_result()",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_agentmanager_report_result"
-    },
-    {
-      "label": ".report_blocked()",
-      "file_type": "code",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L207",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": ".report_blocked()",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_agentmanager_report_blocked"
-    },
-    {
-      "label": ".check_permission()",
-      "file_type": "code",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L220",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": ".check_permission()",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_agentmanager_check_permission"
-    },
-    {
-      "label": "Raised when Agent Manager cannot accept or process a task as given.",
-      "file_type": "rationale",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L29",
-      "_origin": "ast",
-      "community": 0,
-      "norm_label": "raised when agent manager cannot accept or process a task as given.",
-      "community_name": "agent_manager.py",
-      "id": "app_agents_agent_manager_rationale_29"
-    },
-    {
-      "label": "Coordinates AI agents. Never receives a task directly from Supervisor \u2014 every\u2026",
-      "file_type": "rationale",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L44",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": "coordinates ai agents. never receives a task directly from supervisor \u2014 every...",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_rationale_44"
-    },
-    {
-      "label": "Accepts a task from ATE. Validates it carries the required fields and is in an\u2026",
-      "file_type": "rationale",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L80",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": "accepts a task from ate. validates it carries the required fields and is in an...",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_rationale_80"
-    },
-    {
-      "label": "Builds the task-content portion of the prompt from the task's own fields. Role\u2026",
-      "file_type": "rationale",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L140",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": "builds the task-content portion of the prompt from the task's own fields. role...",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_rationale_140"
-    },
-    {
-      "label": "Runs a task that is already in Executing (per accept_task) through the real\u2026",
-      "file_type": "rationale",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L157",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": "runs a task that is already in executing (per accept_task) through the real...",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_rationale_157"
-    },
-    {
-      "label": "Level 1 status update \u2014 does not change ATE's task status.",
-      "file_type": "rationale",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L195",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": "level 1 status update \u2014 does not change ate's task status.",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_rationale_195"
-    },
-    {
-      "label": "Task result available \u2014 submits for review. ATE moves the task to Review, not\u2026",
-      "file_type": "rationale",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L200",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": "task result available \u2014 submits for review. ate moves the task to review, not...",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_rationale_200"
-    },
-    {
-      "label": "Task cannot proceed. Routed through ATE and Supervisor per AGENT_MANAGER.md's\u2026",
-      "file_type": "rationale",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L208",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": "task cannot proceed. routed through ate and supervisor per agent_manager.md's...",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_rationale_208"
-    },
-    {
-      "label": "Confirms an agent's registered limit satisfies a required permission level\u2026",
-      "file_type": "rationale",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L221",
-      "_origin": "ast",
-      "community": 3,
-      "norm_label": "confirms an agent's registered limit satisfies a required permission level...",
-      "community_name": "AgentManager",
-      "id": "app_agents_agent_manager_rationale_221"
     },
     {
       "label": "config.py",
@@ -2079,7 +2035,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "control.py",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control"
     },
     {
@@ -2090,7 +2046,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "supervisorcontrolerror",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control_supervisorcontrolerror"
     },
     {
@@ -2101,7 +2057,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "exception",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control_py_exception"
     },
     {
@@ -2110,9 +2066,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L37",
       "_origin": "ast",
-      "community": 0,
+      "community": 21,
       "norm_label": "supervisorcontrol",
-      "community_name": "agent_manager.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol"
     },
     {
@@ -2121,9 +2077,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L48",
       "_origin": "ast",
-      "community": 0,
+      "community": 21,
       "norm_label": ".__init__()",
-      "community_name": "agent_manager.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_init"
     },
     {
@@ -2132,9 +2088,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L55",
       "_origin": "ast",
-      "community": 0,
+      "community": 21,
       "norm_label": ".register_agent()",
-      "community_name": "agent_manager.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_register_agent"
     },
     {
@@ -2143,9 +2099,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L58",
       "_origin": "ast",
-      "community": 0,
+      "community": 21,
       "norm_label": ".check_limit()",
-      "community_name": "agent_manager.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_check_limit"
     },
     {
@@ -2154,9 +2110,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L66",
       "_origin": "ast",
-      "community": 0,
+      "community": 21,
       "norm_label": ".review_task()",
-      "community_name": "agent_manager.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_review_task"
     },
     {
@@ -2165,9 +2121,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L98",
       "_origin": "ast",
-      "community": 0,
+      "community": 21,
       "norm_label": "._requires_human_approval()",
-      "community_name": "agent_manager.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_requires_human_approval"
     },
     {
@@ -2176,9 +2132,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L110",
       "_origin": "ast",
-      "community": 0,
+      "community": 21,
       "norm_label": ".record_human_decision()",
-      "community_name": "agent_manager.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_record_human_decision"
     },
     {
@@ -2187,9 +2143,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L124",
       "_origin": "ast",
-      "community": 0,
+      "community": 21,
       "norm_label": ".replan()",
-      "community_name": "agent_manager.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_replan"
     },
     {
@@ -2198,9 +2154,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L182",
       "_origin": "ast",
-      "community": 0,
+      "community": 21,
       "norm_label": ".handle_escalation()",
-      "community_name": "agent_manager.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_supervisorcontrol_handle_escalation"
     },
     {
@@ -2211,7 +2167,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "raised when a supervisor decision is invalid or out of order.",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control_rationale_34"
     },
     {
@@ -2220,9 +2176,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 0,
+      "community": 21,
       "norm_label": "control and decision coordination layer. holds no task state of its own \u2014 task...",
-      "community_name": "agent_manager.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_rationale_38"
     },
     {
@@ -2231,9 +2187,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L67",
       "_origin": "ast",
-      "community": 0,
+      "community": 21,
       "norm_label": "reviews an assigned task and decides whether it can proceed automatically or...",
-      "community_name": "agent_manager.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_rationale_67"
     },
     {
@@ -2242,9 +2198,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L99",
       "_origin": "ast",
-      "community": 0,
+      "community": 21,
       "norm_label": "evaluates a task against the human approval model. returns (requires_human:...",
-      "community_name": "agent_manager.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_rationale_99"
     },
     {
@@ -2253,9 +2209,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L113",
       "_origin": "ast",
-      "community": 0,
+      "community": 21,
       "norm_label": "records the outcome of an actual human decision on a task sitting in waiting...",
-      "community_name": "agent_manager.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_rationale_113"
     },
     {
@@ -2264,9 +2220,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L132",
       "_origin": "ast",
-      "community": 0,
+      "community": 21,
       "norm_label": "handles a task that has reached supervisor review after a failure. `decision`...",
-      "community_name": "agent_manager.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_rationale_132"
     },
     {
@@ -2275,9 +2231,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L183",
       "_origin": "ast",
-      "community": 0,
+      "community": 21,
       "norm_label": "entry point when agent manager reports a task cannot proceed. moves the task...",
-      "community_name": "agent_manager.py",
+      "community_name": "SupervisorControl",
       "id": "app_supervisor_control_rationale_183"
     },
     {
@@ -2288,7 +2244,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "atomic_task_engine.py",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_tasks_atomic_task_engine"
     },
     {
@@ -2299,7 +2255,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "taskstatus",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_tasks_atomic_task_engine_taskstatus"
     },
     {
@@ -2310,7 +2266,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "str",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "str"
     },
     {
@@ -2321,7 +2277,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "enum",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "enum"
     },
     {
@@ -2332,7 +2288,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "risklevel",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_tasks_atomic_task_engine_risklevel"
     },
     {
@@ -2365,7 +2321,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "_now()",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_tasks_atomic_task_engine_now"
     },
     {
@@ -2376,7 +2332,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "executionevent",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_tasks_atomic_task_engine_executionevent"
     },
     {
@@ -2618,7 +2574,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": ".list_tasks()",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_tasks_atomic_task_engine_atomictaskengine_list_tasks"
     },
     {
@@ -2706,7 +2662,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "test_ate_integration.py",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration"
     },
     {
@@ -2715,9 +2671,9 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L21",
       "_origin": "ast",
-      "community": 21,
+      "community": 0,
       "norm_label": "_build_system()",
-      "community_name": "_build_system",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_build_system"
     },
     {
@@ -2728,7 +2684,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "_fakeollamaresponse",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_fakeollamaresponse"
     },
     {
@@ -2739,7 +2695,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": ".__init__()",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_fakeollamaresponse_init"
     },
     {
@@ -2750,7 +2706,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "_fakeollamaclient",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_fakeollamaclient"
     },
     {
@@ -2761,7 +2717,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": ".__init__()",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_fakeollamaclient_init"
     },
     {
@@ -2772,7 +2728,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": ".generate()",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_fakeollamaclient_generate"
     },
     {
@@ -2781,9 +2737,9 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L55",
       "_origin": "ast",
-      "community": 21,
+      "community": 0,
       "norm_label": "test_full_happy_path()",
-      "community_name": "_build_system",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_test_full_happy_path"
     },
     {
@@ -2792,9 +2748,9 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L124",
       "_origin": "ast",
-      "community": 21,
+      "community": 0,
       "norm_label": "test_human_approval_path()",
-      "community_name": "_build_system",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_test_human_approval_path"
     },
     {
@@ -2803,9 +2759,9 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L169",
       "_origin": "ast",
-      "community": 21,
+      "community": 0,
       "norm_label": "test_failure_escalation_retry_path()",
-      "community_name": "_build_system",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_test_failure_escalation_retry_path"
     },
     {
@@ -2814,9 +2770,9 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L212",
       "_origin": "ast",
-      "community": 21,
+      "community": 0,
       "norm_label": "test_failure_escalation_cancel_path()",
-      "community_name": "_build_system",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_test_failure_escalation_cancel_path"
     },
     {
@@ -2825,9 +2781,9 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L252",
       "_origin": "ast",
-      "community": 21,
+      "community": 0,
       "norm_label": "test_no_orphaned_task_across_full_run()",
-      "community_name": "_build_system",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_test_no_orphaned_task_across_full_run"
     },
     {
@@ -2838,7 +2794,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "test_role_based_routing_and_context()",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_test_role_based_routing_and_context"
     },
     {
@@ -2847,9 +2803,9 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L22",
       "_origin": "ast",
-      "community": 21,
+      "community": 0,
       "norm_label": "one shared atomictaskengine, one agentmanager holding one supervisorcontrol \u2014...",
-      "community_name": "_build_system",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_rationale_22"
     },
     {
@@ -2860,7 +2816,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "stands in for a live ollama server. records every call so a test can assert...",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_rationale_41"
     },
     {
@@ -2869,9 +2825,9 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L56",
       "_origin": "ast",
-      "community": 21,
+      "community": 0,
       "norm_label": "human/supervisor request -> atomic task engine (approval, task state) -> agent...",
-      "community_name": "_build_system",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_rationale_56"
     },
     {
@@ -2880,9 +2836,9 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L125",
       "_origin": "ast",
-      "community": 21,
+      "community": 0,
       "norm_label": "a high-risk task with an irreversible-action flag must stop for a real human...",
-      "community_name": "_build_system",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_rationale_125"
     },
     {
@@ -2891,9 +2847,9 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L170",
       "_origin": "ast",
-      "community": 21,
+      "community": 0,
       "norm_label": "execution fails -> agent manager reports blocked -> routed through supervisor...",
-      "community_name": "_build_system",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_rationale_170"
     },
     {
@@ -2902,9 +2858,9 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L213",
       "_origin": "ast",
-      "community": 21,
+      "community": 0,
       "norm_label": "execution fails -> escalated -> supervisor decides cancel, with full...",
-      "community_name": "_build_system",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_rationale_213"
     },
     {
@@ -2913,9 +2869,9 @@
       "source_file": "app/test_ate_integration.py",
       "source_location": "L253",
       "_origin": "ast",
-      "community": 21,
+      "community": 0,
       "norm_label": "sanity sweep: every task created across a full run must resolve to a defined...",
-      "community_name": "_build_system",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_rationale_253"
     },
     {
@@ -2926,7 +2882,7 @@
       "_origin": "ast",
       "community": 0,
       "norm_label": "phase 3 exists to make two things true: (1) a task's role selects a non-default...",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_test_ate_integration_rationale_288"
     },
     {
@@ -3053,6 +3009,501 @@
   ],
   "links": [
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager",
+      "target": "app_agents_agent_manager_agentmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager",
+      "target": "app_agents_agent_manager_agentmanagererror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager",
+      "target": "app_ollama",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager",
+      "target": "app_roles",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager",
+      "target": "app_router",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager",
+      "target": "app_skills_skill_loader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager",
+      "target": "app_supervisor_control",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager",
+      "target": "app_tasks_atomic_task_engine",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_agent_manager.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_test_agent_manager",
+      "target": "app_agents_agent_manager"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_ate_integration.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_test_ate_integration",
+      "target": "app_agents_agent_manager"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L135",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager_accept_task",
+      "target": "app_agents_agent_manager_agentmanagererror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L244",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager_execute_task",
+      "target": "app_agents_agent_manager_agentmanagererror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanagererror",
+      "target": "exception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L34",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_rationale_34",
+      "target": "app_agents_agent_manager_agentmanagererror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_ate_integration.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_test_ate_integration",
+      "target": "app_agents_agent_manager_agentmanagererror"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "app/test_ate_integration.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "_origin": "ast",
+      "confidence_score": 0.5,
+      "source": "app_test_ate_integration_fakeollamaclient",
+      "target": "app_agents_agent_manager_agentmanagererror"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "app/test_ate_integration.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "_origin": "ast",
+      "confidence_score": 0.5,
+      "source": "app_test_ate_integration_fakeollamaresponse",
+      "target": "app_agents_agent_manager_agentmanagererror"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_context_knowledge_provider_knowledgeprovidererror",
+      "target": "exception"
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_context_obsidian_context_obsidiancontexterror",
+      "target": "exception"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L121",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager",
+      "target": "app_agents_agent_manager_agentmanager_accept_task",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L208",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager",
+      "target": "app_agents_agent_manager_agentmanager_build_prompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L353",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager",
+      "target": "app_agents_agent_manager_agentmanager_check_permission",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L231",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager",
+      "target": "app_agents_agent_manager_agentmanager_execute_task",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L112",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager",
+      "target": "app_agents_agent_manager_agentmanager_get_agent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager",
+      "target": "app_agents_agent_manager_agentmanager_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L90",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager",
+      "target": "app_agents_agent_manager_agentmanager_register_agent",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L336",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager",
+      "target": "app_agents_agent_manager_agentmanager_report_blocked",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L298",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager",
+      "target": "app_agents_agent_manager_agentmanager_report_progress",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L318",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager",
+      "target": "app_agents_agent_manager_agentmanager_report_result",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_rationale_58",
+      "target": "app_agents_agent_manager_agentmanager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_agent_manager.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_test_agent_manager",
+      "target": "app_agents_agent_manager_agentmanager"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_ate_integration.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_test_ate_integration",
+      "target": "app_agents_agent_manager_agentmanager"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_ate_integration.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_test_ate_integration_build_system",
+      "target": "app_agents_agent_manager_agentmanager"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "app/test_ate_integration.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "_origin": "ast",
+      "confidence_score": 0.5,
+      "source": "app_test_ate_integration_fakeollamaclient",
+      "target": "app_agents_agent_manager_agentmanager"
+    },
+    {
+      "relation": "uses",
+      "confidence": "INFERRED",
+      "source_file": "app/test_ate_integration.py",
+      "source_location": "L17",
+      "weight": 0.8,
+      "_origin": "ast",
+      "confidence_score": 0.5,
+      "source": "app_test_ate_integration_fakeollamaresponse",
+      "target": "app_agents_agent_manager_agentmanager"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_ate_integration.py",
+      "source_location": "L303",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_test_ate_integration_test_role_based_routing_and_context",
+      "target": "app_agents_agent_manager_agentmanager"
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager_init",
+      "target": "atomictaskengine",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager_init",
+      "target": "ollamaclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L208",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager_build_prompt",
+      "target": "atomictask",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L257",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager_execute_task",
+      "target": "app_agents_agent_manager_agentmanager_build_prompt",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L282",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager_execute_task",
+      "target": "app_agents_agent_manager_agentmanager_report_blocked",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L267",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager_execute_task",
+      "target": "app_agents_agent_manager_agentmanager_report_progress",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/agents/agent_manager.py",
+      "source_location": "L288",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_agents_agent_manager_agentmanager_execute_task",
+      "target": "app_agents_agent_manager_agentmanager_report_result",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -3072,9 +3523,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider",
-      "target": "app_context_ai_knowledge_context",
-      "confidence_score": 1.0
+      "target": "app_context_ai_knowledge_context"
     },
     {
       "relation": "imports_from",
@@ -3084,9 +3535,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider",
-      "target": "app_context_graphify_context",
-      "confidence_score": 1.0
+      "target": "app_context_graphify_context"
     },
     {
       "relation": "contains",
@@ -3095,9 +3546,9 @@
       "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider",
-      "target": "app_context_knowledge_provider_knowledgeprovider",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider"
     },
     {
       "relation": "contains",
@@ -3106,9 +3557,9 @@
       "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider",
-      "target": "app_context_knowledge_provider_knowledgeprovidererror",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovidererror"
     },
     {
       "relation": "imports_from",
@@ -3118,9 +3569,9 @@
       "source_location": "L22",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider",
-      "target": "app_context_obsidian_context",
-      "confidence_score": 1.0
+      "target": "app_context_obsidian_context"
     },
     {
       "relation": "imports_from",
@@ -3130,9 +3581,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider",
-      "target": "app_context_repository_context",
-      "confidence_score": 1.0
+      "target": "app_context_repository_context"
     },
     {
       "relation": "rationale_for",
@@ -3141,9 +3592,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_1",
-      "target": "app_context_knowledge_provider",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider"
     },
     {
       "relation": "imports_from",
@@ -3158,37 +3609,15 @@
       "target": "app_context_knowledge_provider"
     },
     {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "app/context/knowledge_provider.py",
-      "source_location": "L25",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_context_knowledge_provider_knowledgeprovidererror",
-      "target": "exception",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L26",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_context_knowledge_provider_rationale_26",
-      "target": "app_context_knowledge_provider_knowledgeprovidererror",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "app/context/obsidian_context.py",
-      "source_location": "L23",
-      "weight": 1.0,
-      "_origin": "ast",
       "confidence_score": 1.0,
-      "source": "app_context_obsidian_context_obsidiancontexterror",
-      "target": "exception"
+      "source": "app_context_knowledge_provider_rationale_26",
+      "target": "app_context_knowledge_provider_knowledgeprovidererror"
     },
     {
       "relation": "method",
@@ -3197,9 +3626,9 @@
       "source_location": "L50",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_code",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_code"
     },
     {
       "relation": "method",
@@ -3208,9 +3637,9 @@
       "source_location": "L64",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_documentation",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_documentation"
     },
     {
       "relation": "method",
@@ -3219,9 +3648,9 @@
       "source_location": "L57",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_related",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_related"
     },
     {
       "relation": "method",
@@ -3230,9 +3659,9 @@
       "source_location": "L83",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories"
     },
     {
       "relation": "method",
@@ -3241,9 +3670,9 @@
       "source_location": "L90",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_global_knowledge",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_global_knowledge"
     },
     {
       "relation": "method",
@@ -3252,9 +3681,9 @@
       "source_location": "L108",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_obsidian_note",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_obsidian_note"
     },
     {
       "relation": "method",
@@ -3263,9 +3692,9 @@
       "source_location": "L97",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_obsidian_notes",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_obsidian_notes"
     },
     {
       "relation": "method",
@@ -3274,9 +3703,9 @@
       "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_repository",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_repository"
     },
     {
       "relation": "method",
@@ -3285,9 +3714,9 @@
       "source_location": "L35",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_init",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_init"
     },
     {
       "relation": "method",
@@ -3296,9 +3725,9 @@
       "source_location": "L123",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_search",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_search"
     },
     {
       "relation": "rationale_for",
@@ -3307,9 +3736,9 @@
       "source_location": "L31",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_31",
-      "target": "app_context_knowledge_provider_knowledgeprovider",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider"
     },
     {
       "relation": "imports",
@@ -3366,9 +3795,9 @@
       "source_location": "L42",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_42",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_repository",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_repository"
     },
     {
       "relation": "calls",
@@ -3378,9 +3807,9 @@
       "source_location": "L131",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider_search",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_code",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_code"
     },
     {
       "relation": "rationale_for",
@@ -3389,9 +3818,9 @@
       "source_location": "L51",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_51",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_code",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_code"
     },
     {
       "relation": "calls",
@@ -3401,9 +3830,9 @@
       "source_location": "L132",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider_search",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_related",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_related"
     },
     {
       "relation": "rationale_for",
@@ -3412,9 +3841,9 @@
       "source_location": "L58",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_58",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_related",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_related"
     },
     {
       "relation": "calls",
@@ -3424,9 +3853,9 @@
       "source_location": "L133",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider_search",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_documentation",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_documentation"
     },
     {
       "relation": "rationale_for",
@@ -3435,9 +3864,9 @@
       "source_location": "L65",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_65",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_documentation",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_documentation"
     },
     {
       "relation": "calls",
@@ -3447,9 +3876,9 @@
       "source_location": "L134",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider_search",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories"
     },
     {
       "relation": "rationale_for",
@@ -3458,9 +3887,9 @@
       "source_location": "L84",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_84",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories"
     },
     {
       "relation": "calls",
@@ -3470,9 +3899,9 @@
       "source_location": "L135",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider_search",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_global_knowledge",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_global_knowledge"
     },
     {
       "relation": "rationale_for",
@@ -3481,9 +3910,9 @@
       "source_location": "L91",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_91",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_global_knowledge",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_global_knowledge"
     },
     {
       "relation": "calls",
@@ -3493,9 +3922,9 @@
       "source_location": "L136",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider_search",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_obsidian_notes",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_obsidian_notes"
     },
     {
       "relation": "rationale_for",
@@ -3504,9 +3933,9 @@
       "source_location": "L98",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_98",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_obsidian_notes",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_obsidian_notes"
     },
     {
       "relation": "rationale_for",
@@ -3515,9 +3944,9 @@
       "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_109",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_obsidian_note",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_obsidian_note"
     },
     {
       "relation": "rationale_for",
@@ -3526,9 +3955,9 @@
       "source_location": "L124",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_124",
-      "target": "app_context_knowledge_provider_knowledgeprovider_search",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_search"
     },
     {
       "relation": "contains",
@@ -4823,866 +5252,6 @@
       "confidence_score": 1.0,
       "source": "app_test_knowledge_provider_rationale_1",
       "target": "app_test_knowledge_provider"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L43",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_agents_agent_manager_agentmanager"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L28",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_agents_agent_manager_agentmanagererror"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L23",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_ollama"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L23",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_ollama_ollamaclient"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L25",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_roles"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L25",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_roles_get_role_context"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L24",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_router"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L24",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_router_choose_model"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L15",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_skills_skill_loader"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L15",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_skills_skill_loader_skillloader"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L16",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_supervisor_control"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L16",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_supervisor_control_supervisorcontrol"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_tasks_atomic_task_engine"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_tasks_atomic_task_engine_atomictask"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_tasks_atomic_task_engine_atomictaskengine"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_tasks_atomic_task_engine_taskengineerror"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager",
-      "target": "app_tasks_atomic_task_engine_taskstatus"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/test_agent_manager.py",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_test_agent_manager",
-      "target": "app_agents_agent_manager"
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/test_ate_integration.py",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_test_ate_integration",
-      "target": "app_agents_agent_manager"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L98",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager_accept_task",
-      "target": "app_agents_agent_manager_agentmanagererror"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L169",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager_execute_task",
-      "target": "app_agents_agent_manager_agentmanagererror"
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L28",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanagererror",
-      "target": "app_agents_agent_manager_py_exception"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L23",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_agents_agent_manager_agentmanagererror",
-      "target": "app_ollama_ollamaclient"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L15",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_agents_agent_manager_agentmanagererror",
-      "target": "app_skills_skill_loader_skillloader"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L16",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_agents_agent_manager_agentmanagererror",
-      "target": "app_supervisor_control_supervisorcontrol"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_agents_agent_manager_agentmanagererror",
-      "target": "app_tasks_atomic_task_engine_atomictask"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_agents_agent_manager_agentmanagererror",
-      "target": "app_tasks_atomic_task_engine_atomictaskengine"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_agents_agent_manager_agentmanagererror",
-      "target": "app_tasks_atomic_task_engine_taskengineerror"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_agents_agent_manager_agentmanagererror",
-      "target": "app_tasks_atomic_task_engine_taskstatus"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L29",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_rationale_29",
-      "target": "app_agents_agent_manager_agentmanagererror"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/test_ate_integration.py",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_test_ate_integration",
-      "target": "app_agents_agent_manager_agentmanagererror"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/test_ate_integration.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_test_ate_integration_fakeollamaclient",
-      "target": "app_agents_agent_manager_agentmanagererror"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/test_ate_integration.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_test_ate_integration_fakeollamaresponse",
-      "target": "app_agents_agent_manager_agentmanagererror"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L79",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_agents_agent_manager_agentmanager_accept_task"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L139",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_agents_agent_manager_agentmanager_build_prompt"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L220",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_agents_agent_manager_agentmanager_check_permission"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L156",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_agents_agent_manager_agentmanager_execute_task"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L72",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_agents_agent_manager_agentmanager_get_agent"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L51",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_agents_agent_manager_agentmanager_init"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L66",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_agents_agent_manager_agentmanager_register_agent"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L207",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_agents_agent_manager_agentmanager_report_blocked"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L194",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_agents_agent_manager_agentmanager_report_progress"
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L199",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_agents_agent_manager_agentmanager_report_result"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L23",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_ollama_ollamaclient"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L15",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_skills_skill_loader_skillloader"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L16",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_supervisor_control_supervisorcontrol"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_tasks_atomic_task_engine_atomictask"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_tasks_atomic_task_engine_atomictaskengine"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_tasks_atomic_task_engine_taskengineerror"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_agents_agent_manager_agentmanager",
-      "target": "app_tasks_atomic_task_engine_taskstatus"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L44",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_rationale_44",
-      "target": "app_agents_agent_manager_agentmanager"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/test_agent_manager.py",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_test_agent_manager",
-      "target": "app_agents_agent_manager_agentmanager"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/test_ate_integration.py",
-      "source_location": "L17",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_test_ate_integration",
-      "target": "app_agents_agent_manager_agentmanager"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "app/test_ate_integration.py",
-      "source_location": "L30",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_test_ate_integration_build_system",
-      "target": "app_agents_agent_manager_agentmanager"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/test_ate_integration.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_test_ate_integration_fakeollamaclient",
-      "target": "app_agents_agent_manager_agentmanager"
-    },
-    {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/test_ate_integration.py",
-      "source_location": "L17",
-      "weight": 0.8,
-      "_origin": "ast",
-      "confidence_score": 0.5,
-      "source": "app_test_ate_integration_fakeollamaresponse",
-      "target": "app_agents_agent_manager_agentmanager"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "app/test_ate_integration.py",
-      "source_location": "L303",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_test_ate_integration_test_role_based_routing_and_context",
-      "target": "app_agents_agent_manager_agentmanager"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L51",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager_init",
-      "target": "app_ollama_ollamaclient"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L57",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_agents_agent_manager_agentmanager_init",
-      "target": "app_skills_skill_loader_skillloader"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L58",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_agents_agent_manager_agentmanager_init",
-      "target": "app_supervisor_control_supervisorcontrol"
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L51",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager_init",
-      "target": "app_tasks_atomic_task_engine_atomictaskengine"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L80",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_rationale_80",
-      "target": "app_agents_agent_manager_agentmanager_accept_task"
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L139",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager_build_prompt",
-      "target": "app_tasks_atomic_task_engine_atomictask"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L175",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager_execute_task",
-      "target": "app_agents_agent_manager_agentmanager_build_prompt"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L140",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_rationale_140",
-      "target": "app_agents_agent_manager_agentmanager_build_prompt"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L184",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager_execute_task",
-      "target": "app_agents_agent_manager_agentmanager_report_blocked"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L179",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager_execute_task",
-      "target": "app_agents_agent_manager_agentmanager_report_progress"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L186",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_agentmanager_execute_task",
-      "target": "app_agents_agent_manager_agentmanager_report_result"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L174",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_agents_agent_manager_agentmanager_execute_task",
-      "target": "app_roles_get_role_context"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L178",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_agents_agent_manager_agentmanager_execute_task",
-      "target": "app_router_choose_model"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L157",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_rationale_157",
-      "target": "app_agents_agent_manager_agentmanager_execute_task"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L195",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_rationale_195",
-      "target": "app_agents_agent_manager_agentmanager_report_progress"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L200",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_rationale_200",
-      "target": "app_agents_agent_manager_agentmanager_report_result"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L208",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_rationale_208",
-      "target": "app_agents_agent_manager_agentmanager_report_blocked"
-    },
-    {
-      "relation": "rationale_for",
-      "confidence": "EXTRACTED",
-      "source_file": "app/agents/agent_manager.py",
-      "source_location": "L221",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_agents_agent_manager_rationale_221",
-      "target": "app_agents_agent_manager_agentmanager_check_permission"
     },
     {
       "relation": "contains",
@@ -8428,5 +7997,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "b2eb399244a236ef7ebc1c15331fb209829eda4c"
+  "built_at_commit": "c745c3024331b3051c87eb764c5fa1b44d0e2d6b"
 }
