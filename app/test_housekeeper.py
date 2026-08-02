@@ -1,32 +1,69 @@
 # ============================================
 # OmniForces
-# Housekeeper Test
+# Housekeeper Tests
 # ============================================
 
-from memory import MemoryManager, Housekeeper
+from app.memory.memory_manager import MemoryManager
+from app.memory.housekeeper import Housekeeper
 
 
-memory = MemoryManager()
+def test_housekeeper_initialises():
 
-memory.session.set_project(
-    "OmniForces"
-)
+    memory = MemoryManager()
 
-memory.session.set_milestone(
-    "Milestone 3"
-)
+    housekeeper = Housekeeper(
+        memory
+    )
 
-memory.session.add_todo(
-    "Test housekeeping"
-)
+    assert housekeeper.manager == memory
 
 
-housekeeper = Housekeeper(memory)
+def test_housekeeper_runs_without_error():
 
-housekeeper.run()
+    memory = MemoryManager()
+
+    memory.session.set_project(
+        "OmniForces"
+    )
+
+    memory.session.set_milestone(
+        "Milestone 3"
+    )
+
+    memory.session.add_todo(
+        "Test housekeeping"
+    )
+
+    housekeeper = Housekeeper(
+        memory
+    )
+
+    housekeeper.run()
+
+    assert memory.session.project == "OmniForces"
+    assert memory.session.milestone == "Milestone 3"
+    assert "Test housekeeping" in memory.session.todos
 
 
-print("Housekeeper connected")
-print(memory.session.to_dict())
+def test_housekeeper_maintenance_methods_exist():
 
-print("Housekeeper test complete")
+    memory = MemoryManager()
+
+    housekeeper = Housekeeper(
+        memory
+    )
+
+    assert hasattr(
+        housekeeper,
+        "archive",
+    )
+
+    assert hasattr(
+        housekeeper,
+        "prune",
+    )
+
+    assert hasattr(
+        housekeeper,
+        "summarise",
+    )
