@@ -1,35 +1,90 @@
 # ============================================
 # OmniForces
-# Agent Memory Test
+# Agent Memory Tests
 # ============================================
 
-from memory.agent_memory import AgentMemory
+from app.memory.agent_memory import AgentMemory
 
 
-agent = AgentMemory(
-    "KC-001",
-    "Senior AI Software Engineer"
-)
+def test_agent_memory_creation():
 
-agent.add_skill(
-    "Software Development"
-)
+    agent = AgentMemory(
+        "KC-001",
+        "Senior AI Software Engineer",
+    )
 
-agent.add_skill(
-    "Documentation"
-)
+    assert agent.agent_id == "KC-001"
+    assert agent.role == "Senior AI Software Engineer"
 
-agent.set_context(
-    "current_project",
-    "OmniForces"
-)
-
-agent.set_context(
-    "milestone",
-    "Milestone 3"
-)
+    assert agent.skills == []
+    assert agent.context == {}
 
 
-print(agent.to_dict())
+def test_agent_memory_add_skill():
 
-print("Agent memory test complete")
+    agent = AgentMemory(
+        "KC-001",
+        "Senior AI Software Engineer",
+    )
+
+    agent.add_skill(
+        "Software Development"
+    )
+
+    agent.add_skill(
+        "Documentation"
+    )
+
+    assert "Software Development" in agent.skills
+    assert "Documentation" in agent.skills
+
+
+def test_agent_memory_set_context():
+
+    agent = AgentMemory(
+        "KC-001",
+        "Senior AI Software Engineer",
+    )
+
+    agent.set_context(
+        "current_project",
+        "OmniForces",
+    )
+
+    agent.set_context(
+        "milestone",
+        "Milestone 3",
+    )
+
+    assert agent.context["current_project"] == "OmniForces"
+    assert agent.context["milestone"] == "Milestone 3"
+
+
+def test_agent_memory_to_dict():
+
+    agent = AgentMemory(
+        "KC-001",
+        "Senior AI Software Engineer",
+    )
+
+    agent.add_skill(
+        "Software Development"
+    )
+
+    agent.set_context(
+        "current_project",
+        "OmniForces",
+    )
+
+    result = agent.to_dict()
+
+    assert result == {
+        "agent_id": "KC-001",
+        "role": "Senior AI Software Engineer",
+        "skills": [
+            "Software Development"
+        ],
+        "context": {
+            "current_project": "OmniForces"
+        },
+    }
