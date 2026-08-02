@@ -1,16 +1,16 @@
 # Graph Report - OmniForces  (2026-08-02)
 
 ## Corpus Check
-- 36 files · ~8,279 words
+- 36 files · ~8,337 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 266 nodes · 457 edges · 21 communities (20 shown, 1 thin omitted)
+- 271 nodes · 462 edges · 21 communities (19 shown, 2 thin omitted)
 - Extraction: 92% EXTRACTED · 8% INFERRED · 0% AMBIGUOUS · INFERRED: 37 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8e6285f7`
+- Built from commit: `49fc239d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -22,6 +22,7 @@
 - RepositoryContext
 - GraphifyContext
 - AIKnowledgeContext
+- test_memory.py
 - KnowledgeProvider
 - ObsidianContext
 - SupervisorControl
@@ -40,25 +41,25 @@
 10. `SupervisorControlError` - 13 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `AgentManagerError` --uses--> `OllamaClient`  [INFERRED]
-  app/agents/agent_manager.py → app/ollama.py
-- `AgentManagerError` --uses--> `SkillLoader`  [INFERRED]
-  app/agents/agent_manager.py → app/skills/skill_loader.py
 - `AgentManagerError` --uses--> `SupervisorControl`  [INFERRED]
   app/agents/agent_manager.py → app/supervisor/control.py
 - `AgentManagerError` --uses--> `AtomicTask`  [INFERRED]
   app/agents/agent_manager.py → app/tasks/atomic_task_engine.py
 - `AgentManagerError` --uses--> `AtomicTaskEngine`  [INFERRED]
   app/agents/agent_manager.py → app/tasks/atomic_task_engine.py
+- `AgentManagerError` --uses--> `TaskEngineError`  [INFERRED]
+  app/agents/agent_manager.py → app/tasks/atomic_task_engine.py
+- `AgentManagerError` --uses--> `TaskStatus`  [INFERRED]
+  app/agents/agent_manager.py → app/tasks/atomic_task_engine.py
 
 ## Import Cycles
 - None detected.
 
-## Communities (21 total, 1 thin omitted)
+## Communities (21 total, 2 thin omitted)
 
 ### Community 0 - "test_ate_integration.py"
 Cohesion: 0.09
-Nodes (30): AgentManagerError, Exception, Raised when Agent Manager cannot accept or process a task as given., Exception, Raised when a Supervisor decision is invalid or out of order., SupervisorControlError, ExecutionEvent, _now() (+22 more)
+Nodes (27): Exception, Raised when a Supervisor decision is invalid or out of order., SupervisorControlError, ExecutionEvent, _now(), RiskLevel, TaskStatus, _build_system() (+19 more)
 
 ### Community 1 - "AtomicTaskEngine"
 Cohesion: 0.22
@@ -70,7 +71,7 @@ Nodes (18): OmniForces Configuration Loads application configuration from the en
 
 ### Community 3 - "AgentManager"
 Cohesion: 0.07
-Nodes (18): AgentManager, Builds the task-content portion of the prompt from the task's own fields. Role…, Runs a task that is already in Executing (per accept_task) through the real…, Level 1 status update — does not change ATE's task status., Task result available — submits for review. ATE moves the task to Review, not…, Task cannot proceed. Routed through ATE and Supervisor per AGENT_MANAGER.md's…, Confirms an agent's registered limit satisfies a required permission level…, Coordinates AI agents. Never receives a task directly from Supervisor — every… (+10 more)
+Nodes (21): AgentManager, AgentManagerError, Exception, Builds the task-content portion of the prompt from the task's own fields. Role…, Runs a task that is already in Executing (per accept_task) through the real…, Level 1 status update — does not change ATE's task status., Task result available — submits for review. ATE moves the task to Review, not…, Task cannot proceed. Routed through ATE and Supervisor per AGENT_MANAGER.md's… (+13 more)
 
 ### Community 4 - "RepositoryContext"
 Cohesion: 0.15
@@ -97,15 +98,15 @@ Cohesion: 0.14
 Nodes (7): Records the outcome of an actual human decision on a task sitting in Waiting…, Handles a task that has reached Supervisor Review after a failure. `decision`…, Entry point when Agent Manager reports a task cannot proceed. Moves the task…, Control and decision coordination layer. Holds no task state of its own — task…, Reviews an Assigned task and decides whether it can proceed automatically or…, Evaluates a task against the Human Approval Model. Returns (requires_human:…, SupervisorControl
 
 ## Knowledge Gaps
-- **1 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **2 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `AtomicTaskEngine` connect `AtomicTaskEngine` to `test_ate_integration.py`, `SupervisorControl`, `AgentManager`?**
-  _High betweenness centrality (0.072) - this node is a cross-community bridge._
+  _High betweenness centrality (0.070) - this node is a cross-community bridge._
 - **Why does `AgentManager` connect `AgentManager` to `test_ate_integration.py`, `AtomicTaskEngine`, `SupervisorControl`?**
-  _High betweenness centrality (0.068) - this node is a cross-community bridge._
+  _High betweenness centrality (0.065) - this node is a cross-community bridge._
 - **Are the 6 inferred relationships involving `AtomicTaskEngine` (e.g. with `AgentManager` and `AgentManagerError`) actually correct?**
   _`AtomicTaskEngine` has 6 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 4 inferred relationships involving `AtomicTask` (e.g. with `AgentManager` and `AgentManagerError`) actually correct?**
