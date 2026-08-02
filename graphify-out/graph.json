@@ -4,15 +4,70 @@
   "graph": {},
   "nodes": [
     {
+      "label": "test_agent_memory.py",
+      "file_type": "code",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_test_agent_memory",
+      "community": 7,
+      "community_name": "test_agent_memory.py",
+      "norm_label": "test_agent_memory.py"
+    },
+    {
+      "label": "test_agent_memory_creation()",
+      "file_type": "code",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_test_agent_memory_test_agent_memory_creation",
+      "community": 7,
+      "community_name": "test_agent_memory.py",
+      "norm_label": "test_agent_memory_creation()"
+    },
+    {
+      "label": "test_agent_memory_add_skill()",
+      "file_type": "code",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "app_test_agent_memory_test_agent_memory_add_skill",
+      "community": 7,
+      "community_name": "test_agent_memory.py",
+      "norm_label": "test_agent_memory_add_skill()"
+    },
+    {
+      "label": "test_agent_memory_set_context()",
+      "file_type": "code",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "app_test_agent_memory_test_agent_memory_set_context",
+      "community": 7,
+      "community_name": "test_agent_memory.py",
+      "norm_label": "test_agent_memory_set_context()"
+    },
+    {
+      "label": "test_agent_memory_to_dict()",
+      "file_type": "code",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L63",
+      "_origin": "ast",
+      "id": "app_test_agent_memory_test_agent_memory_to_dict",
+      "community": 7,
+      "community_name": "test_agent_memory.py",
+      "norm_label": "test_agent_memory_to_dict()"
+    },
+    {
       "label": "test_agent_manager.py",
       "file_type": "code",
       "source_file": "app/test_agent_manager.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "app_test_agent_manager",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": "test_agent_manager.py"
+      "norm_label": "test_agent_manager.py",
+      "id": "app_test_agent_manager"
     },
     {
       "label": "FakeResponse",
@@ -20,10 +75,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L27",
       "_origin": "ast",
-      "id": "app_test_agent_manager_fakeresponse",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": "fakeresponse"
+      "norm_label": "fakeresponse",
+      "id": "app_test_agent_manager_fakeresponse"
     },
     {
       "label": ".__init__()",
@@ -31,10 +86,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "app_test_agent_manager_fakeresponse_init",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": ".__init__()"
+      "norm_label": ".__init__()",
+      "id": "app_test_agent_manager_fakeresponse_init"
     },
     {
       "label": "FakeOllamaClient",
@@ -42,10 +97,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "app_test_agent_manager_fakeollamaclient",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": "fakeollamaclient"
+      "norm_label": "fakeollamaclient",
+      "id": "app_test_agent_manager_fakeollamaclient"
     },
     {
       "label": ".__init__()",
@@ -53,10 +108,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L33",
       "_origin": "ast",
-      "id": "app_test_agent_manager_fakeollamaclient_init",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": ".__init__()"
+      "norm_label": ".__init__()",
+      "id": "app_test_agent_manager_fakeollamaclient_init"
     },
     {
       "label": ".generate()",
@@ -64,10 +119,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L36",
       "_origin": "ast",
-      "id": "app_test_agent_manager_fakeollamaclient_generate",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": ".generate()"
+      "norm_label": ".generate()",
+      "id": "app_test_agent_manager_fakeollamaclient_generate"
     },
     {
       "label": "create_test_task()",
@@ -75,10 +130,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L49",
       "_origin": "ast",
-      "id": "app_test_agent_manager_create_test_task",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": "create_test_task()"
+      "norm_label": "create_test_task()",
+      "id": "app_test_agent_manager_create_test_task"
     },
     {
       "label": "build_manager()",
@@ -86,10 +141,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L70",
       "_origin": "ast",
-      "id": "app_test_agent_manager_build_manager",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": "build_manager()"
+      "norm_label": "build_manager()",
+      "id": "app_test_agent_manager_build_manager"
     },
     {
       "label": "test_register_agent()",
@@ -97,10 +152,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L84",
       "_origin": "ast",
-      "id": "app_test_agent_manager_test_register_agent",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": "test_register_agent()"
+      "norm_label": "test_register_agent()",
+      "id": "app_test_agent_manager_test_register_agent"
     },
     {
       "label": "test_agent_permission_check()",
@@ -108,10 +163,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L98",
       "_origin": "ast",
-      "id": "app_test_agent_manager_test_agent_permission_check",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": "test_agent_permission_check()"
+      "norm_label": "test_agent_permission_check()",
+      "id": "app_test_agent_manager_test_agent_permission_check"
     },
     {
       "label": "test_accept_created_task()",
@@ -119,10 +174,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L119",
       "_origin": "ast",
-      "id": "app_test_agent_manager_test_accept_created_task",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": "test_accept_created_task()"
+      "norm_label": "test_accept_created_task()",
+      "id": "app_test_agent_manager_test_accept_created_task"
     },
     {
       "label": "test_accept_unknown_agent_rejected()",
@@ -130,10 +185,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L145",
       "_origin": "ast",
-      "id": "app_test_agent_manager_test_accept_unknown_agent_rejected",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": "test_accept_unknown_agent_rejected()"
+      "norm_label": "test_accept_unknown_agent_rejected()",
+      "id": "app_test_agent_manager_test_accept_unknown_agent_rejected"
     },
     {
       "label": "test_build_prompt()",
@@ -141,10 +196,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L163",
       "_origin": "ast",
-      "id": "app_test_agent_manager_test_build_prompt",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": "test_build_prompt()"
+      "norm_label": "test_build_prompt()",
+      "id": "app_test_agent_manager_test_build_prompt"
     },
     {
       "label": "test_execute_task()",
@@ -152,10 +207,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L180",
       "_origin": "ast",
-      "id": "app_test_agent_manager_test_execute_task",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": "test_execute_task()"
+      "norm_label": "test_execute_task()",
+      "id": "app_test_agent_manager_test_execute_task"
     },
     {
       "label": "test_report_progress()",
@@ -163,10 +218,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L221",
       "_origin": "ast",
-      "id": "app_test_agent_manager_test_report_progress",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": "test_report_progress()"
+      "norm_label": "test_report_progress()",
+      "id": "app_test_agent_manager_test_report_progress"
     },
     {
       "label": "test_failure_escalation()",
@@ -174,10 +229,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L237",
       "_origin": "ast",
-      "id": "app_test_agent_manager_test_failure_escalation",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": "test_failure_escalation()"
+      "norm_label": "test_failure_escalation()",
+      "id": "app_test_agent_manager_test_failure_escalation"
     },
     {
       "label": "OmniForces Agent Manager Tests Pytest coverage for: - Agent registration - Task\u2026",
@@ -185,10 +240,10 @@
       "source_file": "app/test_agent_manager.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "app_test_agent_manager_rationale_1",
       "community": 23,
       "community_name": "test_agent_manager.py",
-      "norm_label": "omniforces agent manager tests pytest coverage for: - agent registration - task..."
+      "norm_label": "omniforces agent manager tests pytest coverage for: - agent registration - task...",
+      "id": "app_test_agent_manager_rationale_1"
     },
     {
       "label": "agent_manager.py",
@@ -207,8 +262,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": "agentmanagererror",
       "id": "app_agents_agent_manager_agentmanagererror"
     },
@@ -218,8 +273,8 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 18,
+      "community_name": "ObsidianContext",
       "norm_label": "exception",
       "id": "exception"
     },
@@ -295,8 +350,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L121",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": ".accept_task()",
       "id": "app_agents_agent_manager_agentmanager_accept_task"
     },
@@ -383,8 +438,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L34",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": "raised when agent manager cannot accept or process a task.",
       "id": "app_agents_agent_manager_rationale_34"
     },
@@ -416,8 +471,8 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 18,
+      "community_name": "ObsidianContext",
       "norm_label": "knowledgeprovidererror",
       "id": "app_context_knowledge_provider_knowledgeprovidererror"
     },
@@ -559,8 +614,8 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L26",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 18,
+      "community_name": "ObsidianContext",
       "norm_label": "raised when the knowledge provider encounters an error.",
       "id": "app_context_knowledge_provider_rationale_26"
     },
@@ -2820,17 +2875,6 @@
       "id": "app_tasks_atomic_task_engine_rationale_410"
     },
     {
-      "label": "test_agent_memory.py",
-      "file_type": "code",
-      "source_file": "app/test_agent_memory.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 7,
-      "norm_label": "test_agent_memory.py",
-      "community_name": "test_agent_memory.py",
-      "id": "app_test_agent_memory"
-    },
-    {
       "label": "test_ate_integration.py",
       "file_type": "code",
       "source_file": "app/test_ate_integration.py",
@@ -3185,6 +3229,50 @@
   ],
   "links": [
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_agent_memory",
+      "target": "app_test_agent_memory_test_agent_memory_add_skill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_agent_memory",
+      "target": "app_test_agent_memory_test_agent_memory_creation",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_agent_memory",
+      "target": "app_test_agent_memory_test_agent_memory_set_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L63",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_agent_memory",
+      "target": "app_test_agent_memory_test_agent_memory_to_dict",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -3192,9 +3280,9 @@
       "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager",
-      "target": "app_agents_agent_manager",
-      "confidence_score": 1.0
+      "target": "app_agents_agent_manager"
     },
     {
       "relation": "imports_from",
@@ -3204,9 +3292,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager",
-      "target": "app_tasks_atomic_task_engine",
-      "confidence_score": 1.0
+      "target": "app_tasks_atomic_task_engine"
     },
     {
       "relation": "contains",
@@ -3215,9 +3303,9 @@
       "source_location": "L70",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager",
-      "target": "app_test_agent_manager_build_manager",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_build_manager"
     },
     {
       "relation": "contains",
@@ -3226,9 +3314,9 @@
       "source_location": "L49",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager",
-      "target": "app_test_agent_manager_create_test_task",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_create_test_task"
     },
     {
       "relation": "contains",
@@ -3237,9 +3325,9 @@
       "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager",
-      "target": "app_test_agent_manager_fakeollamaclient",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_fakeollamaclient"
     },
     {
       "relation": "contains",
@@ -3248,9 +3336,9 @@
       "source_location": "L27",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager",
-      "target": "app_test_agent_manager_fakeresponse",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_fakeresponse"
     },
     {
       "relation": "contains",
@@ -3259,9 +3347,9 @@
       "source_location": "L119",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager",
-      "target": "app_test_agent_manager_test_accept_created_task",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_test_accept_created_task"
     },
     {
       "relation": "contains",
@@ -3270,9 +3358,9 @@
       "source_location": "L145",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager",
-      "target": "app_test_agent_manager_test_accept_unknown_agent_rejected",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_test_accept_unknown_agent_rejected"
     },
     {
       "relation": "contains",
@@ -3281,9 +3369,9 @@
       "source_location": "L98",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager",
-      "target": "app_test_agent_manager_test_agent_permission_check",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_test_agent_permission_check"
     },
     {
       "relation": "contains",
@@ -3292,9 +3380,9 @@
       "source_location": "L163",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager",
-      "target": "app_test_agent_manager_test_build_prompt",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_test_build_prompt"
     },
     {
       "relation": "contains",
@@ -3303,9 +3391,9 @@
       "source_location": "L180",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager",
-      "target": "app_test_agent_manager_test_execute_task",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_test_execute_task"
     },
     {
       "relation": "contains",
@@ -3314,9 +3402,9 @@
       "source_location": "L237",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager",
-      "target": "app_test_agent_manager_test_failure_escalation",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_test_failure_escalation"
     },
     {
       "relation": "contains",
@@ -3325,9 +3413,9 @@
       "source_location": "L84",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager",
-      "target": "app_test_agent_manager_test_register_agent",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_test_register_agent"
     },
     {
       "relation": "contains",
@@ -3336,9 +3424,9 @@
       "source_location": "L221",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager",
-      "target": "app_test_agent_manager_test_report_progress",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_test_report_progress"
     },
     {
       "relation": "rationale_for",
@@ -3347,9 +3435,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_rationale_1",
-      "target": "app_test_agent_manager",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager"
     },
     {
       "relation": "calls",
@@ -3359,9 +3447,9 @@
       "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_fakeollamaclient_generate",
-      "target": "app_test_agent_manager_fakeresponse",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_fakeresponse"
     },
     {
       "relation": "method",
@@ -3370,9 +3458,9 @@
       "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_fakeresponse",
-      "target": "app_test_agent_manager_fakeresponse_init",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_fakeresponse_init"
     },
     {
       "relation": "calls",
@@ -3382,9 +3470,9 @@
       "source_location": "L74",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_build_manager",
-      "target": "app_test_agent_manager_fakeollamaclient",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_fakeollamaclient"
     },
     {
       "relation": "method",
@@ -3393,9 +3481,9 @@
       "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_fakeollamaclient",
-      "target": "app_test_agent_manager_fakeollamaclient_generate",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_fakeollamaclient_generate"
     },
     {
       "relation": "method",
@@ -3404,9 +3492,9 @@
       "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_fakeollamaclient",
-      "target": "app_test_agent_manager_fakeollamaclient_init",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_fakeollamaclient_init"
     },
     {
       "relation": "calls",
@@ -3416,9 +3504,9 @@
       "source_location": "L129",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_test_accept_created_task",
-      "target": "app_test_agent_manager_create_test_task",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_create_test_task"
     },
     {
       "relation": "calls",
@@ -3428,9 +3516,9 @@
       "source_location": "L149",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_test_accept_unknown_agent_rejected",
-      "target": "app_test_agent_manager_create_test_task",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_create_test_task"
     },
     {
       "relation": "calls",
@@ -3440,9 +3528,9 @@
       "source_location": "L167",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_test_build_prompt",
-      "target": "app_test_agent_manager_create_test_task",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_create_test_task"
     },
     {
       "relation": "calls",
@@ -3452,9 +3540,9 @@
       "source_location": "L190",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_test_execute_task",
-      "target": "app_test_agent_manager_create_test_task",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_create_test_task"
     },
     {
       "relation": "calls",
@@ -3464,9 +3552,9 @@
       "source_location": "L241",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_test_failure_escalation",
-      "target": "app_test_agent_manager_create_test_task",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_create_test_task"
     },
     {
       "relation": "calls",
@@ -3476,9 +3564,9 @@
       "source_location": "L225",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_test_report_progress",
-      "target": "app_test_agent_manager_create_test_task",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_create_test_task"
     },
     {
       "relation": "calls",
@@ -3488,9 +3576,9 @@
       "source_location": "L121",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_test_accept_created_task",
-      "target": "app_test_agent_manager_build_manager",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_build_manager"
     },
     {
       "relation": "calls",
@@ -3500,9 +3588,9 @@
       "source_location": "L147",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_test_accept_unknown_agent_rejected",
-      "target": "app_test_agent_manager_build_manager",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_build_manager"
     },
     {
       "relation": "calls",
@@ -3512,9 +3600,9 @@
       "source_location": "L100",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_test_agent_permission_check",
-      "target": "app_test_agent_manager_build_manager",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_build_manager"
     },
     {
       "relation": "calls",
@@ -3524,9 +3612,9 @@
       "source_location": "L165",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_test_build_prompt",
-      "target": "app_test_agent_manager_build_manager",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_build_manager"
     },
     {
       "relation": "calls",
@@ -3536,9 +3624,9 @@
       "source_location": "L182",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_test_execute_task",
-      "target": "app_test_agent_manager_build_manager",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_build_manager"
     },
     {
       "relation": "calls",
@@ -3548,9 +3636,9 @@
       "source_location": "L239",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_test_failure_escalation",
-      "target": "app_test_agent_manager_build_manager",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_build_manager"
     },
     {
       "relation": "calls",
@@ -3560,9 +3648,9 @@
       "source_location": "L86",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_test_register_agent",
-      "target": "app_test_agent_manager_build_manager",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_build_manager"
     },
     {
       "relation": "calls",
@@ -3572,9 +3660,9 @@
       "source_location": "L223",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_agent_manager_test_report_progress",
-      "target": "app_test_agent_manager_build_manager",
-      "confidence_score": 1.0
+      "target": "app_test_agent_manager_build_manager"
     },
     {
       "relation": "contains",
@@ -8541,5 +8629,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "d0fadc2606591235e76d959fc27b1a181f9d52ed"
+  "built_at_commit": "32c60265d9ed541650f0704cc57a8aad01369428"
 }
