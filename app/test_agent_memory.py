@@ -1,90 +1,118 @@
 # ============================================
 # OmniForces
-# Agent Memory Tests
+# Memory Manager Tests
 # ============================================
 
-from app.memory.agent_memory import AgentMemory
+from app.memory.memory_manager import MemoryManager
 
 
-def test_agent_memory_creation():
+def test_memory_manager_initialises():
 
-    agent = AgentMemory(
-        "KC-001",
-        "Senior AI Software Engineer",
+    memory = MemoryManager()
+
+    assert memory.working is not None
+    assert memory.session is not None
+    assert memory.long_term is not None
+    assert memory.storage is not None
+
+
+def test_working_memory_through_manager():
+
+    memory = MemoryManager()
+
+    memory.working.set_task(
+        "Testing MemoryManager integration"
     )
 
-    assert agent.agent_id == "KC-001"
-    assert agent.role == "Senior AI Software Engineer"
-
-    assert agent.skills == []
-    assert agent.context == {}
-
-
-def test_agent_memory_add_skill():
-
-    agent = AgentMemory(
-        "KC-001",
-        "Senior AI Software Engineer",
+    memory.working.add_note(
+        "All memory systems connect through MemoryManager"
     )
 
-    agent.add_skill(
-        "Software Development"
+    result = memory.working.to_dict()
+
+    assert result["task"] == (
+        "Testing MemoryManager integration"
     )
 
-    agent.add_skill(
-        "Documentation"
+    assert (
+        "All memory systems connect through MemoryManager"
+        in result["notes"]
     )
 
-    assert "Software Development" in agent.skills
-    assert "Documentation" in agent.skills
 
+def test_session_memory_through_manager():
 
-def test_agent_memory_set_context():
+    memory = MemoryManager()
 
-    agent = AgentMemory(
-        "KC-001",
-        "Senior AI Software Engineer",
+    memory.session.set_project(
+        "OmniForces"
     )
 
-    agent.set_context(
-        "current_project",
-        "OmniForces",
+    memory.session.set_milestone(
+        "Milestone 3"
     )
 
-    agent.set_context(
-        "milestone",
-        "Milestone 3",
+    memory.session.add_todo(
+        "Complete memory subsystem"
     )
 
-    assert agent.context["current_project"] == "OmniForces"
-    assert agent.context["milestone"] == "Milestone 3"
+    result = memory.session.to_dict()
 
+    assert result["project"] == "OmniForces"
 
-def test_agent_memory_to_dict():
+    assert result["milestone"] == "Milestone 3"
 
-    agent = AgentMemory(
-        "KC-001",
-        "Senior AI Software Engineer",
+    assert (
+        "Complete memory subsystem"
+        in result["todos"]
     )
 
-    agent.add_skill(
-        "Software Development"
+
+def test_long_term_memory_through_manager():
+
+    memory = MemoryManager()
+
+    memory.long_term.add_knowledge(
+        "architecture",
+        "Agents communicate through MemoryManager"
     )
 
-    agent.set_context(
-        "current_project",
-        "OmniForces",
+    result = memory.long_term.to_dict()
+
+    assert (
+    "Agents communicate through MemoryManager"
+    in result["knowledge"]["architecture"]
     )
 
-    result = agent.to_dict()
 
-    assert result == {
-        "agent_id": "KC-001",
-        "role": "Senior AI Software Engineer",
-        "skills": [
-            "Software Development"
-        ],
-        "context": {
-            "current_project": "OmniForces"
-        },
-    }
+def test_memory_manager_clear_methods():
+
+    memory = MemoryManager()
+
+    memory.working.set_task(
+        "temporary"
+    )
+
+    memory.session.set_project(
+        "temporary"
+    )
+
+    memory.long_term.add_knowledge(
+        "test",
+        "temporary"
+    )
+
+    memory.clear_working_memory()
+    memory.clear_session_memory()
+    memory.clear_long_term_memory()
+
+    assert memory.working.to_dict()["task"] == ""
+    assert memory.working.to_dict()["notes"] == []
+
+    session_state = memory.session.to_dict()
+
+    assert session_state["project"] == ""
+    assert session_state["milestone"] == ""
+    assert session_state["todos"] == []
+
+    assert memory.long_term.to_dict()["knowledge"] == {}
