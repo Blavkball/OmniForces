@@ -4,15 +4,81 @@
   "graph": {},
   "nodes": [
     {
+      "label": "test_agent_memory.py",
+      "file_type": "code",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_test_agent_memory",
+      "community": 7,
+      "community_name": "test_agent_memory.py",
+      "norm_label": "test_agent_memory.py"
+    },
+    {
+      "label": "test_memory_manager_initialises()",
+      "file_type": "code",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_test_agent_memory_test_memory_manager_initialises",
+      "community": 7,
+      "community_name": "test_agent_memory.py",
+      "norm_label": "test_memory_manager_initialises()"
+    },
+    {
+      "label": "test_working_memory_through_manager()",
+      "file_type": "code",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "app_test_agent_memory_test_working_memory_through_manager",
+      "community": 7,
+      "community_name": "test_agent_memory.py",
+      "norm_label": "test_working_memory_through_manager()"
+    },
+    {
+      "label": "test_session_memory_through_manager()",
+      "file_type": "code",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "app_test_agent_memory_test_session_memory_through_manager",
+      "community": 7,
+      "community_name": "test_agent_memory.py",
+      "norm_label": "test_session_memory_through_manager()"
+    },
+    {
+      "label": "test_long_term_memory_through_manager()",
+      "file_type": "code",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L71",
+      "_origin": "ast",
+      "id": "app_test_agent_memory_test_long_term_memory_through_manager",
+      "community": 7,
+      "community_name": "test_agent_memory.py",
+      "norm_label": "test_long_term_memory_through_manager()"
+    },
+    {
+      "label": "test_memory_manager_clear_methods()",
+      "file_type": "code",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L88",
+      "_origin": "ast",
+      "id": "app_test_agent_memory_test_memory_manager_clear_methods",
+      "community": 7,
+      "community_name": "test_agent_memory.py",
+      "norm_label": "test_memory_manager_clear_methods()"
+    },
+    {
       "label": "test_housekeeper.py",
       "file_type": "code",
       "source_file": "app/test_housekeeper.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "app_test_housekeeper",
       "community": 8,
       "community_name": "test_housekeeper.py",
-      "norm_label": "test_housekeeper.py"
+      "norm_label": "test_housekeeper.py",
+      "id": "app_test_housekeeper"
     },
     {
       "label": "test_housekeeper_initialises()",
@@ -20,10 +86,10 @@
       "source_file": "app/test_housekeeper.py",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "app_test_housekeeper_test_housekeeper_initialises",
       "community": 8,
       "community_name": "test_housekeeper.py",
-      "norm_label": "test_housekeeper_initialises()"
+      "norm_label": "test_housekeeper_initialises()",
+      "id": "app_test_housekeeper_test_housekeeper_initialises"
     },
     {
       "label": "test_housekeeper_runs_without_error()",
@@ -31,10 +97,10 @@
       "source_file": "app/test_housekeeper.py",
       "source_location": "L21",
       "_origin": "ast",
-      "id": "app_test_housekeeper_test_housekeeper_runs_without_error",
       "community": 8,
       "community_name": "test_housekeeper.py",
-      "norm_label": "test_housekeeper_runs_without_error()"
+      "norm_label": "test_housekeeper_runs_without_error()",
+      "id": "app_test_housekeeper_test_housekeeper_runs_without_error"
     },
     {
       "label": "test_housekeeper_maintenance_methods_exist()",
@@ -42,65 +108,10 @@
       "source_file": "app/test_housekeeper.py",
       "source_location": "L48",
       "_origin": "ast",
-      "id": "app_test_housekeeper_test_housekeeper_maintenance_methods_exist",
       "community": 8,
       "community_name": "test_housekeeper.py",
-      "norm_label": "test_housekeeper_maintenance_methods_exist()"
-    },
-    {
-      "label": "test_agent_memory.py",
-      "file_type": "code",
-      "source_file": "app/test_agent_memory.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "test_agent_memory.py",
-      "norm_label": "test_agent_memory.py",
-      "id": "app_test_agent_memory"
-    },
-    {
-      "label": "test_agent_memory_creation()",
-      "file_type": "code",
-      "source_file": "app/test_agent_memory.py",
-      "source_location": "L9",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "test_agent_memory.py",
-      "norm_label": "test_agent_memory_creation()",
-      "id": "app_test_agent_memory_test_agent_memory_creation"
-    },
-    {
-      "label": "test_agent_memory_add_skill()",
-      "file_type": "code",
-      "source_file": "app/test_agent_memory.py",
-      "source_location": "L23",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "test_agent_memory.py",
-      "norm_label": "test_agent_memory_add_skill()",
-      "id": "app_test_agent_memory_test_agent_memory_add_skill"
-    },
-    {
-      "label": "test_agent_memory_set_context()",
-      "file_type": "code",
-      "source_file": "app/test_agent_memory.py",
-      "source_location": "L42",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "test_agent_memory.py",
-      "norm_label": "test_agent_memory_set_context()",
-      "id": "app_test_agent_memory_test_agent_memory_set_context"
-    },
-    {
-      "label": "test_agent_memory_to_dict()",
-      "file_type": "code",
-      "source_file": "app/test_agent_memory.py",
-      "source_location": "L63",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "test_agent_memory.py",
-      "norm_label": "test_agent_memory_to_dict()",
-      "id": "app_test_agent_memory_test_agent_memory_to_dict"
+      "norm_label": "test_housekeeper_maintenance_methods_exist()",
+      "id": "app_test_housekeeper_test_housekeeper_maintenance_methods_exist"
     },
     {
       "label": "test_agent_manager.py",
@@ -306,8 +317,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L33",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": "agentmanagererror",
       "id": "app_agents_agent_manager_agentmanagererror"
     },
@@ -317,8 +328,8 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 18,
+      "community_name": "ObsidianContext",
       "norm_label": "exception",
       "id": "exception"
     },
@@ -328,8 +339,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L57",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": "agentmanager",
       "id": "app_agents_agent_manager_agentmanager"
     },
@@ -340,7 +351,7 @@
       "source_location": "L69",
       "_origin": "ast",
       "community": 3,
-      "community_name": "AgentManager",
+      "community_name": ".__init__",
       "norm_label": ".__init__()",
       "id": "app_agents_agent_manager_agentmanager_init"
     },
@@ -351,7 +362,7 @@
       "source_location": "",
       "_origin": "ast",
       "community": 3,
-      "community_name": "AgentManager",
+      "community_name": ".__init__",
       "norm_label": "atomictaskengine",
       "id": "atomictaskengine"
     },
@@ -362,7 +373,7 @@
       "source_location": "",
       "_origin": "ast",
       "community": 3,
-      "community_name": "AgentManager",
+      "community_name": ".__init__",
       "norm_label": "ollamaclient",
       "id": "ollamaclient"
     },
@@ -372,8 +383,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L90",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": ".register_agent()",
       "id": "app_agents_agent_manager_agentmanager_register_agent"
     },
@@ -383,8 +394,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L112",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": ".get_agent()",
       "id": "app_agents_agent_manager_agentmanager_get_agent"
     },
@@ -394,8 +405,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L121",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": ".accept_task()",
       "id": "app_agents_agent_manager_agentmanager_accept_task"
     },
@@ -405,8 +416,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L208",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": "._build_prompt()",
       "id": "app_agents_agent_manager_agentmanager_build_prompt"
     },
@@ -416,8 +427,8 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": "atomictask",
       "id": "atomictask"
     },
@@ -427,8 +438,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L231",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": ".execute_task()",
       "id": "app_agents_agent_manager_agentmanager_execute_task"
     },
@@ -438,8 +449,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L298",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": ".report_progress()",
       "id": "app_agents_agent_manager_agentmanager_report_progress"
     },
@@ -449,8 +460,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L318",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": ".report_result()",
       "id": "app_agents_agent_manager_agentmanager_report_result"
     },
@@ -460,8 +471,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L336",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": ".report_blocked()",
       "id": "app_agents_agent_manager_agentmanager_report_blocked"
     },
@@ -471,8 +482,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L353",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": ".check_permission()",
       "id": "app_agents_agent_manager_agentmanager_check_permission"
     },
@@ -482,8 +493,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L34",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": "raised when agent manager cannot accept or process a task.",
       "id": "app_agents_agent_manager_rationale_34"
     },
@@ -493,8 +504,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L58",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": "coordinates ai agents. agent manager: - does not create tasks - does not...",
       "id": "app_agents_agent_manager_rationale_58"
     },
@@ -515,8 +526,8 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 18,
+      "community_name": "ObsidianContext",
       "norm_label": "knowledgeprovidererror",
       "id": "app_context_knowledge_provider_knowledgeprovidererror"
     },
@@ -658,8 +669,8 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L26",
       "_origin": "ast",
-      "community": 3,
-      "community_name": "AgentManager",
+      "community": 18,
+      "community_name": "ObsidianContext",
       "norm_label": "raised when the knowledge provider encounters an error.",
       "id": "app_context_knowledge_provider_rationale_26"
     },
@@ -3264,46 +3275,24 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app/test_housekeeper.py",
-      "source_location": "L10",
+      "source_file": "app/test_agent_memory.py",
+      "source_location": "L71",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_test_housekeeper",
-      "target": "app_test_housekeeper_test_housekeeper_initialises",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/test_housekeeper.py",
-      "source_location": "L48",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_test_housekeeper",
-      "target": "app_test_housekeeper_test_housekeeper_maintenance_methods_exist",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/test_housekeeper.py",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_test_housekeeper",
-      "target": "app_test_housekeeper_test_housekeeper_runs_without_error",
+      "source": "app_test_agent_memory",
+      "target": "app_test_agent_memory_test_long_term_memory_through_manager",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/test_agent_memory.py",
-      "source_location": "L23",
+      "source_location": "L88",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "app_test_agent_memory",
-      "target": "app_test_agent_memory_test_agent_memory_add_skill"
+      "target": "app_test_agent_memory_test_memory_manager_clear_methods",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -3312,31 +3301,64 @@
       "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "app_test_agent_memory",
-      "target": "app_test_agent_memory_test_agent_memory_creation"
+      "target": "app_test_agent_memory_test_memory_manager_initialises",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/test_agent_memory.py",
-      "source_location": "L42",
+      "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast",
-      "confidence_score": 1.0,
       "source": "app_test_agent_memory",
-      "target": "app_test_agent_memory_test_agent_memory_set_context"
+      "target": "app_test_agent_memory_test_session_memory_through_manager",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/test_agent_memory.py",
-      "source_location": "L63",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_agent_memory",
+      "target": "app_test_agent_memory_test_working_memory_through_manager",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_housekeeper.py",
+      "source_location": "L10",
       "weight": 1.0,
       "_origin": "ast",
       "confidence_score": 1.0,
-      "source": "app_test_agent_memory",
-      "target": "app_test_agent_memory_test_agent_memory_to_dict"
+      "source": "app_test_housekeeper",
+      "target": "app_test_housekeeper_test_housekeeper_initialises"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_housekeeper.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_test_housekeeper",
+      "target": "app_test_housekeeper_test_housekeeper_maintenance_methods_exist"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_housekeeper.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_test_housekeeper",
+      "target": "app_test_housekeeper_test_housekeeper_runs_without_error"
     },
     {
       "relation": "imports_from",
@@ -8695,5 +8717,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "625a5234f64e9d89b0f5c4f52c6a378e11bd79c5"
+  "built_at_commit": "bf2fb0ccd09fa57a26d91732e9721e9f90d1d25b"
 }
