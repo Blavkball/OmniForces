@@ -1,12 +1,15 @@
 # ============================================
 # OmniForces
 # Agent Manager
-# Implements AGENT_MANAGER.md v1.1's Interface
-# With Atomic Task Engine contract, plus real
-# model execution via OllamaClient (Phase 2),
-# now prepending role system-context from
-# app/roles.py before the model call
-# (Phase 3, Step 2).
+# Implements AGENT_MANAGER.md v1.1 Interface
+#
+# Responsibilities:
+# - Receive tasks from Atomic Task Engine
+# - Coordinate registered agents
+# - Route execution through OllamaClient
+# - Apply role context
+# - Report results back through ATE
+# - Escalate failures through SupervisorControl
 # ============================================
 
 from typing import Optional
@@ -14,38 +17,53 @@ from typing import Optional
 from app.memory.agent_memory import AgentMemory
 from app.skills.skill_loader import SkillLoader
 from app.supervisor.control import SupervisorControl
+
 from app.tasks.atomic_task_engine import (
     AtomicTaskEngine,
     AtomicTask,
     TaskStatus,
     TaskEngineError,
 )
+
 from app.ollama import OllamaClient
 from app.router import choose_model
 from app.roles import get_role_context
 
 
 class AgentManagerError(Exception):
-    """Raised when Agent Manager cannot accept or process a task as given."""
+    """
+    Raised when Agent Manager cannot accept
+    or process a task.
+    """
+    pass
 
 
-# Fields an ATE task must carry before Agent Manager will accept it,
-# per AGENT_MANAGER.md — "Agent Manager accepts a task only when ...
-# it carries a valid task_id, owner, objective, and completion_criteria."
-# In ATE's actual data model these are: task_id, owner, purpose
-# (objective) and success_criteria (completion_criteria).
-_REQUIRED_FIELDS = ("task_id", "owner", "purpose", "success_criteria")
+_REQUIRED_FIELDS = (
+    "task_id",
+    "owner",
+    "purpose",
+    "success_criteria",
+)
 
-# ATE statuses Agent Manager is allowed to accept a task from.
-_ACCEPTABLE_STATUSES = (TaskStatus.ASSIGNED, TaskStatus.APPROVED, TaskStatus.READY)
+
+_ACCEPTABLE_STATUSES = (
+    TaskStatus.CREATED,
+    TaskStatus.ASSIGNED,
+    TaskStatus.APPROVED,
+    TaskStatus.READY,
+)
 
 
 class AgentManager:
     """
-    Coordinates AI agents. Never receives a task directly from
-    Supervisor — every task arrives through ATE, and every result is
-    reported back through ATE. Never sets ATE task state directly;
-    reports status and lets ATE perform the transition.
+    Coordinates AI agents.
+
+    Agent Manager:
+    - does not create tasks
+    - does not approve tasks
+    - does not own task state
+
+    Atomic Task Engine remains the source of truth.
     """
 
     def __init__(
@@ -53,74 +71,127 @@ class AgentManager:
         engine: Optional[AtomicTaskEngine] = None,
         ollama_client: Optional[OllamaClient] = None,
     ):
+
         self.agents = {}
+
         self.skill_loader = SkillLoader()
+
         self.supervisor = SupervisorControl()
+
         self.engine = engine or AtomicTaskEngine()
+
         self.ollama_client = ollama_client or OllamaClient()
 
-    # ------------------------------------------------------------------
-    # Agent registration — unchanged from the original foundation.
-    # ------------------------------------------------------------------
 
-    def register_agent(self, agent_id, role, limit):
-        agent = AgentMemory(agent_id, role)
+    # --------------------------------------------------
+    # Agent Registration
+    # --------------------------------------------------
+
+    def register_agent(
+        self,
+        agent_id,
+        role,
+        limit,
+    ):
+
+        agent = AgentMemory(
+            agent_id,
+            role,
+        )
+
         self.agents[agent_id] = agent
-        self.supervisor.register_agent(agent_id, limit)
+
+        self.supervisor.register_agent(
+            agent_id,
+            limit,
+        )
+
         return agent
 
+
     def get_agent(self, agent_id):
+
         return self.agents.get(agent_id)
 
-    # ------------------------------------------------------------------
-    # Receiving a Task (AGENT_MANAGER.md — Interface With ATE)
-    # ------------------------------------------------------------------
 
-    def accept_task(self, task_id: str, assigned_to: str) -> dict:
-        """
-        Accepts a task from ATE. Validates it carries the required
-        fields and is in an acceptable status before taking it on.
-        A task without these is rejected back to ATE, not silently
-        dropped and not executed on partial information.
+    # --------------------------------------------------
+    # Task Acceptance
+    # --------------------------------------------------
 
-        Role selection: if the task already carries a manually-set
-        `role`, it is left as-is and used for model routing and
-        system-context at execution. Automatic role inference from
-        `required_skills` is NOT implemented here — no skill-to-role
-        mapping exists yet in AI_EMPLOYEES.md or elsewhere in the
-        codebase. A task with `required_skills` set and no manual
-        `role` is accepted with `role` left None, which routes to the
-        default model and shared context only, not an error.
-        """
+    def accept_task(
+        self,
+        task_id: str,
+        assigned_to: str,
+    ) -> dict:
+
         try:
-            task = self.engine.get_task(task_id)
-        except TaskEngineError as e:
-            raise AgentManagerError(f"cannot accept unknown task: {e}")
 
-        missing = [f for f in _REQUIRED_FIELDS if not getattr(task, f, None)]
-        if missing:
-            raise AgentManagerError(
-                f"task {task_id} rejected — missing required fields: {missing}"
+            task = self.engine.get_task(
+                task_id
             )
+
+        except TaskEngineError as error:
+
+            raise AgentManagerError(
+                f"cannot accept unknown task: {error}"
+            )
+
+
+        missing = [
+            field
+            for field in _REQUIRED_FIELDS
+            if not getattr(task, field, None)
+        ]
+
+        if missing:
+
+            raise AgentManagerError(
+                f"task {task_id} rejected - missing required fields: {missing}"
+            )
+
 
         if task.status not in _ACCEPTABLE_STATUSES:
+
             raise AgentManagerError(
-                f"task {task_id} rejected — status {task.status} is not one Agent "
-                f"Manager can accept from; must be one of {_ACCEPTABLE_STATUSES}"
+                f"task {task_id} rejected - "
+                f"status {task.status} cannot be accepted"
             )
+
 
         if assigned_to not in self.agents:
+
             raise AgentManagerError(
-                f"task {task_id} rejected — agent '{assigned_to}' is not registered"
+                f"task {task_id} rejected - "
+                f"agent '{assigned_to}' is not registered"
             )
 
-        if task.status == TaskStatus.ASSIGNED:
-            self.engine.assign_task(task_id, assigned_to)
+
+        #
+        # Only CREATED tasks should be assigned.
+        #
+        # Already assigned tasks belong to ATE.
+        #
+        if task.status == TaskStatus.CREATED:
+
+            self.engine.assign_task(
+                task_id,
+                assigned_to,
+            )
+
         elif task.assigned_to is None:
+
             task.assigned_to = assigned_to
 
+
+        #
+        # READY tasks may begin execution.
+        #
         if task.status == TaskStatus.READY:
-            self.engine.start_execution(task_id)
+
+            self.engine.start_execution(
+                task_id
+            )
+
 
         return {
             "task_id": task_id,
@@ -129,100 +200,167 @@ class AgentManager:
             "role": task.role,
         }
 
-    # ------------------------------------------------------------------
-    # Real execution (Phase 2 — wires OllamaClient + router.choose_model
-    # into the task lifecycle; Phase 3 — role context from roles.py now
-    # prepended to the prompt). Requires the task to already be
-    # Executing — call accept_task first.
-    # ------------------------------------------------------------------
 
-    def _build_prompt(self, task: AtomicTask) -> str:
-        """
-        Builds the task-content portion of the prompt from the task's
-        own fields. Role system-context is prepended separately in
-        execute_task via get_role_context — kept separate here so the
-        task-content shape stays testable on its own.
-        """
+    # --------------------------------------------------
+    # Execution
+    # --------------------------------------------------
+
+    def _build_prompt(
+        self,
+        task: AtomicTask,
+    ) -> str:
+
         lines = [
             f"Task: {task.title}",
             f"Purpose: {task.purpose}",
             f"Description: {task.description}",
             f"Expected output: {task.expected_output}",
         ]
-        if task.success_criteria:
-            lines.append("Success criteria: " + "; ".join(task.success_criteria))
-        return "\n".join(lines)
 
-    def execute_task(self, task_id: str) -> dict:
-        """
-        Runs a task that is already in Executing (per accept_task)
-        through the real model: prepends the role's system-context
-        (from app.roles.get_role_context) to the task-content prompt,
-        selects a model via router.choose_model using the task's role,
-        calls OllamaClient, and reports the result back through ATE.
-        On failure, routes through report_blocked instead of raising
-        past Agent Manager, so the failure enters Supervisor Review
-        rather than crashing the caller.
-        """
-        task = self.engine.get_task(task_id)
-        if task.status != TaskStatus.EXECUTING:
-            raise AgentManagerError(
-                f"cannot execute task {task_id} in status {task.status}; "
-                f"must be {TaskStatus.EXECUTING} — call accept_task first"
+        if task.success_criteria:
+
+            lines.append(
+                "Success criteria: "
+                + "; ".join(task.success_criteria)
             )
 
-        role_context = get_role_context(task.role)
-        task_prompt = self._build_prompt(task)
-        full_prompt = f"{role_context}\n\n{task_prompt}"
+        return "\n".join(lines)
 
-        model = choose_model(role=task.role, prompt=full_prompt)
-        self.report_progress(task_id, f"calling model {model} (role={task.role})")
+
+
+    def execute_task(
+        self,
+        task_id: str,
+    ) -> dict:
+
+
+        task = self.engine.get_task(
+            task_id
+        )
+
+
+        if task.status != TaskStatus.EXECUTING:
+
+            raise AgentManagerError(
+                f"cannot execute task {task_id}; "
+                f"must be {TaskStatus.EXECUTING}"
+            )
+
+
+        role_context = get_role_context(
+            task.role
+        )
+
+
+        prompt = (
+            f"{role_context}\n\n"
+            f"{self._build_prompt(task)}"
+        )
+
+
+        model = choose_model(
+            role=task.role,
+            prompt=prompt,
+        )
+
+
+        self.report_progress(
+            task_id,
+            f"calling model {model}",
+        )
+
 
         try:
-            ai_response = self.ollama_client.generate(full_prompt, model=model)
+
+            response = self.ollama_client.generate(
+                prompt,
+                model=model,
+            )
+
         except Exception as error:
-            return self.report_blocked(task_id, f"model call failed: {error}")
 
-        return self.report_result(task_id, ai_response.response)
+            return self.report_blocked(
+                task_id,
+                f"model call failed: {error}",
+            )
 
-    # ------------------------------------------------------------------
-    # Reporting Status (AGENT_MANAGER.md — Interface With ATE)
-    # Agent Manager reports; ATE transitions the state. Agent Manager
-    # never sets ATE task state directly.
-    # ------------------------------------------------------------------
 
-    def report_progress(self, task_id: str, detail: str) -> dict:
-        """Level 1 status update — does not change ATE's task status."""
-        task = self.engine.report_status(task_id, "in_progress", detail)
-        return {"task_id": task_id, "status": task.status.value, "detail": detail}
+        return self.report_result(
+            task_id,
+            response.response,
+        )
 
-    def report_result(self, task_id: str, result: str) -> dict:
-        """
-        Task result available — submits for review. ATE moves the
-        task to Review, not Agent Manager directly.
-        """
-        task = self.engine.submit_for_review(task_id, result)
-        return {"task_id": task_id, "status": task.status.value}
 
-    def report_blocked(self, task_id: str, reason: str) -> dict:
-        """
-        Task cannot proceed. Routed through ATE and Supervisor per
-        AGENT_MANAGER.md's Escalation Routing — Agent Manager does not
-        contact Supervisor directly except through this recorded path.
-        """
-        result = self.supervisor.handle_escalation(self.engine, task_id, reason)
-        return result
+    # --------------------------------------------------
+    # Reporting
+    # --------------------------------------------------
 
-    # ------------------------------------------------------------------
-    # Authority Limits (AGENT_MANAGER.md)
-    # ------------------------------------------------------------------
+    def report_progress(
+        self,
+        task_id,
+        detail,
+    ):
 
-    def check_permission(self, agent_id: str, required_limit) -> bool:
-        """
-        Confirms an agent's registered limit satisfies a required
-        permission level before a skill or action proceeds. Agent
-        Manager cannot grant itself permissions — this only checks
-        what Supervisor already recorded at registration.
-        """
-        current = self.supervisor.check_limit(agent_id)
-        return current is not None and current == required_limit
+        task = self.engine.report_status(
+            task_id,
+            "in_progress",
+            detail,
+        )
+
+        return {
+            "task_id": task_id,
+            "status": task.status.value,
+            "detail": detail,
+        }
+
+
+
+    def report_result(
+        self,
+        task_id,
+        result,
+    ):
+
+        task = self.engine.submit_for_review(
+            task_id,
+            result,
+        )
+
+        return {
+            "task_id": task_id,
+            "status": task.status.value,
+        }
+
+
+
+    def report_blocked(
+        self,
+        task_id,
+        reason,
+    ):
+
+        return self.supervisor.handle_escalation(
+            self.engine,
+            task_id,
+            reason,
+        )
+
+
+    # --------------------------------------------------
+    # Permissions
+    # --------------------------------------------------
+
+    def check_permission(
+        self,
+        agent_id,
+        required_limit,
+    ) -> bool:
+
+        current = self.supervisor.check_limit(
+            agent_id
+        )
+
+        return (
+            current is not None
+            and current == required_limit
+        )
