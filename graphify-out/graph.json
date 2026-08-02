@@ -4,15 +4,268 @@
   "graph": {},
   "nodes": [
     {
+      "label": "obsidian_context.py",
+      "file_type": "code",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_context_obsidian_context",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "obsidian_context.py"
+    },
+    {
+      "label": "ObsidianContextError",
+      "file_type": "code",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "app_context_obsidian_context_obsidiancontexterror",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "obsidiancontexterror"
+    },
+    {
+      "label": "Exception",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "exception",
+      "community": 16,
+      "community_name": "KnowledgeProvider",
+      "norm_label": "exception"
+    },
+    {
+      "label": "ObsidianContext",
+      "file_type": "code",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L28",
+      "_origin": "ast",
+      "id": "app_context_obsidian_context_obsidiancontext",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "obsidiancontext"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "app_context_obsidian_context_obsidiancontext_init",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": ".__init__()"
+    },
+    {
+      "label": ".exists()",
+      "file_type": "code",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L36",
+      "_origin": "ast",
+      "id": "app_context_obsidian_context_obsidiancontext_exists",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": ".exists()"
+    },
+    {
+      "label": ".list_notes()",
+      "file_type": "code",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "app_context_obsidian_context_obsidiancontext_list_notes",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": ".list_notes()"
+    },
+    {
+      "label": ".read_note()",
+      "file_type": "code",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L57",
+      "_origin": "ast",
+      "id": "app_context_obsidian_context_obsidiancontext_read_note",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": ".read_note()"
+    },
+    {
+      "label": ".get_all_notes()",
+      "file_type": "code",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L73",
+      "_origin": "ast",
+      "id": "app_context_obsidian_context_obsidiancontext_get_all_notes",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": ".get_all_notes()"
+    },
+    {
+      "label": "OmniForces Obsidian Context Provider Reads the human knowledge vault\u2026",
+      "file_type": "rationale",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_context_obsidian_context_rationale_1",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "omniforces obsidian context provider reads the human knowledge vault..."
+    },
+    {
+      "label": "Raised when Obsidian vault cannot be loaded.",
+      "file_type": "rationale",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "app_context_obsidian_context_rationale_24",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "raised when obsidian vault cannot be loaded."
+    },
+    {
+      "label": "Provides access to the Obsidian vault.",
+      "file_type": "rationale",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L29",
+      "_origin": "ast",
+      "id": "app_context_obsidian_context_rationale_29",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "provides access to the obsidian vault."
+    },
+    {
+      "label": "Check vault availability.",
+      "file_type": "rationale",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L37",
+      "_origin": "ast",
+      "id": "app_context_obsidian_context_rationale_37",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "check vault availability."
+    },
+    {
+      "label": "Return all markdown note filenames in the vault.",
+      "file_type": "rationale",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "app_context_obsidian_context_rationale_43",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "return all markdown note filenames in the vault."
+    },
+    {
+      "label": "Read a single note from the vault root.",
+      "file_type": "rationale",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L58",
+      "_origin": "ast",
+      "id": "app_context_obsidian_context_rationale_58",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "read a single note from the vault root."
+    },
+    {
+      "label": "Read every note in the vault. Returns a dict of filename -> content.",
+      "file_type": "rationale",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L74",
+      "_origin": "ast",
+      "id": "app_context_obsidian_context_rationale_74",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "read every note in the vault. returns a dict of filename -> content."
+    },
+    {
+      "label": "test_obsidian_context.py",
+      "file_type": "code",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_test_obsidian_context",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "test_obsidian_context.py"
+    },
+    {
+      "label": "test_obsidian_context_loads()",
+      "file_type": "code",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "app_test_obsidian_context_test_obsidian_context_loads",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "test_obsidian_context_loads()"
+    },
+    {
+      "label": "test_vault_exists()",
+      "file_type": "code",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "app_test_obsidian_context_test_vault_exists",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "test_vault_exists()"
+    },
+    {
+      "label": "test_list_notes()",
+      "file_type": "code",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "app_test_obsidian_context_test_list_notes",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "test_list_notes()"
+    },
+    {
+      "label": "test_read_note()",
+      "file_type": "code",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L33",
+      "_origin": "ast",
+      "id": "app_test_obsidian_context_test_read_note",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "test_read_note()"
+    },
+    {
+      "label": "test_get_all_notes()",
+      "file_type": "code",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L42",
+      "_origin": "ast",
+      "id": "app_test_obsidian_context_test_get_all_notes",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "test_get_all_notes()"
+    },
+    {
+      "label": "Tests for Obsidian Context Provider",
+      "file_type": "rationale",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_test_obsidian_context_rationale_1",
+      "community": 18,
+      "community_name": "ObsidianContext",
+      "norm_label": "tests for obsidian context provider"
+    },
+    {
       "label": "context_builder.py",
       "file_type": "code",
       "source_file": "app/context/context_builder.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "app_context_context_builder",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "context_builder.py"
+      "norm_label": "context_builder.py",
+      "id": "app_context_context_builder"
     },
     {
       "label": "ContextBuilder",
@@ -20,10 +273,10 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L11",
       "_origin": "ast",
-      "id": "app_context_context_builder_contextbuilder",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "contextbuilder"
+      "norm_label": "contextbuilder",
+      "id": "app_context_context_builder_contextbuilder"
     },
     {
       "label": ".__init__()",
@@ -31,10 +284,10 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L13",
       "_origin": "ast",
-      "id": "app_context_context_builder_contextbuilder_init",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".__init__()"
+      "norm_label": ".__init__()",
+      "id": "app_context_context_builder_contextbuilder_init"
     },
     {
       "label": ".build()",
@@ -42,10 +295,10 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "app_context_context_builder_contextbuilder_build",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".build()"
+      "norm_label": ".build()",
+      "id": "app_context_context_builder_contextbuilder_build"
     },
     {
       "label": "OmniForces Context Builder Creates structured AI employee context.",
@@ -53,10 +306,10 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "app_context_context_builder_rationale_1",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "omniforces context builder creates structured ai employee context."
+      "norm_label": "omniforces context builder creates structured ai employee context.",
+      "id": "app_context_context_builder_rationale_1"
     },
     {
       "label": "Build complete context package.",
@@ -64,10 +317,10 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L19",
       "_origin": "ast",
-      "id": "app_context_context_builder_rationale_19",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "build complete context package."
+      "norm_label": "build complete context package.",
+      "id": "app_context_context_builder_rationale_19"
     },
     {
       "label": "knowledge_provider.py",
@@ -90,17 +343,6 @@
       "community_name": "KnowledgeProvider",
       "norm_label": "knowledgeprovidererror",
       "id": "app_context_knowledge_provider_knowledgeprovidererror"
-    },
-    {
-      "label": "Exception",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "community": 16,
-      "community_name": "KnowledgeProvider",
-      "norm_label": "exception",
-      "id": "exception"
     },
     {
       "label": "KnowledgeProvider",
@@ -999,9 +1241,9 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L28",
       "_origin": "ast",
-      "community": 3,
+      "community": 0,
       "norm_label": "agentmanagererror",
-      "community_name": "AgentManager",
+      "community_name": "test_ate_integration.py",
       "id": "app_agents_agent_manager_agentmanagererror"
     },
     {
@@ -1010,9 +1252,9 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "community": 3,
+      "community": 0,
       "norm_label": "exception",
-      "community_name": "AgentManager",
+      "community_name": "test_ate_integration.py",
       "id": "app_agents_agent_manager_py_exception"
     },
     {
@@ -1032,9 +1274,9 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L51",
       "_origin": "ast",
-      "community": 18,
+      "community": 3,
       "norm_label": ".__init__()",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_agents_agent_manager_agentmanager_init"
     },
     {
@@ -1142,9 +1384,9 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L29",
       "_origin": "ast",
-      "community": 3,
+      "community": 0,
       "norm_label": "raised when agent manager cannot accept or process a task as given.",
-      "community_name": "AgentManager",
+      "community_name": "test_ate_integration.py",
       "id": "app_agents_agent_manager_rationale_29"
     },
     {
@@ -1241,9 +1483,9 @@
       "source_file": "app/config.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 18,
+      "community": 2,
       "norm_label": "config.py",
-      "community_name": "OllamaClient",
+      "community_name": "main.py",
       "id": "app_config"
     },
     {
@@ -1252,9 +1494,9 @@
       "source_file": "app/config.py",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 18,
+      "community": 2,
       "norm_label": "settings",
-      "community_name": "OllamaClient",
+      "community_name": "main.py",
       "id": "app_config_settings"
     },
     {
@@ -1263,9 +1505,9 @@
       "source_file": "app/config.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 18,
+      "community": 2,
       "norm_label": "omniforces configuration loads application configuration from the environment....",
-      "community_name": "OllamaClient",
+      "community_name": "main.py",
       "id": "app_config_rationale_1"
     },
     {
@@ -1274,9 +1516,9 @@
       "source_file": "app/config.py",
       "source_location": "L17",
       "_origin": "ast",
-      "community": 18,
+      "community": 2,
       "norm_label": "application configuration.",
-      "community_name": "OllamaClient",
+      "community_name": "main.py",
       "id": "app_config_rationale_17"
     },
     {
@@ -1285,9 +1527,9 @@
       "source_file": "app/logger.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 18,
+      "community": 3,
       "norm_label": "logger.py",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_logger"
     },
     {
@@ -1296,9 +1538,9 @@
       "source_file": "app/logger.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 18,
+      "community": 3,
       "norm_label": "omniforces logger provides a shared logger for all application modules.",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_logger_rationale_1"
     },
     {
@@ -1384,9 +1626,9 @@
       "source_file": "app/models.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 18,
+      "community": 3,
       "norm_label": "models.py",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_models"
     },
     {
@@ -1395,9 +1637,9 @@
       "source_file": "app/models.py",
       "source_location": "L6",
       "_origin": "ast",
-      "community": 18,
+      "community": 3,
       "norm_label": "airesponse",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_models_airesponse"
     },
     {
@@ -1406,9 +1648,9 @@
       "source_file": "app/ollama.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 18,
+      "community": 3,
       "norm_label": "ollama.py",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_ollama"
     },
     {
@@ -1417,9 +1659,9 @@
       "source_file": "app/ollama.py",
       "source_location": "L24",
       "_origin": "ast",
-      "community": 18,
+      "community": 3,
       "norm_label": "ollamaclient",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_ollama_ollamaclient"
     },
     {
@@ -1428,9 +1670,9 @@
       "source_file": "app/ollama.py",
       "source_location": "L40",
       "_origin": "ast",
-      "community": 18,
+      "community": 3,
       "norm_label": ".__init__()",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_ollama_ollamaclient_init"
     },
     {
@@ -1439,9 +1681,9 @@
       "source_file": "app/ollama.py",
       "source_location": "L44",
       "_origin": "ast",
-      "community": 18,
+      "community": 3,
       "norm_label": ".generate()",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_ollama_ollamaclient_generate"
     },
     {
@@ -1450,9 +1692,9 @@
       "source_file": "app/ollama.py",
       "source_location": "L25",
       "_origin": "ast",
-      "community": 18,
+      "community": 3,
       "norm_label": "provider interface for ollama. responsibilities: - connect to ollama. - send...",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_ollama_rationale_25"
     },
     {
@@ -1461,9 +1703,9 @@
       "source_file": "app/ollama.py",
       "source_location": "L50",
       "_origin": "ast",
-      "community": 18,
+      "community": 3,
       "norm_label": "generate a response using the supplied model. if no model is supplied, the...",
-      "community_name": "OllamaClient",
+      "community_name": "AgentManager",
       "id": "app_ollama_rationale_50"
     },
     {
@@ -2692,13 +2934,411 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L28",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context",
+      "target": "app_context_obsidian_context_obsidiancontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context",
+      "target": "app_context_obsidian_context_obsidiancontexterror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_rationale_1",
+      "target": "app_context_obsidian_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_obsidian_context",
+      "target": "app_context_obsidian_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_obsidiancontext_list_notes",
+      "target": "app_context_obsidian_context_obsidiancontexterror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L65",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_obsidiancontext_read_note",
+      "target": "app_context_obsidian_context_obsidiancontexterror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L23",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_obsidiancontexterror",
+      "target": "exception",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_rationale_24",
+      "target": "app_context_obsidian_context_obsidiancontexterror",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "inherits",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/knowledge_provider.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_context_knowledge_provider_knowledgeprovidererror",
+      "target": "exception"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_obsidiancontext",
+      "target": "app_context_obsidian_context_obsidiancontext_exists",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L73",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_obsidiancontext",
+      "target": "app_context_obsidian_context_obsidiancontext_get_all_notes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_obsidiancontext",
+      "target": "app_context_obsidian_context_obsidiancontext_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_obsidiancontext",
+      "target": "app_context_obsidian_context_obsidiancontext_list_notes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_obsidiancontext",
+      "target": "app_context_obsidian_context_obsidiancontext_read_note",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L29",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_rationale_29",
+      "target": "app_context_obsidian_context_obsidiancontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_obsidian_context",
+      "target": "app_context_obsidian_context_obsidiancontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L44",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_obsidian_context_test_get_all_notes",
+      "target": "app_context_obsidian_context_obsidiancontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_obsidian_context_test_list_notes",
+      "target": "app_context_obsidian_context_obsidiancontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L10",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_obsidian_context_test_obsidian_context_loads",
+      "target": "app_context_obsidian_context_obsidiancontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L35",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_obsidian_context_test_read_note",
+      "target": "app_context_obsidian_context_obsidiancontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_obsidian_context_test_vault_exists",
+      "target": "app_context_obsidian_context_obsidiancontext",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L47",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_obsidiancontext_list_notes",
+      "target": "app_context_obsidian_context_obsidiancontext_exists",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L64",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_obsidiancontext_read_note",
+      "target": "app_context_obsidian_context_obsidiancontext_exists",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L37",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_rationale_37",
+      "target": "app_context_obsidian_context_obsidiancontext_exists",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L82",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_obsidiancontext_get_all_notes",
+      "target": "app_context_obsidian_context_obsidiancontext_list_notes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_rationale_43",
+      "target": "app_context_obsidian_context_obsidiancontext_list_notes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L83",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_obsidiancontext_get_all_notes",
+      "target": "app_context_obsidian_context_obsidiancontext_read_note",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L58",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_rationale_58",
+      "target": "app_context_obsidian_context_obsidiancontext_read_note",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/context/obsidian_context.py",
+      "source_location": "L74",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_context_obsidian_context_rationale_74",
+      "target": "app_context_obsidian_context_obsidiancontext_get_all_notes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L42",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_obsidian_context",
+      "target": "app_test_obsidian_context_test_get_all_notes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_obsidian_context",
+      "target": "app_test_obsidian_context_test_list_notes",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_obsidian_context",
+      "target": "app_test_obsidian_context_test_obsidian_context_loads",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L33",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_obsidian_context",
+      "target": "app_test_obsidian_context_test_read_note",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_obsidian_context",
+      "target": "app_test_obsidian_context_test_vault_exists",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_obsidian_context.py",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_obsidian_context_rationale_1",
+      "target": "app_test_obsidian_context",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "app/context/context_builder.py",
       "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_context_builder",
-      "target": "app_context_context_builder_contextbuilder",
-      "confidence_score": 1.0
+      "target": "app_context_context_builder_contextbuilder"
     },
     {
       "relation": "imports_from",
@@ -2708,9 +3348,9 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_context_builder",
-      "target": "app_context_knowledge_provider",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider"
     },
     {
       "relation": "rationale_for",
@@ -2719,9 +3359,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_context_builder_rationale_1",
-      "target": "app_context_context_builder",
-      "confidence_score": 1.0
+      "target": "app_context_context_builder"
     },
     {
       "relation": "method",
@@ -2730,9 +3370,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_context_builder_contextbuilder",
-      "target": "app_context_context_builder_contextbuilder_build",
-      "confidence_score": 1.0
+      "target": "app_context_context_builder_contextbuilder_build"
     },
     {
       "relation": "method",
@@ -2741,9 +3381,9 @@
       "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_context_builder_contextbuilder",
-      "target": "app_context_context_builder_contextbuilder_init",
-      "confidence_score": 1.0
+      "target": "app_context_context_builder_contextbuilder_init"
     },
     {
       "relation": "rationale_for",
@@ -2752,9 +3392,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_context_builder_rationale_19",
-      "target": "app_context_context_builder_contextbuilder_build",
-      "confidence_score": 1.0
+      "target": "app_context_context_builder_contextbuilder_build"
     },
     {
       "relation": "imports_from",
@@ -2836,17 +3476,6 @@
       "confidence_score": 1.0,
       "source": "app_test_knowledge_provider",
       "target": "app_context_knowledge_provider"
-    },
-    {
-      "relation": "inherits",
-      "confidence": "EXTRACTED",
-      "source_file": "app/context/knowledge_provider.py",
-      "source_location": "L24",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_context_knowledge_provider_knowledgeprovidererror",
-      "target": "exception"
     },
     {
       "relation": "method",
@@ -7521,5 +8150,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "48e82cb6beaec3c11563876bcbb3d3be15e281cb"
+  "built_at_commit": "8e6285f75e2fcc8c326825af7bdc8294c264554e"
 }
