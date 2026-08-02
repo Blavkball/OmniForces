@@ -4,15 +4,81 @@
   "graph": {},
   "nodes": [
     {
+      "label": "test_skill_loader.py",
+      "file_type": "code",
+      "source_file": "app/test_skill_loader.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_test_skill_loader",
+      "community": 22,
+      "community_name": "SkillLoader",
+      "norm_label": "test_skill_loader.py"
+    },
+    {
+      "label": "test_skill_loader_initialises()",
+      "file_type": "code",
+      "source_file": "app/test_skill_loader.py",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "app_test_skill_loader_test_skill_loader_initialises",
+      "community": 22,
+      "community_name": "SkillLoader",
+      "norm_label": "test_skill_loader_initialises()"
+    },
+    {
+      "label": "test_register_skill()",
+      "file_type": "code",
+      "source_file": "app/test_skill_loader.py",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "app_test_skill_loader_test_register_skill",
+      "community": 22,
+      "community_name": "SkillLoader",
+      "norm_label": "test_register_skill()"
+    },
+    {
+      "label": "test_load_skill()",
+      "file_type": "code",
+      "source_file": "app/test_skill_loader.py",
+      "source_location": "L30",
+      "_origin": "ast",
+      "id": "app_test_skill_loader_test_load_skill",
+      "community": 22,
+      "community_name": "SkillLoader",
+      "norm_label": "test_load_skill()"
+    },
+    {
+      "label": "test_load_unknown_skill()",
+      "file_type": "code",
+      "source_file": "app/test_skill_loader.py",
+      "source_location": "L46",
+      "_origin": "ast",
+      "id": "app_test_skill_loader_test_load_unknown_skill",
+      "community": 22,
+      "community_name": "SkillLoader",
+      "norm_label": "test_load_unknown_skill()"
+    },
+    {
+      "label": "test_list_skills()",
+      "file_type": "code",
+      "source_file": "app/test_skill_loader.py",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "app_test_skill_loader_test_list_skills",
+      "community": 22,
+      "community_name": "SkillLoader",
+      "norm_label": "test_list_skills()"
+    },
+    {
       "label": "test_memory_manager.py",
       "file_type": "code",
       "source_file": "app/test_memory_manager.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "app_test_memory_manager",
       "community": 10,
       "community_name": "test_memory_manager.py",
-      "norm_label": "test_memory_manager.py"
+      "norm_label": "test_memory_manager.py",
+      "id": "app_test_memory_manager"
     },
     {
       "label": "test_memory_manager_save_and_load()",
@@ -20,10 +86,10 @@
       "source_file": "app/test_memory_manager.py",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "app_test_memory_manager_test_memory_manager_save_and_load",
       "community": 10,
       "community_name": "test_memory_manager.py",
-      "norm_label": "test_memory_manager_save_and_load()"
+      "norm_label": "test_memory_manager_save_and_load()",
+      "id": "app_test_memory_manager_test_memory_manager_save_and_load"
     },
     {
       "label": "test_memory_storage_files_exist_after_save()",
@@ -31,10 +97,10 @@
       "source_file": "app/test_memory_manager.py",
       "source_location": "L48",
       "_origin": "ast",
-      "id": "app_test_memory_manager_test_memory_storage_files_exist_after_save",
       "community": 10,
       "community_name": "test_memory_manager.py",
-      "norm_label": "test_memory_storage_files_exist_after_save()"
+      "norm_label": "test_memory_storage_files_exist_after_save()",
+      "id": "app_test_memory_manager_test_memory_storage_files_exist_after_save"
     },
     {
       "label": "test_agent_memory.py",
@@ -3205,17 +3271,6 @@
       "id": "app_test_memory_persistence"
     },
     {
-      "label": "test_skill_loader.py",
-      "file_type": "code",
-      "source_file": "app/test_skill_loader.py",
-      "source_location": "L1",
-      "_origin": "ast",
-      "community": 22,
-      "norm_label": "test_skill_loader.py",
-      "community_name": "SkillLoader",
-      "id": "app_test_skill_loader"
-    },
-    {
       "label": "webhook.py",
       "file_type": "code",
       "source_file": "app/webhook.py",
@@ -3295,15 +3350,82 @@
   ],
   "links": [
     {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_skill_loader.py",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_skill_loader",
+      "target": "app_skills_skill_loader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_skill_loader.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_skill_loader",
+      "target": "app_test_skill_loader_test_list_skills",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_skill_loader.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_skill_loader",
+      "target": "app_test_skill_loader_test_load_skill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_skill_loader.py",
+      "source_location": "L46",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_skill_loader",
+      "target": "app_test_skill_loader_test_load_unknown_skill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_skill_loader.py",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_skill_loader",
+      "target": "app_test_skill_loader_test_register_skill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_skill_loader.py",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_skill_loader",
+      "target": "app_test_skill_loader_test_skill_loader_initialises",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/test_memory_manager.py",
       "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_memory_manager",
-      "target": "app_test_memory_manager_test_memory_manager_save_and_load",
-      "confidence_score": 1.0
+      "target": "app_test_memory_manager_test_memory_manager_save_and_load"
     },
     {
       "relation": "contains",
@@ -3312,9 +3434,9 @@
       "source_location": "L48",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_memory_manager",
-      "target": "app_test_memory_manager_test_memory_storage_files_exist_after_save",
-      "confidence_score": 1.0
+      "target": "app_test_memory_manager_test_memory_storage_files_exist_after_save"
     },
     {
       "relation": "contains",
@@ -6531,18 +6653,6 @@
       "target": "app_skills_skill_loader_skillloader"
     },
     {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/test_skill_loader.py",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_test_skill_loader",
-      "target": "app_skills_skill_loader"
-    },
-    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "app/skills/skill_loader.py",
@@ -6596,18 +6706,6 @@
       "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillloader",
       "target": "app_skills_skill_loader_skillloader_register_skill"
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/test_skill_loader.py",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "confidence_score": 1.0,
-      "source": "app_test_skill_loader",
-      "target": "app_skills_skill_loader_skillloader"
     },
     {
       "relation": "contains",
@@ -8761,5 +8859,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "1df19a67d94abed39acefb6cbbe3cb3b6bcd9e67"
+  "built_at_commit": "d0a784965aae619990b98d8417a17d275d6c4e4d"
 }

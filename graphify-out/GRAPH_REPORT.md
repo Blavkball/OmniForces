@@ -1,16 +1,16 @@
 # Graph Report - OmniForces  (2026-08-02)
 
 ## Corpus Check
-- 36 files · ~8,547 words
+- 36 files · ~8,616 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 299 nodes · 479 edges · 25 communities (21 shown, 4 thin omitted)
+- 304 nodes · 483 edges · 25 communities (21 shown, 4 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 23 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `1df19a67`
+- Built from commit: `d0a78496`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -118,9 +118,9 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `AgentManagerError` connect `AgentManager` to `test_ate_integration.py`?**
   _High betweenness centrality (0.411) - this node is a cross-community bridge._
 - **Why does `KnowledgeProviderError` connect `AgentManager` to `KnowledgeProvider`?**
-  _High betweenness centrality (0.323) - this node is a cross-community bridge._
+  _High betweenness centrality (0.322) - this node is a cross-community bridge._
 - **Why does `AtomicTaskEngine` connect `AtomicTaskEngine` to `test_ate_integration.py`, `SupervisorControl`?**
-  _High betweenness centrality (0.146) - this node is a cross-community bridge._
+  _High betweenness centrality (0.143) - this node is a cross-community bridge._
 - **Are the 4 inferred relationships involving `AtomicTaskEngine` (e.g. with `SupervisorControl` and `SupervisorControlError`) actually correct?**
   _`AtomicTaskEngine` has 4 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 2 inferred relationships involving `AtomicTask` (e.g. with `SupervisorControl` and `SupervisorControlError`) actually correct?**
