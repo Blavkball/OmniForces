@@ -1,56 +1,60 @@
 # ============================================
 # OmniForces
-# Memory Manager Integration Test
+# Memory Persistence Tests
 # ============================================
 
-from memory import MemoryManager
+from app.memory.memory_manager import MemoryManager
 
 
-memory = MemoryManager()
+def test_memory_manager_save_and_load():
 
-# Working memory
-memory.working.set_task(
-    "Testing MemoryManager integration"
-)
+    memory = MemoryManager()
 
-memory.working.add_note(
-    "All memory systems should connect through MemoryManager"
-)
+    memory.session.set_project(
+        "OmniForces"
+    )
+
+    memory.session.set_milestone(
+        "Milestone 3 Persistence Test"
+    )
+
+    memory.long_term.add_knowledge(
+        "test",
+        "Memory survived save and reload"
+    )
+
+    memory.save()
+
+    loaded = MemoryManager()
+
+    loaded.load()
+
+    session = loaded.session.to_dict()
+    knowledge = loaded.long_term.to_dict()
+
+    assert session["project"] == "OmniForces"
+
+    assert (
+        session["milestone"]
+        == "Milestone 3 Persistence Test"
+    )
+
+    assert (
+        "Memory survived save and reload"
+        in knowledge["knowledge"]["test"]
+    )
 
 
-# Session memory
-memory.session.set_project(
-    "OmniForces"
-)
+def test_memory_storage_files_exist_after_save():
 
-memory.session.set_milestone(
-    "Milestone 3"
-)
+    memory = MemoryManager()
 
-memory.session.add_todo(
-    "Complete memory subsystem"
-)
+    memory.save()
 
+    assert memory.storage.exists(
+        "session_memory.json"
+    )
 
-# Long term memory
-memory.long_term.add_knowledge(
-    "architecture",
-    "Agents communicate through MemoryManager"
-)
-
-
-# Save everything
-memory.save()
-
-
-# Display results
-print("WORKING MEMORY")
-print(memory.working.to_dict())
-
-print("\nSESSION MEMORY")
-print(memory.session.to_dict())
-
-print("\nLONG TERM MEMORY")
-print(memory.long_term.to_dict())
-
-print("\nMemoryManager integration test complete")
+    assert memory.storage.exists(
+        "long_term_memory.json"
+    )
