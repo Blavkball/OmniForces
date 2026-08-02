@@ -24,8 +24,9 @@ class ContextBuilder:
 
         return {
             "query": query,
-            "code": knowledge["code"],
-            "relationships": knowledge["related"],
-            "documentation": knowledge["documentation"],
-            "repositories": knowledge["repositories"]
+            "code": knowledge.get("code", []),
+            "related_code": knowledge.get("related", []),
+            "documentation": knowledge.get("documentation", []),
+            "repositories": knowledge.get("repositories", {}),
+            "global_knowledge": self.knowledge.get_global_knowledge()
         }
