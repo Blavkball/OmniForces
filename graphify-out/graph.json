@@ -75,10 +75,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "knowledge_provider.py"
+      "norm_label": "knowledge_provider.py",
+      "id": "app_context_knowledge_provider"
     },
     {
       "label": "KnowledgeProviderError",
@@ -86,10 +86,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L24",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovidererror",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "knowledgeprovidererror"
+      "norm_label": "knowledgeprovidererror",
+      "id": "app_context_knowledge_provider_knowledgeprovidererror"
     },
     {
       "label": "Exception",
@@ -97,10 +97,10 @@
       "source_file": "",
       "source_location": "",
       "_origin": "ast",
-      "id": "exception",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "exception"
+      "norm_label": "exception",
+      "id": "exception"
     },
     {
       "label": "KnowledgeProvider",
@@ -108,10 +108,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L28",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "knowledgeprovider"
+      "norm_label": "knowledgeprovider",
+      "id": "app_context_knowledge_provider_knowledgeprovider"
     },
     {
       "label": ".__init__()",
@@ -119,10 +119,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L30",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_init",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".__init__()"
+      "norm_label": ".__init__()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_init"
     },
     {
       "label": ".get_repository()",
@@ -130,10 +130,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L37",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_get_repository",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".get_repository()"
+      "norm_label": ".get_repository()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_get_repository"
     },
     {
       "label": ".find_code()",
@@ -141,10 +141,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L47",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_find_code",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".find_code()"
+      "norm_label": ".find_code()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_find_code"
     },
     {
       "label": ".find_related()",
@@ -152,10 +152,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L55",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_find_related",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".find_related()"
+      "norm_label": ".find_related()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_find_related"
     },
     {
       "label": ".find_documentation()",
@@ -163,10 +163,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L63",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_find_documentation",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".find_documentation()"
+      "norm_label": ".find_documentation()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_find_documentation"
     },
     {
       "label": ".get_all_repositories()",
@@ -174,10 +174,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L84",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".get_all_repositories()"
+      "norm_label": ".get_all_repositories()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories"
     },
     {
       "label": ".get_global_knowledge()",
@@ -185,10 +185,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L92",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_get_global_knowledge",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".get_global_knowledge()"
+      "norm_label": ".get_global_knowledge()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_get_global_knowledge"
     },
     {
       "label": ".search()",
@@ -196,10 +196,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L100",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_knowledgeprovider_search",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": ".search()"
+      "norm_label": ".search()",
+      "id": "app_context_knowledge_provider_knowledgeprovider_search"
     },
     {
       "label": "OmniForces Knowledge Provider Central knowledge access layer. Provides: -\u2026",
@@ -207,10 +207,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_1",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "omniforces knowledge provider central knowledge access layer. provides: -..."
+      "norm_label": "omniforces knowledge provider central knowledge access layer. provides: -...",
+      "id": "app_context_knowledge_provider_rationale_1"
     },
     {
       "label": "Return repository path.",
@@ -218,10 +218,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L38",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_38",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "return repository path."
+      "norm_label": "return repository path.",
+      "id": "app_context_knowledge_provider_rationale_38"
     },
     {
       "label": "Search Graphify code knowledge.",
@@ -229,10 +229,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L48",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_48",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "search graphify code knowledge."
+      "norm_label": "search graphify code knowledge.",
+      "id": "app_context_knowledge_provider_rationale_48"
     },
     {
       "label": "Search Graphify relationships.",
@@ -240,10 +240,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L56",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_56",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "search graphify relationships."
+      "norm_label": "search graphify relationships.",
+      "id": "app_context_knowledge_provider_rationale_56"
     },
     {
       "label": "Search documentation across knowledge sources.",
@@ -251,10 +251,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L64",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_64",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "search documentation across knowledge sources."
+      "norm_label": "search documentation across knowledge sources.",
+      "id": "app_context_knowledge_provider_rationale_64"
     },
     {
       "label": "Return all known repositories.",
@@ -262,10 +262,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L85",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_85",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "return all known repositories."
+      "norm_label": "return all known repositories.",
+      "id": "app_context_knowledge_provider_rationale_85"
     },
     {
       "label": "Return central AI knowledge.",
@@ -273,10 +273,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L93",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_93",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "return central ai knowledge."
+      "norm_label": "return central ai knowledge.",
+      "id": "app_context_knowledge_provider_rationale_93"
     },
     {
       "label": "Unified knowledge search.",
@@ -284,10 +284,10 @@
       "source_file": "app/context/knowledge_provider.py",
       "source_location": "L101",
       "_origin": "ast",
-      "id": "app_context_knowledge_provider_rationale_101",
       "community": 16,
       "community_name": "KnowledgeProvider",
-      "norm_label": "unified knowledge search."
+      "norm_label": "unified knowledge search.",
+      "id": "app_context_knowledge_provider_rationale_101"
     },
     {
       "label": "test_supervisor.py",
@@ -295,10 +295,10 @@
       "source_file": "app/test_supervisor.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "app_test_supervisor",
       "community": 0,
       "community_name": "test_ate_integration.py",
-      "norm_label": "test_supervisor.py"
+      "norm_label": "test_supervisor.py",
+      "id": "app_test_supervisor"
     },
     {
       "label": "test_supervisor_agent_limit()",
@@ -306,10 +306,10 @@
       "source_file": "app/test_supervisor.py",
       "source_location": "L9",
       "_origin": "ast",
-      "id": "app_test_supervisor_test_supervisor_agent_limit",
       "community": 0,
       "community_name": "test_ate_integration.py",
-      "norm_label": "test_supervisor_agent_limit()"
+      "norm_label": "test_supervisor_agent_limit()",
+      "id": "app_test_supervisor_test_supervisor_agent_limit"
     },
     {
       "label": "OmniForces Supervisor Control Test",
@@ -317,10 +317,10 @@
       "source_file": "app/test_supervisor.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "app_test_supervisor_rationale_1",
       "community": 0,
       "community_name": "test_ate_integration.py",
-      "norm_label": "omniforces supervisor control test"
+      "norm_label": "omniforces supervisor control test",
+      "id": "app_test_supervisor_rationale_1"
     },
     {
       "label": "__init__.py",
@@ -2713,18 +2713,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/context/context_builder.py",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_context_context_builder",
-      "target": "app_context_knowledge_provider_knowledgeprovider",
-      "confidence_score": 1.0
-    },
-    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "app/context/context_builder.py",
@@ -2758,29 +2746,6 @@
       "confidence_score": 1.0
     },
     {
-      "relation": "uses",
-      "confidence": "INFERRED",
-      "source_file": "app/context/context_builder.py",
-      "source_location": "L8",
-      "weight": 0.8,
-      "_origin": "ast",
-      "source": "app_context_context_builder_contextbuilder",
-      "target": "app_context_knowledge_provider_knowledgeprovider",
-      "confidence_score": 0.5
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/context/context_builder.py",
-      "source_location": "L15",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_context_context_builder_contextbuilder_init",
-      "target": "app_context_knowledge_provider_knowledgeprovider"
-    },
-    {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "app/context/context_builder.py",
@@ -2799,9 +2764,9 @@
       "source_location": "L21",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider",
-      "target": "app_context_ai_knowledge_context",
-      "confidence_score": 1.0
+      "target": "app_context_ai_knowledge_context"
     },
     {
       "relation": "imports_from",
@@ -2811,9 +2776,9 @@
       "source_location": "L19",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider",
-      "target": "app_context_graphify_context",
-      "confidence_score": 1.0
+      "target": "app_context_graphify_context"
     },
     {
       "relation": "contains",
@@ -2822,9 +2787,9 @@
       "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider",
-      "target": "app_context_knowledge_provider_knowledgeprovider",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider"
     },
     {
       "relation": "contains",
@@ -2833,9 +2798,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider",
-      "target": "app_context_knowledge_provider_knowledgeprovidererror",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovidererror"
     },
     {
       "relation": "imports_from",
@@ -2845,9 +2810,9 @@
       "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider",
-      "target": "app_context_repository_context",
-      "confidence_score": 1.0
+      "target": "app_context_repository_context"
     },
     {
       "relation": "rationale_for",
@@ -2856,9 +2821,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_1",
-      "target": "app_context_knowledge_provider",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider"
     },
     {
       "relation": "imports_from",
@@ -2879,9 +2844,9 @@
       "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovidererror",
-      "target": "exception",
-      "confidence_score": 1.0
+      "target": "exception"
     },
     {
       "relation": "method",
@@ -2890,9 +2855,9 @@
       "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_code",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_code"
     },
     {
       "relation": "method",
@@ -2901,9 +2866,9 @@
       "source_location": "L63",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_documentation",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_documentation"
     },
     {
       "relation": "method",
@@ -2912,9 +2877,9 @@
       "source_location": "L55",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_related",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_related"
     },
     {
       "relation": "method",
@@ -2923,9 +2888,9 @@
       "source_location": "L84",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories"
     },
     {
       "relation": "method",
@@ -2934,9 +2899,9 @@
       "source_location": "L92",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_global_knowledge",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_global_knowledge"
     },
     {
       "relation": "method",
@@ -2945,9 +2910,9 @@
       "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_repository",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_repository"
     },
     {
       "relation": "method",
@@ -2956,9 +2921,9 @@
       "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_init",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_init"
     },
     {
       "relation": "method",
@@ -2967,9 +2932,9 @@
       "source_location": "L100",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider",
-      "target": "app_context_knowledge_provider_knowledgeprovider_search",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_search"
     },
     {
       "relation": "imports",
@@ -3026,9 +2991,9 @@
       "source_location": "L38",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_38",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_repository",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_repository"
     },
     {
       "relation": "calls",
@@ -3038,9 +3003,9 @@
       "source_location": "L106",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider_search",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_code",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_code"
     },
     {
       "relation": "rationale_for",
@@ -3049,9 +3014,9 @@
       "source_location": "L48",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_48",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_code",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_code"
     },
     {
       "relation": "calls",
@@ -3061,9 +3026,9 @@
       "source_location": "L107",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider_search",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_related",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_related"
     },
     {
       "relation": "rationale_for",
@@ -3072,9 +3037,9 @@
       "source_location": "L56",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_56",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_related",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_related"
     },
     {
       "relation": "calls",
@@ -3084,9 +3049,9 @@
       "source_location": "L108",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider_search",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_documentation",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_documentation"
     },
     {
       "relation": "rationale_for",
@@ -3095,9 +3060,9 @@
       "source_location": "L64",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_64",
-      "target": "app_context_knowledge_provider_knowledgeprovider_find_documentation",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_find_documentation"
     },
     {
       "relation": "calls",
@@ -3107,9 +3072,9 @@
       "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_knowledgeprovider_search",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories"
     },
     {
       "relation": "rationale_for",
@@ -3118,9 +3083,9 @@
       "source_location": "L85",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_85",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_all_repositories"
     },
     {
       "relation": "rationale_for",
@@ -3129,9 +3094,9 @@
       "source_location": "L93",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_93",
-      "target": "app_context_knowledge_provider_knowledgeprovider_get_global_knowledge",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_get_global_knowledge"
     },
     {
       "relation": "rationale_for",
@@ -3140,9 +3105,9 @@
       "source_location": "L101",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_context_knowledge_provider_rationale_101",
-      "target": "app_context_knowledge_provider_knowledgeprovider_search",
-      "confidence_score": 1.0
+      "target": "app_context_knowledge_provider_knowledgeprovider_search"
     },
     {
       "relation": "imports_from",
@@ -3152,9 +3117,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_supervisor",
-      "target": "app_supervisor_control",
-      "confidence_score": 1.0
+      "target": "app_supervisor_control"
     },
     {
       "relation": "contains",
@@ -3163,9 +3128,9 @@
       "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_supervisor",
-      "target": "app_test_supervisor_test_supervisor_agent_limit",
-      "confidence_score": 1.0
+      "target": "app_test_supervisor_test_supervisor_agent_limit"
     },
     {
       "relation": "rationale_for",
@@ -3174,9 +3139,9 @@
       "source_location": "L1",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_supervisor_rationale_1",
-      "target": "app_test_supervisor",
-      "confidence_score": 1.0
+      "target": "app_test_supervisor"
     },
     {
       "relation": "contains",
@@ -7556,5 +7521,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "8fb77a0eeeae79b06409e19ff93a9242596f578b"
+  "built_at_commit": "48e82cb6beaec3c11563876bcbb3d3be15e281cb"
 }

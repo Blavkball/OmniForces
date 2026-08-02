@@ -1,16 +1,16 @@
 # Graph Report - OmniForces  (2026-08-02)
 
 ## Corpus Check
-- 34 files · ~8,020 words
+- 34 files · ~8,026 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 244 nodes · 426 edges · 21 communities (20 shown, 1 thin omitted)
-- Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 38 edges (avg confidence: 0.5)
+- 244 nodes · 423 edges · 21 communities (20 shown, 1 thin omitted)
+- Extraction: 91% EXTRACTED · 9% INFERRED · 0% AMBIGUOUS · INFERRED: 37 edges (avg confidence: 0.5)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `8fb77a0e`
+- Built from commit: `48e82cb6`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -33,9 +33,9 @@
 3. `AgentManager` - 25 edges
 4. `TaskEngineError` - 20 edges
 5. `SupervisorControl` - 19 edges
-6. `KnowledgeProvider` - 16 edges
-7. `AgentManagerError` - 15 edges
-8. `TaskStatus` - 14 edges
+6. `AgentManagerError` - 15 edges
+7. `TaskStatus` - 14 edges
+8. `KnowledgeProvider` - 13 edges
 9. `SupervisorControlError` - 13 edges
 10. `GraphifyContext` - 11 edges
 
@@ -85,7 +85,7 @@ Cohesion: 0.15
 Nodes (10): AIKnowledgeContext, AIKnowledgeContextError, Exception, OmniForces AI Knowledge Context Provider Reads the central KingC Software…, Raised when AI Knowledge cannot be loaded., Provides access to AI_Knowledge., Check AI_Knowledge availability., Read a markdown document from AI_Knowledge root. (+2 more)
 
 ### Community 16 - "KnowledgeProvider"
-Cohesion: 0.09
+Cohesion: 0.08
 Nodes (18): ContextBuilder, OmniForces Context Builder Creates structured AI employee context., Build complete context package., KnowledgeProvider, KnowledgeProviderError, OmniForces Knowledge Provider Central knowledge access layer. Provides: -…, Unified knowledge search., Return repository path. (+10 more)
 
 ### Community 18 - "OllamaClient"
