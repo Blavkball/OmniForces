@@ -4,7 +4,7 @@ Document:
 docs/SESSION_RESUME.md
 
 Version:
-3.0
+3.1
 
 Status:
 Active
@@ -44,7 +44,7 @@ Date:
 
 Primary Objective:
 
-Continue from the "Next Agreed Priorities" left by v2.0. Begin Phase 4 (Knowledge Injection) per the agreed roadmap: wire KnowledgeProvider into AgentManager so prompts include retrieved context.
+Continue from the "Next Agreed Priorities" left by v2.0. Begin Phase 4 (Knowledge Injection) per the agreed roadmap: wire KnowledgeProvider into AgentManager so prompts include retrieved context. Then cap the resulting knowledge context.
 
 
 # State Verified At Session Start
@@ -62,19 +62,38 @@ Confirmed by direct file read, not assumed from v2.0:
 
 Status:
 
-DONE — minimum scope
+DONE
 
 Changed:
 
 - `app/context/context_builder.py` — `build()` now forwards `obsidian` in its returned dict. Previously silently dropped it even though `KnowledgeProvider.search()` already returned it.
 - `app/agents/agent_manager.py` — `AgentManager.__init__` takes an optional `context_builder` param (same injection pattern as `ollama_client`). `_build_prompt()` now calls `context_builder.build(task.title)` and appends a "Knowledge context" section listing only non-empty categories (code, related links, documentation, obsidian notes, global knowledge).
 
-Known gap, not fixed this session:
+Gap flagged at the time, fixed same session — see item 2 below:
 
-No relevance filtering or size cap on `global_knowledge` (currently ~1.9KB, fine) or obsidian notes (3 near-empty notes, fine). Both get included in full regardless of task relevance. This contradicts the roadmap's own stated principle ("don't load the whole vault into the prompt"). Not a live problem today given current data size. Will need capping/filtering once either source grows. Flagged, not actioned.
+No relevance filtering or size cap on `global_knowledge` or obsidian notes. Both were included in full regardless of task relevance, contradicting the roadmap's own stated principle ("don't load the whole vault into the prompt"). Not a live problem at the time given current data size, but capped anyway rather than left as a landmine.
 
 
-## 2. pytest Could Not Discover Any Tests — Root Cause and Fix
+## 2. Knowledge Context Capping
+
+Status:
+
+DONE — hard limits, not relevance ranking
+
+Changed:
+
+- `app/agents/agent_manager.py` — added `_MAX_LIST_ITEMS = 10` and `_MAX_GLOBAL_KNOWLEDGE_CHARS = 1500`. Code, documentation, and obsidian-note lists truncate with a `(+N more, not shown)` marker. `global_knowledge` truncates with `[truncated]`.
+
+Explicitly not solved:
+
+Nothing decides which items are relevant — this is a ceiling, not a filter. First N items of a list get through regardless of usefulness; first N characters of global_knowledge get through regardless of what's in them. Real relevance filtering needs RAG/vector search, which `knowledge_provider.py`'s own docstring already lists as future work. Do not confuse "capped" with "smart" in any future session.
+
+Tests:
+
+`app/test_agent_manager.py` — added `FakeContextBuilder` and 6 tests: query-by-title, empty-section omission, non-empty-section inclusion, list capping, global_knowledge capping.
+
+
+## 3. pytest Could Not Discover Any Tests — Root Cause and Fix
 
 Finding:
 
@@ -97,7 +116,7 @@ Fix:
 Now works under both `pytest` and `python -m pytest`, from any cwd.
 
 
-## 3. Production Memory Files Being Overwritten By Test Runs
+## 4. Production Memory Files Being Overwritten By Test Runs
 
 Finding:
 
@@ -122,12 +141,12 @@ The two polluted production JSON files were restored with `git restore` before c
 
 # Current Test Suite State
 
-43 passed, 0 failed. Full suite, confirmed by direct pytest output pasted by operator this session.
+48 passed, 0 failed. Full suite, confirmed by direct pytest output pasted by operator this session (43 after items 1/3/4, +5 for item 2's capping tests, +0 net elsewhere).
 
 
 # Architecture Reference
 
-Knowledge Provider chain (updated — Obsidian confirmed wired, AgentManager now consumes it):
+Knowledge Provider chain (updated — Obsidian confirmed wired, AgentManager now consumes it, output capped):
 
 AI Employees -> AgentManager -> ContextBuilder -> KnowledgeProvider -> {Graphify, AI_Knowledge, Repository Context, Obsidian}
 
@@ -181,11 +200,11 @@ YES
 
 Per the roadmap doc agreed this session (Phase 4 -> Phase 5 -> Phase 6):
 
-1. Decide and implement relevance filtering / size caps on `global_knowledge` and obsidian notes in the knowledge context (flagged gap above) — or explicitly defer again with a stated reason if data stays small.
-2. Phase 5 — Turn `SkillLoader` from a dictionary of description strings into a real executable skill registry (metadata, permissions, execution entry points, validation). Currently `register_skill(name, description)` stores a plain string; `agent_manager.py` instantiates `SkillLoader()` but never calls it.
-3. Wire skills into `AgentManager` so agents can invoke registered skills during task execution, not just generate model responses.
-4. Phase 6 — Multi-agent delegation sharing the same knowledge layer.
-5. Increase integration test coverage across the full pipeline: Supervisor -> ATE -> AgentManager -> Skill -> KnowledgeProvider -> Ollama -> Review.
+1. Phase 5 — Turn `SkillLoader` from a dictionary of description strings into a real executable skill registry (metadata, permissions, execution entry points, validation). Currently `register_skill(name, description)` stores a plain string; `agent_manager.py` instantiates `SkillLoader()` but never calls it.
+2. Wire skills into `AgentManager` so agents can invoke registered skills during task execution, not just generate model responses.
+3. Phase 6 — Multi-agent delegation sharing the same knowledge layer.
+4. Increase integration test coverage across the full pipeline: Supervisor -> ATE -> AgentManager -> Skill -> KnowledgeProvider -> Ollama -> Review.
+5. Real relevance filtering for knowledge context (RAG/vector search) — replaces the hard caps added in item 2 above. Not urgent; caps hold until data volume actually demands it.
 
 
 # Git Status At Session End
@@ -194,8 +213,7 @@ Repository: OmniForces
 Branch: main
 Ahead of origin: 0 (fully pushed)
 Working tree: clean
-Last commit: f78f5d2 (Graphify rebuild after AgentManager knowledge injection)
-Prior commit this session: code change (Phase 4 wiring, pytest fix, memory test isolation)
+Last commit: Graphify rebuild after knowledge context capping
 
 Repository: AI_Knowledge
 
@@ -209,6 +227,7 @@ Not checked this session — no changes were made to AI_Knowledge this session. 
 | 1.0 | (prior) | Original session resume, pre-dates v2.0 handover. |
 | 2.0 | 2 August 2026 | Documented Milestone 5 foundation, test discovery gap resolution, test_memory.py conversion, deferred test_agent_manager.py, session access method. |
 | 3.0 | 5 August 2026 | Corrected stale Obsidian wiring status. Phase 4 Knowledge Injection wired into AgentManager. Fixed pytest rootdir discovery (app/__init__.py + pytest.ini). Found and fixed production memory file pollution in two test files. Full suite: 43 passed. Session access method updated to reflect direct filesystem access. |
+| 3.1 | 5 August 2026 | Added Knowledge Context Capping (item 2). Corrected item numbering. Full suite: 48 passed. |
 
 
 End of handover.
