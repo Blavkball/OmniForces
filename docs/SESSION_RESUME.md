@@ -4,7 +4,7 @@ Document:
 docs/SESSION_RESUME.md
 
 Version:
-2.0
+3.0
 
 Status:
 Active
@@ -28,169 +28,108 @@ Allows a new AI engineer or human engineer to continue OmniForces development wi
 
 # Session Access Method
 
-No AI assistant in this session has direct access to the repository filesystem, terminal, or Graphify output.
+This session's AI assistant has direct read/write access to the repository filesystem via a Filesystem connector (scoped to E:\, including OmniForces, AI_Workstation, AI_Knowledge, Graphify, Obsidian Vault). It reads files directly rather than requesting pasted output.
 
-State is established by the human operator running a command in PowerShell and pasting the output back into the session.
+It does NOT have execute access — no terminal, no ability to run pytest, git, or Graphify itself. The human operator runs all commands and pastes output back for verification.
 
-Standard commands used this session:
-
-git ls-files
-type <path>
-dir <path>
-(Get-Content <path>).Count
-python -m pytest -v
-python -m pytest --collect-only -q
-
-
-Any future AI engineer without live repository access must use this same method. Do not assume file state — request the command output.
+A prior session's AI assistant had neither filesystem nor execute access, and used the paste-only method described in v2.0 of this document. Do not assume which access mode is active — check the current session's actual tool access before following either pattern.
 
 
 # Session Summary
 
 Date:
 
-2 August 2026
+5 August 2026
 
 
 Primary Objective:
 
-Begin Milestone 5 (Obsidian Context Provider). Investigate and resolve a test-discovery gap. Begin converting legacy manual scripts to real pytest tests.
+Continue from the "Next Agreed Priorities" left by v2.0. Begin Phase 4 (Knowledge Injection) per the agreed roadmap: wire KnowledgeProvider into AgentManager so prompts include retrieved context.
+
+
+# State Verified At Session Start
+
+Confirmed by direct file read, not assumed from v2.0:
+
+- Milestone 5 (Obsidian) is COMPLETE, not just foundation. `knowledge_provider.py` already had `self.obsidian = ObsidianContext()`, `get_obsidian_notes()`, `get_obsidian_note()`, and `search()` already included `"obsidian"` in its return dict. v2.0 marked this as "NOT WIRED IN" — that was stale. No commit reference available for when this wiring happened; not investigated further as it was already working.
+- All 7 legacy scripts flagged in v2.0 as needing pytest conversion (`test_memory.py`, `test_agent_manager.py`, `test_agent_memory.py`, `test_housekeeper.py`, `test_memory_manager.py`, `test_memory_persistence.py`, `test_skill_loader.py`) were already real pytest files with `test_*` functions, except `test_memory_persistence.py` which still had the old print-script form. Conversion commits not identified; treat as already done except where noted below.
 
 
 # Completed Work This Session
 
 
-## 1. Milestone 5 — Obsidian Context Provider (Foundation)
+## 1. Phase 4 — Knowledge Injection into AgentManager
 
 Status:
 
-FOUNDATION COMPLETE — NOT WIRED IN
+DONE — minimum scope
+
+Changed:
+
+- `app/context/context_builder.py` — `build()` now forwards `obsidian` in its returned dict. Previously silently dropped it even though `KnowledgeProvider.search()` already returned it.
+- `app/agents/agent_manager.py` — `AgentManager.__init__` takes an optional `context_builder` param (same injection pattern as `ollama_client`). `_build_prompt()` now calls `context_builder.build(task.title)` and appends a "Knowledge context" section listing only non-empty categories (code, related links, documentation, obsidian notes, global knowledge).
+
+Known gap, not fixed this session:
+
+No relevance filtering or size cap on `global_knowledge` (currently ~1.9KB, fine) or obsidian notes (3 near-empty notes, fine). Both get included in full regardless of task relevance. This contradicts the roadmap's own stated principle ("don't load the whole vault into the prompt"). Not a live problem today given current data size. Will need capping/filtering once either source grows. Flagged, not actioned.
 
 
-File created:
-
-app/context/obsidian_context.py
-
-Vault source:
-
-E:/Obsidian Vault/Obsidian Vault
-
-Vault structure:
-
-Flat. No subfolders. 3 notes: Welcome.md (has content), 2026-07-30.md (empty), and a third empty-length file.
-
-Test file:
-
-app/test_obsidian_context.py — 5/5 passing
-
-NOT YET DONE:
-
-ObsidianContext is NOT wired into knowledge_provider.py. It exists as a standalone class, unused by the rest of the system. Wiring it in is the actual completion of Milestone 5 — next session should do this first, following the exact pattern knowledge_provider.py already uses for GraphifyContext, RepositoryContext, and AIKnowledgeContext (constructor injection, exposed via provider methods).
-
-Commits:
-
-8e6285f — Add Obsidian Context Provider
-83f9ce9 — Graphify rebuild after Obsidian Context Provider
-
-Both pushed to origin/main.
-
-
-## 2. Test Discovery Gap — Investigated and Resolved
+## 2. pytest Could Not Discover Any Tests — Root Cause and Fix
 
 Finding:
 
-7 files (test_memory.py, test_agent_manager.py, test_agent_memory.py, test_housekeeper.py, test_memory_manager.py, test_memory_persistence.py, test_skill_loader.py) were never being collected by pytest.
+Running bare `pytest` (not `python -m pytest`) from `E:\OmniForces` failed to collect anything — every test file errored with `ModuleNotFoundError` for its own `app.X` import, including files whose packages had `__init__.py`.
 
 Root cause:
 
-Not a bug. These are legacy manual smoke-test scripts (dated 22 July 2026) — top-level code with print() statements, no test_* functions. Meant to be run directly (python app\test_x.py), not collected by pytest. Confirmed by reading two of the seven in full (test_memory.py, test_agent_manager.py); pattern assumed to hold for the remaining five (not individually confirmed).
+`E:\OmniForces\app\` had no `__init__.py`, and there was no `conftest.py` or `pytest.ini` anywhere in the repo. Bare `pytest` does not add cwd to `sys.path` the way `python -m pytest` does, and without `app/__init__.py`, pytest's rootpath walk stopped at `app/` instead of reaching `E:\OmniForces`. v2.0's session used `python -m pytest -v` exclusively, which masked this — it was never actually fixed, just avoided.
 
-Decision:
+Fix:
 
-Convert all 7 to real pytest tests, one at a time, full rewrite each, test before moving to next — per standard workflow.
+- Added `app/__init__.py` (empty).
+- Added root `pytest.ini`:
+  ```
+  [pytest]
+  pythonpath = .
+  testpaths = app
+  ```
 
-
-## 3. test_memory.py — Converted
-
-Status:
-
-COMPLETE
-
-Bug found and fixed:
-
-Old script used `from memory import MemoryManager` — wrong import path. Correct path, confirmed against actual module location (app/memory/memory_manager.py, relative imports inside the package):
-
-`from app.memory.memory_manager import MemoryManager`
-
-The old script would have failed immediately if run, before reaching any print statement.
-
-New tests (4):
-
-- test_memory_manager_loads
-- test_working_memory_task
-- test_session_memory_project_and_milestone
-- test_long_term_memory_add_and_get
-
-Deliberately NOT tested:
-
-MemoryManager.save() and .load() — these write real files (session_memory.json, long_term_memory.json). storage.py has not been reviewed to confirm this is safe to trigger inside an automated test run. Separate task: review storage.py, then decide whether save/load get a test using a temp path or mock.
-
-Commits:
-
-cb42004 — Convert test_memory.py to real pytest tests, fix broken import (includes Graphify rebuild)
-
-Pushed to origin/main.
+Now works under both `pytest` and `python -m pytest`, from any cwd.
 
 
-## 4. test_agent_manager.py — Attempted, Deferred
+## 3. Production Memory Files Being Overwritten By Test Runs
 
-Status:
+Finding:
 
-NOT STARTED — BLOCKED ON MISSING CONTEXT
+Two test files called `MemoryManager()` with no storage override, then `.save()` / `.load()`, writing directly to `E:\OmniForces\memory\session_memory.json` and `long_term_memory.json` — real data, not test fixtures. Confirmed by `git status` showing those two files as modified immediately after a routine test run, with no corresponding intentional change.
 
-Reason:
+Files affected:
 
-agent_manager.py (read in full this session) is significantly more complex than the old manual script assumed. It implements:
+- `app/test_memory_persistence.py` — was still the old print-script form (`from memory import MemoryManager`, broken import, would never have run without also being broken). Rewritten as a real pytest test.
+- `app/test_memory_manager.py` — was already pytest-style but used unguarded default storage. Same bug, different file.
 
-- Atomic Task Engine (ATE) integration — accept_task, execute_task
-- Ollama model calls via OllamaClient and router.choose_model
-- Role-based prompt construction via app/roles.py
-- Escalation handling via SupervisorControl
+Fix:
 
-To write real (not superficial) tests, next session needs the content of:
+- `app/memory/memory_manager.py` — `MemoryManager.__init__` takes an optional `storage` param (same pattern as `context_builder` on `AgentManager`). Default behavior unchanged.
+- Both test files rewritten to use `MemoryStorage(base_path=tmp_path)` via pytest's `tmp_path` fixture. No production files touched by either test now.
 
-- app/memory/agent_memory.py
-- app/tasks/atomic_task_engine.py
-- app/supervisor/control.py
+The two polluted production JSON files were restored with `git restore` before committing — not treated as intentional changes.
 
-Do not guess at these interfaces. Request the file contents first, same as this session did for knowledge_provider.py and ai_knowledge_context.py before writing obsidian_context.py.
+`app/test_housekeeper.py` and `app/test_agent_memory.py` were checked and confirmed NOT to call `.save()`/`.load()` — no pollution risk there.
 
-The old manual script's simple calls (register_agent, agent.add_skill, manager.supervisor.check_limit) still exist in the current AgentManager and may still be a valid, if partial, starting point for real tests — but full coverage needs the three files above.
+`app/memory/housekeeper.py` methods (`archive`, `prune`, `summarise`) are still placeholders (`pass`) — noted, not in scope this session.
 
 
 # Current Test Suite State
 
-Full suite as of last run this session:
-
-19 passed (up from 15 at session start — Obsidian: +5, test_memory.py conversion: net +4/-0 since it replaced a 0-test script)
-
-Remaining legacy scripts still needing conversion (6):
-
-- test_agent_manager.py (blocked — see above)
-- test_agent_memory.py
-- test_housekeeper.py
-- test_memory_manager.py
-- test_memory_persistence.py
-- test_skill_loader.py
-
-None of these 6 have been read this session except as noted. Do not assume their structure matches test_memory.py or test_agent_manager.py — read each before converting.
+43 passed, 0 failed. Full suite, confirmed by direct pytest output pasted by operator this session.
 
 
 # Architecture Reference
 
-Knowledge Provider chain (unchanged, for context):
+Knowledge Provider chain (updated — Obsidian confirmed wired, AgentManager now consumes it):
 
-AI Employees -> Context Builder -> Knowledge Provider -> {Graphify, AI_Knowledge, Repository Context, [Obsidian — built, not wired]}
+AI Employees -> AgentManager -> ContextBuilder -> KnowledgeProvider -> {Graphify, AI_Knowledge, Repository Context, Obsidian}
 
 
 # Development Rules
@@ -204,8 +143,9 @@ Continue following:
 - Test before committing.
 - Document important decisions.
 - Protect working software.
-- Verify actual file state before marking any milestone status.
+- Verify actual file state before marking any milestone status — v2.0's Obsidian status was stale; this is why.
 - Do not write tests against a module's interface without reading that module first.
+- Full-file replacements only. Never fragments or "insert this here."
 
 
 Completion rule:
@@ -239,11 +179,13 @@ YES
 
 # Next Agreed Priorities (In Order)
 
-1. Wire ObsidianContext into knowledge_provider.py — completes Milestone 5 properly.
-2. Read agent_memory.py, atomic_task_engine.py, supervisor/control.py — unblocks test_agent_manager.py conversion.
-3. Convert test_agent_manager.py.
-4. Convert remaining 5 legacy scripts (test_agent_memory.py, test_housekeeper.py, test_memory_manager.py, test_memory_persistence.py, test_skill_loader.py) — read each before writing, one at a time.
-5. Review storage.py — decide safe test approach for MemoryManager.save()/load().
+Per the roadmap doc agreed this session (Phase 4 -> Phase 5 -> Phase 6):
+
+1. Decide and implement relevance filtering / size caps on `global_knowledge` and obsidian notes in the knowledge context (flagged gap above) — or explicitly defer again with a stated reason if data stays small.
+2. Phase 5 — Turn `SkillLoader` from a dictionary of description strings into a real executable skill registry (metadata, permissions, execution entry points, validation). Currently `register_skill(name, description)` stores a plain string; `agent_manager.py` instantiates `SkillLoader()` but never calls it.
+3. Wire skills into `AgentManager` so agents can invoke registered skills during task execution, not just generate model responses.
+4. Phase 6 — Multi-agent delegation sharing the same knowledge layer.
+5. Increase integration test coverage across the full pipeline: Supervisor -> ATE -> AgentManager -> Skill -> KnowledgeProvider -> Ollama -> Review.
 
 
 # Git Status At Session End
@@ -252,22 +194,21 @@ Repository: OmniForces
 Branch: main
 Ahead of origin: 0 (fully pushed)
 Working tree: clean
-Last commit: cb42004
-
+Last commit: f78f5d2 (Graphify rebuild after AgentManager knowledge injection)
+Prior commit this session: code change (Phase 4 wiring, pytest fix, memory test isolation)
 
 Repository: AI_Knowledge
-Branch: main
-Ahead of origin: 0 (fully pushed)
-Working tree: clean
-Last commit: b477896
+
+Not checked this session — no changes were made to AI_Knowledge this session. State as of v2.0 (clean, last commit b477896) assumed unchanged but not re-verified.
 
 
 # Revision History
 
 | Version | Date | Description |
 |---------|------|-------------|
-| 1.0 | (prior) | Original session resume, pre-dates this handover. |
+| 1.0 | (prior) | Original session resume, pre-dates v2.0 handover. |
 | 2.0 | 2 August 2026 | Documented Milestone 5 foundation, test discovery gap resolution, test_memory.py conversion, deferred test_agent_manager.py, session access method. |
+| 3.0 | 5 August 2026 | Corrected stale Obsidian wiring status. Phase 4 Knowledge Injection wired into AgentManager. Fixed pytest rootdir discovery (app/__init__.py + pytest.ini). Found and fixed production memory file pollution in two test files. Full suite: 43 passed. Session access method updated to reflect direct filesystem access. |
 
 
 End of handover.
