@@ -8,6 +8,7 @@ Pytest coverage for:
 - Execution lifecycle
 - Reporting
 - Supervisor escalation
+- Knowledge context injection and capping
 """
 
 import pytest
@@ -46,6 +47,21 @@ class FakeOllamaClient:
         )
 
 
+class FakeContextBuilder:
+    """
+    Returns a fixed context package instead of querying
+    real Graphify / AI_Knowledge / Obsidian sources.
+    """
+
+    def __init__(self, context):
+        self.context = context
+        self.queries = []
+
+    def build(self, query):
+        self.queries.append(query)
+        return self.context
+
+
 def create_test_task(engine):
 
     return engine.create_task(
@@ -67,7 +83,7 @@ def create_test_task(engine):
     )
 
 
-def build_manager():
+def build_manager(context_builder=None):
 
     engine = AtomicTaskEngine()
 
@@ -76,6 +92,7 @@ def build_manager():
     manager = AgentManager(
         engine=engine,
         ollama_client=client,
+        context_builder=context_builder,
     )
 
     return manager, engine, client
@@ -175,6 +192,134 @@ def test_build_prompt():
     assert "Test task" in prompt
     assert "Validate execution flow" in prompt
     assert "Task completes" in prompt
+
+
+def test_build_prompt_queries_context_builder_by_title():
+
+    fake_builder = FakeContextBuilder({
+        "code": [],
+        "related_code": [],
+        "documentation": [],
+        "obsidian": {},
+        "global_knowledge": "",
+    })
+
+    manager, engine, _ = build_manager(
+        context_builder=fake_builder
+    )
+
+    task = create_test_task(
+        engine
+    )
+
+    manager._build_prompt(task)
+
+    assert fake_builder.queries == ["Test task"]
+
+
+def test_build_prompt_omits_empty_knowledge_section():
+
+    fake_builder = FakeContextBuilder({
+        "code": [],
+        "related_code": [],
+        "documentation": [],
+        "obsidian": {},
+        "global_knowledge": "",
+    })
+
+    manager, engine, _ = build_manager(
+        context_builder=fake_builder
+    )
+
+    task = create_test_task(
+        engine
+    )
+
+    prompt = manager._build_prompt(task)
+
+    assert "Knowledge context:" not in prompt
+
+
+def test_build_prompt_includes_nonempty_knowledge_section():
+
+    fake_builder = FakeContextBuilder({
+        "code": [{"label": "AgentManager"}],
+        "related_code": [],
+        "documentation": [],
+        "obsidian": {},
+        "global_knowledge": "short doc",
+    })
+
+    manager, engine, _ = build_manager(
+        context_builder=fake_builder
+    )
+
+    task = create_test_task(
+        engine
+    )
+
+    prompt = manager._build_prompt(task)
+
+    assert "Knowledge context:" in prompt
+    assert "AgentManager" in prompt
+    assert "short doc" in prompt
+
+
+def test_build_prompt_caps_long_code_list():
+
+    many_nodes = [
+        {"label": f"Node{i}"}
+        for i in range(25)
+    ]
+
+    fake_builder = FakeContextBuilder({
+        "code": many_nodes,
+        "related_code": [],
+        "documentation": [],
+        "obsidian": {},
+        "global_knowledge": "",
+    })
+
+    manager, engine, _ = build_manager(
+        context_builder=fake_builder
+    )
+
+    task = create_test_task(
+        engine
+    )
+
+    prompt = manager._build_prompt(task)
+
+    assert "Node0" in prompt
+    assert "Node9" in prompt
+    assert "Node24" not in prompt
+    assert "+15 more, not shown" in prompt
+
+
+def test_build_prompt_caps_long_global_knowledge():
+
+    long_text = "x" * 5000
+
+    fake_builder = FakeContextBuilder({
+        "code": [],
+        "related_code": [],
+        "documentation": [],
+        "obsidian": {},
+        "global_knowledge": long_text,
+    })
+
+    manager, engine, _ = build_manager(
+        context_builder=fake_builder
+    )
+
+    task = create_test_task(
+        engine
+    )
+
+    prompt = manager._build_prompt(task)
+
+    assert "[truncated]" in prompt
+    assert len(prompt) < len(long_text) + 500
 
 
 def test_execute_task():

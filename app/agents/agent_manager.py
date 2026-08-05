@@ -56,6 +56,21 @@ _ACCEPTABLE_STATUSES = (
 )
 
 
+# --------------------------------------------------
+# Knowledge context caps.
+#
+# No relevance ranking exists yet (no RAG / vector
+# search — see knowledge_provider.py). Until it does,
+# these are hard limits, not smart filtering. They
+# exist to stop the prompt growing unbounded as
+# GLOBAL_KNOWLEDGE.md, the Obsidian vault, or search
+# hit-counts grow over time.
+# --------------------------------------------------
+
+_MAX_LIST_ITEMS = 10
+_MAX_GLOBAL_KNOWLEDGE_CHARS = 1500
+
+
 class AgentManager:
     """
     Coordinates AI agents.
@@ -224,6 +239,23 @@ class AgentManager:
         )
 
 
+    def _cap_list(self, items):
+        """
+        Truncate a list to _MAX_LIST_ITEMS.
+
+        Returns (visible_items, omitted_count).
+        """
+
+        if len(items) <= _MAX_LIST_ITEMS:
+
+            return items, 0
+
+        return (
+            items[:_MAX_LIST_ITEMS],
+            len(items) - _MAX_LIST_ITEMS,
+        )
+
+
     def _format_knowledge_section(
         self,
         context: dict,
@@ -232,7 +264,10 @@ class AgentManager:
         Render retrieved knowledge as a prompt section.
 
         Empty categories are omitted. Nothing is included
-        that the search did not actually return.
+        that the search did not actually return. Lists are
+        capped at _MAX_LIST_ITEMS; global_knowledge is capped
+        at _MAX_GLOBAL_KNOWLEDGE_CHARS. These are hard limits,
+        not relevance ranking — no RAG/vector search exists yet.
         """
 
         lines = []
@@ -241,13 +276,21 @@ class AgentManager:
 
         if code:
 
+            visible, omitted = self._cap_list(code)
+
             labels = ", ".join(
                 node.get("label", "?")
-                for node in code
+                for node in visible
+            )
+
+            suffix = (
+                f" (+{omitted} more, not shown)"
+                if omitted
+                else ""
             )
 
             lines.append(
-                f"Related code: {labels}"
+                f"Related code: {labels}{suffix}"
             )
 
 
@@ -264,13 +307,21 @@ class AgentManager:
 
         if documentation:
 
+            visible, omitted = self._cap_list(documentation)
+
             docs = ", ".join(
                 str(path)
-                for path in documentation
+                for path in visible
+            )
+
+            suffix = (
+                f" (+{omitted} more, not shown)"
+                if omitted
+                else ""
             )
 
             lines.append(
-                f"Related documentation: {docs}"
+                f"Related documentation: {docs}{suffix}"
             )
 
 
@@ -278,18 +329,33 @@ class AgentManager:
 
         if obsidian:
 
-            notes = ", ".join(
-                obsidian.keys()
+            visible, omitted = self._cap_list(
+                list(obsidian.keys())
+            )
+
+            notes = ", ".join(visible)
+
+            suffix = (
+                f" (+{omitted} more, not shown)"
+                if omitted
+                else ""
             )
 
             lines.append(
-                f"Relevant notes: {notes}"
+                f"Relevant notes: {notes}{suffix}"
             )
 
 
         global_knowledge = context.get("global_knowledge") or ""
 
         if global_knowledge:
+
+            if len(global_knowledge) > _MAX_GLOBAL_KNOWLEDGE_CHARS:
+
+                global_knowledge = (
+                    global_knowledge[:_MAX_GLOBAL_KNOWLEDGE_CHARS]
+                    + "\n[truncated]"
+                )
 
             lines.append(
                 "Global knowledge:\n"
