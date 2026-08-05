@@ -28,5 +28,6 @@ class ContextBuilder:
             "related_code": knowledge.get("related", []),
             "documentation": knowledge.get("documentation", []),
             "repositories": knowledge.get("repositories", {}),
-            "global_knowledge": self.knowledge.get_global_knowledge()
+            "global_knowledge": knowledge.get("global_knowledge", ""),
+            "obsidian": knowledge.get("obsidian", {}),
         }

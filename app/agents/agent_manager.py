@@ -6,6 +6,7 @@
 # Responsibilities:
 # - Receive tasks from Atomic Task Engine
 # - Coordinate registered agents
+# - Retrieve relevant knowledge before execution
 # - Route execution through OllamaClient
 # - Apply role context
 # - Report results back through ATE
@@ -17,6 +18,7 @@ from typing import Optional
 from app.memory.agent_memory import AgentMemory
 from app.skills.skill_loader import SkillLoader
 from app.supervisor.control import SupervisorControl
+from app.context.context_builder import ContextBuilder
 
 from app.tasks.atomic_task_engine import (
     AtomicTaskEngine,
@@ -70,6 +72,7 @@ class AgentManager:
         self,
         engine: Optional[AtomicTaskEngine] = None,
         ollama_client: Optional[OllamaClient] = None,
+        context_builder: Optional[ContextBuilder] = None,
     ):
 
         self.agents = {}
@@ -81,6 +84,8 @@ class AgentManager:
         self.engine = engine or AtomicTaskEngine()
 
         self.ollama_client = ollama_client or OllamaClient()
+
+        self.context_builder = context_builder or ContextBuilder()
 
 
     # --------------------------------------------------
@@ -202,6 +207,107 @@ class AgentManager:
 
 
     # --------------------------------------------------
+    # Knowledge Retrieval
+    # --------------------------------------------------
+
+    def _gather_knowledge(
+        self,
+        task: AtomicTask,
+    ) -> dict:
+        """
+        Query the Context Builder for knowledge relevant
+        to this task, keyed by task title.
+        """
+
+        return self.context_builder.build(
+            task.title
+        )
+
+
+    def _format_knowledge_section(
+        self,
+        context: dict,
+    ) -> str:
+        """
+        Render retrieved knowledge as a prompt section.
+
+        Empty categories are omitted. Nothing is included
+        that the search did not actually return.
+        """
+
+        lines = []
+
+        code = context.get("code") or []
+
+        if code:
+
+            labels = ", ".join(
+                node.get("label", "?")
+                for node in code
+            )
+
+            lines.append(
+                f"Related code: {labels}"
+            )
+
+
+        related_code = context.get("related_code") or []
+
+        if related_code:
+
+            lines.append(
+                f"Related links: {len(related_code)} found"
+            )
+
+
+        documentation = context.get("documentation") or []
+
+        if documentation:
+
+            docs = ", ".join(
+                str(path)
+                for path in documentation
+            )
+
+            lines.append(
+                f"Related documentation: {docs}"
+            )
+
+
+        obsidian = context.get("obsidian") or {}
+
+        if obsidian:
+
+            notes = ", ".join(
+                obsidian.keys()
+            )
+
+            lines.append(
+                f"Relevant notes: {notes}"
+            )
+
+
+        global_knowledge = context.get("global_knowledge") or ""
+
+        if global_knowledge:
+
+            lines.append(
+                "Global knowledge:\n"
+                + global_knowledge
+            )
+
+
+        if not lines:
+
+            return ""
+
+        return (
+            "Knowledge context:\n"
+            + "\n".join(lines)
+        )
+
+
+    # --------------------------------------------------
     # Execution
     # --------------------------------------------------
 
@@ -223,6 +329,22 @@ class AgentManager:
                 "Success criteria: "
                 + "; ".join(task.success_criteria)
             )
+
+
+        knowledge = self._gather_knowledge(
+            task
+        )
+
+        knowledge_section = self._format_knowledge_section(
+            knowledge
+        )
+
+        if knowledge_section:
+
+            lines.append(
+                knowledge_section
+            )
+
 
         return "\n".join(lines)
 

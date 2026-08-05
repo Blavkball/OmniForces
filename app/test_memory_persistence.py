@@ -3,32 +3,34 @@
 # Memory Persistence Test
 # ============================================
 
-from memory import MemoryManager
+from app.memory.memory_manager import MemoryManager
+from app.memory.storage import MemoryStorage
 
 
-memory = MemoryManager()
+def test_memory_persists_across_save_and_load(tmp_path):
 
-# Add information
-memory.session.set_project("OmniForces")
-memory.session.set_milestone("Milestone 3 Persistence Test")
+    storage = MemoryStorage(base_path=tmp_path)
 
-memory.long_term.add_knowledge(
-    "test",
-    "Memory survived save and reload"
-)
+    memory = MemoryManager(storage=storage)
 
-# Save
-memory.save()
+    memory.session.set_project("OmniForces")
+    memory.session.set_milestone("Milestone 3 Persistence Test")
 
-print("Memory saved")
+    memory.long_term.add_knowledge(
+        "test",
+        "Memory survived save and reload"
+    )
 
-# Create a new memory manager
-new_memory = MemoryManager()
+    memory.save()
 
-# Load saved data
-new_memory.load()
+    reloaded = MemoryManager(storage=storage)
 
-print(new_memory.session.to_dict())
-print(new_memory.long_term.to_dict())
+    reloaded.load()
 
-print("Persistence test complete")
+    assert reloaded.session.to_dict()["project"] == "OmniForces"
+    assert reloaded.session.to_dict()["milestone"] == "Milestone 3 Persistence Test"
+
+    assert (
+        "Memory survived save and reload"
+        in reloaded.long_term.get_knowledge("test")
+    )

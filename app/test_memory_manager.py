@@ -1,14 +1,17 @@
 # ============================================
 # OmniForces
-# Memory Persistence Tests
+# Memory Manager Tests
 # ============================================
 
 from app.memory.memory_manager import MemoryManager
+from app.memory.storage import MemoryStorage
 
 
-def test_memory_manager_save_and_load():
+def test_memory_manager_save_and_load(tmp_path):
 
-    memory = MemoryManager()
+    storage = MemoryStorage(base_path=tmp_path)
+
+    memory = MemoryManager(storage=storage)
 
     memory.session.set_project(
         "OmniForces"
@@ -25,7 +28,7 @@ def test_memory_manager_save_and_load():
 
     memory.save()
 
-    loaded = MemoryManager()
+    loaded = MemoryManager(storage=storage)
 
     loaded.load()
 
@@ -45,9 +48,11 @@ def test_memory_manager_save_and_load():
     )
 
 
-def test_memory_storage_files_exist_after_save():
+def test_memory_storage_files_exist_after_save(tmp_path):
 
-    memory = MemoryManager()
+    storage = MemoryStorage(base_path=tmp_path)
+
+    memory = MemoryManager(storage=storage)
 
     memory.save()
 

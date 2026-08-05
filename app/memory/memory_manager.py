@@ -3,6 +3,8 @@
 # Memory Manager
 # ============================================
 
+from typing import Optional
+
 from .working_memory import WorkingMemory
 from .session_memory import SessionMemory
 from .long_term_memory import LongTermMemory
@@ -14,11 +16,11 @@ class MemoryManager:
     Central access point for all memory.
     """
 
-    def __init__(self):
+    def __init__(self, storage: Optional[MemoryStorage] = None):
         self.working = WorkingMemory()
         self.session = SessionMemory()
         self.long_term = LongTermMemory()
-        self.storage = MemoryStorage()
+        self.storage = storage or MemoryStorage()
 
     def save(self):
         self.storage.save(
