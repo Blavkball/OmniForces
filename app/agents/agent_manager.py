@@ -508,6 +508,27 @@ class AgentManager:
             )
 
 
+        assigned_agent = task.assigned_to
+        if assigned_agent is None:
+            raise AgentManagerError(
+                f"task {task_id} has no assigned agent"
+            )
+
+        agent = self.get_agent(assigned_agent)
+
+        if task.required_skills:
+            skill_results = {}
+            for skill_name in task.required_skills:
+                skill_results[skill_name] = self._run_skill(
+                    task,
+                    agent,
+                    skill_name,
+                )
+            return self.report_result(
+                task_id,
+                skill_results,
+            )
+
         role_context = get_role_context(
             task.role
         )
@@ -555,6 +576,62 @@ class AgentManager:
     # --------------------------------------------------
     # Reporting
     # --------------------------------------------------
+
+    def _run_skill(
+        self,
+        task: Any,
+        agent: Any,
+        skill_name: str,
+    ) -> Any:
+        """
+        Executes a registered skill assigned to the task's agent.
+        """
+        if skill_name not in getattr(agent, "skills", []):
+            raise AgentManagerError(
+                f"agent '{agent.agent_id}' is not assigned skill '{skill_name}'"
+            )
+
+        skill_def = self.skill_registry.get_skill(skill_name)
+        if skill_def is None:
+            raise AgentManagerError(
+                f"skill '{skill_name}' is not registered"
+            )
+        if not skill_def.enabled:
+            raise AgentManagerError(
+                f"skill '{skill_name}' is disabled"
+            )
+
+        entry_point = skill_def.entry_point
+        if entry_point is None:
+            raise AgentManagerError(
+                f"skill '{skill_name}' has no executable entry point"
+            )
+
+        if isinstance(entry_point, type):
+            skill = entry_point()
+        elif callable(entry_point):
+            try:
+                skill = entry_point()
+            except TypeError:
+                skill = entry_point
+        else:
+            skill = entry_point
+
+        if hasattr(skill, "execute"):
+            return skill.execute(task)
+
+        if hasattr(skill, "read_file") and isinstance(task.input, str):
+            if "/" in task.input or task.input.endswith(".py") or task.input.endswith(".md"):
+                return skill.read_file(task.input)
+            return skill.search_code(task.input)
+
+        if hasattr(skill, "query_graph"):
+            return skill.query_graph(task.input or task.title)
+
+        raise AgentManagerError(
+            f"skill '{skill_name}' cannot be executed automatically"
+        )
+
 
     def report_progress(
         self,

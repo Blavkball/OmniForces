@@ -22,7 +22,33 @@ class SkillDefinition:
             return False
         if not self.description or not isinstance(self.description, str):
             return False
+        if self.entry_point is not None and not callable(self.entry_point):
+            return False
+        if not isinstance(self.metadata, dict):
+            return False
+        if not isinstance(self.permissions, list) or not all(isinstance(permission, str) for permission in self.permissions):
+            return False
+        if not isinstance(self.enabled, bool):
+            return False
         return True
+
+    def instantiate(self, *args: Any, **kwargs: Any) -> Any:
+        """
+        Instantiates a runtime skill entry point.
+        """
+        if self.entry_point is None:
+            raise ValueError(f"Skill '{self.name}' has no entry point defined.")
+        return self.entry_point(*args, **kwargs)
+
+    def serialize(self) -> Dict[str, Any]:
+        return {
+            "name": self.name,
+            "description": self.description,
+            "permissions": list(self.permissions),
+            "metadata": dict(self.metadata),
+            "enabled": self.enabled,
+            "has_entry_point": self.entry_point is not None,
+        }
 
 
 class SkillRegistry:
@@ -40,7 +66,9 @@ class SkillRegistry:
         if not isinstance(skill, SkillDefinition):
             raise TypeError("Must register a valid SkillDefinition instance.")
         if not skill.validate():
-            raise ValueError(f"Invalid SkillDefinition provided for '{skill.name}'.")
+            raise ValueError(f"Invalid SkillDefinition provided for '{getattr(skill, 'name', '<unknown>')}'.")
+        if skill.name in self._skills:
+            raise ValueError(f"Skill '{skill.name}' is already registered.")
         
         self._skills[skill.name] = skill
 
@@ -86,6 +114,39 @@ class SkillRegistry:
         if not skill:
             return False
         return skill.enabled and skill.validate()
+
+    def has_skill(self, name: str) -> bool:
+        """
+        Returns whether a skill is registered.
+        """
+        return name in self._skills
+
+    def remove_skill(self, name: str) -> bool:
+        """
+        Removes a registered skill from the registry.
+        """
+        if name in self._skills:
+            del self._skills[name]
+            return True
+        return False
+
+    def instantiate_skill(self, name: str, *args: Any, **kwargs: Any) -> Any:
+        """
+        Instantiates a registered skill entry point with provided arguments.
+        """
+        skill = self.get_skill(name)
+        if skill is None:
+            raise KeyError(f"Skill '{name}' is not registered.")
+        if not skill.enabled:
+            raise ValueError(f"Skill '{name}' is disabled.")
+        return skill.instantiate(*args, **kwargs)
+
+    def get_skill_metadata(self, name: str) -> Optional[Dict[str, Any]]:
+        """
+        Returns a serialized metadata dictionary for a registered skill.
+        """
+        skill = self.get_skill(name)
+        return skill.serialize() if skill else None
 
 
 class SkillLoader(SkillRegistry):
