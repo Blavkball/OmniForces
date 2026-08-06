@@ -4,81 +4,48 @@
   "graph": {},
   "nodes": [
     {
-      "label": "repository_skill.py",
+      "label": "graphify_skill.py",
       "file_type": "code",
-      "source_file": "app/skills/repository_skill.py",
+      "source_file": "app/skills/graphify_skill.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "app_skills_repository_skill",
-      "community": 23,
-      "community_name": "RepositorySkill",
-      "norm_label": "repository_skill.py"
+      "id": "app_skills_graphify_skill",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": "graphify_skill.py"
     },
     {
-      "label": "RepositorySkill",
+      "label": "GraphifySkill",
       "file_type": "code",
-      "source_file": "app/skills/repository_skill.py",
+      "source_file": "app/skills/graphify_skill.py",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "app_skills_repository_skill_repositoryskill",
-      "community": 23,
-      "community_name": "RepositorySkill",
-      "norm_label": "repositoryskill"
+      "id": "app_skills_graphify_skill_graphifyskill",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": "graphifyskill"
     },
     {
       "label": ".__init__()",
       "file_type": "code",
-      "source_file": "app/skills/repository_skill.py",
+      "source_file": "app/skills/graphify_skill.py",
       "source_location": "L12",
       "_origin": "ast",
-      "id": "app_skills_repository_skill_repositoryskill_init",
-      "community": 23,
-      "community_name": "RepositorySkill",
+      "id": "app_skills_graphify_skill_graphifyskill_init",
+      "community": 22,
+      "community_name": "SkillRegistry",
       "norm_label": ".__init__()"
     },
     {
-      "label": "._resolve_path()",
+      "label": "._load_graph()",
       "file_type": "code",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L15",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L18",
       "_origin": "ast",
-      "id": "app_skills_repository_skill_repositoryskill_resolve_path",
-      "community": 23,
-      "community_name": "RepositorySkill",
-      "norm_label": "._resolve_path()"
-    },
-    {
-      "label": "Path",
-      "file_type": "code",
-      "source_file": "",
-      "source_location": "",
-      "_origin": "ast",
-      "id": "path",
-      "community": 23,
-      "community_name": "RepositorySkill",
-      "norm_label": "path"
-    },
-    {
-      "label": ".read_file()",
-      "file_type": "code",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "app_skills_repository_skill_repositoryskill_read_file",
-      "community": 23,
-      "community_name": "RepositorySkill",
-      "norm_label": ".read_file()"
-    },
-    {
-      "label": ".search_code()",
-      "file_type": "code",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L30",
-      "_origin": "ast",
-      "id": "app_skills_repository_skill_repositoryskill_search_code",
+      "id": "app_skills_graphify_skill_graphifyskill_load_graph",
       "community": 22,
       "community_name": "SkillRegistry",
-      "norm_label": ".search_code()"
+      "norm_label": "._load_graph()"
     },
     {
       "label": "Any",
@@ -92,26 +59,48 @@
       "norm_label": "any"
     },
     {
-      "label": ".inspect_structure()",
+      "label": ".get_graph_summary()",
       "file_type": "code",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L53",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L26",
       "_origin": "ast",
-      "id": "app_skills_repository_skill_repositoryskill_inspect_structure",
-      "community": 23,
-      "community_name": "RepositorySkill",
-      "norm_label": ".inspect_structure()"
+      "id": "app_skills_graphify_skill_graphifyskill_get_graph_summary",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": ".get_graph_summary()"
     },
     {
-      "label": "get_repository_skill_definition()",
+      "label": ".get_node_dependencies()",
       "file_type": "code",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L68",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L39",
       "_origin": "ast",
-      "id": "app_skills_repository_skill_get_repository_skill_definition",
-      "community": 23,
-      "community_name": "RepositorySkill",
-      "norm_label": "get_repository_skill_definition()"
+      "id": "app_skills_graphify_skill_graphifyskill_get_node_dependencies",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": ".get_node_dependencies()"
+    },
+    {
+      "label": ".query_graph()",
+      "file_type": "code",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "app_skills_graphify_skill_graphifyskill_query_graph",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": ".query_graph()"
+    },
+    {
+      "label": "get_graphify_skill_definition()",
+      "file_type": "code",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "app_skills_graphify_skill_get_graphify_skill_definition",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": "get_graphify_skill_definition()"
     },
     {
       "label": "SkillDefinition",
@@ -125,15 +114,202 @@
       "norm_label": "skilldefinition"
     },
     {
+      "label": "Skill providing architectural awareness by reading Graphify outputs.",
+      "file_type": "rationale",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "app_skills_graphify_skill_rationale_8",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": "skill providing architectural awareness by reading graphify outputs."
+    },
+    {
+      "label": "Returns basic summary statistics of the architectural graph.",
+      "file_type": "rationale",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L27",
+      "_origin": "ast",
+      "id": "app_skills_graphify_skill_rationale_27",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": "returns basic summary statistics of the architectural graph."
+    },
+    {
+      "label": "Retrieves names of connected target nodes/dependencies for a specified node.",
+      "file_type": "rationale",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L40",
+      "_origin": "ast",
+      "id": "app_skills_graphify_skill_rationale_40",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": "retrieves names of connected target nodes/dependencies for a specified node."
+    },
+    {
+      "label": "Searches nodes matching the query string by ID, label, or name.",
+      "file_type": "rationale",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "app_skills_graphify_skill_rationale_54",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": "searches nodes matching the query string by id, label, or name."
+    },
+    {
+      "label": "Factory function returning the SkillDefinition for GraphifySkill.",
+      "file_type": "rationale",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L70",
+      "_origin": "ast",
+      "id": "app_skills_graphify_skill_rationale_70",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": "factory function returning the skilldefinition for graphifyskill."
+    },
+    {
+      "label": "test_graphify_skill.py",
+      "file_type": "code",
+      "source_file": "app/test_graphify_skill.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_test_graphify_skill",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": "test_graphify_skill.py"
+    },
+    {
+      "label": "test_graphify_skill_definition()",
+      "file_type": "code",
+      "source_file": "app/test_graphify_skill.py",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "app_test_graphify_skill_test_graphify_skill_definition",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": "test_graphify_skill_definition()"
+    },
+    {
+      "label": "test_graphify_skill_operations()",
+      "file_type": "code",
+      "source_file": "app/test_graphify_skill.py",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "app_test_graphify_skill_test_graphify_skill_operations",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": "test_graphify_skill_operations()"
+    },
+    {
+      "label": "repository_skill.py",
+      "file_type": "code",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "repository_skill.py",
+      "id": "app_skills_repository_skill"
+    },
+    {
+      "label": "RepositorySkill",
+      "file_type": "code",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L7",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "repositoryskill",
+      "id": "app_skills_repository_skill_repositoryskill"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L12",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": ".__init__()",
+      "id": "app_skills_repository_skill_repositoryskill_init"
+    },
+    {
+      "label": "._resolve_path()",
+      "file_type": "code",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L15",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "._resolve_path()",
+      "id": "app_skills_repository_skill_repositoryskill_resolve_path"
+    },
+    {
+      "label": "Path",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "path",
+      "id": "path"
+    },
+    {
+      "label": ".read_file()",
+      "file_type": "code",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L21",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": ".read_file()",
+      "id": "app_skills_repository_skill_repositoryskill_read_file"
+    },
+    {
+      "label": ".search_code()",
+      "file_type": "code",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L30",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": ".search_code()",
+      "id": "app_skills_repository_skill_repositoryskill_search_code"
+    },
+    {
+      "label": ".inspect_structure()",
+      "file_type": "code",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L53",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": ".inspect_structure()",
+      "id": "app_skills_repository_skill_repositoryskill_inspect_structure"
+    },
+    {
+      "label": "get_repository_skill_definition()",
+      "file_type": "code",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L68",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "get_repository_skill_definition()",
+      "id": "app_skills_repository_skill_get_repository_skill_definition"
+    },
+    {
       "label": "Skill providing controlled read access to the project repository.",
       "file_type": "rationale",
       "source_file": "app/skills/repository_skill.py",
       "source_location": "L8",
       "_origin": "ast",
-      "id": "app_skills_repository_skill_rationale_8",
       "community": 23,
       "community_name": "RepositorySkill",
-      "norm_label": "skill providing controlled read access to the project repository."
+      "norm_label": "skill providing controlled read access to the project repository.",
+      "id": "app_skills_repository_skill_rationale_8"
     },
     {
       "label": "Reads and returns the text content of a file within the repository.",
@@ -141,10 +317,10 @@
       "source_file": "app/skills/repository_skill.py",
       "source_location": "L22",
       "_origin": "ast",
-      "id": "app_skills_repository_skill_rationale_22",
       "community": 23,
       "community_name": "RepositorySkill",
-      "norm_label": "reads and returns the text content of a file within the repository."
+      "norm_label": "reads and returns the text content of a file within the repository.",
+      "id": "app_skills_repository_skill_rationale_22"
     },
     {
       "label": "Searches for a string query across repository files.",
@@ -152,10 +328,10 @@
       "source_file": "app/skills/repository_skill.py",
       "source_location": "L31",
       "_origin": "ast",
-      "id": "app_skills_repository_skill_rationale_31",
-      "community": 22,
-      "community_name": "SkillRegistry",
-      "norm_label": "searches for a string query across repository files."
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "searches for a string query across repository files.",
+      "id": "app_skills_repository_skill_rationale_31"
     },
     {
       "label": "Returns a list of relative file paths within the given directory.",
@@ -163,10 +339,10 @@
       "source_file": "app/skills/repository_skill.py",
       "source_location": "L54",
       "_origin": "ast",
-      "id": "app_skills_repository_skill_rationale_54",
       "community": 23,
       "community_name": "RepositorySkill",
-      "norm_label": "returns a list of relative file paths within the given directory."
+      "norm_label": "returns a list of relative file paths within the given directory.",
+      "id": "app_skills_repository_skill_rationale_54"
     },
     {
       "label": "Factory function returning the SkillDefinition for RepositorySkill.",
@@ -174,10 +350,10 @@
       "source_file": "app/skills/repository_skill.py",
       "source_location": "L69",
       "_origin": "ast",
-      "id": "app_skills_repository_skill_rationale_69",
       "community": 23,
       "community_name": "RepositorySkill",
-      "norm_label": "factory function returning the skilldefinition for repositoryskill."
+      "norm_label": "factory function returning the skilldefinition for repositoryskill.",
+      "id": "app_skills_repository_skill_rationale_69"
     },
     {
       "label": "test_repository_skill.py",
@@ -185,10 +361,10 @@
       "source_file": "app/test_repository_skill.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "app_test_repository_skill",
       "community": 23,
       "community_name": "RepositorySkill",
-      "norm_label": "test_repository_skill.py"
+      "norm_label": "test_repository_skill.py",
+      "id": "app_test_repository_skill"
     },
     {
       "label": "test_repository_skill_definition()",
@@ -196,10 +372,10 @@
       "source_file": "app/test_repository_skill.py",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "app_test_repository_skill_test_repository_skill_definition",
       "community": 23,
       "community_name": "RepositorySkill",
-      "norm_label": "test_repository_skill_definition()"
+      "norm_label": "test_repository_skill_definition()",
+      "id": "app_test_repository_skill_test_repository_skill_definition"
     },
     {
       "label": "test_read_file()",
@@ -207,10 +383,10 @@
       "source_file": "app/test_repository_skill.py",
       "source_location": "L17",
       "_origin": "ast",
-      "id": "app_test_repository_skill_test_read_file",
       "community": 23,
       "community_name": "RepositorySkill",
-      "norm_label": "test_read_file()"
+      "norm_label": "test_read_file()",
+      "id": "app_test_repository_skill_test_read_file"
     },
     {
       "label": "test_path_traversal_prevention()",
@@ -218,10 +394,10 @@
       "source_file": "app/test_repository_skill.py",
       "source_location": "L26",
       "_origin": "ast",
-      "id": "app_test_repository_skill_test_path_traversal_prevention",
       "community": 23,
       "community_name": "RepositorySkill",
-      "norm_label": "test_path_traversal_prevention()"
+      "norm_label": "test_path_traversal_prevention()",
+      "id": "app_test_repository_skill_test_path_traversal_prevention"
     },
     {
       "label": "test_search_code()",
@@ -229,10 +405,10 @@
       "source_file": "app/test_repository_skill.py",
       "source_location": "L32",
       "_origin": "ast",
-      "id": "app_test_repository_skill_test_search_code",
       "community": 23,
       "community_name": "RepositorySkill",
-      "norm_label": "test_search_code()"
+      "norm_label": "test_search_code()",
+      "id": "app_test_repository_skill_test_search_code"
     },
     {
       "label": "test_inspect_structure()",
@@ -240,10 +416,10 @@
       "source_file": "app/test_repository_skill.py",
       "source_location": "L43",
       "_origin": "ast",
-      "id": "app_test_repository_skill_test_inspect_structure",
       "community": 23,
       "community_name": "RepositorySkill",
-      "norm_label": "test_inspect_structure()"
+      "norm_label": "test_inspect_structure()",
+      "id": "app_test_repository_skill_test_inspect_structure"
     },
     {
       "label": "skill_loader.py",
@@ -251,8 +427,8 @@
       "source_file": "app/skills/skill_loader.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
-      "community_name": "RepositorySkill",
+      "community": 22,
+      "community_name": "SkillRegistry",
       "norm_label": "skill_loader.py",
       "id": "app_skills_skill_loader"
     },
@@ -1252,8 +1428,8 @@
       "source_file": "app/test_skill_loader.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
-      "community_name": "RepositorySkill",
+      "community": 22,
+      "community_name": "SkillRegistry",
       "norm_label": "test_skill_loader.py",
       "id": "app_test_skill_loader"
     },
@@ -1263,8 +1439,8 @@
       "source_file": "app/test_skill_loader.py",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 23,
-      "community_name": "RepositorySkill",
+      "community": 22,
+      "community_name": "SkillRegistry",
       "norm_label": "test_skill_loader_initialises()",
       "id": "app_test_skill_loader_test_skill_loader_initialises"
     },
@@ -1274,8 +1450,8 @@
       "source_file": "app/test_skill_loader.py",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 23,
-      "community_name": "RepositorySkill",
+      "community": 22,
+      "community_name": "SkillRegistry",
       "norm_label": "test_register_skill()",
       "id": "app_test_skill_loader_test_register_skill"
     },
@@ -1285,8 +1461,8 @@
       "source_file": "app/test_skill_loader.py",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 23,
-      "community_name": "RepositorySkill",
+      "community": 22,
+      "community_name": "SkillRegistry",
       "norm_label": "test_load_skill()",
       "id": "app_test_skill_loader_test_load_skill"
     },
@@ -1296,8 +1472,8 @@
       "source_file": "app/test_skill_loader.py",
       "source_location": "L46",
       "_origin": "ast",
-      "community": 23,
-      "community_name": "RepositorySkill",
+      "community": 22,
+      "community_name": "SkillRegistry",
       "norm_label": "test_load_unknown_skill()",
       "id": "app_test_skill_loader_test_load_unknown_skill"
     },
@@ -1307,8 +1483,8 @@
       "source_file": "app/test_skill_loader.py",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 23,
-      "community_name": "RepositorySkill",
+      "community": 22,
+      "community_name": "SkillRegistry",
       "norm_label": "test_list_skills()",
       "id": "app_test_skill_loader_test_list_skills"
     },
@@ -4012,34 +4188,34 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L68",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L69",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_skills_repository_skill",
-      "target": "app_skills_repository_skill_get_repository_skill_definition",
+      "source": "app_skills_graphify_skill",
+      "target": "app_skills_graphify_skill_get_graphify_skill_definition",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
+      "source_file": "app/skills/graphify_skill.py",
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_skills_repository_skill",
-      "target": "app_skills_repository_skill_repositoryskill",
+      "source": "app_skills_graphify_skill",
+      "target": "app_skills_graphify_skill_graphifyskill",
       "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
+      "source_file": "app/skills/graphify_skill.py",
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_skills_repository_skill",
+      "source": "app_skills_graphify_skill",
       "target": "app_skills_skill_loader",
       "confidence_score": 1.0
     },
@@ -4047,208 +4223,174 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/test_repository_skill.py",
+      "source_file": "app/test_graphify_skill.py",
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_test_repository_skill",
-      "target": "app_skills_repository_skill",
+      "source": "app_test_graphify_skill",
+      "target": "app_skills_graphify_skill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_graphify_skill_graphifyskill",
+      "target": "app_skills_graphify_skill_graphifyskill_get_graph_summary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L39",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_graphify_skill_graphifyskill",
+      "target": "app_skills_graphify_skill_graphifyskill_get_node_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_graphify_skill_graphifyskill",
+      "target": "app_skills_graphify_skill_graphifyskill_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L18",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_graphify_skill_graphifyskill",
+      "target": "app_skills_graphify_skill_graphifyskill_load_graph",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_graphify_skill_graphifyskill",
+      "target": "app_skills_graphify_skill_graphifyskill_query_graph",
       "confidence_score": 1.0
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
+      "source_file": "app/skills/graphify_skill.py",
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_skills_repository_skill_rationale_8",
-      "target": "app_skills_repository_skill_repositoryskill",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L12",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_skills_repository_skill_repositoryskill",
-      "target": "app_skills_repository_skill_repositoryskill_init",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L53",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_skills_repository_skill_repositoryskill",
-      "target": "app_skills_repository_skill_repositoryskill_inspect_structure",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_skills_repository_skill_repositoryskill",
-      "target": "app_skills_repository_skill_repositoryskill_read_file",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L15",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_skills_repository_skill_repositoryskill",
-      "target": "app_skills_repository_skill_repositoryskill_resolve_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "method",
-      "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L30",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_skills_repository_skill_repositoryskill",
-      "target": "app_skills_repository_skill_repositoryskill_search_code",
+      "source": "app_skills_graphify_skill_rationale_8",
+      "target": "app_skills_graphify_skill_graphifyskill",
       "confidence_score": 1.0
     },
     {
       "relation": "imports",
       "context": "import",
       "confidence": "EXTRACTED",
-      "source_file": "app/test_repository_skill.py",
+      "source_file": "app/test_graphify_skill.py",
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_test_repository_skill",
-      "target": "app_skills_repository_skill_repositoryskill",
+      "source": "app_test_graphify_skill",
+      "target": "app_skills_graphify_skill_graphifyskill",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "app/test_repository_skill.py",
-      "source_location": "L48",
+      "source_file": "app/test_graphify_skill.py",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_test_repository_skill_test_inspect_structure",
-      "target": "app_skills_repository_skill_repositoryskill",
+      "source": "app_test_graphify_skill_test_graphify_skill_operations",
+      "target": "app_skills_graphify_skill_graphifyskill",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "app/test_repository_skill.py",
-      "source_location": "L27",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_test_repository_skill_test_path_traversal_prevention",
-      "target": "app_skills_repository_skill_repositoryskill",
+      "source": "app_skills_graphify_skill_graphifyskill_get_graph_summary",
+      "target": "app_skills_graphify_skill_graphifyskill_load_graph",
       "confidence_score": 1.0
     },
     {
       "relation": "calls",
       "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "app/test_repository_skill.py",
-      "source_location": "L21",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_test_repository_skill_test_read_file",
-      "target": "app_skills_repository_skill_repositoryskill",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "app/test_repository_skill.py",
-      "source_location": "L36",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_test_repository_skill_test_search_code",
-      "target": "app_skills_repository_skill_repositoryskill",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L13",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_skills_repository_skill_repositoryskill_init",
-      "target": "path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L57",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_skills_repository_skill_repositoryskill_inspect_structure",
-      "target": "app_skills_repository_skill_repositoryskill_resolve_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L25",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_skills_repository_skill_repositoryskill_read_file",
-      "target": "app_skills_repository_skill_repositoryskill_resolve_path",
+      "source": "app_skills_graphify_skill_graphifyskill_get_node_dependencies",
+      "target": "app_skills_graphify_skill_graphifyskill_load_graph",
       "confidence_score": 1.0
     },
     {
       "relation": "references",
-      "context": "return_type",
+      "context": "generic_arg",
       "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L15",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_skills_repository_skill_repositoryskill_resolve_path",
-      "target": "path",
+      "source": "app_skills_graphify_skill_graphifyskill_load_graph",
+      "target": "any",
       "confidence_score": 1.0
     },
     {
-      "relation": "rationale_for",
+      "relation": "calls",
+      "context": "call",
       "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L22",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L57",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_skills_repository_skill_rationale_22",
-      "target": "app_skills_repository_skill_repositoryskill_read_file",
+      "source": "app_skills_graphify_skill_graphifyskill_query_graph",
+      "target": "app_skills_graphify_skill_graphifyskill_load_graph",
       "confidence_score": 1.0
     },
     {
-      "relation": "rationale_for",
+      "relation": "references",
+      "context": "generic_arg",
       "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
-      "source_location": "L31",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L26",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_skills_repository_skill_rationale_31",
-      "target": "app_skills_repository_skill_repositoryskill_search_code",
+      "source": "app_skills_graphify_skill_graphifyskill_get_graph_summary",
+      "target": "any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_graphify_skill_graphifyskill_query_graph",
+      "target": "any",
       "confidence_score": 1.0
     },
     {
@@ -4259,9 +4401,9 @@
       "source_location": "L30",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_repository_skill_repositoryskill_search_code",
-      "target": "any",
-      "confidence_score": 1.0
+      "target": "any"
     },
     {
       "relation": "references",
@@ -4290,12 +4432,81 @@
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
-      "source_file": "app/skills/repository_skill.py",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_graphify_skill_rationale_27",
+      "target": "app_skills_graphify_skill_graphifyskill_get_graph_summary",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L40",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_graphify_skill_rationale_40",
+      "target": "app_skills_graphify_skill_graphifyskill_get_node_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/graphify_skill.py",
       "source_location": "L54",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_skills_repository_skill_rationale_54",
-      "target": "app_skills_repository_skill_repositoryskill_inspect_structure",
+      "source": "app_skills_graphify_skill_rationale_54",
+      "target": "app_skills_graphify_skill_graphifyskill_query_graph",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_graphify_skill_get_graphify_skill_definition",
+      "target": "skilldefinition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/graphify_skill.py",
+      "source_location": "L70",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_graphify_skill_rationale_70",
+      "target": "app_skills_graphify_skill_get_graphify_skill_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_graphify_skill.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_graphify_skill",
+      "target": "app_skills_graphify_skill_get_graphify_skill_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_graphify_skill.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_graphify_skill_test_graphify_skill_definition",
+      "target": "app_skills_graphify_skill_get_graphify_skill_definition",
       "confidence_score": 1.0
     },
     {
@@ -4306,20 +4517,155 @@
       "source_location": "L68",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_repository_skill_get_repository_skill_definition",
-      "target": "skilldefinition",
+      "target": "skilldefinition"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_graphify_skill.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_graphify_skill",
+      "target": "app_skills_skill_loader",
       "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_graphify_skill.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_graphify_skill",
+      "target": "app_test_graphify_skill_test_graphify_skill_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_graphify_skill.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_graphify_skill",
+      "target": "app_test_graphify_skill_test_graphify_skill_operations",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill",
+      "target": "app_skills_repository_skill_get_repository_skill_definition"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill",
+      "target": "app_skills_repository_skill_repositoryskill"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill",
+      "target": "app_skills_skill_loader"
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_test_repository_skill",
+      "target": "app_skills_repository_skill"
     },
     {
       "relation": "rationale_for",
       "confidence": "EXTRACTED",
       "source_file": "app/skills/repository_skill.py",
-      "source_location": "L69",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
-      "source": "app_skills_repository_skill_rationale_69",
-      "target": "app_skills_repository_skill_get_repository_skill_definition",
-      "confidence_score": 1.0
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill_rationale_8",
+      "target": "app_skills_repository_skill_repositoryskill"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill_repositoryskill",
+      "target": "app_skills_repository_skill_repositoryskill_init"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill_repositoryskill",
+      "target": "app_skills_repository_skill_repositoryskill_inspect_structure"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill_repositoryskill",
+      "target": "app_skills_repository_skill_repositoryskill_read_file"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill_repositoryskill",
+      "target": "app_skills_repository_skill_repositoryskill_resolve_path"
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill_repositoryskill",
+      "target": "app_skills_repository_skill_repositoryskill_search_code"
     },
     {
       "relation": "imports",
@@ -4329,9 +4675,161 @@
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_repository_skill",
-      "target": "app_skills_repository_skill_get_repository_skill_definition",
-      "confidence_score": 1.0
+      "target": "app_skills_repository_skill_repositoryskill"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_test_repository_skill_test_inspect_structure",
+      "target": "app_skills_repository_skill_repositoryskill"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_test_repository_skill_test_path_traversal_prevention",
+      "target": "app_skills_repository_skill_repositoryskill"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_test_repository_skill_test_read_file",
+      "target": "app_skills_repository_skill_repositoryskill"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_test_repository_skill_test_search_code",
+      "target": "app_skills_repository_skill_repositoryskill"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill_repositoryskill_init",
+      "target": "path"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill_repositoryskill_inspect_structure",
+      "target": "app_skills_repository_skill_repositoryskill_resolve_path"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill_repositoryskill_read_file",
+      "target": "app_skills_repository_skill_repositoryskill_resolve_path"
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill_repositoryskill_resolve_path",
+      "target": "path"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill_rationale_22",
+      "target": "app_skills_repository_skill_repositoryskill_read_file"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill_rationale_31",
+      "target": "app_skills_repository_skill_repositoryskill_search_code"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill_rationale_54",
+      "target": "app_skills_repository_skill_repositoryskill_inspect_structure"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_repository_skill_rationale_69",
+      "target": "app_skills_repository_skill_get_repository_skill_definition"
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_test_repository_skill",
+      "target": "app_skills_repository_skill_get_repository_skill_definition"
     },
     {
       "relation": "calls",
@@ -4341,9 +4839,9 @@
       "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_repository_skill_test_repository_skill_definition",
-      "target": "app_skills_repository_skill_get_repository_skill_definition",
-      "confidence_score": 1.0
+      "target": "app_skills_repository_skill_get_repository_skill_definition"
     },
     {
       "relation": "imports_from",
@@ -4353,9 +4851,9 @@
       "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_repository_skill",
-      "target": "app_skills_skill_loader",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader"
     },
     {
       "relation": "contains",
@@ -4364,9 +4862,9 @@
       "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_repository_skill",
-      "target": "app_test_repository_skill_test_inspect_structure",
-      "confidence_score": 1.0
+      "target": "app_test_repository_skill_test_inspect_structure"
     },
     {
       "relation": "contains",
@@ -4375,9 +4873,9 @@
       "source_location": "L26",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_repository_skill",
-      "target": "app_test_repository_skill_test_path_traversal_prevention",
-      "confidence_score": 1.0
+      "target": "app_test_repository_skill_test_path_traversal_prevention"
     },
     {
       "relation": "contains",
@@ -4386,9 +4884,9 @@
       "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_repository_skill",
-      "target": "app_test_repository_skill_test_read_file",
-      "confidence_score": 1.0
+      "target": "app_test_repository_skill_test_read_file"
     },
     {
       "relation": "contains",
@@ -4397,9 +4895,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_repository_skill",
-      "target": "app_test_repository_skill_test_repository_skill_definition",
-      "confidence_score": 1.0
+      "target": "app_test_repository_skill_test_repository_skill_definition"
     },
     {
       "relation": "contains",
@@ -4408,9 +4906,9 @@
       "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_test_repository_skill",
-      "target": "app_test_repository_skill_test_search_code",
-      "confidence_score": 1.0
+      "target": "app_test_repository_skill_test_search_code"
     },
     {
       "relation": "imports_from",
@@ -10779,5 +11277,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "814f060af3204f579b2a2a90d2469ca8f6e849a4"
+  "built_at_commit": "3a4e896f90aa49f0f853cd4d4d59b59b7b1fd8ee"
 }

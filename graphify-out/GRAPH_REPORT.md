@@ -1,16 +1,16 @@
 # Graph Report - OmniForces  (2026-08-06)
 
 ## Corpus Check
-- 39 files · ~10,004 words
+- 41 files · ~10,344 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 364 nodes · 593 edges · 26 communities (23 shown, 3 thin omitted)
+- 380 nodes · 621 edges · 26 communities (23 shown, 3 thin omitted)
 - Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 30 edges (avg confidence: 0.51)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `814f060a`
+- Built from commit: `3a4e896f`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -106,12 +106,12 @@ Cohesion: 0.13
 Nodes (9): AgentManager, Query the Context Builder for knowledge relevant to this task, keyed by task…, Truncate a list to _MAX_LIST_ITEMS. Returns (visible_items, omitted_count)., Render retrieved knowledge as a prompt section. Empty categories are omitted.…, Coordinates AI agents. Agent Manager: - does not create tasks - does not…, AtomicTask, AtomicTaskEngine, ContextBuilder (+1 more)
 
 ### Community 22 - "SkillRegistry"
-Cohesion: 0.09
-Nodes (16): Any, Searches for a string query across repository files., Overridden to support legacy dictionary return structure {name: description}., Validates that the skill definition has required fields., Registry for managing, retrieving, and validating agent skills., Registers a SkillDefinition into the registry., Retrieves a skill by name., Lists all registered skills, optionally filtering by enabled status. (+8 more)
+Cohesion: 0.06
+Nodes (24): Any, get_graphify_skill_definition(), GraphifySkill, Returns basic summary statistics of the architectural graph., Retrieves names of connected target nodes/dependencies for a specified node., Searches nodes matching the query string by ID, label, or name., Factory function returning the SkillDefinition for GraphifySkill., Skill providing architectural awareness by reading Graphify outputs. (+16 more)
 
 ### Community 23 - "RepositorySkill"
-Cohesion: 0.11
-Nodes (13): get_repository_skill_definition(), Reads and returns the text content of a file within the repository., Returns a list of relative file paths within the given directory., Factory function returning the SkillDefinition for RepositorySkill., Skill providing controlled read access to the project repository., RepositorySkill, test_inspect_structure(), test_path_traversal_prevention() (+5 more)
+Cohesion: 0.14
+Nodes (14): get_repository_skill_definition(), Reads and returns the text content of a file within the repository., Searches for a string query across repository files., Returns a list of relative file paths within the given directory., Factory function returning the SkillDefinition for RepositorySkill., Skill providing controlled read access to the project repository., RepositorySkill, test_inspect_structure() (+6 more)
 
 ## Knowledge Gaps
 - **3 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
@@ -120,9 +120,9 @@ Nodes (13): get_repository_skill_definition(), Reads and returns the text conten
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `AgentManager` connect `AgentManager` to `test_ate_integration.py`, `test_agent_manager.py`?**
-  _High betweenness centrality (0.122) - this node is a cross-community bridge._
+  _High betweenness centrality (0.118) - this node is a cross-community bridge._
 - **Why does `AtomicTaskEngine` connect `AtomicTaskEngine` to `test_ate_integration.py`?**
-  _High betweenness centrality (0.100) - this node is a cross-community bridge._
+  _High betweenness centrality (0.096) - this node is a cross-community bridge._
 - **Are the 4 inferred relationships involving `AtomicTaskEngine` (e.g. with `SupervisorControl` and `SupervisorControlError`) actually correct?**
   _`AtomicTaskEngine` has 4 INFERRED edges - model-reasoned connections that need verification._
 - **Are the 5 inferred relationships involving `AgentManager` (e.g. with `FakeContextBuilder` and `FakeOllamaClient`) actually correct?**
