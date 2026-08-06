@@ -219,6 +219,7 @@ Correct order:
 
 Future employees:
 
+* Cline — AI Workforce Liaison
 * Forge — Software Engineer
 * Continue — Research / Knowledge Engineer
 * Inspector — Code Review / Quality

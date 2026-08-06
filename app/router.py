@@ -31,6 +31,7 @@ class ModelRouter:
         "QA Engineer": settings.CODING_MODEL,
         "Documentation Engineer": settings.LLAMA_MODEL,
         "Knowledge Engineer": settings.LLAMA_MODEL,
+        "Cline": settings.LLAMA_MODEL,
         "Research Engineer": settings.ARCHITECTURE_MODEL,
     }
 

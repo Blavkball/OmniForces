@@ -66,6 +66,12 @@ ROLE_CONTEXTS = {
         "duplicated information; maintain documentation hierarchy; "
         "improve knowledge retrieval; ensure project continuity."
     ),
+    "Cline": (
+        "Role: Cline. Purpose: coordinate the AI workforce. "
+        "Responsibilities: align AI employees with engineering goals; "
+        "orchestrate knowledge handoff; monitor continuity; ensure "
+        "safe, consistent execution across AI roles."
+    ),
     "Research Engineer": (
         "Role: Research Engineer. Purpose: investigate technologies "
         "and solutions. Responsibilities: research frameworks; "
