@@ -12,11 +12,15 @@
 # - Report results back through ATE
 # - Escalate failures through SupervisorControl
 # ============================================
-
-from typing import Optional
+import uuid
+import logging
+import asyncio
+from typing import Dict, Any, List, Optional, Callable, Union
+from dataclasses import dataclass, field
+from typing import Dict, Any, List, Optional, Callable, Union
 
 from app.memory.agent_memory import AgentMemory
-from app.skills.skill_loader import SkillLoader
+from app.skills.skill_loader import SkillRegistry, SkillDefinition, SkillLoader
 from app.supervisor.control import SupervisorControl
 from app.context.context_builder import ContextBuilder
 
@@ -30,13 +34,38 @@ from app.tasks.atomic_task_engine import (
 from app.ollama import OllamaClient
 from app.router import choose_model
 from app.roles import get_role_context
+from dataclasses import dataclass, field
 
+@dataclass
+class AgentProfile:
+    """Represents a managed agent instance and its properties."""
+    agent_id: str
+    name: str
+    role: str
+    system_prompt: str = ""
+    model_name: str = "gpt-4"
+    temperature: float = 0.7
+    skills: List[str] = field(default_factory=list)
+    metadata: Dict[str, Any] = field(default_factory=dict)
+    status: str = "active"
 
 class AgentManagerError(Exception):
-    """
-    Raised when Agent Manager cannot accept
-    or process a task.
-    """
+    """Base exception for AgentManager errors."""
+    pass
+
+
+class AgentNotFoundError(AgentManagerError):
+    """Raised when an agent is not found."""
+    pass
+
+
+class AgentAlreadyExistsError(AgentManagerError):
+    """Raised when registering an agent with an ID that already exists."""
+    pass
+
+
+class AgentExecutionError(AgentManagerError):
+    """Raised when execution of an agent task fails."""
     pass
 
 
@@ -85,14 +114,19 @@ class AgentManager:
 
     def __init__(
         self,
-        engine: Optional[AtomicTaskEngine] = None,
-        ollama_client: Optional[OllamaClient] = None,
-        context_builder: Optional[ContextBuilder] = None,
+        engine: Optional[Any] = None,
+        ollama_client: Optional[Any] = None,
+        supervisor: Optional[Any] = None,
+        skill_registry: Optional[SkillRegistry] = None,
+        context_builder: Optional[Any] = None,
+        **kwargs: Any
     ):
+        # (keep all original __init__ body lines here)
+        self.skill_registry: SkillRegistry = skill_registry or SkillRegistry()
 
         self.agents = {}
 
-        self.skill_loader = SkillLoader()
+        self.skill_loader = self.skill_registry
 
         self.supervisor = SupervisorControl()
 
@@ -100,7 +134,13 @@ class AgentManager:
 
         self.ollama_client = ollama_client or OllamaClient()
 
-        self.context_builder = context_builder or ContextBuilder()
+        if context_builder is not None:
+            self.context_builder = context_builder
+        else:
+            try:
+                self.context_builder = ContextBuilder()
+            except NameError:
+                self.context_builder = None
 
 
     # --------------------------------------------------
@@ -109,10 +149,42 @@ class AgentManager:
 
     def register_agent(
         self,
-        agent_id,
-        role,
-        limit,
-    ):
+        agent_id: Optional[str] = None,
+        name: Optional[str] = None,
+        role: str = "default",
+        system_prompt: str = "",
+        model_name: str = "gpt-4",
+        temperature: float = 0.7,
+        skills: Optional[List[str]] = None,
+        metadata: Optional[Dict[str, Any]] = None,
+        **kwargs: Any
+    ) -> AgentProfile:
+        # If called like register_agent(name="TestAgent", role="Tester") without positional agent_id
+        if agent_id is None and name is not None:
+            final_id = name
+        elif agent_id is not None:
+            final_id = agent_id
+        else:
+            final_id = str(uuid.uuid4())
+
+        final_name = name or final_id
+
+        if final_id in self.agents:
+            raise AgentAlreadyExistsError(f"Agent with ID '{final_id}' already exists.")
+
+        profile = AgentProfile(
+            agent_id=final_id,
+            name=final_name,
+            role=role,
+            system_prompt=system_prompt,
+            model_name=model_name,
+            temperature=temperature,
+            skills=list(skills) if skills else [],
+            metadata=metadata or {},
+            status="active"
+        )
+        self.agents[final_id] = profile
+        return profile
 
         agent = AgentMemory(
             agent_id,
@@ -129,9 +201,10 @@ class AgentManager:
         return agent
 
 
-    def get_agent(self, agent_id):
-
-        return self.agents.get(agent_id)
+    def get_agent(self, agent_id: str) -> AgentProfile:
+        if agent_id not in self.agents:
+            raise AgentNotFoundError(f"Agent with ID '{agent_id}' not found.")
+        return self.agents[agent_id]
 
 
     # --------------------------------------------------
@@ -552,3 +625,29 @@ class AgentManager:
             current is not None
             and current == required_limit
         )
+    def assign_skill_to_agent(self, agent_id: str, skill_name: str) -> bool:
+        """Assigns a registered skill from SkillRegistry to an existing agent."""
+        agent = self.get_agent(agent_id)
+        skill = self.skill_registry.get_skill(skill_name)
+        if not skill:
+            raise ValueError(f"Skill '{skill_name}' is not registered in SkillRegistry.")
+
+        if hasattr(agent, "skills"):
+            if skill_name not in agent.skills:
+                agent.skills.append(skill_name)
+        elif isinstance(agent, dict):
+            agent.setdefault("skills", [])
+            if skill_name not in agent["skills"]:
+                agent["skills"].append(skill_name)
+        return True
+
+    def get_agent_skills(self, agent_id: str) -> List[SkillDefinition]:
+        """Retrieves full SkillDefinition instances for all skills assigned to an agent."""
+        agent = self.get_agent(agent_id)
+        skill_names = getattr(agent, "skills", agent.get("skills", []) if isinstance(agent, dict) else [])
+        definitions = []
+        for name in skill_names:
+            skill = self.skill_registry.get_skill(name)
+            if skill:
+                definitions.append(skill)
+        return definitions
