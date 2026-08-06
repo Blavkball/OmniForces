@@ -1,0 +1,12 @@
+{
+  "graphify": "graphify-out",
+  "ai_knowledge": "AI_Knowledge",
+  "obsidian": "obsidian-vault",
+  "repositories": {
+    "OmniForces": "OmniForces",
+    "AI_Knowledge": "AI_Knowledge",
+    "AI_Workstation": "AI_Workstation",
+    "BlackBall": "Pool-League-Manager",
+    "BlackBallDocs": "Black-Ball-Docs"
+  }
+}

@@ -5,7 +5,7 @@ Obsidian Context Provider
 Reads the human knowledge vault (Obsidian).
 
 Source:
-E:/Obsidian Vault/Obsidian Vault
+obsidian-vault
 
 Responsibilities:
 - List available notes
@@ -19,6 +19,8 @@ No subfolders in use.
 
 from pathlib import Path
 
+from app.config import settings
+
 
 class ObsidianContextError(Exception):
     """Raised when Obsidian vault cannot be loaded."""
@@ -30,8 +32,13 @@ class ObsidianContext:
     Provides access to the Obsidian vault.
     """
 
-    def __init__(self, path="E:/Obsidian Vault/Obsidian Vault"):
-        self.path = Path(path)
+    def __init__(self, path=None):
+        if path:
+            self.path = Path(path)
+        elif getattr(settings, "OBSIDIAN_VAULT_PATH", None):
+            self.path = Path(settings.OBSIDIAN_VAULT_PATH)
+        else:
+            self.path = Path("obsidian-vault")
 
     def exists(self):
         """

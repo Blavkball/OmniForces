@@ -42,3 +42,12 @@ graphify-out/manifest.json
 # Local backup and unrelated external folders
 SteamLibrary/
 FOUND.000/
+
+# Nested repository clones created for local analysis
+AI_Knowledge/
+AI_Workstation/
+Black-Ball-Docs/
+Pool-League-Manager/
+
+# Temporary tooling files
+.git_status.txt

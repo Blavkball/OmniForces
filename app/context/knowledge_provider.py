@@ -16,6 +16,9 @@ Future:
 - Vector search
 """
 
+import json
+from pathlib import Path
+
 from app.context.graphify_context import GraphifyContext
 from app.context.repository_context import RepositoryContext
 from app.context.ai_knowledge_context import AIKnowledgeContext
@@ -33,10 +36,34 @@ class KnowledgeProvider:
     """
 
     def __init__(self):
-        self.graph = GraphifyContext()
-        self.repositories = RepositoryContext()
-        self.ai_knowledge = AIKnowledgeContext()
-        self.obsidian = ObsidianContext()
+        sources = self._load_sources()
+
+        self.graph = GraphifyContext(
+            sources.get("graphify", "graphify-out")
+        )
+        self.repositories = RepositoryContext(
+            sources.get("repositories", None)
+        )
+        self.ai_knowledge = AIKnowledgeContext(
+            sources.get("ai_knowledge", "AI_Knowledge")
+        )
+        self.obsidian = ObsidianContext(
+            sources.get("obsidian", "obsidian-vault")
+        )
+
+    def _load_sources(self) -> dict:
+        config_path = Path(__file__).resolve().parent.parent.parent / "knowledge_sources.json"
+
+        if not config_path.exists():
+            return {}
+
+        try:
+            with open(config_path, "r", encoding="utf-8") as config_file:
+                return json.load(config_file)
+        except json.JSONDecodeError as error:
+            raise KnowledgeProviderError(
+                f"Failed to parse knowledge_sources.json: {error}"
+            )
 
     def get_repository(self, name: str):
         """
