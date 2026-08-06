@@ -4,158 +4,81 @@
   "graph": {},
   "nodes": [
     {
-      "label": "skill_loader.py",
+      "label": "repository_skill.py",
       "file_type": "code",
-      "source_file": "app/skills/skill_loader.py",
+      "source_file": "app/skills/repository_skill.py",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "app_skills_skill_loader",
-      "community": 22,
-      "community_name": "SkillRegistry",
-      "norm_label": "skill_loader.py"
+      "id": "app_skills_repository_skill",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "repository_skill.py"
     },
     {
-      "label": "SkillDefinition",
+      "label": "RepositorySkill",
       "file_type": "code",
-      "source_file": "app/skills/skill_loader.py",
-      "source_location": "L6",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L7",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_skilldefinition",
-      "community": 22,
-      "community_name": "SkillRegistry",
-      "norm_label": "skilldefinition"
-    },
-    {
-      "label": ".validate()",
-      "file_type": "code",
-      "source_file": "app/skills/skill_loader.py",
-      "source_location": "L17",
-      "_origin": "ast",
-      "id": "app_skills_skill_loader_skilldefinition_validate",
-      "community": 22,
-      "community_name": "SkillRegistry",
-      "norm_label": ".validate()"
-    },
-    {
-      "label": "SkillRegistry",
-      "file_type": "code",
-      "source_file": "app/skills/skill_loader.py",
-      "source_location": "L28",
-      "_origin": "ast",
-      "id": "app_skills_skill_loader_skillregistry",
-      "community": 22,
-      "community_name": "SkillRegistry",
-      "norm_label": "skillregistry"
+      "id": "app_skills_repository_skill_repositoryskill",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "repositoryskill"
     },
     {
       "label": ".__init__()",
       "file_type": "code",
-      "source_file": "app/skills/skill_loader.py",
-      "source_location": "L33",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L12",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_skillregistry_init",
-      "community": 22,
-      "community_name": "SkillRegistry",
+      "id": "app_skills_repository_skill_repositoryskill_init",
+      "community": 23,
+      "community_name": "RepositorySkill",
       "norm_label": ".__init__()"
     },
     {
-      "label": ".register_skill()",
+      "label": "._resolve_path()",
       "file_type": "code",
-      "source_file": "app/skills/skill_loader.py",
-      "source_location": "L36",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L15",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_skillregistry_register_skill",
-      "community": 22,
-      "community_name": "SkillRegistry",
-      "norm_label": ".register_skill()"
+      "id": "app_skills_repository_skill_repositoryskill_resolve_path",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "._resolve_path()"
     },
     {
-      "label": ".get_skill()",
+      "label": "Path",
       "file_type": "code",
-      "source_file": "app/skills/skill_loader.py",
-      "source_location": "L47",
+      "source_file": "",
+      "source_location": "",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_skillregistry_get_skill",
-      "community": 22,
-      "community_name": "SkillRegistry",
-      "norm_label": ".get_skill()"
+      "id": "path",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "path"
     },
     {
-      "label": ".list_skills()",
+      "label": ".read_file()",
       "file_type": "code",
-      "source_file": "app/skills/skill_loader.py",
-      "source_location": "L53",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L21",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_skillregistry_list_skills",
-      "community": 22,
-      "community_name": "SkillRegistry",
-      "norm_label": ".list_skills()"
+      "id": "app_skills_repository_skill_repositoryskill_read_file",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": ".read_file()"
     },
     {
-      "label": ".enable_skill()",
+      "label": ".search_code()",
       "file_type": "code",
-      "source_file": "app/skills/skill_loader.py",
-      "source_location": "L61",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L30",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_skillregistry_enable_skill",
+      "id": "app_skills_repository_skill_repositoryskill_search_code",
       "community": 22,
       "community_name": "SkillRegistry",
-      "norm_label": ".enable_skill()"
-    },
-    {
-      "label": ".disable_skill()",
-      "file_type": "code",
-      "source_file": "app/skills/skill_loader.py",
-      "source_location": "L71",
-      "_origin": "ast",
-      "id": "app_skills_skill_loader_skillregistry_disable_skill",
-      "community": 22,
-      "community_name": "SkillRegistry",
-      "norm_label": ".disable_skill()"
-    },
-    {
-      "label": ".validate_skill()",
-      "file_type": "code",
-      "source_file": "app/skills/skill_loader.py",
-      "source_location": "L81",
-      "_origin": "ast",
-      "id": "app_skills_skill_loader_skillregistry_validate_skill",
-      "community": 22,
-      "community_name": "SkillRegistry",
-      "norm_label": ".validate_skill()"
-    },
-    {
-      "label": "SkillLoader",
-      "file_type": "code",
-      "source_file": "app/skills/skill_loader.py",
-      "source_location": "L91",
-      "_origin": "ast",
-      "id": "app_skills_skill_loader_skillloader",
-      "community": 22,
-      "community_name": "SkillRegistry",
-      "norm_label": "skillloader"
-    },
-    {
-      "label": ".available_skills()",
-      "file_type": "code",
-      "source_file": "app/skills/skill_loader.py",
-      "source_location": "L97",
-      "_origin": "ast",
-      "id": "app_skills_skill_loader_skillloader_available_skills",
-      "community": 22,
-      "community_name": "SkillRegistry",
-      "norm_label": ".available_skills()"
-    },
-    {
-      "label": ".register_skill()",
-      "file_type": "code",
-      "source_file": "app/skills/skill_loader.py",
-      "source_location": "L100",
-      "_origin": "ast",
-      "id": "app_skills_skill_loader_skillloader_register_skill",
-      "community": 22,
-      "community_name": "SkillRegistry",
-      "norm_label": ".register_skill()"
+      "norm_label": ".search_code()"
     },
     {
       "label": "Any",
@@ -169,15 +92,323 @@
       "norm_label": "any"
     },
     {
+      "label": ".inspect_structure()",
+      "file_type": "code",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L53",
+      "_origin": "ast",
+      "id": "app_skills_repository_skill_repositoryskill_inspect_structure",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": ".inspect_structure()"
+    },
+    {
+      "label": "get_repository_skill_definition()",
+      "file_type": "code",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L68",
+      "_origin": "ast",
+      "id": "app_skills_repository_skill_get_repository_skill_definition",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "get_repository_skill_definition()"
+    },
+    {
+      "label": "SkillDefinition",
+      "file_type": "code",
+      "source_file": "",
+      "source_location": "",
+      "_origin": "ast",
+      "id": "skilldefinition",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "skilldefinition"
+    },
+    {
+      "label": "Skill providing controlled read access to the project repository.",
+      "file_type": "rationale",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "app_skills_repository_skill_rationale_8",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "skill providing controlled read access to the project repository."
+    },
+    {
+      "label": "Reads and returns the text content of a file within the repository.",
+      "file_type": "rationale",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "app_skills_repository_skill_rationale_22",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "reads and returns the text content of a file within the repository."
+    },
+    {
+      "label": "Searches for a string query across repository files.",
+      "file_type": "rationale",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "app_skills_repository_skill_rationale_31",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": "searches for a string query across repository files."
+    },
+    {
+      "label": "Returns a list of relative file paths within the given directory.",
+      "file_type": "rationale",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L54",
+      "_origin": "ast",
+      "id": "app_skills_repository_skill_rationale_54",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "returns a list of relative file paths within the given directory."
+    },
+    {
+      "label": "Factory function returning the SkillDefinition for RepositorySkill.",
+      "file_type": "rationale",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L69",
+      "_origin": "ast",
+      "id": "app_skills_repository_skill_rationale_69",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "factory function returning the skilldefinition for repositoryskill."
+    },
+    {
+      "label": "test_repository_skill.py",
+      "file_type": "code",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "app_test_repository_skill",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "test_repository_skill.py"
+    },
+    {
+      "label": "test_repository_skill_definition()",
+      "file_type": "code",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "app_test_repository_skill_test_repository_skill_definition",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "test_repository_skill_definition()"
+    },
+    {
+      "label": "test_read_file()",
+      "file_type": "code",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "app_test_repository_skill_test_read_file",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "test_read_file()"
+    },
+    {
+      "label": "test_path_traversal_prevention()",
+      "file_type": "code",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "app_test_repository_skill_test_path_traversal_prevention",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "test_path_traversal_prevention()"
+    },
+    {
+      "label": "test_search_code()",
+      "file_type": "code",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L32",
+      "_origin": "ast",
+      "id": "app_test_repository_skill_test_search_code",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "test_search_code()"
+    },
+    {
+      "label": "test_inspect_structure()",
+      "file_type": "code",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L43",
+      "_origin": "ast",
+      "id": "app_test_repository_skill_test_inspect_structure",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "test_inspect_structure()"
+    },
+    {
+      "label": "skill_loader.py",
+      "file_type": "code",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L1",
+      "_origin": "ast",
+      "community": 23,
+      "community_name": "RepositorySkill",
+      "norm_label": "skill_loader.py",
+      "id": "app_skills_skill_loader"
+    },
+    {
+      "label": "SkillDefinition",
+      "file_type": "code",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L6",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": "skilldefinition",
+      "id": "app_skills_skill_loader_skilldefinition"
+    },
+    {
+      "label": ".validate()",
+      "file_type": "code",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L17",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": ".validate()",
+      "id": "app_skills_skill_loader_skilldefinition_validate"
+    },
+    {
+      "label": "SkillRegistry",
+      "file_type": "code",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L28",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": "skillregistry",
+      "id": "app_skills_skill_loader_skillregistry"
+    },
+    {
+      "label": ".__init__()",
+      "file_type": "code",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L33",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": ".__init__()",
+      "id": "app_skills_skill_loader_skillregistry_init"
+    },
+    {
+      "label": ".register_skill()",
+      "file_type": "code",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L36",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": ".register_skill()",
+      "id": "app_skills_skill_loader_skillregistry_register_skill"
+    },
+    {
+      "label": ".get_skill()",
+      "file_type": "code",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L47",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": ".get_skill()",
+      "id": "app_skills_skill_loader_skillregistry_get_skill"
+    },
+    {
+      "label": ".list_skills()",
+      "file_type": "code",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L53",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": ".list_skills()",
+      "id": "app_skills_skill_loader_skillregistry_list_skills"
+    },
+    {
+      "label": ".enable_skill()",
+      "file_type": "code",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L61",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": ".enable_skill()",
+      "id": "app_skills_skill_loader_skillregistry_enable_skill"
+    },
+    {
+      "label": ".disable_skill()",
+      "file_type": "code",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L71",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": ".disable_skill()",
+      "id": "app_skills_skill_loader_skillregistry_disable_skill"
+    },
+    {
+      "label": ".validate_skill()",
+      "file_type": "code",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L81",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": ".validate_skill()",
+      "id": "app_skills_skill_loader_skillregistry_validate_skill"
+    },
+    {
+      "label": "SkillLoader",
+      "file_type": "code",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L91",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": "skillloader",
+      "id": "app_skills_skill_loader_skillloader"
+    },
+    {
+      "label": ".available_skills()",
+      "file_type": "code",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L97",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": ".available_skills()",
+      "id": "app_skills_skill_loader_skillloader_available_skills"
+    },
+    {
+      "label": ".register_skill()",
+      "file_type": "code",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L100",
+      "_origin": "ast",
+      "community": 22,
+      "community_name": "SkillRegistry",
+      "norm_label": ".register_skill()",
+      "id": "app_skills_skill_loader_skillloader_register_skill"
+    },
+    {
       "label": ".load_skill()",
       "file_type": "code",
       "source_file": "app/skills/skill_loader.py",
       "source_location": "L109",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_skillloader_load_skill",
       "community": 22,
       "community_name": "SkillRegistry",
-      "norm_label": ".load_skill()"
+      "norm_label": ".load_skill()",
+      "id": "app_skills_skill_loader_skillloader_load_skill"
     },
     {
       "label": ".list_skills()",
@@ -185,10 +416,10 @@
       "source_file": "app/skills/skill_loader.py",
       "source_location": "L113",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_skillloader_list_skills",
       "community": 22,
       "community_name": "SkillRegistry",
-      "norm_label": ".list_skills()"
+      "norm_label": ".list_skills()",
+      "id": "app_skills_skill_loader_skillloader_list_skills"
     },
     {
       "label": "Defines a skill capability, its execution entry point, metadata, and\u2026",
@@ -196,10 +427,10 @@
       "source_file": "app/skills/skill_loader.py",
       "source_location": "L7",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_rationale_7",
       "community": 22,
       "community_name": "SkillRegistry",
-      "norm_label": "defines a skill capability, its execution entry point, metadata, and..."
+      "norm_label": "defines a skill capability, its execution entry point, metadata, and...",
+      "id": "app_skills_skill_loader_rationale_7"
     },
     {
       "label": "Validates that the skill definition has required fields.",
@@ -207,10 +438,10 @@
       "source_file": "app/skills/skill_loader.py",
       "source_location": "L18",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_rationale_18",
       "community": 22,
       "community_name": "SkillRegistry",
-      "norm_label": "validates that the skill definition has required fields."
+      "norm_label": "validates that the skill definition has required fields.",
+      "id": "app_skills_skill_loader_rationale_18"
     },
     {
       "label": "Registry for managing, retrieving, and validating agent skills.",
@@ -218,10 +449,10 @@
       "source_file": "app/skills/skill_loader.py",
       "source_location": "L29",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_rationale_29",
       "community": 22,
       "community_name": "SkillRegistry",
-      "norm_label": "registry for managing, retrieving, and validating agent skills."
+      "norm_label": "registry for managing, retrieving, and validating agent skills.",
+      "id": "app_skills_skill_loader_rationale_29"
     },
     {
       "label": "Registers a SkillDefinition into the registry.",
@@ -229,10 +460,10 @@
       "source_file": "app/skills/skill_loader.py",
       "source_location": "L37",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_rationale_37",
       "community": 22,
       "community_name": "SkillRegistry",
-      "norm_label": "registers a skilldefinition into the registry."
+      "norm_label": "registers a skilldefinition into the registry.",
+      "id": "app_skills_skill_loader_rationale_37"
     },
     {
       "label": "Retrieves a skill by name.",
@@ -240,10 +471,10 @@
       "source_file": "app/skills/skill_loader.py",
       "source_location": "L48",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_rationale_48",
       "community": 22,
       "community_name": "SkillRegistry",
-      "norm_label": "retrieves a skill by name."
+      "norm_label": "retrieves a skill by name.",
+      "id": "app_skills_skill_loader_rationale_48"
     },
     {
       "label": "Lists all registered skills, optionally filtering by enabled status.",
@@ -251,10 +482,10 @@
       "source_file": "app/skills/skill_loader.py",
       "source_location": "L54",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_rationale_54",
       "community": 22,
       "community_name": "SkillRegistry",
-      "norm_label": "lists all registered skills, optionally filtering by enabled status."
+      "norm_label": "lists all registered skills, optionally filtering by enabled status.",
+      "id": "app_skills_skill_loader_rationale_54"
     },
     {
       "label": "Enables a skill by name.",
@@ -262,10 +493,10 @@
       "source_file": "app/skills/skill_loader.py",
       "source_location": "L62",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_rationale_62",
       "community": 22,
       "community_name": "SkillRegistry",
-      "norm_label": "enables a skill by name."
+      "norm_label": "enables a skill by name.",
+      "id": "app_skills_skill_loader_rationale_62"
     },
     {
       "label": "Disables a skill by name.",
@@ -273,10 +504,10 @@
       "source_file": "app/skills/skill_loader.py",
       "source_location": "L72",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_rationale_72",
       "community": 22,
       "community_name": "SkillRegistry",
-      "norm_label": "disables a skill by name."
+      "norm_label": "disables a skill by name.",
+      "id": "app_skills_skill_loader_rationale_72"
     },
     {
       "label": "Validates whether a registered skill is valid and enabled.",
@@ -284,10 +515,10 @@
       "source_file": "app/skills/skill_loader.py",
       "source_location": "L82",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_rationale_82",
       "community": 22,
       "community_name": "SkillRegistry",
-      "norm_label": "validates whether a registered skill is valid and enabled."
+      "norm_label": "validates whether a registered skill is valid and enabled.",
+      "id": "app_skills_skill_loader_rationale_82"
     },
     {
       "label": "Legacy compatibility wrapper bridging SkillLoader to SkillRegistry.",
@@ -295,10 +526,10 @@
       "source_file": "app/skills/skill_loader.py",
       "source_location": "L92",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_rationale_92",
       "community": 22,
       "community_name": "SkillRegistry",
-      "norm_label": "legacy compatibility wrapper bridging skillloader to skillregistry."
+      "norm_label": "legacy compatibility wrapper bridging skillloader to skillregistry.",
+      "id": "app_skills_skill_loader_rationale_92"
     },
     {
       "label": "Overridden to support legacy dictionary return structure {name: description}.",
@@ -306,10 +537,10 @@
       "source_file": "app/skills/skill_loader.py",
       "source_location": "L114",
       "_origin": "ast",
-      "id": "app_skills_skill_loader_rationale_114",
       "community": 22,
       "community_name": "SkillRegistry",
-      "norm_label": "overridden to support legacy dictionary return structure {name: description}."
+      "norm_label": "overridden to support legacy dictionary return structure {name: description}.",
+      "id": "app_skills_skill_loader_rationale_114"
     },
     {
       "label": "agent_manager.py",
@@ -317,8 +548,8 @@
       "source_file": "app/agents/agent_manager.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 19,
-      "community_name": "agent_manager.py",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": "agent_manager.py",
       "id": "app_agents_agent_manager"
     },
@@ -900,8 +1131,8 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 19,
-      "community_name": "agent_manager.py",
+      "community": 16,
+      "community_name": "KnowledgeProvider",
       "norm_label": "context_builder.py",
       "id": "app_context_context_builder"
     },
@@ -911,8 +1142,8 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L11",
       "_origin": "ast",
-      "community": 19,
-      "community_name": "agent_manager.py",
+      "community": 16,
+      "community_name": "KnowledgeProvider",
       "norm_label": "contextbuilder",
       "id": "app_context_context_builder_contextbuilder"
     },
@@ -922,8 +1153,8 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L13",
       "_origin": "ast",
-      "community": 19,
-      "community_name": "agent_manager.py",
+      "community": 16,
+      "community_name": "KnowledgeProvider",
       "norm_label": ".__init__()",
       "id": "app_context_context_builder_contextbuilder_init"
     },
@@ -933,8 +1164,8 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L18",
       "_origin": "ast",
-      "community": 19,
-      "community_name": "agent_manager.py",
+      "community": 16,
+      "community_name": "KnowledgeProvider",
       "norm_label": ".build()",
       "id": "app_context_context_builder_contextbuilder_build"
     },
@@ -944,8 +1175,8 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 19,
-      "community_name": "agent_manager.py",
+      "community": 16,
+      "community_name": "KnowledgeProvider",
       "norm_label": "omniforces context builder creates structured ai employee context.",
       "id": "app_context_context_builder_rationale_1"
     },
@@ -955,8 +1186,8 @@
       "source_file": "app/context/context_builder.py",
       "source_location": "L19",
       "_origin": "ast",
-      "community": 19,
-      "community_name": "agent_manager.py",
+      "community": 16,
+      "community_name": "KnowledgeProvider",
       "norm_label": "build complete context package.",
       "id": "app_context_context_builder_rationale_19"
     },
@@ -1021,8 +1252,8 @@
       "source_file": "app/test_skill_loader.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 22,
-      "community_name": "SkillRegistry",
+      "community": 23,
+      "community_name": "RepositorySkill",
       "norm_label": "test_skill_loader.py",
       "id": "app_test_skill_loader"
     },
@@ -1032,8 +1263,8 @@
       "source_file": "app/test_skill_loader.py",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 22,
-      "community_name": "SkillRegistry",
+      "community": 23,
+      "community_name": "RepositorySkill",
       "norm_label": "test_skill_loader_initialises()",
       "id": "app_test_skill_loader_test_skill_loader_initialises"
     },
@@ -1043,8 +1274,8 @@
       "source_file": "app/test_skill_loader.py",
       "source_location": "L16",
       "_origin": "ast",
-      "community": 22,
-      "community_name": "SkillRegistry",
+      "community": 23,
+      "community_name": "RepositorySkill",
       "norm_label": "test_register_skill()",
       "id": "app_test_skill_loader_test_register_skill"
     },
@@ -1054,8 +1285,8 @@
       "source_file": "app/test_skill_loader.py",
       "source_location": "L30",
       "_origin": "ast",
-      "community": 22,
-      "community_name": "SkillRegistry",
+      "community": 23,
+      "community_name": "RepositorySkill",
       "norm_label": "test_load_skill()",
       "id": "app_test_skill_loader_test_load_skill"
     },
@@ -1065,8 +1296,8 @@
       "source_file": "app/test_skill_loader.py",
       "source_location": "L46",
       "_origin": "ast",
-      "community": 22,
-      "community_name": "SkillRegistry",
+      "community": 23,
+      "community_name": "RepositorySkill",
       "norm_label": "test_load_unknown_skill()",
       "id": "app_test_skill_loader_test_load_unknown_skill"
     },
@@ -1076,8 +1307,8 @@
       "source_file": "app/test_skill_loader.py",
       "source_location": "L53",
       "_origin": "ast",
-      "community": 22,
-      "community_name": "SkillRegistry",
+      "community": 23,
+      "community_name": "RepositorySkill",
       "norm_label": "test_list_skills()",
       "id": "app_test_skill_loader_test_list_skills"
     },
@@ -1780,8 +2011,8 @@
       "source_file": "app/test_supervisor.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
-      "community_name": "test_supervisor.py",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": "test_supervisor.py",
       "id": "app_test_supervisor"
     },
@@ -1791,8 +2022,8 @@
       "source_file": "app/test_supervisor.py",
       "source_location": "L9",
       "_origin": "ast",
-      "community": 23,
-      "community_name": "test_supervisor.py",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": "test_supervisor_agent_limit()",
       "id": "app_test_supervisor_test_supervisor_agent_limit"
     },
@@ -1802,8 +2033,8 @@
       "source_file": "app/test_supervisor.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 23,
-      "community_name": "test_supervisor.py",
+      "community": 0,
+      "community_name": "test_ate_integration.py",
       "norm_label": "omniforces supervisor control test",
       "id": "app_test_supervisor_rationale_1"
     },
@@ -2486,7 +2717,7 @@
       "_origin": "ast",
       "community": 19,
       "norm_label": "config.py",
-      "community_name": "agent_manager.py",
+      "community_name": "ollama.py",
       "id": "app_config"
     },
     {
@@ -2497,7 +2728,7 @@
       "_origin": "ast",
       "community": 19,
       "norm_label": "settings",
-      "community_name": "agent_manager.py",
+      "community_name": "ollama.py",
       "id": "app_config_settings"
     },
     {
@@ -2508,7 +2739,7 @@
       "_origin": "ast",
       "community": 19,
       "norm_label": "omniforces configuration loads application configuration from the environment....",
-      "community_name": "agent_manager.py",
+      "community_name": "ollama.py",
       "id": "app_config_rationale_1"
     },
     {
@@ -2519,7 +2750,7 @@
       "_origin": "ast",
       "community": 19,
       "norm_label": "application configuration.",
-      "community_name": "agent_manager.py",
+      "community_name": "ollama.py",
       "id": "app_config_rationale_17"
     },
     {
@@ -2530,7 +2761,7 @@
       "_origin": "ast",
       "community": 19,
       "norm_label": "logger.py",
-      "community_name": "agent_manager.py",
+      "community_name": "ollama.py",
       "id": "app_logger"
     },
     {
@@ -2541,7 +2772,7 @@
       "_origin": "ast",
       "community": 19,
       "norm_label": "omniforces logger provides a shared logger for all application modules.",
-      "community_name": "agent_manager.py",
+      "community_name": "ollama.py",
       "id": "app_logger_rationale_1"
     },
     {
@@ -2629,7 +2860,7 @@
       "_origin": "ast",
       "community": 19,
       "norm_label": "models.py",
-      "community_name": "agent_manager.py",
+      "community_name": "ollama.py",
       "id": "app_models"
     },
     {
@@ -2640,7 +2871,7 @@
       "_origin": "ast",
       "community": 19,
       "norm_label": "airesponse",
-      "community_name": "agent_manager.py",
+      "community_name": "ollama.py",
       "id": "app_models_airesponse"
     },
     {
@@ -2651,7 +2882,7 @@
       "_origin": "ast",
       "community": 19,
       "norm_label": "ollama.py",
-      "community_name": "agent_manager.py",
+      "community_name": "ollama.py",
       "id": "app_ollama"
     },
     {
@@ -2662,7 +2893,7 @@
       "_origin": "ast",
       "community": 19,
       "norm_label": "ollamaclient",
-      "community_name": "agent_manager.py",
+      "community_name": "ollama.py",
       "id": "app_ollama_ollamaclient"
     },
     {
@@ -2673,7 +2904,7 @@
       "_origin": "ast",
       "community": 19,
       "norm_label": ".__init__()",
-      "community_name": "agent_manager.py",
+      "community_name": "ollama.py",
       "id": "app_ollama_ollamaclient_init"
     },
     {
@@ -2684,7 +2915,7 @@
       "_origin": "ast",
       "community": 19,
       "norm_label": ".generate()",
-      "community_name": "agent_manager.py",
+      "community_name": "ollama.py",
       "id": "app_ollama_ollamaclient_generate"
     },
     {
@@ -2695,7 +2926,7 @@
       "_origin": "ast",
       "community": 19,
       "norm_label": "provider interface for ollama. responsibilities: - connect to ollama. - send...",
-      "community_name": "agent_manager.py",
+      "community_name": "ollama.py",
       "id": "app_ollama_rationale_25"
     },
     {
@@ -2706,7 +2937,7 @@
       "_origin": "ast",
       "community": 19,
       "norm_label": "generate a response using the supplied model. if no model is supplied, the...",
-      "community_name": "agent_manager.py",
+      "community_name": "ollama.py",
       "id": "app_ollama_rationale_50"
     },
     {
@@ -2715,9 +2946,9 @@
       "source_file": "app/roles.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 19,
+      "community": 0,
       "norm_label": "roles.py",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_roles"
     },
     {
@@ -2726,9 +2957,9 @@
       "source_file": "app/roles.py",
       "source_location": "L78",
       "_origin": "ast",
-      "community": 19,
+      "community": 0,
       "norm_label": "get_role_context()",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_roles_get_role_context"
     },
     {
@@ -2737,9 +2968,9 @@
       "source_file": "app/roles.py",
       "source_location": "L79",
       "_origin": "ast",
-      "community": 19,
+      "community": 0,
       "norm_label": "returns the full system-context string for a role: shared engineering...",
-      "community_name": "agent_manager.py",
+      "community_name": "test_ate_integration.py",
       "id": "app_roles_rationale_79"
     },
     {
@@ -2869,9 +3100,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": "control.py",
-      "community_name": "AtomicTaskEngine",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control"
     },
     {
@@ -2902,9 +3133,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L37",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": "supervisorcontrol",
-      "community_name": "AtomicTaskEngine",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control_supervisorcontrol"
     },
     {
@@ -2913,9 +3144,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L48",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": ".__init__()",
-      "community_name": "AtomicTaskEngine",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control_supervisorcontrol_init"
     },
     {
@@ -2924,9 +3155,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L55",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": ".register_agent()",
-      "community_name": "AtomicTaskEngine",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control_supervisorcontrol_register_agent"
     },
     {
@@ -2935,9 +3166,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L58",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": ".check_limit()",
-      "community_name": "AtomicTaskEngine",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control_supervisorcontrol_check_limit"
     },
     {
@@ -2946,9 +3177,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L66",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": ".review_task()",
-      "community_name": "AtomicTaskEngine",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control_supervisorcontrol_review_task"
     },
     {
@@ -2957,9 +3188,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L98",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": "._requires_human_approval()",
-      "community_name": "AtomicTaskEngine",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control_supervisorcontrol_requires_human_approval"
     },
     {
@@ -2979,9 +3210,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L124",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": ".replan()",
-      "community_name": "AtomicTaskEngine",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control_supervisorcontrol_replan"
     },
     {
@@ -3012,9 +3243,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L38",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": "control and decision coordination layer. holds no task state of its own \u2014 task...",
-      "community_name": "AtomicTaskEngine",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control_rationale_38"
     },
     {
@@ -3023,9 +3254,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L67",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": "reviews an assigned task and decides whether it can proceed automatically or...",
-      "community_name": "AtomicTaskEngine",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control_rationale_67"
     },
     {
@@ -3034,9 +3265,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L99",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": "evaluates a task against the human approval model. returns (requires_human:...",
-      "community_name": "AtomicTaskEngine",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control_rationale_99"
     },
     {
@@ -3056,9 +3287,9 @@
       "source_file": "app/supervisor/control.py",
       "source_location": "L132",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": "handles a task that has reached supervisor review after a failure. `decision`...",
-      "community_name": "AtomicTaskEngine",
+      "community_name": "test_ate_integration.py",
       "id": "app_supervisor_control_rationale_132"
     },
     {
@@ -3078,9 +3309,9 @@
       "source_file": "app/tasks/atomic_task_engine.py",
       "source_location": "L1",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": "atomic_task_engine.py",
-      "community_name": "AtomicTaskEngine",
+      "community_name": "test_ate_integration.py",
       "id": "app_tasks_atomic_task_engine"
     },
     {
@@ -3155,9 +3386,9 @@
       "source_file": "app/tasks/atomic_task_engine.py",
       "source_location": "L90",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": "_now()",
-      "community_name": "AtomicTaskEngine",
+      "community_name": "test_ate_integration.py",
       "id": "app_tasks_atomic_task_engine_now"
     },
     {
@@ -3166,9 +3397,9 @@
       "source_file": "app/tasks/atomic_task_engine.py",
       "source_location": "L95",
       "_origin": "ast",
-      "community": 1,
+      "community": 0,
       "norm_label": "executionevent",
-      "community_name": "AtomicTaskEngine",
+      "community_name": "test_ate_integration.py",
       "id": "app_tasks_atomic_task_engine_executionevent"
     },
     {
@@ -3779,6 +4010,409 @@
   ],
   "links": [
     {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill",
+      "target": "app_skills_repository_skill_get_repository_skill_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill",
+      "target": "app_skills_repository_skill_repositoryskill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill",
+      "target": "app_skills_skill_loader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_repository_skill",
+      "target": "app_skills_repository_skill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_rationale_8",
+      "target": "app_skills_repository_skill_repositoryskill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L12",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_repositoryskill",
+      "target": "app_skills_repository_skill_repositoryskill_init",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L53",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_repositoryskill",
+      "target": "app_skills_repository_skill_repositoryskill_inspect_structure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_repositoryskill",
+      "target": "app_skills_repository_skill_repositoryskill_read_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_repositoryskill",
+      "target": "app_skills_repository_skill_repositoryskill_resolve_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "method",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_repositoryskill",
+      "target": "app_skills_repository_skill_repositoryskill_search_code",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_repository_skill",
+      "target": "app_skills_repository_skill_repositoryskill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L48",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_repository_skill_test_inspect_structure",
+      "target": "app_skills_repository_skill_repositoryskill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L27",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_repository_skill_test_path_traversal_prevention",
+      "target": "app_skills_repository_skill_repositoryskill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L21",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_repository_skill_test_read_file",
+      "target": "app_skills_repository_skill_repositoryskill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L36",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_repository_skill_test_search_code",
+      "target": "app_skills_repository_skill_repositoryskill",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_repositoryskill_init",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L57",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_repositoryskill_inspect_structure",
+      "target": "app_skills_repository_skill_repositoryskill_resolve_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L25",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_repositoryskill_read_file",
+      "target": "app_skills_repository_skill_repositoryskill_resolve_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L15",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_repositoryskill_resolve_path",
+      "target": "path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L22",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_rationale_22",
+      "target": "app_skills_repository_skill_repositoryskill_read_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_rationale_31",
+      "target": "app_skills_repository_skill_repositoryskill_search_code",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L30",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_repositoryskill_search_code",
+      "target": "any",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "generic_arg",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L113",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_skill_loader_skillloader_list_skills",
+      "target": "any"
+    },
+    {
+      "relation": "references",
+      "context": "parameter_type",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/skill_loader.py",
+      "source_location": "L100",
+      "weight": 1.0,
+      "_origin": "ast",
+      "confidence_score": 1.0,
+      "source": "app_skills_skill_loader_skillloader_register_skill",
+      "target": "any"
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L54",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_rationale_54",
+      "target": "app_skills_repository_skill_repositoryskill_inspect_structure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "context": "return_type",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L68",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_get_repository_skill_definition",
+      "target": "skilldefinition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "source_file": "app/skills/repository_skill.py",
+      "source_location": "L69",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_skills_repository_skill_rationale_69",
+      "target": "app_skills_repository_skill_get_repository_skill_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_repository_skill",
+      "target": "app_skills_repository_skill_get_repository_skill_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_repository_skill_test_repository_skill_definition",
+      "target": "app_skills_repository_skill_get_repository_skill_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_repository_skill",
+      "target": "app_skills_skill_loader",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L43",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_repository_skill",
+      "target": "app_test_repository_skill_test_inspect_structure",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L26",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_repository_skill",
+      "target": "app_test_repository_skill_test_path_traversal_prevention",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L17",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_repository_skill",
+      "target": "app_test_repository_skill_test_read_file",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_repository_skill",
+      "target": "app_test_repository_skill_test_repository_skill_definition",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/test_repository_skill.py",
+      "source_location": "L32",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_test_repository_skill",
+      "target": "app_test_repository_skill_test_search_code",
+      "confidence_score": 1.0
+    },
+    {
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
@@ -3797,9 +4431,9 @@
       "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader",
-      "target": "app_skills_skill_loader_skilldefinition",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skilldefinition"
     },
     {
       "relation": "contains",
@@ -3808,9 +4442,9 @@
       "source_location": "L91",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader",
-      "target": "app_skills_skill_loader_skillloader",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillloader"
     },
     {
       "relation": "contains",
@@ -3819,9 +4453,9 @@
       "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader",
-      "target": "app_skills_skill_loader_skillregistry",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry"
     },
     {
       "relation": "imports_from",
@@ -3842,9 +4476,9 @@
       "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_rationale_7",
-      "target": "app_skills_skill_loader_skilldefinition",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skilldefinition"
     },
     {
       "relation": "method",
@@ -3853,9 +4487,9 @@
       "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skilldefinition",
-      "target": "app_skills_skill_loader_skilldefinition_validate",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skilldefinition_validate"
     },
     {
       "relation": "calls",
@@ -3865,9 +4499,9 @@
       "source_location": "L104",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillloader_register_skill",
-      "target": "app_skills_skill_loader_skilldefinition",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skilldefinition"
     },
     {
       "relation": "references",
@@ -3877,9 +4511,9 @@
       "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillregistry_get_skill",
-      "target": "app_skills_skill_loader_skilldefinition",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skilldefinition"
     },
     {
       "relation": "references",
@@ -3889,9 +4523,9 @@
       "source_location": "L53",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillregistry_list_skills",
-      "target": "app_skills_skill_loader_skilldefinition",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skilldefinition"
     },
     {
       "relation": "references",
@@ -3901,9 +4535,9 @@
       "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillregistry_register_skill",
-      "target": "app_skills_skill_loader_skilldefinition",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skilldefinition"
     },
     {
       "relation": "rationale_for",
@@ -3912,9 +4546,9 @@
       "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_rationale_18",
-      "target": "app_skills_skill_loader_skilldefinition_validate",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skilldefinition_validate"
     },
     {
       "relation": "calls",
@@ -3924,9 +4558,9 @@
       "source_location": "L42",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillregistry_register_skill",
-      "target": "app_skills_skill_loader_skilldefinition_validate",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skilldefinition_validate"
     },
     {
       "relation": "calls",
@@ -3936,9 +4570,9 @@
       "source_location": "L88",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillregistry_validate_skill",
-      "target": "app_skills_skill_loader_skilldefinition_validate",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skilldefinition_validate"
     },
     {
       "relation": "rationale_for",
@@ -3947,9 +4581,9 @@
       "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_rationale_29",
-      "target": "app_skills_skill_loader_skillregistry",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry"
     },
     {
       "relation": "inherits",
@@ -3958,9 +4592,9 @@
       "source_location": "L91",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillloader",
-      "target": "app_skills_skill_loader_skillregistry",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry"
     },
     {
       "relation": "method",
@@ -3969,9 +4603,9 @@
       "source_location": "L71",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillregistry",
-      "target": "app_skills_skill_loader_skillregistry_disable_skill",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry_disable_skill"
     },
     {
       "relation": "method",
@@ -3980,9 +4614,9 @@
       "source_location": "L61",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillregistry",
-      "target": "app_skills_skill_loader_skillregistry_enable_skill",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry_enable_skill"
     },
     {
       "relation": "method",
@@ -3991,9 +4625,9 @@
       "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillregistry",
-      "target": "app_skills_skill_loader_skillregistry_get_skill",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry_get_skill"
     },
     {
       "relation": "method",
@@ -4002,9 +4636,9 @@
       "source_location": "L33",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillregistry",
-      "target": "app_skills_skill_loader_skillregistry_init",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry_init"
     },
     {
       "relation": "method",
@@ -4013,9 +4647,9 @@
       "source_location": "L53",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillregistry",
-      "target": "app_skills_skill_loader_skillregistry_list_skills",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry_list_skills"
     },
     {
       "relation": "method",
@@ -4024,9 +4658,9 @@
       "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillregistry",
-      "target": "app_skills_skill_loader_skillregistry_register_skill",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry_register_skill"
     },
     {
       "relation": "method",
@@ -4035,9 +4669,9 @@
       "source_location": "L81",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillregistry",
-      "target": "app_skills_skill_loader_skillregistry_validate_skill",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry_validate_skill"
     },
     {
       "relation": "rationale_for",
@@ -4046,9 +4680,9 @@
       "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_rationale_37",
-      "target": "app_skills_skill_loader_skillregistry_register_skill",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry_register_skill"
     },
     {
       "relation": "rationale_for",
@@ -4057,9 +4691,9 @@
       "source_location": "L48",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_rationale_48",
-      "target": "app_skills_skill_loader_skillregistry_get_skill",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry_get_skill"
     },
     {
       "relation": "calls",
@@ -4069,9 +4703,9 @@
       "source_location": "L110",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillloader_load_skill",
-      "target": "app_skills_skill_loader_skillregistry_get_skill",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry_get_skill"
     },
     {
       "relation": "rationale_for",
@@ -4080,9 +4714,9 @@
       "source_location": "L54",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_rationale_54",
-      "target": "app_skills_skill_loader_skillregistry_list_skills",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry_list_skills"
     },
     {
       "relation": "rationale_for",
@@ -4091,9 +4725,9 @@
       "source_location": "L62",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_rationale_62",
-      "target": "app_skills_skill_loader_skillregistry_enable_skill",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry_enable_skill"
     },
     {
       "relation": "rationale_for",
@@ -4102,9 +4736,9 @@
       "source_location": "L72",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_rationale_72",
-      "target": "app_skills_skill_loader_skillregistry_disable_skill",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry_disable_skill"
     },
     {
       "relation": "rationale_for",
@@ -4113,9 +4747,9 @@
       "source_location": "L82",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_rationale_82",
-      "target": "app_skills_skill_loader_skillregistry_validate_skill",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillregistry_validate_skill"
     },
     {
       "relation": "rationale_for",
@@ -4124,9 +4758,9 @@
       "source_location": "L92",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_rationale_92",
-      "target": "app_skills_skill_loader_skillloader",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillloader"
     },
     {
       "relation": "method",
@@ -4135,9 +4769,9 @@
       "source_location": "L97",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillloader",
-      "target": "app_skills_skill_loader_skillloader_available_skills",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillloader_available_skills"
     },
     {
       "relation": "method",
@@ -4146,9 +4780,9 @@
       "source_location": "L113",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillloader",
-      "target": "app_skills_skill_loader_skillloader_list_skills",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillloader_list_skills"
     },
     {
       "relation": "method",
@@ -4157,9 +4791,9 @@
       "source_location": "L109",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillloader",
-      "target": "app_skills_skill_loader_skillloader_load_skill",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillloader_load_skill"
     },
     {
       "relation": "method",
@@ -4168,33 +4802,9 @@
       "source_location": "L100",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_skillloader",
-      "target": "app_skills_skill_loader_skillloader_register_skill",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "parameter_type",
-      "confidence": "EXTRACTED",
-      "source_file": "app/skills/skill_loader.py",
-      "source_location": "L100",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_skills_skill_loader_skillloader_register_skill",
-      "target": "any",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "generic_arg",
-      "confidence": "EXTRACTED",
-      "source_file": "app/skills/skill_loader.py",
-      "source_location": "L113",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_skills_skill_loader_skillloader_list_skills",
-      "target": "any",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillloader_register_skill"
     },
     {
       "relation": "rationale_for",
@@ -4203,9 +4813,9 @@
       "source_location": "L114",
       "weight": 1.0,
       "_origin": "ast",
+      "confidence_score": 1.0,
       "source": "app_skills_skill_loader_rationale_114",
-      "target": "app_skills_skill_loader_skillloader_list_skills",
-      "confidence_score": 1.0
+      "target": "app_skills_skill_loader_skillloader_list_skills"
     },
     {
       "relation": "contains",
@@ -10169,5 +10779,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e2361f1e3f69eedd11c8da63990bc2435ed0e505"
+  "built_at_commit": "814f060af3204f579b2a2a90d2469ca8f6e849a4"
 }
