@@ -154,6 +154,7 @@ DO:
 * Retrieve skills.
 * Validate skills.
 * Enable/disable skills.
+* Validate task-required skills during AgentManager execute_task lifecycle.
 
 DO NOT:
 

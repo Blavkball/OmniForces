@@ -17,10 +17,9 @@ import logging
 import asyncio
 from typing import Dict, Any, List, Optional, Callable, Union
 from dataclasses import dataclass, field
-from typing import Dict, Any, List, Optional, Callable, Union
 
 from app.memory.agent_memory import AgentMemory
-from app.skills.skill_loader import SkillRegistry, SkillDefinition, SkillLoader
+from app.skills.skill_loader import SkillRegistry, SkillDefinition
 from app.supervisor.control import SupervisorControl
 from app.context.context_builder import ContextBuilder
 
@@ -446,6 +445,66 @@ class AgentManager:
         )
 
 
+    def _validate_agent_skills_for_execution(
+        self,
+        task: AtomicTask,
+    ) -> None:
+        """
+        Ensure the assigned agent has all required skills before execution.
+        """
+        required_skills = getattr(task, "required_skills", []) or []
+        required_permissions = getattr(task, "required_permissions", []) or []
+
+        if not task.assigned_to:
+            raise AgentManagerError(
+                f"cannot execute task {task.task_id}; no agent is assigned"
+            )
+
+        agent = self.get_agent(task.assigned_to)
+        agent_skill_names = getattr(agent, "skills", []) if not isinstance(agent, dict) else agent.get("skills", [])
+
+        if required_skills:
+            missing_required = [
+                name
+                for name in required_skills
+                if not self.skill_registry.validate_skill(name)
+            ]
+
+            if missing_required:
+                raise AgentManagerError(
+                    f"task {task.task_id} requires unregistered or disabled skills: {missing_required}"
+                )
+
+            missing = [
+                name
+                for name in required_skills
+                if name not in agent_skill_names
+            ]
+
+            if missing:
+                raise AgentManagerError(
+                    f"agent '{task.assigned_to}' missing required skills: {missing}"
+                )
+
+        if required_permissions:
+            agent_permissions = set()
+            for skill_name in agent_skill_names:
+                skill = self.skill_registry.get_skill(skill_name)
+                if skill and self.skill_registry.validate_skill(skill_name) and skill.permissions:
+                    agent_permissions.update(skill.permissions)
+
+            missing_permissions = [
+                permission
+                for permission in required_permissions
+                if permission not in agent_permissions
+            ]
+
+            if missing_permissions:
+                raise AgentManagerError(
+                    f"agent '{task.assigned_to}' missing required permissions: {missing_permissions}"
+                )
+
+
     # --------------------------------------------------
     # Execution
     # --------------------------------------------------
@@ -499,6 +558,7 @@ class AgentManager:
             task_id
         )
 
+        self._validate_agent_skills_for_execution(task)
 
         if task.status != TaskStatus.EXECUTING:
 
@@ -629,8 +689,10 @@ class AgentManager:
         """Assigns a registered skill from SkillRegistry to an existing agent."""
         agent = self.get_agent(agent_id)
         skill = self.skill_registry.get_skill(skill_name)
-        if not skill:
-            raise ValueError(f"Skill '{skill_name}' is not registered in SkillRegistry.")
+        if not skill or not self.skill_registry.validate_skill(skill_name):
+            raise ValueError(
+                f"Skill '{skill_name}' is not registered or enabled in SkillRegistry."
+            )
 
         if hasattr(agent, "skills"):
             if skill_name not in agent.skills:

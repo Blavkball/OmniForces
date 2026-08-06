@@ -15,6 +15,7 @@
 
 from app.tasks.atomic_task_engine import AtomicTaskEngine, RiskLevel, TaskStatus
 from app.agents.agent_manager import AgentManager, AgentManagerError
+from app.skills.skill_loader import SkillDefinition
 from app.supervisor.control import SupervisorControlError
 
 
@@ -119,6 +120,62 @@ def test_full_happy_path():
         "Completed",
     ]
     print("test_full_happy_path: OK")
+
+
+def test_low_risk_execution_with_required_permissions():
+    engine = AtomicTaskEngine()
+    fake_client = _FakeOllamaClient()
+    manager = AgentManager(engine=engine, ollama_client=fake_client)
+    manager.register_agent("forge", "senior_engineer", "execute")
+
+    skill_def = SkillDefinition(
+        name="repo_skill",
+        description="Allows controlled repository access",
+        permissions=["repo:write"],
+    )
+    manager.skill_registry.register_skill(skill_def)
+    manager.assign_skill_to_agent("forge", "repo_skill")
+
+    task = engine.create_task(
+        title="Write low-risk file",
+        description="Create or update a small repo file",
+        purpose="Verify low-risk execution lifecycle",
+        origin="manual",
+        owner="forge",
+        expected_output="File updated",
+        success_criteria=["file change recorded"],
+        failure_conditions=["unable to update file"],
+        risk_level=RiskLevel.LOW,
+        recovery_pointer="commit-low-risk",
+        role="Senior Software Engineer",
+        required_permissions=["repo:write"],
+    )
+    engine.assign_task(task.task_id, "forge")
+    assert task.status == TaskStatus.ASSIGNED
+
+    decision = manager.supervisor.review_task(engine, task.task_id)
+    assert decision["approved"] is True
+    assert decision["requires_human"] is False
+    assert task.status == TaskStatus.APPROVED
+
+    engine.mark_ready(task.task_id)
+    assert task.status == TaskStatus.READY
+
+    accept_result = manager.accept_task(task.task_id, "forge")
+    assert accept_result["status"] == TaskStatus.EXECUTING.value
+    assert task.status == TaskStatus.EXECUTING
+
+    result = manager.execute_task(task.task_id)
+    assert result["status"] == TaskStatus.REVIEW.value
+    assert len(fake_client.calls) == 1
+    assert "Task: Write low-risk file" in fake_client.calls[0]["prompt"]
+    assert "repo:write" not in fake_client.calls[0]["prompt"]
+
+    engine.complete_task(task.task_id)
+    assert task.status == TaskStatus.COMPLETED
+    assert not engine.is_orphaned(task.task_id)
+
+    print("test_low_risk_execution_with_required_permissions: OK")
 
 
 def test_human_approval_path():
