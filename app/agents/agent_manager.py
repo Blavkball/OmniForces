@@ -131,6 +131,8 @@ class AgentManager:
 
         self.engine = engine or AtomicTaskEngine()
 
+        self._register_builtin_skills()
+
         self.ollama_client = ollama_client or OllamaClient()
 
         if context_builder is not None:
@@ -204,6 +206,105 @@ class AgentManager:
         if agent_id not in self.agents:
             raise AgentNotFoundError(f"Agent with ID '{agent_id}' not found.")
         return self.agents[agent_id]
+
+    def _register_builtin_skills(self) -> None:
+        """
+        Register core skill definitions that AgentManager supports out of the box.
+        """
+        try:
+            from app.skills.cline_skill import get_cline_skill_definition
+        except ImportError:
+            return
+
+        builtin_definitions = [
+            get_cline_skill_definition,
+        ]
+
+        for definition_factory in builtin_definitions:
+            skill_def = definition_factory()
+            if not self.skill_registry.get_skill(skill_def.name):
+                self.skill_registry.register_skill(skill_def)
+
+    def register_skill_definition(self, skill_def: SkillDefinition) -> None:
+        """
+        Register a SkillDefinition into the agent manager's SkillRegistry.
+        """
+        self.skill_registry.register_skill(skill_def)
+
+    def register_cline_skill(self) -> None:
+        """
+        Register the Cline orchestration skill and make it available for agents.
+        """
+        from app.skills.cline_skill import get_cline_skill_definition
+
+        self.register_skill_definition(
+            get_cline_skill_definition()
+        )
+
+    def register_cline_agent(
+        self,
+        agent_id: Optional[str] = None,
+        name: Optional[str] = None,
+        system_prompt: str = "",
+        model_name: str = "gpt-4",
+        temperature: float = 0.7,
+        skills: Optional[List[str]] = None,
+        metadata: Optional[Dict[str, Any]] = None,
+        **kwargs: Any
+    ) -> AgentProfile:
+        """
+        Convenience helper to register a Cline AI employee profile.
+        """
+        self.register_cline_skill()
+
+        if skills is None:
+            skills = ["cline_orchestration"]
+
+        return self.register_agent(
+            agent_id=agent_id,
+            name=name or "Cline",
+            role="Cline",
+            system_prompt=system_prompt,
+            model_name=model_name,
+            temperature=temperature,
+            skills=skills,
+            metadata=metadata,
+            **kwargs,
+        )
+
+    def perform_cline_orchestration(
+        self,
+        task_description: str,
+        team: List[str],
+    ) -> str:
+        """
+        Execute the Cline orchestration skill for a given task and team.
+        """
+        skill_name = "cline_orchestration"
+        skill = self.skill_registry.get_skill(skill_name)
+
+        if not skill or not self.skill_registry.validate_skill(skill_name):
+            raise AgentManagerError(
+                f"Cline orchestration skill '{skill_name}' is not available or enabled."
+            )
+
+        entry_point = skill.entry_point
+        if not callable(entry_point):
+            raise AgentManagerError(
+                f"Skill '{skill_name}' is missing a callable entry point."
+            )
+
+        cline_instance = entry_point(agent_manager=self)
+
+        if not hasattr(cline_instance, "orchestrate_task"):
+            raise AgentManagerError(
+                "Cline skill entry point does not implement orchestrate_task()."
+            )
+
+        return cline_instance.orchestrate_task(
+            task_description,
+            team,
+        )
 
 
     # --------------------------------------------------

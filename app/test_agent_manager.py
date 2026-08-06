@@ -78,6 +78,26 @@ def test_assign_unregistered_skill_raises():
         manager.assign_skill_to_agent(agent.agent_id, "missing_skill")
 
 
+def test_register_cline_agent_and_skill():
+    manager = AgentManager()
+    agent = manager.register_cline_agent(agent_id="cline", name="Cline")
+
+    assert agent.role == "Cline"
+    assert "cline_orchestration" in agent.skills
+    assert manager.skill_registry.get_skill("cline_orchestration") is not None
+
+
+def test_perform_cline_orchestration():
+    manager = AgentManager()
+    result = manager.perform_cline_orchestration(
+        task_description="Coordinate a release",
+        team=["Forge", "QA Engineer"],
+    )
+
+    assert "Orchestrating task: Coordinate a release" in result
+    assert "Team: Forge, QA Engineer" in result
+
+
 def test_execute_task_requires_agent_skills():
     from app.tasks.atomic_task_engine import AtomicTaskEngine, TaskStatus
 

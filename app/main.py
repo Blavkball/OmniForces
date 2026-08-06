@@ -1,4 +1,6 @@
 from fastapi import FastAPI, Depends
+from pydantic import BaseModel
+from typing import List
 import requests
 import logging
 import time
@@ -7,11 +9,18 @@ import os
 import psutil
 from dotenv import load_dotenv
 
+from app.agents.agent_manager import AgentManager
+from app.logger import logger
 from app.security import verify_api_key
 from app.router import choose_model
 from app.webhook import router as webhook_router
 
 load_dotenv()
+
+
+class ClineOrchestrationRequest(BaseModel):
+    task_description: str
+    team: List[str] = []
 
 
 app = FastAPI(
@@ -27,6 +36,10 @@ OLLAMA_URL = os.getenv(
     "OLLAMA_URL",
     "http://localhost:11434/api/generate"
 )
+
+
+agent_manager = AgentManager()
+agent_manager.register_cline_agent(agent_id="cline", name="Cline")
 
 
 logging.basicConfig(
@@ -112,13 +125,11 @@ def ask_ai(
     )
 
 
-    logging.info(
+    logger.info(
         f"SUCCESS | id={request_id} | model={model} | {duration}s"
     )
 
-
     result = response.json()
-
 
     result["omniforces"] = {
         "request_id": request_id,
@@ -126,5 +137,22 @@ def ask_ai(
         "response_time": duration
     }
 
-
     return result
+
+
+@app.post("/cline/orchestrate")
+def cline_orchestrate(
+    request: ClineOrchestrationRequest,
+    authenticated: bool = Depends(verify_api_key),
+):
+    plan = agent_manager.perform_cline_orchestration(
+        request.task_description,
+        request.team,
+    )
+
+    return {
+        "status": "ok",
+        "task_description": request.task_description,
+        "team": request.team,
+        "plan": plan,
+    }

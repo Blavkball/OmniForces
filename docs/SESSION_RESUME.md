@@ -229,6 +229,27 @@ Future employees:
 
 ---
 
+## Cline Orchestration Integration
+
+Completed:
+
+* Added dedicated `Cline` role in `app/roles.py`.
+* Routed `Cline` to `settings.LLAMA_MODEL` in `app/router.py`.
+* Created `app/skills/cline_skill.py` with orchestration and agent-summary helpers.
+* Wired Cline skill registration into `AgentManager` in `app/agents/agent_manager.py`.
+* Added convenience helpers: `register_cline_agent()` and `perform_cline_orchestration()`.
+* Added API endpoint `POST /cline/orchestrate` in `app/main.py`.
+* Added Cline API integration test in `app/test_cline_api.py`.
+* Logged Cline orchestration events with shared `app.logger`.
+
+Next:
+
+* Add Cline orchestration workflow persistence and history tracing.
+* Add Cline role to AI employee onboarding docs.
+* Extend Cline skill to consume task metadata and team skill profiles.
+
+---
+
 # Current Recommended Next Atomic Tasks
 
 ## Atomic Task 1
