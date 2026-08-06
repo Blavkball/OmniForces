@@ -261,6 +261,29 @@ using the new registry.
 
 ---
 
+# Current Session Handover
+
+Status: COMPLETE
+
+This repo is now ready for a new AI or engineer to continue without missing context.
+
+Completed in this session:
+
+* AgentManager skill and permission validation implemented.
+* Obsidian vault integration added via `knowledge_sources.json` and local `obsidian-vault/`.
+* Repository context loaded from known local repos and normalized for relative paths.
+* `.gitignore` updated to keep cloned local repos out of the OmniForces repository.
+* All changes committed and pushed to `main` on `origin`.
+
+Next step for a new contributor:
+
+1. Checkout `main`.
+2. Review `docs/SESSION_RESUME.md` and `app/context/knowledge_provider.py`.
+3. Continue with Atomic Task 1: replace `skill_loader.py` with `SkillRegistry` and `SkillDefinition`.
+4. Use the local Obsidian vault and `knowledge_sources.json` for knowledge integration.
+
+---
+
 ## Atomic Task 3
 
 Create:
