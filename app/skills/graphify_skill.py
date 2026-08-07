@@ -1,79 +1,131 @@
+from dataclasses import dataclass
+from typing import Any, Dict, List, Optional
 import json
-from pathlib import Path
-from typing import List, Dict, Any, Optional
-from app.skills.skill_loader import SkillDefinition
+import os
+
+from app.skills.skill_loader import SkillDefinition, SkillRegistry
 
 
+@dataclass
 class GraphifySkill:
     """
-    Skill providing architectural awareness by reading Graphify outputs.
+    GraphifySkill provides read-only access to Graphify's architectural graph.
+
+    Capabilities:
+    - Load Graphify JSON
+    - Query nodes
+    - Query edges
+    - Search components
+    - Inspect dependencies
     """
 
-    def __init__(self, graph_path: Optional[str] = None):
-        if graph_path:
-            self.graph_file = Path(graph_path)
-        else:
-            self.graph_file = Path.cwd() / "graphify-out" / "graph.json"
+    registry: SkillRegistry
+    graph_path: str = "graphify/graph.json"
+    graph: Optional[Dict[str, Any]] = None
 
-    def _load_graph(self) -> Dict[str, Any]:
-        if not self.graph_file.exists():
-            return {}
-        try:
-            return json.loads(self.graph_file.read_text(encoding="utf-8"))
-        except Exception:
-            return {}
+    def __post_init__(self):
+        """
+        Register this skill with the SkillRegistry.
+        """
+        definition = SkillDefinition(
+            name="graphify",
+            description="Provides read-only access to Graphify architectural graph.",
+            permissions=["read"],
+            metadata={"version": "1.0"},
+            execute=self.execute
+        )
+        self.registry.register_skill(definition)
 
-    def get_graph_summary(self) -> Dict[str, Any]:
-        """
-        Returns basic summary statistics of the architectural graph.
-        """
-        data = self._load_graph()
-        nodes = data.get("nodes", [])
-        edges = data.get("links", data.get("edges", []))
-        return {
-            "total_nodes": len(nodes),
-            "total_edges": len(edges),
-            "available": bool(data)
-        }
+        # Load graph immediately if available
+        self.load_graph()
 
-    def get_node_dependencies(self, node_name: str) -> List[str]:
+    # -----------------------------
+    # Graph loading
+    # -----------------------------
+    def load_graph(self) -> None:
         """
-        Retrieves names of connected target nodes/dependencies for a specified node.
+        Load Graphify JSON from disk.
         """
-        data = self._load_graph()
-        edges = data.get("links", data.get("edges", []))
-        dependencies = []
-        for edge in edges:
-            source = edge.get("source")
-            target = edge.get("target")
-            if source == node_name and target:
-                dependencies.append(str(target))
-        return sorted(list(set(dependencies)))
+        if not os.path.exists(self.graph_path):
+            self.graph = None
+            return
 
-    def query_graph(self, query: str) -> List[Dict[str, Any]]:
+        with open(self.graph_path, "r", encoding="utf-8") as f:
+            self.graph = json.load(f)
+
+    # -----------------------------
+    # Public skill execution entry
+    # -----------------------------
+    def execute(self, action: str, **kwargs: Any) -> Any:
         """
-        Searches nodes matching the query string by ID, label, or name.
+        Execute a Graphify action.
+
+        Supported actions:
+        - get_node(name)
+        - get_edges(name)
+        - search_nodes(query)
+        - dependencies(name)
         """
-        data = self._load_graph()
-        nodes = data.get("nodes", [])
-        results = []
+        if self.graph is None:
+            self.load_graph()
+
+        if action == "get_node":
+            return self.get_node(kwargs.get("name"))
+
+        if action == "get_edges":
+            return self.get_edges(kwargs.get("name"))
+
+        if action == "search_nodes":
+            return self.search_nodes(kwargs.get("query"))
+
+        if action == "dependencies":
+            return self.dependencies(kwargs.get("name"))
+
+        raise ValueError(f"Unknown Graphify action: {action}")
+
+    # -----------------------------
+    # Graph operations
+    # -----------------------------
+    def get_node(self, name: str) -> Optional[Dict[str, Any]]:
+        """
+        Return a node by name.
+        """
+        if not name or "nodes" not in self.graph:
+            return None
+
+        return self.graph["nodes"].get(name)
+
+    def get_edges(self, name: str) -> List[Dict[str, Any]]:
+        """
+        Return edges for a given node.
+        """
+        if not name or "edges" not in self.graph:
+            return []
+
+        return [
+            edge for edge in self.graph["edges"]
+            if edge.get("source") == name or edge.get("target") == name
+        ]
+
+    def search_nodes(self, query: str) -> List[str]:
+        """
+        Search for nodes containing the query string.
+        """
+        if not query or "nodes" not in self.graph:
+            return []
+
         query_lower = query.lower()
-        for node in nodes:
-            node_id = str(node.get("id", ""))
-            node_name = str(node.get("name", node.get("label", "")))
-            if query_lower in node_id.lower() or query_lower in node_name.lower():
-                results.append(node)
-        return results
+        return [
+            name for name in self.graph["nodes"].keys()
+            if query_lower in name.lower()
+        ]
 
-
-def get_graphify_skill_definition() -> SkillDefinition:
-    """
-    Factory function returning the SkillDefinition for GraphifySkill.
-    """
-    return SkillDefinition(
-        name="graphify_skill",
-        description="Provides architectural awareness by querying Graphify dependencies, call graphs, and component relationships.",
-        entry_point=GraphifySkill,
-        permissions=["graphify:read"],
-        metadata={"version": "1.0"}
-    )
+    def dependencies(self, name: str) -> Dict[str, Any]:
+        """
+        Return dependency information for a node.
+        """
+        return {
+            "node": name,
+            "edges": self.get_edges(name),
+            "exists": self.get_node(name) is not None,
+        }
