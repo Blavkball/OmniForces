@@ -152,3 +152,34 @@ class SkillRegistry:
             return skill.execute(*args, **kwargs)
 
         raise RuntimeError(f"Skill '{name}' has no execution entry point")
+
+
+# -----------------------------
+# Backwards-compatibility shim
+# -----------------------------
+
+class SkillLoader:
+    """Compatibility wrapper for older code/tests expecting SkillLoader.
+
+    Provides the legacy API used by tests while delegating to SkillRegistry.
+    """
+
+    def __init__(self):
+        self.available_skills: Dict[str, str] = {}
+        self._registry = SkillRegistry()
+
+    def register_skill(self, name: str, description: str) -> None:
+        self.available_skills[name] = description
+        # create a simple SkillDefinition to keep parity
+        self._registry.register_simple_skill(name, description)
+
+    def load_skill(self, name: str) -> Optional[str]:
+        return self.available_skills.get(name)
+
+    def list_skills(self) -> Dict[str, str]:
+        return dict(self.available_skills)
+
+    # Expose registry for downstream compatibility when tests expect registry behavior
+    @property
+    def registry(self) -> SkillRegistry:
+        return self._registry
