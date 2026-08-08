@@ -2,47 +2,50 @@
 
 ## Document
 
-**Version:** 4.0
+**Version:** 5.0
 **Status:** Active
 **Repository:** OmniForces
 **Owner:** KingC Software
+**Last synchronised commit:** `37b3f7c`
 
 ## Purpose
 
-Allow a new AI engineer or human engineer to continue development without previous chat history.
+This document is the compact restart point for OmniForces.
+
+It allows a new AI engineer or human engineer to continue development without reconstructing previous chat history.
+
+Prefer this document and the repository source over previous conversations.
 
 ---
 
-# Current Development Rules
+# Development Rules
 
 For every Atomic Task:
 
-1. Inspect current repository state.
-2. Understand dependencies before changes.
-3. Agree design.
-4. Generate complete replacement files only.
+1. Inspect the current repository state.
+2. Understand dependencies before making changes.
+3. Agree on the design.
+4. Replace complete files rather than sending patches.
 5. Human tests locally.
-6. Commit.
-7. Push.
+6. Commit working changes.
+7. Push to GitHub.
 8. Rebuild Graphify.
 9. Commit Graphify updates.
-10. Verify clean state.
-11. Move to next task.
+10. Verify the repository is clean.
+11. Move to the next Atomic Task.
 
-Keep communication:
+Communication should remain:
 
 * Short.
 * Focused.
 * No repeated decisions.
-* Only raise previous information if it affects current work.
+* Only surface historical information when it affects the current task.
 
 ---
 
-# Current Architecture State
+# Current Architecture
 
-Current execution flow:
-
-```
+```text
 Supervisor
     |
     v
@@ -51,14 +54,16 @@ Atomic Task Engine
     v
 AgentManager
     |
-    v
-ContextBuilder
-    |
-    v
-KnowledgeProvider
-    |
-    +-- Repository Context
-    +-- Graphify
+    +--------------------+
+    |                    |
+    v                    v
+ContextBuilder      SkillRegistry
+    |                    |
+    v                    +-- SkillDefinition
+KnowledgeProvider       +-- RepositorySkill
+    |                    +-- GraphifySkill
+    +-- Repository       +-- Cline Skill
+    +-- Graphify         +-- Skill execution
     +-- AI_Knowledge
     +-- Obsidian
     |
@@ -67,308 +72,294 @@ Prompt Builder
     |
     v
 Ollama
-```
 
 Knowledge Injection is complete.
 
-Knowledge context currently uses hard caps, not relevance ranking.
+Knowledge context currently uses hard caps rather than relevance ranking.
 
 Future improvement:
 
-* RAG/vector search replaces hard limits when required.
+RAG/vector search when required.
+Phase 4 — Knowledge Injection
 
----
-
-# Completed Work
-
-## Phase 4 — Knowledge Injection
-
-Status:
-COMPLETE
+Status: COMPLETE
 
 Completed:
 
-* AgentManager receives ContextBuilder dependency.
-* AgentManager retrieves knowledge before execution.
-* Prompt builder includes relevant knowledge sections.
-* Obsidian knowledge is included.
-* Knowledge output is capped.
+AgentManager receives ContextBuilder.
+AgentManager retrieves knowledge before execution.
+Prompt builder includes relevant knowledge.
+Obsidian knowledge is included.
+Knowledge output is capped.
+Phase 5 — Skill Registry / Skill Execution
 
-Tests:
+Status: COMPLETE FOR CURRENT SCOPE
 
-```
-48 passing
-0 failing
-```
+Current implementation flow:
 
----
-
-# Current Milestone
-
-## Phase 5 — Skill Registry
-
-Status:
-IN PROGRESS
-
-Current problem:
-
-`SkillLoader` is only a dictionary:
-
-```python
-register_skill(name, description)
-```
-
-It stores descriptions only.
-
-AgentManager creates:
-
-```python
-self.skill_loader = SkillLoader()
-```
-
-but skills are not executed.
-
----
-
-# Agreed Design
-
-Replace SkillLoader with:
-
-```
-SkillRegistry
+SkillDefinition
         |
-        +-- SkillDefinition
+        v
+SkillRegistry
         |
         +-- Metadata
         +-- Permissions
         +-- Validation
-        +-- Execution entry point
-```
-
-Initial scope:
-
-DO:
-
-* Register skills.
-* Store metadata.
-* Retrieve skills.
-* Validate skills.
-* Enable/disable skills.
-* Validate task-required skills during AgentManager execute_task lifecycle.
-
-DO NOT:
-
-* Add real skills yet.
-* Modify AgentManager yet.
-* Add multi-agent behaviour yet.
-
----
-
-# Future Skills
-
-After SkillRegistry is stable:
-
-## RepositorySkill
-
-Purpose:
-Give agents controlled repository access.
-
-Examples:
-
-* Read file.
-* Search code.
-* Find symbols.
-* Find references.
-* Inspect structure.
-
----
-
-## GraphifySkill
-
-Purpose:
-Give agents architectural awareness.
-
-Examples:
-
-* Dependency lookup.
-* Call graph queries.
-* Component relationships.
-* Impact analysis.
-
----
-
-These should become the foundation for future AI employees.
-
----
-
-# AI Employee Strategy
-
-Do not add new AI employees until the skill layer exists.
-
-Reason:
-
-New agents without shared skills will duplicate functionality.
-
-Correct order:
-
-1. SkillRegistry
-2. Core Skills
-3. AgentManager Skill Integration
-4. Multi-Agent Delegation
-5. Specialist Employees
-
-Future employees:
-
-* Cline — AI Workforce Liaison
-* Forge — Software Engineer
-* Continue — Research / Knowledge Engineer
-* Inspector — Code Review / Quality
-* Tester — Testing Specialist
-* Librarian — Knowledge Maintenance
-* Architect — System Design
-
----
-
-## Cline Orchestration Integration
-
-Completed:
-
-* Added dedicated `Cline` role in `app/roles.py`.
-* Routed `Cline` to `settings.LLAMA_MODEL` in `app/router.py`.
-* Created `app/skills/cline_skill.py` with orchestration and agent-summary helpers.
-* Wired Cline skill registration into `AgentManager` in `app/agents/agent_manager.py`.
-* Added convenience helpers: `register_cline_agent()` and `perform_cline_orchestration()`.
-* Added API endpoint `POST /cline/orchestrate` in `app/main.py`.
-* Added Cline API integration test in `app/test_cline_api.py`.
-* Logged Cline orchestration events with shared `app.logger`.
-
-Next:
-
-* Add Cline orchestration workflow persistence and history tracing.
-* Add Cline role to AI employee onboarding docs.
-* Extend Cline skill to consume task metadata and team skill profiles.
-
----
-
-# Current Recommended Next Atomic Tasks
-
-## Atomic Task 1
-
-Replace:
-
-```
-app/skills/skill_loader.py
-```
-
-with:
-
-```
-SkillRegistry
-SkillDefinition
-```
-
-No AgentManager changes.
-
----
-
-## Atomic Task 2
-
-Create:
-
-```
-RepositorySkill
-```
-
-using the new registry.
-
----
-
-# Current Session Handover
+        +-- Enable / Disable
+        +-- Execution
+        |
+        +----------------+----------------+
+        |                |                |
+        v                v                v
+RepositorySkill    GraphifySkill    Cline Skill
+        |
+        v
+AgentManager
+        |
+        v
+AtomicTask
+        |
+        +-- skill_action
+        +-- skill_args
+        |
+        v
+Skill execution
+Completed Atomic Tasks
+Atomic Task 1 — Skill Registry Foundation
 
 Status: COMPLETE
 
-This repo is now ready for a new AI or engineer to continue without missing context.
+Completed:
 
-Completed in this session:
+SkillDefinition established as the skill metadata and execution definition.
+SkillRegistry provides registration and retrieval.
+Skill validation implemented.
+Skill enable/disable handling implemented.
+Skill execution support implemented.
+Skill permissions represented in skill definitions.
+SkillLoader retained as a backwards-compatible layer around the newer registry implementation.
+Atomic Task 2 — RepositorySkill
 
-* AgentManager skill and permission validation implemented.
-* Obsidian vault integration added via `knowledge_sources.json` and local `obsidian-vault/`.
-* Repository context loaded from known local repos and normalized for relative paths.
-* `.gitignore` updated to keep cloned local repos out of the OmniForces repository.
-* All changes committed and pushed to `main` on `origin`.
+Status: COMPLETE
 
-Next step for a new contributor:
+Completed:
 
-1. Checkout `main`.
-2. Review `docs/SESSION_RESUME.md` and `app/context/knowledge_provider.py`.
-3. Continue with Atomic Task 1: replace `skill_loader.py` with `SkillRegistry` and `SkillDefinition`.
-4. Use the local Obsidian vault and `knowledge_sources.json` for knowledge integration.
+RepositorySkill added using the skill registry.
+Controlled repository operations include:
+Reading files.
+Listing files.
+Code search.
+Repository access uses the repo:read permission.
+Atomic Task 3 — GraphifySkill
 
----
+Status: COMPLETE
 
-## Atomic Task 3
+Completed:
 
-Create:
+GraphifySkill added using the skill registry.
+Graph operations include:
+Graph summary.
+Dependency lookup.
+Node search.
+Graph queries.
+Graph access uses the graphify:read permission.
+Atomic Task 4 — AgentManager Skill Integration
 
-```
-GraphifySkill
-```
+Status: COMPLETE
 
-using the new registry.
+Completed:
 
----
+AgentManager owns a SkillRegistry.
+Agents can be assigned registered skills.
+Required skills are validated before execution.
+Required permissions are validated before execution.
+Disabled skills cannot satisfy required permissions.
+Skill execution is available through AgentManager.
+Atomic Task 5 — Atomic Task Skill Execution
 
-## Atomic Task 4
+Status: COMPLETE
 
-Integrate skills into AgentManager.
+Completed:
 
-Target:
+AtomicTask supports skill_action.
+AtomicTask supports skill_args.
+AgentManager.execute_task() executes requested skill actions.
+Skill arguments are forwarded.
+Skill results are added to the execution prompt.
+Skill execution failures block the task rather than silently continuing.
 
-```
-AgentManager
-       |
-       v
+Latest implementation commit:
+
+37b3f7c
+Atomic Task 5: skill_action execution wired into execute_task
+Backwards Compatibility
+
+app/skills/skill_loader.py remains in the repository.
+
+It acts as a compatibility layer around the newer SkillRegistry implementation.
+
+Do not describe SkillLoader as deleted.
+
+New development should target:
+
+SkillDefinition
 SkillRegistry
-       |
-       v
-Execute Skill
-```
 
----
+rather than introducing new dictionary-only skill handling.
 
-# Project Philosophy
+Skill Permissions
 
-OmniForces is moving toward an AI engineering operating system.
+Current permission examples include:
 
-AI models are employees.
+repo:read
+graphify:read
+repo:write
 
-Skills are capabilities.
+AgentManager validates the permissions available through an agent's assigned enabled skills before executing tasks that declare required permissions.
 
-Knowledge systems are memory.
+Cline Orchestration
 
-Graphify is architectural awareness.
+Completed:
 
-AgentManager coordinates execution.
+Dedicated Cline role added.
+Cline routed to the configured Llama model.
+cline_skill.py created.
+Cline skill registered with AgentManager.
+Cline agent registration helper added.
+Cline orchestration helper added.
+POST /cline/orchestrate API endpoint added.
+Cline API integration test added.
+Cline orchestration events logged.
 
-The goal is not many AI agents.
+Possible future work:
 
-The goal is specialised AI employees sharing the same engineering environment.
+Workflow persistence.
+History tracing.
+AI employee onboarding integration.
+Task metadata and team skill profiles.
 
----
+These are future possibilities, not current commitments.
 
-# End State At Last Session
+Test Status
+
+Latest local test run:
+
+67 passed, 1 warning in 3.07s
+
+All tests passed.
+
+The warning is a dependency deprecation involving Starlette's TestClient / httpx integration.
+
+It does not currently cause test failure.
+
+Record it as technical debt for future dependency maintenance.
+
+Atomic Task 6 — Documentation & Knowledge Synchronisation
+
+Status: COMPLETE
+
+Purpose:
+
+Synchronise this session resume with the actual repository so future AI sessions can restart from a compact and accurate source of truth.
+
+Completed:
+
+Updated Phase 5 status.
+Recorded Atomic Tasks 1–5.
+Documented SkillDefinition.
+Documented SkillRegistry.
+Documented RepositorySkill.
+Documented GraphifySkill.
+Documented AgentManager integration.
+Documented skill_action.
+Documented skill_args.
+Documented actual skill execution.
+Documented the backwards-compatible SkillLoader layer.
+Updated architecture.
+Updated test status.
+Recorded latest known commit.
+Verified the complete local test suite.
+Next Development Task
+
+Do not begin another feature automatically.
+
+First inspect:
+
+Skill execution edge cases.
+Permission boundaries.
+Atomic Task / skill result structure.
+Graphify integration depth.
+RepositorySkill integration depth.
+Cline orchestration persistence.
+AI employee skill profiles.
+
+Then select one Atomic Task.
+
+Do not combine multiple feature areas into one task.
+
+Project Philosophy
+
+OmniForces is becoming an AI engineering operating system.
+
+AI models       = Employees
+Skills          = Capabilities
+Knowledge       = Memory
+Graphify        = Architectural awareness
+AgentManager    = Coordination
+Atomic Tasks    = Controlled work units
+
+The goal is not simply to create many AI agents.
+
+The goal is to create specialised AI employees that share the same engineering environment.
+
+Current Repository State
 
 Repository:
+
 OmniForces
 
 Branch:
+
 main
 
-Tests:
-48 passing
+Latest known GitHub commit:
 
-Working tree:
-Clean
+37b3f7c
 
-Current task:
-Phase 5 — Skill Registry
+Current milestone:
+
+Phase 5 — Skill Registry / Skill Execution
+
+Documentation:
+
+Synchronised
+
+Latest test result:
+
+67 passed, 1 warning
+Current Session Position
+
+Atomic Task 6 is complete.
+
+The next action is not another code change yet.
+
+The next action is:
+
+Inspect current implementation
+        ↓
+Identify the highest-value next improvement
+        ↓
+Agree Atomic Task
+        ↓
+Implement
+        ↓
+Test
+        ↓
+Commit
+        ↓
+Push
+        ↓
+Graphify
+        ↓
+Verify clean
+End of Session Resume
