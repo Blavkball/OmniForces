@@ -610,9 +610,64 @@ class AgentManager:
     # Execution
     # --------------------------------------------------
 
+    def _execute_required_skills(
+        self,
+        task: AtomicTask,
+    ) -> Dict[str, Any]:
+        """
+        If the task specifies a skill_action, run each of its
+        required_skills with that action via run_skill() and return
+        {skill_name: result}.
+
+        Backward compatible no-op: returns {} when task.skill_action is
+        not set or the task has no required_skills, so tasks that only
+        used required_skills for enforcement (pre-Atomic-Task-5 behavior)
+        are unaffected.
+        """
+        if not task.skill_action or not task.required_skills:
+            return {}
+
+        results: Dict[str, Any] = {}
+
+        for skill_name in task.required_skills:
+            results[skill_name] = self.run_skill(
+                skill_name,
+                task.skill_action,
+                agent_id=task.assigned_to,
+                **(task.skill_args or {}),
+            )
+
+        return results
+
+
+    def _format_skill_results_section(
+        self,
+        skill_results: Dict[str, Any],
+    ) -> str:
+        """
+        Render skill execution results as a prompt section. Empty when
+        no skills were executed (task.skill_action was not set).
+        """
+
+        if not skill_results:
+
+            return ""
+
+        lines = [
+            f"{name}: {result}"
+            for name, result in skill_results.items()
+        ]
+
+        return (
+            "Skill results:\n"
+            + "\n".join(lines)
+        )
+
+
     def _build_prompt(
         self,
         task: AtomicTask,
+        skill_results: Optional[Dict[str, Any]] = None,
     ) -> str:
 
         lines = [
@@ -627,6 +682,17 @@ class AgentManager:
             lines.append(
                 "Success criteria: "
                 + "; ".join(task.success_criteria)
+            )
+
+
+        skill_results_section = self._format_skill_results_section(
+            skill_results or {}
+        )
+
+        if skill_results_section:
+
+            lines.append(
+                skill_results_section
             )
 
 
@@ -669,6 +735,20 @@ class AgentManager:
             )
 
 
+        try:
+
+            skill_results = self._execute_required_skills(
+                task
+            )
+
+        except AgentManagerError as error:
+
+            return self.report_blocked(
+                task_id,
+                f"skill execution failed: {error}",
+            )
+
+
         role_context = get_role_context(
             task.role
         )
@@ -676,7 +756,7 @@ class AgentManager:
 
         prompt = (
             f"{role_context}\n\n"
-            f"{self._build_prompt(task)}"
+            f"{self._build_prompt(task, skill_results)}"
         )
 
 

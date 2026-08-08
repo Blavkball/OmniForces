@@ -375,3 +375,135 @@ def test_run_skill_with_agent_id_succeeds_when_assigned():
     result = manager.run_skill("repository_skill", agent_id=agent.agent_id)
 
     assert result == "ok"
+
+# --------------------------------------------------
+# Atomic Task 5: skill_action execution in execute_task
+# --------------------------------------------------
+
+def test_execute_task_without_skill_action_has_no_skill_results_section():
+    from app.tasks.atomic_task_engine import AtomicTaskEngine, TaskStatus
+
+    registry = SkillRegistry()
+    required_skill = SkillDefinition(
+        name="repository_skill",
+        description="Reads repo code",
+    )
+    registry.register_skill(required_skill)
+
+    engine = AtomicTaskEngine()
+    fake_client = _FakeOllamaClient()
+    manager = AgentManager(engine=engine, ollama_client=fake_client, skill_registry=registry)
+    agent = manager.register_agent(name="Coder", role="Developer")
+    manager.assign_skill_to_agent(agent.agent_id, "repository_skill")
+
+    task = engine.create_task(
+        title="Use repository skill",
+        description="Task requires repository_skill",
+        purpose="Test required skill enforcement",
+        origin="manual",
+        owner="Coder",
+        expected_output="Result",
+        success_criteria=["completed"],
+        failure_conditions=["failed"],
+        risk_level=1,
+        recovery_pointer="commit-required-skill",
+        role="Developer",
+        required_skills=["repository_skill"],
+    )
+    engine.assign_task(task.task_id, agent.agent_id)
+    task.status = TaskStatus.EXECUTING
+
+    manager.execute_task(task.task_id)
+
+    assert "Skill results:" not in fake_client.calls[0]["prompt"]
+
+
+def test_execute_task_with_skill_action_runs_skill_and_includes_result():
+    from app.tasks.atomic_task_engine import AtomicTaskEngine, TaskStatus
+
+    def fake_entry_point(action, **kwargs):
+        return f"ran {action} with {kwargs}"
+
+    registry = SkillRegistry()
+    skill_def = SkillDefinition(
+        name="fake_skill",
+        description="A fake skill for testing",
+        entry_point=fake_entry_point,
+    )
+    registry.register_skill(skill_def)
+
+    engine = AtomicTaskEngine()
+    fake_client = _FakeOllamaClient()
+    manager = AgentManager(engine=engine, ollama_client=fake_client, skill_registry=registry)
+    agent = manager.register_agent(name="Coder", role="Developer")
+    manager.assign_skill_to_agent(agent.agent_id, "fake_skill")
+
+    task = engine.create_task(
+        title="Use fake skill",
+        description="Task requires fake_skill",
+        purpose="Test skill_action execution",
+        origin="manual",
+        owner="Coder",
+        expected_output="Result",
+        success_criteria=["completed"],
+        failure_conditions=["failed"],
+        risk_level=1,
+        recovery_pointer="commit-skill-action",
+        role="Developer",
+        required_skills=["fake_skill"],
+        skill_action="lookup",
+        skill_args={"query": "foo"},
+    )
+    engine.assign_task(task.task_id, agent.agent_id)
+    task.status = TaskStatus.EXECUTING
+
+    result = manager.execute_task(task.task_id)
+
+    assert result["status"] == TaskStatus.REVIEW.value
+    prompt = fake_client.calls[0]["prompt"]
+    assert "Skill results:" in prompt
+    assert "fake_skill: ran lookup with {'query': 'foo'}" in prompt
+
+
+def test_execute_task_skill_action_failure_blocks_task():
+    from app.tasks.atomic_task_engine import AtomicTaskEngine, TaskStatus
+
+    def failing_entry_point(action, **kwargs):
+        raise RuntimeError("skill exploded")
+
+    registry = SkillRegistry()
+    skill_def = SkillDefinition(
+        name="fake_skill",
+        description="A fake skill for testing",
+        entry_point=failing_entry_point,
+    )
+    registry.register_skill(skill_def)
+
+    engine = AtomicTaskEngine()
+    fake_client = _FakeOllamaClient()
+    manager = AgentManager(engine=engine, ollama_client=fake_client, skill_registry=registry)
+    agent = manager.register_agent(name="Coder", role="Developer")
+    manager.assign_skill_to_agent(agent.agent_id, "fake_skill")
+
+    task = engine.create_task(
+        title="Use failing skill",
+        description="Task requires fake_skill",
+        purpose="Test skill_action failure handling",
+        origin="manual",
+        owner="Coder",
+        expected_output="Result",
+        success_criteria=["completed"],
+        failure_conditions=["failed"],
+        risk_level=1,
+        recovery_pointer="commit-skill-failure",
+        role="Developer",
+        required_skills=["fake_skill"],
+        skill_action="lookup",
+    )
+    engine.assign_task(task.task_id, agent.agent_id)
+    task.status = TaskStatus.EXECUTING
+
+    result = manager.execute_task(task.task_id)
+
+    assert result["status"] == TaskStatus.SUPERVISOR_REVIEW.value
+    assert len(fake_client.calls) == 0

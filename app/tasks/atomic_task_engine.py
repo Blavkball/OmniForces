@@ -119,6 +119,8 @@ class AtomicTask:
     required_skills: list = field(default_factory=list)
     required_permissions: list = field(default_factory=list)
     input: Optional[str] = None
+    skill_action: Optional[str] = None
+    skill_args: dict = field(default_factory=dict)
     recovery_pointer: Optional[str] = None
     approval_requirements: list = field(default_factory=list)
     execution_history: list = field(default_factory=list)
@@ -168,6 +170,8 @@ class AtomicTaskEngine:
         input: Optional[str] = None,
         recovery_pointer: Optional[str] = None,
         approval_requirements: Optional[list] = None,
+        skill_action: Optional[str] = None,
+        skill_args: Optional[dict] = None,
     ) -> AtomicTask:
         if not origin:
             raise TaskEngineError("origin is required — no task exists without an origin")
@@ -203,6 +207,8 @@ class AtomicTaskEngine:
             input=input,
             recovery_pointer=recovery_pointer,
             approval_requirements=approval_requirements or [],
+            skill_action=skill_action,
+            skill_args=skill_args or {},
         )
         task._record("Created", f"origin={origin}, owner={owner}")
         self._tasks[task.task_id] = task
