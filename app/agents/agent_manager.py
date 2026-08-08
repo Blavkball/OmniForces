@@ -713,6 +713,45 @@ class AgentManager:
         )
 
 
+    def run_skill(
+        self,
+        skill_name: str,
+        *args: Any,
+        agent_id: Optional[str] = None,
+        **kwargs: Any,
+    ) -> Any:
+        """
+        Execute a registered skill by name via SkillRegistry.
+
+        This is the concrete AgentManager -> SkillRegistry -> Execute Skill
+        integration point. It delegates to SkillRegistry.execute_skill,
+        which calls the skill's entry_point (preferred) or its legacy
+        execute callable.
+
+        If agent_id is provided, the skill must be assigned to that agent
+        (see assign_skill_to_agent) or an AgentManagerError is raised.
+        This is an explicit, caller-invoked entry point; it is not called
+        automatically from execute_task, since AtomicTask does not yet
+        carry per-skill action/argument data.
+        """
+        if agent_id is not None:
+            agent = self.get_agent(agent_id)
+            agent_skill_names = (
+                agent.get("skills", [])
+                if isinstance(agent, dict)
+                else getattr(agent, "skills", [])
+            )
+            if skill_name not in agent_skill_names:
+                raise AgentManagerError(
+                    f"agent '{agent_id}' is not assigned skill '{skill_name}'"
+                )
+
+        try:
+            return self.skill_registry.execute_skill(skill_name, *args, **kwargs)
+        except (KeyError, RuntimeError) as error:
+            raise AgentManagerError(str(error)) from error
+
+
     # --------------------------------------------------
     # Reporting
     # --------------------------------------------------

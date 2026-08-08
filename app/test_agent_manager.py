@@ -291,3 +291,87 @@ def test_execute_task_rejects_disabled_skill_permissions():
 
     with pytest.raises(AgentManagerError, match="missing required permissions"):
         manager.execute_task(task.task_id)
+
+
+# --------------------------------------------------
+# run_skill (Atomic Task 4: Execute Skill integration)
+# --------------------------------------------------
+
+def test_run_skill_instantiates_via_entry_point(tmp_path):
+    from app.skills.repository_skill import get_repository_skill_definition, RepositorySkill
+
+    registry = SkillRegistry()
+    registry.register_skill(get_repository_skill_definition())
+
+    manager = AgentManager(skill_registry=registry)
+
+    result = manager.run_skill("repository_skill", root_dir=str(tmp_path))
+
+    assert isinstance(result, RepositorySkill)
+    assert result.root_dir == str(tmp_path)
+
+
+def test_run_skill_unknown_skill_raises():
+    manager = AgentManager()
+    with pytest.raises(AgentManagerError):
+        manager.run_skill("does_not_exist")
+
+
+def test_run_skill_disabled_skill_raises():
+    registry = SkillRegistry()
+    skill_def = SkillDefinition(
+        name="repository_skill",
+        description="Reads repo code",
+        entry_point=lambda: object(),
+        enabled=False,
+    )
+    registry.register_skill(skill_def)
+    manager = AgentManager(skill_registry=registry)
+
+    with pytest.raises(AgentManagerError):
+        manager.run_skill("repository_skill")
+
+
+def test_run_skill_no_entry_point_raises():
+    registry = SkillRegistry()
+    skill_def = SkillDefinition(
+        name="repository_skill",
+        description="Reads repo code",
+    )
+    registry.register_skill(skill_def)
+    manager = AgentManager(skill_registry=registry)
+
+    with pytest.raises(AgentManagerError):
+        manager.run_skill("repository_skill")
+
+
+def test_run_skill_with_agent_id_requires_assignment():
+    registry = SkillRegistry()
+    skill_def = SkillDefinition(
+        name="repository_skill",
+        description="Reads repo code",
+        entry_point=lambda: object(),
+    )
+    registry.register_skill(skill_def)
+    manager = AgentManager(skill_registry=registry)
+    agent = manager.register_agent(name="Coder", role="Developer")
+
+    with pytest.raises(AgentManagerError, match="not assigned skill"):
+        manager.run_skill("repository_skill", agent_id=agent.agent_id)
+
+
+def test_run_skill_with_agent_id_succeeds_when_assigned():
+    registry = SkillRegistry()
+    skill_def = SkillDefinition(
+        name="repository_skill",
+        description="Reads repo code",
+        entry_point=lambda: "ok",
+    )
+    registry.register_skill(skill_def)
+    manager = AgentManager(skill_registry=registry)
+    agent = manager.register_agent(name="Coder", role="Developer")
+    manager.assign_skill_to_agent(agent.agent_id, "repository_skill")
+
+    result = manager.run_skill("repository_skill", agent_id=agent.agent_id)
+
+    assert result == "ok"
